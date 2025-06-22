@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaPlay, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/firebase-config";
 
 const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
   const [showTrailer, setShowTrailer] = useState(false);
@@ -11,12 +13,35 @@ const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
     ? item.trailerLink.replace("watch?v=", "embed/")
     : null;
 
-  const handleWatchlistClick = (e) => {
+  const handleWatchlistClick = async (e) => {
     e.stopPropagation();
     if (!isLoggedIn) {
       navigate("/login");
     } else {
-      alert(`Added "${item.title}" to your watchlist!`);
+      try {
+        // Check for duplicate
+        const q = query(
+          collection(db, "watchlists"),
+          where("userEmail", "==", auth.currentUser.email),
+          where("movie.id", "==", item.id)
+        );
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+          alert(`"${item.title}" is already in your watchlist!`);
+          return;
+        }
+
+        // Add to watchlist
+        await addDoc(collection(db, "watchlists"), {
+          userEmail: auth.currentUser.email,
+          movie: item,
+          addedAt: new Date(),
+        });
+        alert(`Added "${item.title}" to your watchlist!`);
+      } catch (error) {
+        console.error("Failed to add to watchlist:", error);
+        alert("Failed to add to watchlist. Please try again.");
+      }
     }
   };
 

@@ -17,6 +17,10 @@ import SignIn from './components/SignIn';
 import LiveShow from './pages/LiveShow';
 import NewToMovies from './components/FooterExtra/NewToMovies';
 
+// Admin and User pages
+import AdminPage from './pages/AdminPage';
+import UserDashboard from './pages/UserDashboard';
+
 // ✅ Footer Extra Pages
 import About from './components/FooterExtra/About';
 import Contact from './components/FooterExtra/Contact';
@@ -37,13 +41,17 @@ const router = createBrowserRouter([
       { path: '/liveshow', element: <LiveShow /> },
       { path: '/new-to-movies', element: <NewToMovies /> },
 
-      // ✅ FooterExtra Pages
+      // Admin and User dashboard routes
+      { path: '/admin', element: <AdminPage /> },
+      { path: '/dashboard', element: <UserDashboard /> },
+
+      // Footer Extra Pages
       { path: '/about', element: <About /> },
       { path: '/contact', element: <Contact /> },
       { path: '/privacy', element: <Privacy /> },
       { path: '/terms', element: <Terms /> },
 
-      // 404 fallback
+      // 404 fallback (should be last)
       { path: '*', element: <NotFound /> },
     ],
   },

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { adminEmails } from "../constants/adminEmails"; // adjust the path if needed
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,30 +12,40 @@ function Header() {
   const activeClass = "text-yellow-400 font-bold";
 
   useEffect(() => {
-    // Simulate user auth via localStorage
-    const email = localStorage.getItem("adminEmail");
-    const adminFlag = localStorage.getItem("isAdmin") === "true";
-    if (email) {
-      setCurrentUserEmail(email);
-      setIsAdmin(adminFlag);
-    }
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setCurrentUserEmail(user.email);
+        setIsAdmin(adminEmails.includes(user.email));
+      } else {
+        setCurrentUserEmail(null);
+        setIsAdmin(false);
+      }
+    });
+
+    return () => unsubscribe(); // cleanup on unmount
   }, []);
+
+  const handleDashboard = () => {
+    setIsMenuOpen(false);
+    navigate(isAdmin ? "/admin-dashboard" : "/dashboard");
+  };
 
   return (
     <header className="bg-gray-900 text-white px-6 py-4 shadow-lg fixed w-full z-40">
       <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-           <NavLink
-      to="/"
-      className="select-none"
-      aria-label="TrackFlix Home"
-      onClick={() => setIsMenuOpen(false)}
-    >
-      <img
-        src="images\lo-removebg-preview (2).png" // relative to the public folder
-        alt="TrackFlix Logo"
-        className="w-32 h-auto" // Adjust width & height as needed
-      />
-    </NavLink>
+        <NavLink
+          to="/"
+          className="select-none"
+          aria-label="TrackFlix Home"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <img
+            src="images/lo-removebg-preview (2).png"
+            alt="TrackFlix Logo"
+            className="w-32 h-auto"
+          />
+        </NavLink>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-8 items-center font-medium text-lg">
@@ -59,20 +71,17 @@ function Header() {
               isActive ? activeClass : "hover:text-yellow-400 transition duration-200"
             }
           >
-            Tv Show
+            TV Show
           </NavLink>
 
           {currentUserEmail ? (
             <div
-              onClick={() => {
-                setIsMenuOpen(false);
-                navigate(isAdmin ? "/admin-dashboard" : "/dashboard");
-              }}
+              onClick={handleDashboard}
               className="cursor-pointer hover:text-yellow-400 transition duration-200 text-xl"
               title={`Logged in as ${currentUserEmail}`}
               aria-label="User Profile or Admin Dashboard"
             >
-              👨
+              {isAdmin ? "🛡️" : "👤"}
             </div>
           ) : (
             <>
@@ -118,7 +127,7 @@ function Header() {
                 strokeLinejoin="round"
                 strokeWidth={2}
                 d="M4 6h16M4 12h16M4 18h16"
-              ></path>
+              />
             </svg>
           </button>
         </div>
@@ -166,15 +175,12 @@ function Header() {
 
           {currentUserEmail ? (
             <div
-              onClick={() => {
-                setIsMenuOpen(false);
-                navigate(isAdmin ? "/admin-dashboard" : "/dashboard");
-              }}
+              onClick={handleDashboard}
               className="block hover:text-yellow-400 text-xl font-semibold cursor-pointer"
               aria-label="User Profile or Admin Dashboard"
               title={`Logged in as ${currentUserEmail}`}
             >
-              👨 {isAdmin ? "Admin Dashboard" : "Dashboard"}
+              {isAdmin ? "🛡️ Admin Dashboard" : "👤 Dashboard"}
             </div>
           ) : (
             <>

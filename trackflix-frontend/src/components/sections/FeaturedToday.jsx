@@ -1,13 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import {
   FaArrowRight,
-  FaPlay,
   FaChevronLeft,
   FaChevronRight,
-  FaPlus,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import FlipCard from "../sectionExtra/FlipCard";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase/firebase-config";
+
+
 
 const ITEM_WIDTH = 256;
 const GAP = 24;
@@ -15,16 +18,47 @@ const GAP = 24;
 const FeaturedToday = () => {
   const [flippedCard, setFlippedCard] = useState(null);
   const [featuredItems, setFeaturedItems] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const sliderRef = useRef(null);
   const navigate = useNavigate();
+  const auth = getAuth();
 
-  // MOCK: Replace this with your real authentication logic/context
-  const isLoggedIn = false; // For demo, false means user not logged in
+  useEffect(() => {
+    // Listen for auth state changes to update login status
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsLoggedIn(!!user);
+    });
+    return () => unsubscribe();
+  }, [auth]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/featured-today")
+      .then((res) => res.json())
+      .then((data) => setFeaturedItems(data))
+      .catch((err) => console.error("Failed to fetch featured items:", err));
+  }, []);
 
   const handleFlip = (id) => {
     setFlippedCard((prev) => (prev === id ? null : id));
   };
 
+  const handleAddToWatchlist = async (movie) => {
+    if (!auth.currentUser) {
+      navigate("/login");
+      return;
+    }
+    try {
+      await addDoc(collection(db, "watchlists"), {
+        userEmail: auth.currentUser.email,
+        movie,
+      });
+      alert("Added to watchlist!");
+    } catch (error) {
+      console.error("Error adding to watchlist:", error);
+    }
+  };
+
+  // Scroll handlers for arrows
   const scrollByOffset = (offset) => {
     if (sliderRef.current) {
       sliderRef.current.scrollBy({ left: offset, behavior: "smooth" });
@@ -33,13 +67,6 @@ const FeaturedToday = () => {
 
   const scrollLeft = () => scrollByOffset(-(ITEM_WIDTH + GAP));
   const scrollRight = () => scrollByOffset(ITEM_WIDTH + GAP);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/featured-today")
-      .then((res) => res.json())
-      .then((data) => setFeaturedItems(data))
-      .catch((err) => console.error("Failed to fetch featured items:", err));
-  }, []);
 
   // Touch swipe support
   useEffect(() => {
@@ -112,6 +139,7 @@ const FeaturedToday = () => {
                   isFlipped={flippedCard === item.id}
                   onFlip={handleFlip}
                   isLoggedIn={isLoggedIn}
+                  onAddToWatchlist={handleAddToWatchlist}
                 />
               </div>
             ))}
