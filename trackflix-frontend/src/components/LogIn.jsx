@@ -12,6 +12,10 @@ import { motion } from "framer-motion";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/firebase-config";
+import { adminEmails } from "../constants/adminEmails";
+
 const LogIn = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
@@ -27,19 +31,24 @@ const LogIn = () => {
       return;
     }
 
-    // Placeholder logic – replace with Firebase or custom login later
     try {
-      const dummyAdminEmails = ["robiul@gmail.com", "inteser@gmail.com", "ramisha@gmail.com", "aberer@gmail.com"];
-      const isAdminEmail = dummyAdminEmails.includes(email) && password === "111111";
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const userEmail = userCredential.user.email;
 
+      const isAdminEmail = adminEmails.includes(userEmail);
       setIsAdmin(isAdminEmail);
-      localStorage.setItem("isAdmin", isAdminEmail ? "true" : "false");
-      localStorage.setItem("adminEmail", email);
 
-      toast.success(isAdminEmail ? "Admin login successful!" : "Login successful!");
-      setTimeout(() => navigate(isAdminEmail ? "/admin" : "/"), 1000);
+      localStorage.setItem("isAdmin", isAdminEmail ? "true" : "false");
+      localStorage.setItem("userEmail", userEmail);
+
+      toast.success(isAdminEmail ? "Admin login successful!" : "User login successful!");
+
+      setTimeout(() => {
+        navigate(isAdminEmail ? "/admin" : "/dashboard");
+      }, 1500);
     } catch (error) {
-      toast.error("Login failed. Try again.");
+      toast.error("Login failed. Check your email or password.");
+      console.error("Firebase login error:", error.message);
       setIsAdmin(false);
       localStorage.setItem("isAdmin", "false");
     }
@@ -48,7 +57,7 @@ const LogIn = () => {
   return (
     <div
       className="relative min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('images\lo-removebg-preview.png')" }}
+      style={{ backgroundImage: "url('images/he3.jpg')" }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       <ToastContainer position="top-center" />
@@ -71,7 +80,7 @@ const LogIn = () => {
 
           <div className="flex justify-center items-center mb-8 sm:mb-10">
             <img
-              src="images\lo-removebg-preview (2).png"
+              src="images/lo-removebg-preview (2).png"
               alt="Trackflix Logo"
               className="w-[8rem] sm:w-[12rem] h-auto object-contain"
             />

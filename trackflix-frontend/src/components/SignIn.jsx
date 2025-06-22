@@ -1,9 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaTimes, FaGoogle, FaFacebook, FaEye, FaEyeSlash } from "react-icons/fa";
+import {
+  FaTimes,
+  FaGoogle,
+  FaFacebook,
+  FaEye,
+  FaEyeSlash
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../firebase/firebase-config";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -21,6 +30,7 @@ const SignIn = () => {
     e.preventDefault();
     const { fullName, email, password, confirmPassword } = formData;
 
+    // Validation
     if (!fullName || !email || !password || !confirmPassword) {
       toast.error("All fields are required.");
       return;
@@ -42,25 +52,31 @@ const SignIn = () => {
       return;
     }
 
+    // Firebase Registration
     try {
-      // Firebase signup
-      // await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+      // Optional: set display name
+      await updateProfile(userCredential.user, {
+        displayName: fullName
+      });
+
       toast.success("Account created successfully!");
       setTimeout(() => navigate("/dashboard"), 1500);
     } catch (error) {
-      toast.error(error.message || "Something went wrong");
+      toast.error(error.message || "Something went wrong.");
+      console.error("Sign-up error:", error.message);
     }
   };
 
   return (
     <div
       className="relative min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/image/hero1.jpg')" }}
+      style={{ backgroundImage: "url('/image/he3.jpg')" }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       <ToastContainer position="top-center" />
 
-      {/* Top padding added here */}
       <div className="relative z-10 flex justify-center items-center min-h-screen px-4 sm:px-6 lg:px-8 pt-28">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
@@ -68,7 +84,6 @@ const SignIn = () => {
           transition={{ duration: 0.5 }}
           className="w-full max-w-md bg-white p-6 sm:p-8 rounded-2xl shadow-xl relative"
         >
-          {/* Cancel Button */}
           <button
             type="button"
             onClick={() => navigate("/")}
@@ -78,7 +93,6 @@ const SignIn = () => {
             <FaTimes />
           </button>
 
-          {/* Logo */}
           <div className="flex justify-center items-center mb-4 sm:mb-6">
             <img
               src="images/lo-removebg-preview (2).png"
@@ -93,7 +107,9 @@ const SignIn = () => {
               <input
                 type="text"
                 value={formData.fullName}
-                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, fullName: e.target.value })
+                }
                 required
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
@@ -107,7 +123,9 @@ const SignIn = () => {
               <input
                 type="email"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
@@ -121,7 +139,9 @@ const SignIn = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
                 required
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
@@ -141,7 +161,9 @@ const SignIn = () => {
               <input
                 type={showConfirm ? "text" : "password"}
                 value={formData.confirmPassword}
-                onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, confirmPassword: e.target.value })
+                }
                 required
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
