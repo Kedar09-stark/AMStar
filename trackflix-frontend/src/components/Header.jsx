@@ -29,7 +29,7 @@ function Header() {
       onClick={() => setIsMenuOpen(false)}
     >
       <img
-        src="/images/lo-removebg-preview.png" // relative to the public folder
+        src="images\lo-removebg-preview (2).png" // relative to the public folder
         alt="TrackFlix Logo"
         className="w-32 h-auto" // Adjust width & height as needed
       />

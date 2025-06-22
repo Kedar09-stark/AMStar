@@ -43,7 +43,7 @@ const HeroSearch = () => {
   return (
     <motion.section
       className="relative h-screen bg-cover bg-center flex flex-col justify-center items-center text-white text-center px-4 overflow-hidden"
-      style={{ backgroundImage: "url('/images/hero1.jpg')" }}
+      style={{ backgroundImage: "url('/images/he4.jpg')" }}
       initial={{ opacity: 0, y: 60 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
@@ -65,7 +65,7 @@ const HeroSearch = () => {
       >
         {/* Logo image without wrapping div, smaller widths */}
         <motion.img
-  src="images\lo-removebg-preview.png"
+  src="images\lo-removebg-preview (2).png"
   alt="Movie Logo"
   className="w-[240px] sm:w-[300px] md:w-[380px] lg:w-[450px] xl:w-[500px] object-contain mx-auto filter brightness-95 drop-shadow-lg mb-1"
   variants={logoVariant}

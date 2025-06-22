@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const SignIn = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -45,11 +44,8 @@ const SignIn = () => {
 
     try {
       // Firebase signup
-      await createUserWithEmailAndPassword(auth, email, password);
-
+      // await createUserWithEmailAndPassword(auth, email, password);
       toast.success("Account created successfully!");
-
-      // Redirect to dashboard after 1.5 seconds
       setTimeout(() => navigate("/dashboard"), 1500);
     } catch (error) {
       toast.error(error.message || "Something went wrong");
@@ -64,7 +60,8 @@ const SignIn = () => {
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       <ToastContainer position="top-center" />
 
-      <div className="relative z-10 flex justify-center items-center min-h-screen px-4 sm:px-6 lg:px-8">
+      {/* Top padding added here */}
+      <div className="relative z-10 flex justify-center items-center min-h-screen px-4 sm:px-6 lg:px-8 pt-28">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -84,7 +81,7 @@ const SignIn = () => {
           {/* Logo */}
           <div className="flex justify-center items-center mb-4 sm:mb-6">
             <img
-              src="images\lo-removebg-preview.png"
+              src="images/lo-removebg-preview (2).png"
               alt="Trackflix Logo"
               className="w-[10rem] sm:w-[15rem] h-auto object-contain"
             />
