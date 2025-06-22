@@ -84,7 +84,7 @@ const SignIn = () => {
           {/* Logo */}
           <div className="flex justify-center items-center mb-4 sm:mb-6">
             <img
-              src="/images/lo.jpg"
+              src="images\lo-removebg-preview.png"
               alt="Trackflix Logo"
               className="w-[10rem] sm:w-[15rem] h-auto object-contain"
             />

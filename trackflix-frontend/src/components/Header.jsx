@@ -22,14 +22,18 @@ function Header() {
   return (
     <header className="bg-gray-900 text-white px-6 py-4 shadow-lg fixed w-full z-40">
       <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-        <NavLink
-          to="/"
-          className="text-yellow-400 font-extrabold text-2xl select-none"
-          aria-label="TrackFlix Home"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          TrackFlix
-        </NavLink>
+           <NavLink
+      to="/"
+      className="select-none"
+      aria-label="TrackFlix Home"
+      onClick={() => setIsMenuOpen(false)}
+    >
+      <img
+        src="/images/lo-removebg-preview.png" // relative to the public folder
+        alt="TrackFlix Logo"
+        className="w-32 h-auto" // Adjust width & height as needed
+      />
+    </NavLink>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-8 items-center font-medium text-lg">

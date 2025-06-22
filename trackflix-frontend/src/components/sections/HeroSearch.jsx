@@ -2,44 +2,12 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-// Animation Variants
-const logoVariant = {
-  hidden: { opacity: 0, scale: 0.6, rotate: -10 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    rotate: 0,
-    transition: { type: "spring", duration: 1.2, bounce: 0.4 },
-  },
-};
-
-const textContainer = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.25,
-      delayChildren: 0.6,
-    },
-  },
-};
-
-const textItem = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { type: "spring", stiffness: 60 },
-  },
-};
-
-const formVariant = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { delay: 1.4, duration: 0.6 },
-  },
-};
+import {
+  logoVariant,
+  textContainer,
+  textItem,
+  formVariant,
+} from "../../animations/heroAnimations";
 
 // Custom hook to detect small screen or prefers-reduced-motion
 function useReducedMotionOrSmallScreen() {
@@ -62,7 +30,6 @@ function useReducedMotionOrSmallScreen() {
 const HeroSearch = () => {
   const reduceMotion = useReducedMotionOrSmallScreen();
 
-  // Local state for search input
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
@@ -91,63 +58,64 @@ const HeroSearch = () => {
 
       {/* Main content */}
       <motion.div
-        className="relative z-10 max-w-4xl w-full text-center space-y-6"
+        className="relative z-10 max-w-4xl w-full text-center"
         initial="hidden"
         animate="visible"
         variants={textContainer}
       >
-        {/* Logo */}
-        <motion.div className="flex justify-center" variants={logoVariant}>
-          <motion.img
-            src="/images/lo1.png"
-            alt="Movie Logo"
-            className="w-[240px] sm:w-[300px] md:w-[380px] lg:w-[450px] xl:w-[500px] object-contain mx-auto filter brightness-95 drop-shadow-lg"
-            variants={logoVariant}
-            animate={
-              reduceMotion
-                ? { opacity: 1, y: 0 }
-                : {
-                    y: [0, -10, 0],
-                    opacity: [0.9, 1, 0.9],
-                  }
-            }
-            transition={
-              reduceMotion
-                ? { duration: 0 }
-                : {
-                    y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                    opacity: { duration: 3, repeat: Infinity },
-                  }
-            }
-          />
+        {/* Logo image without wrapping div, smaller widths */}
+        <motion.img
+  src="images\lo-removebg-preview.png"
+  alt="Movie Logo"
+  className="w-[240px] sm:w-[300px] md:w-[380px] lg:w-[450px] xl:w-[500px] object-contain mx-auto filter brightness-95 drop-shadow-lg mb-1"
+  variants={logoVariant}
+  animate={
+    reduceMotion
+      ? { opacity: 1, y: 0 }
+      : {
+          y: [0, -10, 0],
+          opacity: [0.9, 1, 0.9],
+        }
+  }
+  transition={
+    reduceMotion
+      ? { duration: 0 }
+      : {
+          y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+          opacity: { duration: 3, repeat: Infinity },
+        }
+  }
+/>
+
+
+        {/* Text container with negative margin-top on first heading to tighten spacing */}
+        <motion.div className="space-y-4">
+          <motion.h1
+            className="text-4xl md:text-5xl font-extrabold leading-tight -mt-3"
+            variants={textItem}
+          >
+            Keep your movie diary.
+          </motion.h1>
+
+          <motion.h2
+            className="text-2xl md:text-3xl font-semibold leading-snug"
+            variants={textItem}
+          >
+            Craft your watchlist.
+          </motion.h2>
+
+          <motion.h3
+            className="text-xl md:text-2xl text-gray-200"
+            variants={textItem}
+          >
+            Be the critic your friends trust.
+          </motion.h3>
         </motion.div>
-
-        {/* Text */}
-        <motion.h1
-          className="text-4xl md:text-5xl font-extrabold leading-tight"
-          variants={textItem}
-        >
-          Keep your movie diary.
-        </motion.h1>
-
-        <motion.h2
-          className="text-2xl md:text-3xl font-semibold leading-snug"
-          variants={textItem}
-        >
-          Craft your watchlist.
-        </motion.h2>
-
-        <motion.h3
-          className="text-xl md:text-2xl text-gray-200 mb-6"
-          variants={textItem}
-        >
-          Be the critic your friends trust.
-        </motion.h3>
 
         {/* Search form */}
         <motion.form
           onSubmit={handleSubmit}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 px-2"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 px-2 mt-6"
           variants={formVariant}
         >
           <motion.input

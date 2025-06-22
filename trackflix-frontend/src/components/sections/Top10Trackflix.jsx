@@ -1,11 +1,16 @@
 import React, { useRef, useState, useEffect } from "react";
 import { FaPlus, FaPlay, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-const Top10Trackflix = () => {
+const Top10Trackflix = ({ isLoggedIn }) => {
   const scrollRef = useRef(null);
-  const [top10, setTop10] = useState([]);
+  const navigate = useNavigate();
 
-  // Fetch top10 data from backend
+  const [top10, setTop10] = useState([]);
+  const [showTrailer, setShowTrailer] = useState(false);
+  const [currentTrailerUrl, setCurrentTrailerUrl] = useState(null);
+  const modalRef = React.useRef(null);
+
   useEffect(() => {
     fetch("http://localhost:5000/top10") // make sure your server is running!
       .then((res) => res.json())
@@ -21,6 +26,45 @@ const Top10Trackflix = () => {
       behavior: "smooth",
     });
   };
+
+  // Open trailer modal with embed url
+  const openTrailer = (url) => {
+    if (!url) return;
+    const embedUrl = url.replace("watch?v=", "embed/");
+    setCurrentTrailerUrl(embedUrl + "?autoplay=1&controls=1&modestbranding=1");
+    setShowTrailer(true);
+  };
+
+  // Handle Watchlist click
+  const handleWatchlistClick = (e, title) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      alert(`Added "${title}" to your watchlist!`);
+    }
+  };
+
+  // Close modal on ESC key and prevent background scroll
+  useEffect(() => {
+    const onEsc = (e) => {
+      if (e.key === "Escape" && showTrailer) {
+        setShowTrailer(false);
+      }
+    };
+    window.addEventListener("keydown", onEsc);
+    if (showTrailer) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      window.removeEventListener("keydown", onEsc);
+      document.body.style.overflow = "auto";
+    };
+  }, [showTrailer]);
 
   return (
     <section
@@ -70,7 +114,10 @@ const Top10Trackflix = () => {
                 </div>
 
                 <div className="p-3 flex flex-col flex-grow">
-                  <h3 className="text-base font-semibold text-white mb-1 truncate" title={title}>
+                  <h3
+                    className="text-base font-semibold text-white mb-1 truncate"
+                    title={title}
+                  >
                     {title}
                   </h3>
                   <div className="flex items-center justify-between text-xs text-gray-300 mb-2">
@@ -80,18 +127,19 @@ const Top10Trackflix = () => {
                     </span>
                   </div>
                   <div className="flex gap-2 mt-auto text-xs">
-                    <a
-                      href={trailer}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <button
+                      onClick={() => openTrailer(trailer)}
                       className="flex-1 flex items-center justify-center gap-1 border border-white px-2 py-1 rounded hover:bg-white hover:text-black transition"
+                      aria-label={`Watch trailer for ${title}`}
                     >
                       <FaPlay className="text-xs" />
                       Trailer
-                    </a>
+                    </button>
                     <button
                       type="button"
+                      onClick={(e) => handleWatchlistClick(e, title)}
                       className="flex-1 flex items-center justify-center gap-1 border border-white px-2 py-1 rounded hover:bg-white hover:text-black transition"
+                      aria-label={`Add ${title} to watchlist`}
                     >
                       <FaPlus className="text-xs" />
                       Watchlist
@@ -130,7 +178,10 @@ const Top10Trackflix = () => {
                 />
               </div>
               <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold text-white mb-1 truncate" title={title}>
+                <h3
+                  className="text-lg font-semibold text-white mb-1 truncate"
+                  title={title}
+                >
                   {title}
                 </h3>
                 <div className="flex items-center justify-between text-sm text-gray-300 mb-3">
@@ -140,18 +191,19 @@ const Top10Trackflix = () => {
                   </span>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2 mt-auto text-sm">
-                  <a
-                    href={trailer}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => openTrailer(trailer)}
                     className="flex items-center justify-center gap-2 border border-white px-3 py-1 rounded hover:bg-white hover:text-black transition"
+                    aria-label={`Watch trailer for ${title}`}
                   >
                     <FaPlay className="text-xs" />
                     Trailer
-                  </a>
+                  </button>
                   <button
                     type="button"
+                    onClick={(e) => handleWatchlistClick(e, title)}
                     className="flex items-center justify-center gap-2 border border-white px-3 py-1 rounded hover:bg-white hover:text-black transition"
+                    aria-label={`Add ${title} to watchlist`}
                   >
                     <FaPlus className="text-xs" />
                     Watchlist
@@ -165,6 +217,54 @@ const Top10Trackflix = () => {
           ))}
         </div>
       </div>
+
+      {/* Trailer Modal */}
+      {showTrailer && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm p-6 animate-fadeIn"
+          onClick={() => setShowTrailer(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="trailer-title"
+        >
+          <div
+            className="relative w-full max-w-5xl aspect-video bg-black rounded-xl shadow-2xl overflow-hidden outline-none"
+            onClick={(e) => e.stopPropagation()}
+            tabIndex={-1}
+            ref={modalRef}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setShowTrailer(false)}
+              className="absolute top-3 right-3 text-white bg-zinc-800 bg-opacity-70 rounded-full p-2 hover:bg-red-600 transition-colors z-10"
+              aria-label="Close trailer"
+            >
+              ×
+            </button>
+
+            {/* Trailer iframe */}
+            <iframe
+              className="w-full h-full"
+              src={currentTrailerUrl}
+              title="Trailer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              frameBorder="0"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Animation Keyframes */}
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0 }
+          to { opacity: 1 }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease forwards;
+        }
+      `}</style>
     </section>
   );
 };

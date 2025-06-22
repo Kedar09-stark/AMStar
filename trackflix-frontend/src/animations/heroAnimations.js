@@ -1,4 +1,5 @@
 // src/animations/heroAnimations.js
+// src/animations/heroAnimations.js
 
 export const logoVariant = {
   hidden: { opacity: 0, scale: 0.6, rotate: -10 },
@@ -35,16 +36,5 @@ export const formVariant = {
     opacity: 1,
     y: 0,
     transition: { delay: 1.4, duration: 0.6 },
-  },
-};
-
-export const floatingAnimation = {
-  animate: {
-    y: [0, -10, 0],
-    opacity: [0.9, 1, 0.9],
-  },
-  transition: {
-    y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-    opacity: { duration: 3, repeat: Infinity },
   },
 };

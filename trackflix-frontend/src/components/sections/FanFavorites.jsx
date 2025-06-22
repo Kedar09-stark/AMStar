@@ -1,28 +1,27 @@
-
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const FanFavourites = () => {
+const FanFavourites = ({ isLoggedIn, onRequireLogin }) => {
   const sliderRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [flippedCard, setFlippedCard] = useState(null);
   const [autoRotate, setAutoRotate] = useState(true);
 
-  // New state for data
   const [fanFavorites, setFanFavorites] = useState([]);
+
+  const [showTrailer, setShowTrailer] = useState(false);
+  const [currentTrailerUrl, setCurrentTrailerUrl] = useState(null);
+  const modalRef = useRef(null);
 
   const scrollByValue = 240;
 
-  // Fetch fanFavorites data on component mount
   useEffect(() => {
-    fetch("http://localhost:5000/fan-favorites")  // Your backend API
+    fetch("http://localhost:5000/fan-favorites")
       .then((res) => res.json())
       .then((data) => setFanFavorites(data))
       .catch((err) => console.error("Failed to fetch fan favorites:", err));
   }, []);
-
-  // All your existing scrolling, flipping, and rendering logic below
-  // Just replace `fanFavorites` from import to this fetched state
 
   const scrollLeft = () => {
     if (!sliderRef.current) return;
@@ -72,6 +71,29 @@ const FanFavourites = () => {
     return () => clearInterval(interval);
   }, [autoRotate, fanFavorites.length]);
 
+  // Open trailer modal
+  const openTrailer = (url) => {
+    if (!url) return;
+    const embedUrl =
+      url.replace("watch?v=", "embed/") + "?autoplay=1&controls=1&modestbranding=1";
+    setCurrentTrailerUrl(embedUrl);
+    setShowTrailer(true);
+  };
+
+  // Handle watchlist click - redirect to login if not logged in
+  const handleWatchlistClick = (e, title) => {
+    e.stopPropagation();
+    if (!isLoggedIn) {
+      if (onRequireLogin) {
+        onRequireLogin();
+      } else {
+        alert("Please log in to add to your watchlist.");
+      }
+    } else {
+      alert(`Added "${title}" to your watchlist!`);
+    }
+  };
+
   return (
     <section
       className="relative bg-gradient-to-b from-zinc-900 to-black text-white py-6"
@@ -95,16 +117,19 @@ const FanFavourites = () => {
       <button
         onClick={scrollLeft}
         aria-label="Scroll left"
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-60 p-2 hover:bg-opacity-80 rounded"
+        className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-black bg-opacity-70 p-3 rounded-full shadow-lg
+             hover:bg-opacity-90 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
       >
-        ◀
+        <FaChevronLeft className="text-yellow-400 w-5 h-5" />
       </button>
+
       <button
         onClick={scrollRight}
         aria-label="Scroll right"
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black bg-opacity-60 p-2 hover:bg-opacity-80 rounded"
+        className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-black bg-opacity-70 p-3 rounded-full shadow-lg
+             hover:bg-opacity-90 hover:scale-110 transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
       >
-        ▶
+        <FaChevronRight className="text-yellow-400 w-5 h-5" />
       </button>
 
       {/* Cards */}
@@ -177,9 +202,27 @@ const FanFavourites = () => {
                       </span>
                     ))}
                   </div>
-                  <button className="mt-5 bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600 transition">
-                    + Watchlist
-                  </button>
+                  <div className="mt-5 flex flex-col gap-3 w-full max-w-[160px]">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        openTrailer(item.trailerLink);
+                      }}
+                      className="bg-cyan-500 text-black px-4 py-2 rounded hover:bg-cyan-600 transition"
+                      aria-label={`Watch trailer for ${item.title}`}
+                    >
+                      Watch Trailer
+                    </button>
+                    <button
+                      className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600 transition"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleWatchlistClick(e, item.title);
+                      }}
+                    >
+                      + Watchlist
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -192,7 +235,6 @@ const FanFavourites = () => {
         <button
           onClick={() => {
             // Example: navigation or modal trigger
-            // navigate("/recommendations");
             console.log("Navigate to recommendations...");
           }}
           className="inline-flex items-center gap-2 px-6 py-3 border border-yellow-500 text-yellow-400 font-semibold rounded-full hover:bg-yellow-500 hover:text-black transition-all duration-300 group text-sm sm:text-base"
@@ -223,6 +265,59 @@ const FanFavourites = () => {
           ></button>
         ))}
       </div>
+
+      {/* Trailer Modal */}
+      {showTrailer && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black bg-opacity-90 backdrop-blur-sm p-6 animate-fadeIn"
+          onClick={() => setShowTrailer(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="trailer-title"
+          tabIndex={-1}
+          onKeyDown={(e) => {
+            if (e.key === "Escape") setShowTrailer(false);
+          }}
+        >
+          <div
+            className="relative w-full max-w-5xl aspect-video bg-black rounded-xl shadow-2xl overflow-hidden outline-none"
+            onClick={(e) => e.stopPropagation()}
+            tabIndex={0}
+            ref={modalRef}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setShowTrailer(false)}
+              className="absolute top-3 right-3 text-white bg-cyan-800 bg-opacity-70 rounded-full p-2 hover:bg-red-600 transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              aria-label="Close trailer"
+            >
+              ×
+            </button>
+
+            {/* Trailer iframe */}
+            <iframe
+              id="trailer-title"
+              className="w-full h-full"
+              src={currentTrailerUrl}
+              title="Trailer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              frameBorder="0"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Animation Keyframes */}
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0 }
+          to { opacity: 1 }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease forwards;
+        }
+      `}</style>
     </section>
   );
 };
