@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
-// REMOVE this line 👇
-// import { celebrities } from "../../data/Celebrities";
 import { useNavigate } from "react-router-dom";
 
 const MostPopularCelebrities = () => {
@@ -11,7 +9,7 @@ const MostPopularCelebrities = () => {
   const [itemsToShow, setItemsToShow] = useState(5); // default for desktop
   const navigate = useNavigate();
 
-  // 🔥 Fetch data from backend
+  // Fetch data from backend
   useEffect(() => {
     fetch("http://localhost:5000/celebrities")
       .then((res) => res.json())
@@ -46,8 +44,6 @@ const MostPopularCelebrities = () => {
       Math.min(prev + itemsToShow, celebrities.length - itemsToShow)
     );
   };
-
-  // ... rest of your component (unchanged) ...
 
   return (
     <section className="bg-gradient-to-b from-zinc-900 to-black text-white px-4 sm:px-6 py-10">
@@ -96,22 +92,17 @@ const MostPopularCelebrities = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="cursor-pointer group relative"
+                className="cursor-pointer relative"
               >
                 <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden shadow-lg mx-auto bg-gray-800">
                   <img
                     src={celeb.img}
                     alt={celeb.name}
                     onError={(e) => (e.target.src = "/fallback.jpg")}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover object-center"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-                    <button className="text-sm bg-yellow-500 text-black px-3 py-1 rounded-full flex items-center gap-1 hover:bg-yellow-600">
-                      View Profile <FaArrowRight size={12} />
-                    </button>
-                  </div>
                 </div>
-                <p className="mt-3 text-center font-semibold text-sm text-white group-hover:text-yellow-400 transition">
+                <p className="mt-3 text-center font-semibold text-sm text-white">
                   {celeb.name}
                 </p>
               </motion.div>
@@ -121,7 +112,7 @@ const MostPopularCelebrities = () => {
         {/* More Button */}
         <div className="mt-8 text-center">
           <button
-            onClick={() => navigate("/actors")}
+            onClick={() => navigate("/recommendations2")}
             className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-full font-medium flex items-center justify-center gap-2 transition duration-300"
           >
             Get More Recommendations <FaArrowRight />

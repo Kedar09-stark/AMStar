@@ -64,7 +64,7 @@ const MovieCard = ({ movie }) => {
             <FaStar className="text-base" />
             <span className="font-medium">{movie.rating || "N/A"}</span>
             <div className="absolute bottom-full mb-1 left-0 z-10 hidden group-hover:flex bg-zinc-800 text-xs text-white px-3 py-1 rounded shadow-md">
-              Based on {movie.reviews || "1.2k+"} reviews
+              
             </div>
           </div>
 

@@ -1,8 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const FanFavourites = ({ isLoggedIn, onRequireLogin }) => {
+  const navigate = useNavigate(); // <-- Added here
+
   const sliderRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [flippedCard, setFlippedCard] = useState(null);
@@ -233,10 +236,7 @@ const FanFavourites = ({ isLoggedIn, onRequireLogin }) => {
       {/* Get More Recommendations Button */}
       <div className="mt-10 flex justify-center">
         <button
-          onClick={() => {
-            // Example: navigation or modal trigger
-            console.log("Navigate to recommendations...");
-          }}
+          onClick={() => navigate("/movies")}
           className="inline-flex items-center gap-2 px-6 py-3 border border-yellow-500 text-yellow-400 font-semibold rounded-full hover:bg-yellow-500 hover:text-black transition-all duration-300 group text-sm sm:text-base"
         >
           Get More Recommendations

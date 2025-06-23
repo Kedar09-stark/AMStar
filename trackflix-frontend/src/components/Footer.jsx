@@ -38,10 +38,42 @@ function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-2">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="#" aria-label="Facebook" className="hover:text-white"><FaFacebook /></a>
-              <a href="#" aria-label="Twitter" className="hover:text-white"><FaTwitter /></a>
-              <a href="#" aria-label="Instagram" className="hover:text-white"><FaInstagram /></a>
-              <a href="#" aria-label="YouTube" className="hover:text-white"><FaYoutube /></a>
+              <a
+                href="https://www.facebook.com/"
+                aria-label="Facebook"
+                className="hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook />
+              </a>
+              <a
+                href="https://x.com/?lang=en"
+                aria-label="X"
+                className="hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                href="https://www.instagram.com/"
+                aria-label="Instagram"
+                className="hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://www.youtube.com/"
+                aria-label="YouTube"
+                className="hover:text-white"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaYoutube />
+              </a>
             </div>
           </div>
         </div>

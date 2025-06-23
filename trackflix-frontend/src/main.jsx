@@ -27,7 +27,10 @@ import Contact from './components/FooterExtra/Contact';
 import Privacy from './components/FooterExtra/Privacy';
 import Terms from './components/FooterExtra/Terms';
 
-// Router setup
+// ✅ FT More Recommendations Page
+import FTMoreRecommendations from './RecommendationPage/FTMoreRecommendations';
+import MostPCMoreRecommendations from './RecommendationPage/MostPCMoreRecommendations.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,6 +44,9 @@ const router = createBrowserRouter([
       { path: '/liveshow', element: <LiveShow /> },
       { path: '/new-to-movies', element: <NewToMovies /> },
 
+      // ✅ Add this line for recommendations
+      { path: '/recommendations', element: <FTMoreRecommendations /> },
+{ path: '/recommendations2', element: <MostPCMoreRecommendations /> },
       // Admin and User dashboard routes
       { path: '/admin', element: <AdminPage /> },
       { path: '/dashboard', element: <UserDashboard /> },
@@ -57,7 +63,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-// Mount the app
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />

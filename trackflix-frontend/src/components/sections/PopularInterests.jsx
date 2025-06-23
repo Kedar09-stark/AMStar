@@ -71,7 +71,10 @@ const PopularInterests = ({ isLoggedIn }) => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-10 text-center">
-          <h2 className="text-5xl font-bold tracking-wide drop-shadow-lg">Popular Interests</h2>
+        <h2 className="text-5xl font-bold tracking-wide drop-shadow-lg text-purple-600 animate-pulse">Upcoming...</h2>
+
+
+
           <p className="mt-3 text-cyan-300 text-lg max-w-xl mx-auto">
             Discover trending favorites with rich details and smooth experience.
           </p>
@@ -180,15 +183,7 @@ const PopularInterests = ({ isLoggedIn }) => {
           </button>
         </div>
 
-        {/* Recommendations CTA */}
-        <div className="mt-14 text-center">
-          <button
-            onClick={() => navigate("/recommendations")}
-            className="inline-flex items-center gap-3 px-8 py-3 border-2 border-cyan-400 rounded-full text-cyan-400 font-semibold hover:bg-cyan-400 hover:text-black transition duration-300 shadow-lg"
-          >
-            Get More Recommendations <FaArrowRight />
-          </button>
-        </div>
+        
       </div>
 
       {/* Trailer Modal */}
