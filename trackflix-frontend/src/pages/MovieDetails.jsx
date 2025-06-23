@@ -18,24 +18,7 @@ import {
   FaRedoAlt,
 } from "react-icons/fa";
 
-const containerVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.2,
-      ease: "easeOut",
-      duration: 0.6,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -15 },
-  visible: { opacity: 1, x: 0 },
-};
+import { containerVariants, itemVariants, rotateVariant } from "../animations/MDanimation";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -43,8 +26,8 @@ const MovieDetails = () => {
   const [similar, setSimilar] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isRotating, setIsRotating] = useState(false);
 
-  // Validate id: must be a positive integer string
   const isValidId = /^\d+$/.test(id);
 
   const fetchMovie = async () => {
@@ -103,10 +86,24 @@ const MovieDetails = () => {
 
   const youtubeId = movie?.trailer ? new URL(movie.trailer).searchParams.get("v") : null;
 
+  const handleImageClick = () => {
+    if (isRotating) return;
+    setIsRotating(true);
+  };
+
+  const onRotateComplete = () => {
+    setIsRotating(false);
+  };
+
+  // Merge variants once
+  const combinedVariants = {
+    ...itemVariants,
+    ...rotateVariant,
+  };
+
   if (loading) return <LoadingSkeleton />;
 
-  if (error)
-    return <ErrorFallback message={error} onRetry={fetchMovie} />;
+  if (error) return <ErrorFallback message={error} onRetry={fetchMovie} />;
 
   if (!movie)
     return (
@@ -133,10 +130,16 @@ const MovieDetails = () => {
         <motion.img
           src={movie.image}
           alt={`Poster of ${movie.title}`}
-          className="w-full max-w-sm rounded-2xl shadow-2xl object-cover ring-1 ring-yellow-400"
-          variants={itemVariants}
+          className={`w-full max-w-sm rounded-2xl shadow-2xl object-cover ring-1 ring-yellow-400 relative cursor-pointer ${
+            isRotating ? "fire-glow" : ""
+          }`}
+          variants={combinedVariants}
+          initial="hidden"
+          animate={isRotating ? "rotate360" : "visible"}
+          onClick={handleImageClick}
+          onAnimationComplete={onRotateComplete}
           whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(251, 191, 36, 0.8)" }}
-          transition={{ type: "spring", stiffness: 250 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           loading="lazy"
         />
 
@@ -295,4 +298,3 @@ const ErrorFallback = ({ message, onRetry }) => (
 );
 
 export default MovieDetails;
-
