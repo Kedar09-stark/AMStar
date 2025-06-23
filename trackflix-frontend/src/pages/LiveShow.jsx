@@ -153,4 +153,8 @@ const Movie = () => {
   );
 };
 
+<<<<<<< HEAD
 export default Movie;
+=======
+export default Movie;
+>>>>>>> f19613e3027bf2c99dd9bba08de14edd03886e36
