@@ -1,160 +1,55 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import MovieCard from "../components/MoviePages/MovieCard";
-import GenreFilter from "../components/MoviePages/GenreFilter";
-import Pagination from "../components/MoviePages/Pagination";
+import React, { useEffect, useState } from "react";
 
-function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
+function LiveShow() {
+  const [shows, setShows] = useState([]);
 
-const Movie = () => {
-  const query = useQuery();
-  const initialQuery = query.get("query") || "";
+useEffect(() => {
+  fetch("http://localhost:5000/liveshows")
+    .then((res) => {
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+      return res.json();
+    })
+    .then((data) => {
+      console.log("✅ Live shows data fetched:", data);
+      setShows(data);
+    })
+    .catch((err) => {
+      console.error("❌ Error fetching live shows:", err.message);
+      alert("Failed to load live shows. See console.");
+    });
+}, []);
 
-  const [allMovies, setAllMovies] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(initialQuery);
-  const [sortType, setSortType] = useState("rating");
-  const [selectedGenres, setSelectedGenres] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const itemsPerPage = 48;
-
-  useEffect(() => {
-    setSearchTerm(initialQuery);
-    setCurrentPage(1);
-  }, [initialQuery]);
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      setLoading(true);
-      try {
-        const res = await fetch("http://localhost:5000/tvshow");
-        if (!res.ok) throw new Error("Failed to fetch movies.");
-        const data = await res.json();
-        setAllMovies(data);
-      } catch (err) {
-        console.error(err);
-        setError("Failed to load movies.");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchMovies();
-  }, []);
-
-  const allGenres = Array.from(
-    new Set(allMovies.flatMap((movie) => movie.genres))
-  );
-
-  const filteredMovies = allMovies
-    .filter((movie) =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .filter((movie) =>
-      selectedGenres.length === 0
-        ? true
-        : selectedGenres.every((genre) => movie.genres.includes(genre))
-    );
-
-  const sortedMovies = [...filteredMovies].sort((a, b) => {
-    if (sortType === "rating") return b.rating - a.rating;
-    if (sortType === "releaseDate")
-      return new Date(b.releaseDate) - new Date(a.releaseDate);
-    return 0;
-  });
-
-  const totalPages = Math.ceil(sortedMovies.length / itemsPerPage);
-  const paginatedMovies = sortedMovies.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
-
-  const toggleGenre = (genre) => {
-    setSelectedGenres((prev) =>
-      prev.includes(genre) ? prev.filter((g) => g !== genre) : [...prev, genre]
-    );
-    setCurrentPage(1);
-  };
-
-  const clearFilters = () => {
-    setSelectedGenres([]);
-    setCurrentPage(1);
-  };
 
   return (
-    <section className="bg-black min-h-screen pt-28 px-4 md:px-10 text-white">
-      <div className="flex flex-col lg:flex-row gap-10">
-        {/* Filters Panel */}
-        <aside className="w-full lg:w-1/4 space-y-6">
-          <div>
-            <label className="block mb-2 text-sm font-semibold">Search</label>
-            <input
-              type="text"
-              className="w-full px-4 py-2 bg-zinc-900 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              placeholder="Find a movie..."
-              value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value);
-                setCurrentPage(1);
-              }}
-            />
-          </div>
+    <div className="min-h-screen bg-black text-white py-20 px-4 md:px-10">
+      <h1 className="text-4xl md:text-5xl font-bold text-yellow-400 mb-8 text-center">Live Shows</h1>
 
-          <div>
-            <label className="block mb-2 text-sm font-semibold">Sort by</label>
-            <select
-              className="w-full px-4 py-2 bg-zinc-900 text-white rounded-md"
-              value={sortType}
-              onChange={(e) => setSortType(e.target.value)}
+      {shows.length === 0 ? (
+        <p className="text-lg text-center">No live show is currently streaming. Check back soon!</p>
+      ) : (
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {shows.map((show) => (
+            <div
+              key={show.id}
+              className="bg-zinc-900 rounded-2xl overflow-hidden shadow-lg transition hover:scale-105"
             >
-              <option value="rating">Rating</option>
-              <option value="releaseDate">Release Date</option>
-            </select>
-          </div>
-
-          <GenreFilter
-            allGenres={allGenres}
-            selectedGenres={selectedGenres}
-            toggleGenre={toggleGenre}
-            clearFilters={clearFilters}
-          />
-        </aside>
-
-        {/* Movies Grid */}
-        <main className="flex-1">
-          {loading && <p className="text-gray-300">Loading movies...</p>}
-          {error && <p className="text-red-500">{error}</p>}
-
-          {!loading && !error && paginatedMovies.length === 0 && (
-            <p className="text-gray-400">No matching movies found.</p>
-          )}
-
-          {!loading && !error && paginatedMovies.length > 0 && (
-            <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
-                {paginatedMovies.map((movie) => (
-                  <MovieCard key={movie.id} movie={movie} />
-                ))}
-              </div>
-
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                setCurrentPage={setCurrentPage}
+              <img
+                src={show.image}
+                alt={show.title}
+                className="w-full h-56 object-cover"
               />
-            </>
-          )}
-        </main>
-      </div>
-    </section>
+              <div className="p-4">
+                <h2 className="text-xl font-semibold text-yellow-300 mb-2">{show.title}</h2>
+                <p className="text-sm text-gray-400 mb-1">Hosted by: {show.host}</p>
+                <p className="text-sm text-gray-500">Starts at: {show.startTime}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
-};
+}
 
-<<<<<<< HEAD
-export default Movie;
-=======
-export default Movie;
->>>>>>> f19613e3027bf2c99dd9bba08de14edd03886e36
+export default LiveShow;
+
