@@ -70,9 +70,10 @@ const SignIn = () => {
   };
 
   return (
+   
     <div
       className="relative min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/image/he3.jpg')" }}
+      style={{ backgroundImage: "url('images/he4.jpg')" }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       <ToastContainer position="top-center" />
@@ -95,7 +96,7 @@ const SignIn = () => {
 
           <div className="flex justify-center items-center mb-4 sm:mb-6">
             <img
-              src="images/lo-removebg-preview (2).png"
+              src="images/lo-removebg-preview2.png"
               alt="Trackflix Logo"
               className="w-[10rem] sm:w-[15rem] h-auto object-contain"
             />

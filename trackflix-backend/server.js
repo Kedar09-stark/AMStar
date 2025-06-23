@@ -57,6 +57,16 @@ app.get("/tvshow", (req, res) => {
   res.json(readJSON("tvshow.json"));
 });
 
+app.get("/fullmoviesDetails/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const movies = readJSON("fullmoviesDetails.json");
+  const movie = movies.find((m) => m.id === id);
+  if (movie) {
+    res.json(movie);
+  } else {
+    res.status(404).json({ error: "Movie not found" });
+  }
+});
 
 
 app.listen(PORT, () => {

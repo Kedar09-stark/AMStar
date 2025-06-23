@@ -41,7 +41,7 @@ function Header() {
           onClick={() => setIsMenuOpen(false)}
         >
           <img
-            src="images/lo-removebg-preview (2).png"
+            src="images/lo-removebg-preview2.png"
             alt="TrackFlix Logo"
             className="w-32 h-auto"
           />

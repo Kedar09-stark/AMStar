@@ -1,6 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 🔁 import for navigation
+import { Link, useNavigate } from "react-router-dom";
 import { FaStar, FaPlay, FaPlus } from "react-icons/fa";
+
+import { auth } from "../../firebase/firebase-config";
+
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const MovieCard = ({ movie }) => {
   const [showTrailer, setShowTrailer] = useState(false);
@@ -8,8 +12,8 @@ const MovieCard = ({ movie }) => {
 
   const navigate = useNavigate();
 
-  // ✅ Dummy auth check - replace with your real auth logic or context
-  const isAuthenticated = false;
+  // Get current logged-in user from Firebase
+  const [user] = useAuthState(auth);
 
   const getEmbedUrl = (url) => {
     try {
@@ -21,8 +25,8 @@ const MovieCard = ({ movie }) => {
   };
 
   const handleWatchlistClick = () => {
-    if (!isAuthenticated) {
-      navigate("/login"); // 🔁 go to login page if not logged in
+    if (!user) {
+      navigate("/login"); // redirect to login if not authenticated
     } else {
       // Add to watchlist logic here
       alert("Added to watchlist!");
@@ -55,17 +59,19 @@ const MovieCard = ({ movie }) => {
 
         {/* Content */}
         <div className="p-4 space-y-3">
-          <h2 className="text-lg font-semibold text-white truncate">
+          {/* Movie title wrapped with Link for navigation */}
+          <Link
+            to={`/movie/${movie.id}`}
+            className="text-lg font-semibold text-white truncate block hover:underline"
+            title={`View details for ${movie.title}`}
+          >
             {movie.title}
-          </h2>
+          </Link>
 
-          {/* Rating with Tooltip */}
+          {/* Rating */}
           <div className="relative group flex items-center gap-2 text-yellow-400 text-sm w-fit">
             <FaStar className="text-base" />
             <span className="font-medium">{movie.rating || "N/A"}</span>
-            <div className="absolute bottom-full mb-1 left-0 z-10 hidden group-hover:flex bg-zinc-800 text-xs text-white px-3 py-1 rounded shadow-md">
-              
-            </div>
           </div>
 
           {/* Genres */}
@@ -99,7 +105,6 @@ const MovieCard = ({ movie }) => {
               <span className="text-gray-500 text-sm">No trailer</span>
             )}
 
-            {/* 🔐 Watchlist → redirect to login if not logged in */}
             <button
               onClick={handleWatchlistClick}
               className="flex items-center gap-2 text-green-400 hover:underline text-sm"
@@ -111,7 +116,7 @@ const MovieCard = ({ movie }) => {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Trailer Modal */}
       {showTrailer && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
           <div className="relative w-[90%] md:w-[700px] bg-zinc-900 rounded-xl overflow-hidden shadow-lg">
@@ -130,7 +135,7 @@ const MovieCard = ({ movie }) => {
                 title={`${movie.title} Trailer`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-              ></iframe>
+              />
             </div>
           </div>
         </div>

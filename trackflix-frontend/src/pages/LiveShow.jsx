@@ -155,4 +155,5 @@ const LiveShow = () => {
   );
 };
 
-export default liveShow;
+export default LiveShow;
+

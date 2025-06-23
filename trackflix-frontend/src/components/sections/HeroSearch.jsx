@@ -65,7 +65,7 @@ const HeroSearch = () => {
       >
         {/* Logo image without wrapping div, smaller widths */}
         <motion.img
-  src="images\lo-removebg-preview (2).png"
+  src="images\lo-removebg-preview2.png"
   alt="Movie Logo"
   className="w-[240px] sm:w-[300px] md:w-[380px] lg:w-[450px] xl:w-[500px] object-contain mx-auto filter brightness-95 drop-shadow-lg mb-1"
   variants={logoVariant}

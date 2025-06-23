@@ -46,17 +46,19 @@ const Movie = () => {
   }, []);
 
   const allGenres = Array.from(
-    new Set(allMovies.flatMap((movie) => movie.genres))
+    new Set(allMovies.flatMap((movie) => movie.genres || []))
   );
 
   const filteredMovies = allMovies
     .filter((movie) =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+      (movie.title || "").toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((movie) =>
       selectedGenres.length === 0
         ? true
-        : selectedGenres.every((genre) => movie.genres.includes(genre))
+        : selectedGenres.every((genre) =>
+            (movie.genres || []).includes(genre)
+          )
     );
 
   const sortedMovies = [...filteredMovies].sort((a, b) => {
