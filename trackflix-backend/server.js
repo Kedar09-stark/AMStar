@@ -47,6 +47,16 @@ app.get("/liveshows", (req, res) => {
 app.get("/live", (req, res) => {
   res.json(readJSON("live.json"));
 });
+app.get("/ftrecommendations", (req, res) => {
+  res.json(readJSON("ftrecommendations.json"));
+});
+app.get("/recomendationcelebrities", (req, res) => {
+  res.json(readJSON("recomendationcelebrities.json"));
+});
+app.get("/tvshow", (req, res) => {
+  res.json(readJSON("tvshow.json"));
+});
+
 
 
 app.listen(PORT, () => {
