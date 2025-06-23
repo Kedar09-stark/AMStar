@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaStar, FaPlay, FaPlus } from "react-icons/fa";
 
 import { auth } from "../../firebase/firebase-config";
-
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const MovieCard = ({ movie }) => {
@@ -60,13 +59,14 @@ const MovieCard = ({ movie }) => {
         {/* Content */}
         <div className="p-4 space-y-3">
           {/* Movie title wrapped with Link for navigation */}
-          <Link
-            to={`/movie/${movie.id}`}
-            className="text-lg font-semibold text-white truncate block hover:underline"
-            title={`View details for ${movie.title}`}
-          >
-            {movie.title}
-          </Link>
+         <Link
+  to={`/movies/${movie.id}`} // <-- "movies" (plural)
+  className="text-lg font-semibold text-white truncate block hover:underline"
+  title={`View details for ${movie.title}`}
+>
+  {movie.title}
+</Link>
+
 
           {/* Rating */}
           <div className="relative group flex items-center gap-2 text-yellow-400 text-sm w-fit">
@@ -88,7 +88,8 @@ const MovieCard = ({ movie }) => {
 
           {/* Release Date */}
           <p className="text-sm text-zinc-400">
-            Release: <span className="text-white">{movie.releaseDate || "Unknown"}</span>
+            Release:{" "}
+            <span className="text-white">{movie.releaseDate || "Unknown"}</span>
           </p>
 
           {/* Actions */}

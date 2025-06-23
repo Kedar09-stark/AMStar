@@ -91,7 +91,7 @@ const MovieDetails = () => {
             else return null;
           })
         );
-        setSimilar(responses.filter(Boolean)); // filter out nulls
+        setSimilar(responses.filter(Boolean));
       } catch (err) {
         console.error("Failed to fetch similar movies", err);
         setSimilar([]);
@@ -222,7 +222,7 @@ const MovieDetails = () => {
               allowFullScreen
               loading="lazy"
               className="w-full h-full"
-              frameBorder="0"
+              frameBorder={0}
             />
           </div>
         </motion.section>
@@ -295,3 +295,4 @@ const ErrorFallback = ({ message, onRetry }) => (
 );
 
 export default MovieDetails;
+
