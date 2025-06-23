@@ -1,0 +1,453 @@
+[
+{
+  "id": 1,
+  "title": "The Queen's Gambit",
+  "rating": 8.6,
+  "genres": ["Drama", "Sport"],
+  "releaseDate": "2020-10-23",
+  "trailer": "https://www.youtube.com/watch?v=CDrieqwSdgI",
+  "image": "https://image.tmdb.org/t/p/w500/7rwgEs15tFwyR9NPQ5vpzxTj19Q.jpg"
+},
+
+  {
+    "id": 2,
+    "title": "Stranger Things",
+    "rating": 8.7,
+    "genres": ["Drama", "Fantasy", "Horror"],
+    "releaseDate": "2016-07-15",
+    "trailer": "https://www.youtube.com/watch?v=b9EkMc79ZSU",
+    "image": "https://picsum.photos/seed/46/500/300"
+  },
+  {
+    "id": 3,
+    "title": "Breaking Bad",
+    "rating": 9.5,
+    "genres": ["Crime", "Drama", "Thriller"],
+    "releaseDate": "2008-01-20",
+    "trailer": "https://www.youtube.com/watch?v=HhesaQXLuRY",
+    "image": "https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg"
+  },
+  {
+    "id": 4,
+    "title": "The Crown",
+    "rating": 8.7,
+    "genres": ["Drama", "History"],
+    "releaseDate": "2016-11-04",
+    "trailer": "https://www.youtube.com/watch?v=JWtnJjn6ng0",
+    "image": "https://image.tmdb.org/t/p/w500/ltqfddNrN41JLBzqr3PpNu2kCR1.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Game of Thrones",
+    "rating": 9.3,
+    "genres": ["Drama", "Fantasy", "Adventure"],
+    "releaseDate": "2011-04-17",
+    "trailer": "https://www.youtube.com/watch?v=gcTkNV5Vg1E",
+    "image": "https://image.tmdb.org/t/p/w500/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg"
+  },
+  {
+    "id": 6,
+    "title": "The Mandalorian",
+    "rating": 8.8,
+    "genres": ["Action", "Adventure", "Sci-Fi"],
+    "releaseDate": "2019-11-12",
+    "trailer": "https://www.youtube.com/watch?v=aOC8E8z_ifw",
+    "image": "https://image.tmdb.org/t/p/w500/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Friends",
+    "rating": 8.9,
+    "genres": ["Comedy", "Romance"],
+    "releaseDate": "1994-09-22",
+    "trailer": "https://www.youtube.com/watch?v=hDNNmeeJs1Q",
+    "image": "https://image.tmdb.org/t/p/w500/f496cm9enuEsZkSPzCwnTESEK5s.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Sherlock",
+    "rating": 9.1,
+    "genres": ["Crime", "Drama", "Mystery"],
+    "releaseDate": "2010-07-25",
+    "trailer": "https://www.youtube.com/watch?v=xK7S9mrFWL4",
+    "image": "https://image.tmdb.org/t/p/w500/3WZTxpgscsmoUk81TuECXdFOD0t.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Westworld",
+    "rating": 8.6,
+    "genres": ["Drama", "Mystery", "Sci-Fi"],
+    "releaseDate": "2016-10-02",
+    "trailer": "https://www.youtube.com/watch?v=LVcN0JgYodI",
+    "image": "https://image.tmdb.org/t/p/w500/y45Ug1rT9IWIHjTll2Ml3aOw6dH.jpg"
+  },
+  {
+    "id": 10,
+    "title": "The Witcher",
+    "rating": 8.2,
+    "genres": ["Action", "Adventure", "Drama"],
+    "releaseDate": "2019-12-20",
+    "trailer": "https://www.youtube.com/watch?v=ndl1W4ltcmg",
+    "image": "https://image.tmdb.org/t/p/w500/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Black Mirror",
+    "rating": 8.8,
+    "genres": ["Drama", "Sci-Fi", "Thriller"],
+    "releaseDate": "2011-12-04",
+    "trailer": "https://www.youtube.com/watch?v=jDiYGjp5iFg",
+    "image": "https://image.tmdb.org/t/p/w500/9nYxMVWjnPE52dLCNnvC9HxAjm0.jpg"
+  },
+  {
+    "id": 12,
+    "title": "Better Call Saul",
+    "rating": 8.7,
+    "genres": ["Crime", "Drama"],
+    "releaseDate": "2015-02-08",
+    "trailer": "https://www.youtube.com/watch?v=H0qk4gSAYJ0",
+    "image": "https://image.tmdb.org/t/p/w500/bLBQAwf3Zh33aVf2Xh1d7sqLGwJ.jpg"
+  },
+  {
+    "id": 13,
+    "title": "Narcos",
+    "rating": 8.8,
+    "genres": ["Biography", "Crime", "Drama"],
+    "releaseDate": "2015-08-28",
+    "trailer": "https://www.youtube.com/watch?v=U7elNhHwgBU",
+    "image": "https://image.tmdb.org/t/p/w500/kXfqcdQKsToO0OUXHcrrNCHDBzO.jpg"
+  },
+  {
+    "id": 14,
+    "title": "The Office (US)",
+    "rating": 8.9,
+    "genres": ["Comedy"],
+    "releaseDate": "2005-03-24",
+    "trailer": "https://www.youtube.com/watch?v=Vmb1tqYqyII",
+    "image": "https://image.tmdb.org/t/p/w500/qWnJzyZhyy74gjpSjIXWmuk0ifX.jpg"
+  },
+  {
+    "id": 15,
+    "title": "The Boys",
+    "rating": 8.7,
+    "genres": ["Action", "Comedy", "Crime"],
+    "releaseDate": "2019-07-26",
+    "trailer": "https://www.youtube.com/watch?v=3H9H4gR2JhQ",
+    "image": "https://image.tmdb.org/t/p/w500/tuomPhY2UtuPTqqFnKMVHvSb724.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Money Heist",
+    "rating": 8.3,
+    "genres": ["Action", "Crime", "Drama"],
+    "releaseDate": "2017-05-02",
+    "trailer": "https://www.youtube.com/watch?v=HhesaQXLuRY",
+    "image": "https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg"
+  },
+  {
+    "id": 17,
+    "title": "Rick and Morty",
+    "rating": 9.2,
+    "genres": ["Animation", "Adventure", "Comedy"],
+    "releaseDate": "2013-12-02",
+    "trailer": "https://www.youtube.com/watch?v=Qp2InE9OVx4",
+    "image": "https://image.tmdb.org/t/p/w500/f496cm9enuEsZkSPzCwnTESEK5s.jpg"
+  },
+  {
+    "id": 18,
+    "title": "The Walking Dead",
+    "rating": 8.2,
+    "genres": ["Drama", "Horror", "Thriller"],
+    "releaseDate": "2010-10-31",
+    "trailer": "https://www.youtube.com/watch?v=R1v0uFms68U",
+    "image": "https://image.tmdb.org/t/p/w500/xfWac8MTYDxujaxgPVcRD9yZaul.jpg"
+  },
+  {
+    "id": 19,
+    "title": "Lost",
+    "rating": 8.3,
+    "genres": ["Adventure", "Drama", "Fantasy"],
+    "releaseDate": "2004-09-22",
+    "trailer": "https://www.youtube.com/watch?v=5xQZpS2iMh0",
+    "image": "https://image.tmdb.org/t/p/w500/4pUdtF1mmk91pNQ1OVNRrZ1Og6Y.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Dexter",
+    "rating": 8.6,
+    "genres": ["Crime", "Drama", "Mystery"],
+    "releaseDate": "2006-10-01",
+    "trailer": "https://www.youtube.com/watch?v=WA7tqYHnnQU",
+    "image": "https://image.tmdb.org/t/p/w500/6xKCYgH16UzM1bQ2xDdS6Tcgx0N.jpg"
+  },
+  {
+    "id": 21,
+    "title": "The Simpsons",
+    "rating": 8.6,
+    "genres": ["Animation", "Comedy"],
+    "releaseDate": "1989-12-17",
+    "trailer": "https://www.youtube.com/watch?v=lrL1l87QRQc",
+    "image": "https://image.tmdb.org/t/p/w500/7zXj3PiTThjD9eDYjqEtoEkvp6W.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Ozark",
+    "rating": 8.4,
+    "genres": ["Crime", "Drama", "Thriller"],
+    "releaseDate": "2017-07-21",
+    "trailer": "https://www.youtube.com/watch?v=2DjoRjWf9q4",
+    "image": "https://image.tmdb.org/t/p/w500/5nKIwldG6eX5Vu0Q1pEd3zXtEY7.jpg"
+  },
+  {
+    "id": 23,
+    "title": "House of Cards",
+    "rating": 8.7,
+    "genres": ["Drama"],
+    "releaseDate": "2013-02-01",
+    "trailer": "https://www.youtube.com/watch?v=ULwUzF1q5w4",
+    "image": "https://image.tmdb.org/t/p/w500/3aMKgTwHgRiC5oi7NSpZxEg7NgF.jpg"
+  },
+  {
+    "id": 24,
+    "title": "The Flash",
+    "rating": 7.6,
+    "genres": ["Action", "Adventure", "Drama"],
+    "releaseDate": "2014-10-07",
+    "trailer": "https://www.youtube.com/watch?v=7X9KMnRzNKQ",
+    "image": "https://image.tmdb.org/t/p/w500/wHa6KOJAoNTFLFtp7wguUJKSnju.jpg"
+  },
+  {
+    "id": 25,
+    "title": "The Handmaid's Tale",
+    "rating": 8.4,
+    "genres": ["Drama", "Sci-Fi", "Thriller"],
+    "releaseDate": "2017-04-26",
+    "trailer": "https://www.youtube.com/watch?v=4zIEQ1i2HeM",
+    "image": "https://image.tmdb.org/t/p/w500/lTqcckfSN1Vx1QEdl8RXdIX8kSN.jpg"
+  },
+  {
+    "id": 26,
+    "title": "True Detective",
+    "rating": 9.0,
+    "genres": ["Crime", "Drama", "Mystery"],
+    "releaseDate": "2014-01-12",
+    "trailer": "https://www.youtube.com/watch?v=U_r2N-Av3yQ",
+    "image": "https://image.tmdb.org/t/p/w500/3GJ8s94k91BpMNNid50ywZhB9IU.jpg"
+  },
+  {
+    "id": 27,
+    "title": "Vikings",
+    "rating": 8.5,
+    "genres": ["Action", "Adventure", "Drama"],
+    "releaseDate": "2013-03-03",
+    "trailer": "https://www.youtube.com/watch?v=G8NG2p3fXYo",
+    "image": "https://image.tmdb.org/t/p/w500/qzA87WfneIEP0p5golc6ZbyE2kG.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Lost in Space",
+    "rating": 7.3,
+    "genres": ["Adventure", "Drama", "Sci-Fi"],
+    "releaseDate": "2018-04-13",
+    "trailer": "https://www.youtube.com/watch?v=EZXlXLrJ_TQ",
+    "image": "https://image.tmdb.org/t/p/w500/v2LilmCylr3bL9TCZSj6syjowZh.jpg"
+  },
+  {
+    "id": 29,
+    "title": "Supernatural",
+    "rating": 8.4,
+    "genres": ["Drama", "Fantasy", "Horror"],
+    "releaseDate": "2005-09-13",
+    "trailer": "https://www.youtube.com/watch?v=Rg_QYxBthjA",
+    "image": "https://image.tmdb.org/t/p/w500/KoYWXbnYuS3b0GyQPkbuexlVK9.jpg"
+  },
+  {
+    "id": 30,
+    "title": "House",
+    "rating": 8.7,
+    "genres": ["Drama", "Mystery"],
+    "releaseDate": "2004-11-16",
+    "trailer": "https://www.youtube.com/watch?v=MaM8t2zYuVg",
+    "image": "https://image.tmdb.org/t/p/w500/fknls2j2VvdIw6oCv9TghLmT8bT.jpg"
+  },
+  {
+    "id": 31,
+    "title": "The Big Bang Theory",
+    "rating": 8.1,
+    "genres": ["Comedy", "Romance"],
+    "releaseDate": "2007-09-24",
+    "trailer": "https://www.youtube.com/watch?v=lab9vUUwpYQ",
+    "image": "https://image.tmdb.org/t/p/w500/pG5RrNRmIpeLz8hxq3AbJ2n2bwz.jpg"
+  },
+  {
+    "id": 32,
+    "title": "Dark",
+    "rating": 8.8,
+    "genres": ["Crime", "Drama", "Mystery"],
+    "releaseDate": "2017-12-01",
+    "trailer": "https://www.youtube.com/watch?v=rrwycJ08PSA",
+    "image": "https://image.tmdb.org/t/p/w500/Ap8QYLYGzzlfqqnhyJTA0h0yuf3.jpg"
+  },
+  {
+    "id": 33,
+    "title": "Lucifer",
+    "rating": 8.1,
+    "genres": ["Crime", "Drama", "Fantasy"],
+    "releaseDate": "2016-01-25",
+    "trailer": "https://www.youtube.com/watch?v=7X8I_oM_KTg",
+    "image": "https://image.tmdb.org/t/p/w500/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg"
+  },
+  {
+    "id": 34,
+    "title": "Better Things",
+    "rating": 7.7,
+    "genres": ["Comedy", "Drama"],
+    "releaseDate": "2016-09-08",
+    "trailer": "",
+    "image": "https://picsum.photos/seed/34/500/300"
+  },
+  {
+    "id": 35,
+    "title": "The Expanse",
+    "rating": 8.5,
+    "genres": ["Drama", "Mystery", "Sci-Fi"],
+    "releaseDate": "2015-12-14",
+    "trailer": "https://www.youtube.com/watch?v=0mfIK8zxUds",
+    "image": "https://image.tmdb.org/t/p/w500/zzXRRrztx6VLy1FOmV6ePt5Rryi.jpg"
+  },
+  {
+    "id": 36,
+    "title": "Fargo",
+    "rating": 8.9,
+    "genres": ["Crime", "Drama", "Thriller"],
+    "releaseDate": "2014-04-15",
+    "trailer": "https://www.youtube.com/watch?v=H9tEvfIsDyo",
+    "image": "https://image.tmdb.org/t/p/w500/kE6Fnf47BT6azWn8KDgG7SPmYbf.jpg"
+  },
+  {
+    "id": 37,
+    "title": "The Witcher: Blood Origin",
+    "rating": 6.2,
+    "genres": ["Action", "Adventure", "Fantasy"],
+    "releaseDate": "2022-12-25",
+    "trailer": "https://www.youtube.com/watch?v=HwsKw1PB0eo",
+    "image": "https://image.tmdb.org/t/p/w500/9m7h8R5slJK8dOIjfFpAYX2DzrS.jpg"
+  },
+  {
+    "id": 38,
+    "title": "Brooklyn Nine-Nine",
+    "rating": 8.4,
+    "genres": ["Comedy", "Crime"],
+    "releaseDate": "2013-09-17",
+    "trailer": "https://www.youtube.com/watch?v=Ju8l4sjUbuY",
+    "image": "https://image.tmdb.org/t/p/w500/oNiHPmDjFJYlBZWvYj3GIv5dLWj.jpg"
+  },
+  {
+    "id": 39,
+    "title": "The Twilight Zone",
+    "rating": 9.0,
+    "genres": ["Drama", "Fantasy", "Horror"],
+    "releaseDate": "1959-10-02",
+    "trailer": "",
+    "image": "https://picsum.photos/seed/39/500/300"
+  },
+  {
+    "id": 40,
+    "title": "The Marvelous Mrs. Maisel",
+    "rating": 8.7,
+    "genres": ["Comedy", "Drama"],
+    "releaseDate": "2017-03-17",
+    "trailer": "https://www.youtube.com/watch?v=0JlghFhPfWs",
+    "image": "https://image.tmdb.org/t/p/w500/17h6HAYxwRf2hpQkGQTL7x8Jz0G.jpg"
+  },
+  {
+    "id": 41,
+    "title": "Mr. Robot",
+    "rating": 8.6,
+    "genres": ["Crime", "Drama", "Thriller"],
+    "releaseDate": "2015-06-24",
+    "trailer": "https://www.youtube.com/watch?v=xIBiJ_SzJTA",
+    "image": "https://image.tmdb.org/t/p/w500/fdXoGpMJYV5VxB2MQU7hgtA69ly.jpg"
+  },
+  {
+    "id": 42,
+    "title": "The Good Place",
+    "rating": 8.2,
+    "genres": ["Comedy", "Drama", "Fantasy"],
+    "releaseDate": "2016-09-19",
+    "trailer": "https://www.youtube.com/watch?v=Bl3B3KxA1nk",
+    "image": "https://image.tmdb.org/t/p/w500/qi1hPbM0nWlyL0sYxNOK6EVWqYO.jpg"
+  },
+  {
+    "id": 43,
+    "title": "How I Met Your Mother",
+    "rating": 8.3,
+    "genres": ["Comedy", "Romance"],
+    "releaseDate": "2005-09-19",
+    "trailer": "https://www.youtube.com/watch?v=8lgG9Y0oJ5Y",
+    "image": "https://image.tmdb.org/t/p/w500/a6XedhX6X9QZjiYwXltoF7rH1vP.jpg"
+  },
+  {
+    "id": 44,
+    "title": "Deadwood",
+    "rating": 8.6,
+    "genres": ["Drama", "Western"],
+    "releaseDate": "2004-03-21",
+    "trailer": "https://www.youtube.com/watch?v=zPVZC1mnk9c",
+    "image": "https://image.tmdb.org/t/p/w500/4tpxUKJ6mrLz3UGTMOHTjLnE6A7.jpg"
+  },
+  {
+    "id": 45,
+    "title": "House of the Dragon",
+    "rating": 8.5,
+    "genres": ["Drama", "Fantasy"],
+    "releaseDate": "2022-08-21",
+    "trailer": "https://www.youtube.com/watch?v=pLpDIFs0sSE",
+    "image": "https://image.tmdb.org/t/p/w500/dWWzYkYEbD7MrD0yK3bZUBrIh11.jpg"
+  },
+  {
+    "id": 46,
+    "title": "Chernobyl",
+    "rating": 9.4,
+    "genres": ["Drama", "History", "Thriller"],
+    "releaseDate": "2019-05-06",
+    "trailer": "https://www.youtube.com/watch?v=s9APLXM9Ei8",
+    "image": "https://image.tmdb.org/t/p/w500/zfKh2kj1zB1Ce6fI3rb9a8TWuaV.jpg"
+  },
+  {
+    "id": 47,
+    "title": "Loki",
+    "rating": 8.1,
+    "genres": ["Action", "Adventure", "Sci-Fi"],
+    "releaseDate": "2021-06-09",
+    "trailer": "https://www.youtube.com/watch?v=OVhIy89T4vI",
+    "image": "https://image.tmdb.org/t/p/w500/u3C6m9bOBrzXeG3yV3vrYGVGm10.jpg"
+  },
+  {
+    "id": 48,
+    "title": "The Umbrella Academy",
+    "rating": 8.0,
+    "genres": ["Action", "Adventure", "Comedy"],
+    "releaseDate": "2019-02-15",
+    "trailer": "https://www.youtube.com/watch?v=3BrA3Mr2vBQ",
+    "image": "https://image.tmdb.org/t/p/w500/1fP0gl9JZq0V7YCC2QUM3v0GrPs.jpg"
+  },
+  {
+    "id": 49,
+    "title": "The Haunting of Hill House",
+    "rating": 8.6,
+    "genres": ["Drama", "Horror", "Mystery"],
+    "releaseDate": "2018-10-12",
+    "trailer": "https://www.youtube.com/watch?v=UjmTsdPdlPY",
+    "image": "https://image.tmdb.org/t/p/w500/iW8Xo66cxoTnjGlGhcy0TYD77qW.jpg"
+  },
+  {
+    "id": 50,
+    "title": "Stranger Things 4",
+    "rating": 9.0,
+    "genres": ["Drama", "Fantasy", "Horror"],
+    "releaseDate": "2022-05-27",
+    "trailer": "https://www.youtube.com/watch?v=b9EkMc79ZSU",
+    "image": "https://image.tmdb.org/t/p/w500/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg"
+  }
+]
