@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import MovieCard from "../components/MoviePages/MovieCard";
+import MovieCard from "../components/MoviePages/LiveCard";
 import GenreFilter from "../components/MoviePages/GenreFilter";
 import Pagination from "../components/MoviePages/Pagination";
 
@@ -156,4 +156,3 @@ const LiveShow = () => {
 };
 
 export default LiveShow;
-

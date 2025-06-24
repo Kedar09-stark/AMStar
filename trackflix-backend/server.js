@@ -67,7 +67,16 @@ app.get("/fullmoviesDetails/:id", (req, res) => {
     res.status(404).json({ error: "Movie not found" });
   }
 });
-
+app.get("/lived/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const movies = readJSON("lived.json");
+  const movie = movies.find((m) => m.id === id);
+  if (movie) {
+    res.json(movie);
+  } else {
+    res.status(404).json({ error: "Movie not found" });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

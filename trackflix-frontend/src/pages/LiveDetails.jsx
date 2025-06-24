@@ -17,11 +17,9 @@ import {
   FaArrowLeft,
   FaRedoAlt,
 } from "react-icons/fa";
-
-// Import animation variants from separate file
 import { containerVariants, itemVariants } from "../animations/MDanimation";
 
-const MovieDetails = () => {
+const LiveDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [similar, setSimilar] = useState([]);
@@ -36,18 +34,22 @@ const MovieDetails = () => {
       setError(null);
       setMovie(null);
 
-      if (!isValidId) {
-        throw new Error("Invalid movie ID");
-      }
+      if (!isValidId) throw new Error("Invalid movie ID");
 
-      const res = await fetch(`http://localhost:5000/fullmoviesDetails/${id}`);
-
+      const res = await fetch(`http://localhost:5000/lived/${id}`);
       if (!res.ok) {
         if (res.status === 404) throw new Error("Movie not found");
         else throw new Error("Failed to fetch movie");
       }
 
       const data = await res.json();
+
+      // Normalize awards
+      if (typeof data.awards === "string" && data.awards.trim() !== "") {
+        data.awardsText = data.awards;
+        data.awards = [];
+      }
+
       setMovie(data);
     } catch (err) {
       setError(err.message);
@@ -66,17 +68,17 @@ const MovieDetails = () => {
         setSimilar([]);
         return;
       }
+
       try {
         const responses = await Promise.all(
           movie.similarMovies.map(async (simId) => {
-            const res = await fetch(`http://localhost:5000/fullmoviesDetails/${simId}`);
+            const res = await fetch(`http://localhost:5000/lived/${simId}`);
             if (res.ok) return res.json();
-            else return null;
+            return null;
           })
         );
         setSimilar(responses.filter(Boolean));
-      } catch (err) {
-        console.error("Failed to fetch similar movies", err);
+      } catch {
         setSimilar([]);
       }
     };
@@ -87,15 +89,8 @@ const MovieDetails = () => {
   const youtubeId = movie?.trailer ? new URL(movie.trailer).searchParams.get("v") : null;
 
   if (loading) return <LoadingSkeleton />;
-
   if (error) return <ErrorFallback message={error} onRetry={fetchMovie} />;
-
-  if (!movie)
-    return (
-      <p className="text-center text-gray-400 mt-20 text-lg">
-        No movie data available.
-      </p>
-    );
+  if (!movie) return <p className="text-center text-gray-400 mt-20 text-lg">No movie data available.</p>;
 
   return (
     <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen p-6 md:p-12 text-gray-100 font-sans max-w-7xl mx-auto">
@@ -103,21 +98,16 @@ const MovieDetails = () => {
         to="/movies"
         className="inline-flex items-center gap-2 mb-10 mt-12 text-yellow-400 hover:text-yellow-300 font-semibold text-lg"
       >
-        <FaArrowLeft /> Back to movies
+        <FaArrowLeft /> Back to Tv Show
       </Link>
 
-      <motion.div
-        className="flex flex-col md:flex-row gap-12"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
-      >
+      <motion.div className="flex flex-col md:flex-row gap-12" initial="hidden" animate="visible" variants={containerVariants}>
         <motion.img
           src={movie.image}
           alt={`Poster of ${movie.title}`}
           className="w-full max-w-sm rounded-2xl shadow-2xl object-cover ring-1 ring-yellow-400"
           variants={itemVariants}
-          whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(251, 191, 36, 0.8)" }}
+          whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 250 }}
           loading="lazy"
         />
@@ -125,19 +115,13 @@ const MovieDetails = () => {
         <motion.div className="flex-1 flex flex-col justify-between" variants={itemVariants}>
           <article>
             <motion.h1
-              id="movie-title"
               className="text-5xl font-extrabold mb-6 tracking-tight text-yellow-400 drop-shadow-lg cursor-pointer"
-              whileHover={{
-                scale: 1.05,
-                textShadow: "0 0 15px rgba(255,255,0,0.9)",
-              }}
+              whileHover={{ scale: 1.05, textShadow: "0 0 15px rgba(255,255,0,0.9)" }}
             >
               {movie.title}
             </motion.h1>
 
-            <p className="text-lg text-gray-300 italic mb-8 leading-relaxed select-text">
-              {movie.overview}
-            </p>
+            <p className="text-lg text-gray-300 italic mb-8 leading-relaxed select-text">{movie.overview}</p>
 
             <motion.div
               className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-gray-400"
@@ -145,45 +129,26 @@ const MovieDetails = () => {
               animate="visible"
               variants={{
                 hidden: {},
-                visible: {
-                  transition: {
-                    staggerChildren: 0.12,
-                    delayChildren: 0.2,
-                    ease: "easeOut",
-                    duration: 0.6,
-                  },
-                },
+                visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2, ease: "easeOut", duration: 0.6 } },
               }}
             >
               <InfoItem icon={<FaStar />} label="Rating" value={movie.rating || "N/A"} />
               <InfoItem icon={<FaFilm />} label="Genres" value={movie.genres?.join(", ")} />
               <InfoItem icon={<FaCalendarAlt />} label="Release Date" value={movie.releaseDate} />
-              <InfoItem icon={<FaClock />} label="Runtime" value={`${movie.runtime} min`} />
+              <InfoItem icon={<FaClock />} label="Runtime" value={movie.runtime ? `${movie.runtime} min` : "N/A"} />
               <InfoItem icon={<FaLanguage />} label="Language" value={movie.language} />
               <InfoItem icon={<FaGlobeAmericas />} label="Country" value={movie.country} />
-              <InfoItem
-                icon={<FaMoneyBillWave />}
-                label="Budget"
-                value={movie.budget ? `$${movie.budget.toLocaleString()}` : "N/A"}
-              />
-              <InfoItem
-                icon={<FaMoneyBillWave />}
-                label="Box Office"
-                value={movie.boxOffice ? `$${movie.boxOffice.toLocaleString()}` : "N/A"}
-              />
+              <InfoItem icon={<FaMoneyBillWave />} label="Budget" value={movie.budget ? `$${movie.budget.toLocaleString()}` : "N/A"} />
+              <InfoItem icon={<FaMoneyBillWave />} label="Box Office" value={movie.boxOffice ? `$${movie.boxOffice.toLocaleString()}` : "N/A"} />
               <InfoItem icon={<FaUserTie />} label="Director" value={movie.director} />
               <InfoItem icon={<FaPenFancy />} label="Writers" value={movie.writers?.join(", ")} />
               <InfoItem icon={<FaUsers />} label="Cast" value={movie.cast?.join(", ")} />
-              <InfoItem
-                icon={<FaBuilding />}
-                label="Production"
-                value={movie.productionCompanies?.join(", ")}
-              />
+              <InfoItem icon={<FaBuilding />} label="Production" value={movie.productionCompanies?.join(", ")} />
               <InfoItem icon={<FaStar />} label="Age Rating" value={movie.ageRating || "N/A"} />
             </motion.div>
           </article>
 
-          {movie.awards?.length > 0 && (
+          {Array.isArray(movie.awards) && movie.awards.length > 0 && (
             <motion.section className="mt-14" variants={itemVariants}>
               <h2 className="text-3xl font-bold mb-5 text-yellow-400 flex items-center gap-3 drop-shadow-md">
                 <FaAward /> Awards
@@ -198,6 +163,15 @@ const MovieDetails = () => {
               </ul>
             </motion.section>
           )}
+
+          {movie.awardsText && (
+            <motion.section className="mt-14" variants={itemVariants}>
+              <h2 className="text-3xl font-bold mb-5 text-yellow-400 flex items-center gap-3 drop-shadow-md">
+                <FaAward /> Awards
+              </h2>
+              <p className="text-lg text-gray-300 italic">{movie.awardsText}</p>
+            </motion.section>
+          )}
         </motion.div>
       </motion.div>
 
@@ -208,9 +182,7 @@ const MovieDetails = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <h2 className="text-4xl font-extrabold mb-8 text-center text-yellow-400 drop-shadow-lg">
-            🎥 Trailer
-          </h2>
+          <h2 className="text-4xl font-extrabold mb-8 text-center text-yellow-400 drop-shadow-lg">🎥 Trailer</h2>
           <div className="aspect-video w-full bg-black">
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1`}
@@ -291,4 +263,4 @@ const ErrorFallback = ({ message, onRetry }) => (
   </div>
 );
 
-export default MovieDetails;
+export default LiveDetails;

@@ -10,13 +10,14 @@ import {
 import App from './App.jsx';
 import Home from './pages/Home';
 import Movies from './pages/Movies';
-import MovieDetails from './pages/MovieDetails'; // Movie details component
+import MovieDetails from './pages/MovieDetails'; 
 import Search from './pages/Search';
 import NotFound from './pages/NotFound';
 import LogIn from './components/LogIn';
 import SignIn from './components/SignIn';
 import LiveShow from './pages/LiveShow';
 import NewToMovies from './components/FooterExtra/NewToMovies';
+import LiveDetails from './pages/LiveDetails';
 
 // Admin and User pages
 import AdminPage from './pages/AdminPage';
@@ -42,13 +43,14 @@ const router = createBrowserRouter([
 
       // Updated route to plural "movies"
       { path: '/movies/:id', element: <MovieDetails /> },
+      { path: '/liveD/:id', element: <LiveDetails /> },
 
       { path: '/search', element: <Search /> },
       { path: '/login', element: <LogIn /> },
       { path: '/signin', element: <SignIn /> },
       { path: '/liveshow', element: <LiveShow /> },
       { path: '/new-to-movies', element: <NewToMovies /> },
-
+      
       // Recommendations
       { path: '/recommendations', element: <FTMoreRecommendations /> },
       { path: '/recommendations2', element: <MostPCMoreRecommendations /> },

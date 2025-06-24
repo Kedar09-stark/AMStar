@@ -67,7 +67,7 @@ const PopularInterests = ({ isLoggedIn }) => {
   }, [showTrailer]);
 
   return (
-    <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-cyan-400 px-6 py-12 min-h-screen">
+    <section className="bg-gradient-to-br from-black-900 to-gray-800 text-cyan-400 px-6 py-12 min-h-screen">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-10 text-center">

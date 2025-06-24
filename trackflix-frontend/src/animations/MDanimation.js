@@ -26,15 +26,3 @@ export const itemVariants = {
     },
   },
 };
-
-// New variant for rotating 360 degrees on click
-export const rotateVariant = {
-  initial: { rotate: 0 },
-  rotate360: {
-    rotate: 360,
-    transition: {
-      duration: 1,
-      ease: "easeInOut",
-    },
-  },
-};
