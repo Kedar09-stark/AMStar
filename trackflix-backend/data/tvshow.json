@@ -73,11 +73,11 @@
   },
   {
     "id": 9,
-    "title": "Westworld",
+    "title": "Westworld1",
     "rating": 8.6,
     "genres": ["Drama", "Mystery", "Sci-Fi"],
     "releaseDate": "2016-10-02",
-    "trailer": "https://www.youtube.com/watch?v=LVcN0JgYodI",
+    "trailer": "https://www.youtube.com/watch?v=9BqKiZhEFFw",
     "image": "https://m.media-amazon.com/images/M/MV5BMjM2MTA5NjIwNV5BMl5BanBnXkFtZTgwNjI2OTMxNTM%40._V1_FMjpg_UX1000_.jpg"
   },
   {
@@ -118,11 +118,11 @@
   },
   {
     "id": 14,
-    "title": "House of Cards",
+    "title": "House of Cards1",
     "rating": 8.7,
     "genres": ["Drama"],
     "releaseDate": "2013-02-01",
-    "trailer": "https://www.youtube.com/watch?v=ULwUzF1q5w4",
+    "trailer": "https://www.youtube.com/watch?v=yYipbPRKqzQ&list=RDyYipbPRKqzQ&start_radio=1",
     "image": "https://i.etsystatic.com/28509031/r/il/328289/4703606205/il_794xN.4703606205_sp5u.jpg"
   },
   {
@@ -145,11 +145,11 @@
   },
   {
     "id": 17,
-    "title": "Vikings",
+    "title": "Vikings1",
     "rating": 8.5,
     "genres": ["Action", "Adventure", "Drama"],
     "releaseDate": "2013-03-03",
-    "trailer": "https://www.youtube.com/watch?v=G8NG2p3fXYo",
+    "trailer": "https://www.youtube.com/watch?v=VnHXGSYqC9g",
     "image": "https://cdn11.bigcommerce.com/s-yzgoj/images/stencil/1280x1280/products/3221615/6207980/PYRPAS0599__31848.1709693514.jpg?c=2"
   },
   {
@@ -190,7 +190,7 @@
   },
   {
     "id": 22,
-    "title": "The Expanse",
+    "title": "The Expanse1",
     "rating": 8.5,
     "genres": ["Drama", "Mystery", "Sci-Fi"],
     "releaseDate": "2015-12-14",
@@ -275,7 +275,7 @@
     "rating": 8.5,
     "genres": ["Drama", "Mystery", "Sci-Fi"],
     "releaseDate": "2015-12-14",
-    "trailer": "https://youtu.be/M0QwBp_da28?si=NVrOjmERJ2-uFH6I",
+    "trailer": "https://www.youtube.com/watch?v=eyXGm8JCBrk",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8djpxDeWpINnGhjpFXQjnBe6zbx.jpg"
   },
   {
@@ -284,7 +284,7 @@
     "rating": 8.6,
     "genres": ["Crime", "Drama", "Thriller"],
     "releaseDate": "2017-10-13",
-    "trailer": "https://youtu.be/DHJO6VR6TYY?si=K5pCaIoRD6vH6HD0",
+    "trailer": "https://www.youtube.com/watch?v=DHJO6VR6TYY",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fbKE87mojpIETWepSbD5Qt741fp.jpg"
   },
   {
@@ -293,7 +293,7 @@
     "rating": 8.5,
     "genres": ["Action", "Adventure", "Drama"],
     "releaseDate": "2013-03-03",
-    "trailer": "https://youtu.be/9GgxinPwAGc?si=SMOvUAlrT8VP7JwW",
+    "trailer": "https://www.youtube.com/watch?v=Yi4YnwFT7Gk",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg"
   },
   {
@@ -329,7 +329,7 @@
     "rating": 8.7,
     "genres": ["Drama"],
     "releaseDate": "2013-02-01",
-    "trailer": "https://youtu.be/8QnMmpfKWvo?si=N8vnMUdhDQjlggD",
+    "trailer": "https://www.youtube.com/watch?v=x1E8PSGcyqI",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hKWxWjFwnMvkWQawbhvC0Y7ygQ8.jpg"
   },
   {
@@ -347,7 +347,7 @@
     "rating": 8.7,
     "genres": ["Comedy", "Drama"],
     "releaseDate": "2017-03-17",
-    "trailer": "https://youtu.be/fOmwkTrW4OQ?si=9faeeyHp9Le8HzrL",
+    "trailer": "https://www.youtube.com/watch?v=fOmwkTrW4OQ",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zS7fQiOZiKCVH2vlYSiIsFWW8hh.jpg"
   },
   {
@@ -365,7 +365,7 @@
     "rating": 9.0,
     "genres": ["Crime", "Drama", "Mystery"],
     "releaseDate": "2014-01-12",
-    "trailer": "https://youtu.be/fVQUcaO4AvE?si=g4youiWOMB2BDDJ8",
+    "trailer": "https://www.youtube.com/watch?v=fVQUcaO4AvE",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fAZpwffGhMQvk8SrrMnILcXtbQH.jpg"
   },
   {
@@ -374,7 +374,7 @@
     "rating": 8.7,
     "genres": ["Action", "Comedy", "Crime"],
     "releaseDate": "2019-07-26",
-    "trailer": "https://youtu.be/M1bhOaLV4FU?si=ZWDWyEgyKluWHfZp",
+    "trailer": "https://www.youtube.com/watch?v=M1bhOaLV4FU",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/2zmTngn1tYC1AvfnrFLhxeD82hz.jpg"
   },
   {
@@ -392,7 +392,7 @@
     "rating": 9.2,
     "genres": ["Animation", "Adventure", "Comedy"],
     "releaseDate": "2013-12-02",
-    "trailer": "https://youtu.be/BFTSrbB2wII?si=kwJ9Idcxq88IFGC9",
+    "trailer": "https://www.youtube.com/watch?v=5ymPE0W-0Ns",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/WGRQ8FpjkDTzivQJ43t94bOuY0.jpg"
   },
   {
@@ -428,7 +428,7 @@
     "rating": 8.6,
     "genres": ["Animation", "Comedy"],
     "releaseDate": "1989-12-17",
-    "trailer": "https://youtu.be/3R1ebDCv7vM?si=c-iPpdHJ2w0EcdLU",
+    "trailer": "https://www.youtube.com/watch?v=XPG0MqIcby8",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vHqeLzYl3dEAutojCO26g0LIkom.jpg"
   },
   {
@@ -437,7 +437,7 @@
     "rating": 8.7,
     "genres": ["Drama", "Mystery"],
     "releaseDate": "2004-11-16",
-    "trailer": "https://youtu.be/MczMB8nU1sY?si=PMwtcrB_QP7rBKWu",
+    "trailer": "https://www.youtube.com/watch?v=MczMB8nU1sY",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3Cz7ySOQJmqiuTdrc6CY0r65yDI.jpg"
   },
   {
@@ -473,7 +473,7 @@
     "rating": 8.5,
     "genres": ["Drama", "Fantasy"],
     "releaseDate": "2022-08-21",
-    "trailer": "https://youtu.be/DotnJ7tTA34?si=f2WxuEHXyjMJIOtZ",
+    "trailer": "https://www.youtube.com/watch?v=DotnJ7tTA34",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oxmdHR5Ka28HAJuMmS2hk5K6QQY.jpg"
   },
   {
@@ -518,7 +518,7 @@
     "rating": 8.7,
     "genres": ["Crime", "Drama"],
     "releaseDate": "2015-02-08",
-    "trailer": "https://youtu.be/HN4oydykJFc?si=iAFghm8vY5fHeNHW",
+    "trailer": "https://www.youtube.com/watch?v=HN4oydykJFc",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zjg4jpK1Wp2kiRvtt5ND0kznako.jpg"
   },
   {
@@ -527,7 +527,7 @@
     "rating": 8.8,
     "genres": ["Drama", "Fantasy", "Horror"],
     "releaseDate": "2019-07-04",
-    "trailer": "https://youtu.be/6Am4v0C_z8c?si=ZIQFpzmYy_5vOS9s",
+    "trailer": "https://www.youtube.com/watch?v=6Am4v0C_z8c",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oMkVNujGNmGmfNeHwxcUF6mncQJ.jpg"
   },
   {
@@ -599,7 +599,7 @@
     "rating": 8.7,
     "genres": ["Drama", "Mystery", "Fantasy"],
     "releaseDate": "2014-06-29",
-    "trailer": "https://youtu.be/FLT3YUALJno?si=FAZkDJHyG7LFESIV",
+    "trailer": "https://www.youtube.com/watch?v=FLT3YUALJno",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9IgLF8QCPfQ1fXnL7kfwgMBdJny.jpg"
   },
   {
@@ -617,7 +617,7 @@
     "rating": 8.7,
     "genres": ["Comedy"],
     "releaseDate": "2003-11-02",
-    "trailer": "https://youtu.be/vzVhPCMAxWQ?si=Y0LS_CbyxAKazV3H",
+    "trailer": "https://www.youtube.com/watch?v=3AszWG7TAqs",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/p4r4RD7RsNcJVoz0H6z3dBoTBtW.jpg"
   },
   {
@@ -626,7 +626,7 @@
     "rating": 8.9,
     "genres": ["Crime", "Drama", "Thriller"],
     "releaseDate": "2014-04-15",
-    "trailer": "https://youtu.be/xZCiyw1ZfB0?si=t_g9ZDsv6eNs4qMZ",
+    "trailer": "https://www.youtube.com/watch?v=setgvHG3w48",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6U9CPeD8obHzweikFhiLhpc7YBT.jpg"
   },
   {
@@ -635,7 +635,7 @@
     "rating": 9.0,
     "genres": ["Animation", "SCI-FI", "Comedy"],
     "releaseDate": "2019-11-10",
-    "trailer": "https://youtu.be/hl1U0bxTHbY?si=8mfbbFwd4iLBQxcP",
+    "trailer": "https://www.youtube.com/watch?v=hl1U0bxTHbY",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7iVwF5l0jkIkIOVSvHI6HM4gKU5.jpg"
   },
   {
@@ -644,7 +644,7 @@
     "rating": 8.6,
     "genres": ["Drama", "Mystery", "Sci-Fi"],
     "releaseDate": "2016-10-02",
-    "trailer": "https://youtu.be/9BqKiZhEFFw?si=p5Py4NMGOmp7WQAR",
+    "trailer": "https://www.youtube.com/watch?v=kEkZdgWu7mM",
     "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8MfgyFHf7XEboZJPZXCIDqqiz6e.jpg"
   }
 ]
