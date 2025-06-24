@@ -8,7 +8,7 @@
   "genres": ["Drama", "Sport"],
   "releaseDate": "2020-10-23",
   "trailer": "https://www.youtube.com/watch?v=CDrieqwSdgI",
-  "image": "https://image.tmdb.org/t/p/w500/7rwgEs15tFwyR9NPQ5vpzxTj19Q.jpg"
+  "image": "https://m.media-amazon.com/images/M/MV5BMmRlNjQxNWQtMjk1OS00N2QxLTk0YWQtMzRhYjY5YTFhNjMxXkEyXkFqcGc%40._V1_.jpg"
 },
 
   {
@@ -18,7 +18,7 @@
     "genres": ["Drama", "Fantasy", "Horror"],
     "releaseDate": "2016-07-15",
     "trailer": "https://www.youtube.com/watch?v=b9EkMc79ZSU",
-    "image": "https://picsum.photos/seed/46/500/300"
+    "image": "https://m.media-amazon.com/images/I/71boRt7iDhL._UF894%2C1000_QL80_.jpg"
   },
   {
     "id": 3,
@@ -36,7 +36,7 @@
     "genres": ["Drama", "History"],
     "releaseDate": "2016-11-04",
     "trailer": "https://www.youtube.com/watch?v=JWtnJjn6ng0",
-    "image": "https://image.tmdb.org/t/p/w500/ltqfddNrN41JLBzqr3PpNu2kCR1.jpg"
+    "image": "https://image.tmdb.org/t/p/original/1M876KPjulVwppEpldhdc8V4o68.jpg"
   },
   {
     "id": 5,
@@ -72,7 +72,7 @@
     "genres": ["Crime", "Drama", "Mystery"],
     "releaseDate": "2010-07-25",
     "trailer": "https://www.youtube.com/watch?v=xK7S9mrFWL4",
-    "image": "https://image.tmdb.org/t/p/w500/3WZTxpgscsmoUk81TuECXdFOD0t.jpg"
+    "image": "https://image.tmdb.org/t/p/w500/7WTsnHkbA0FaG6R9twfFde0I9hl.jpg"
   },
   {
     "id": 9,
@@ -81,7 +81,7 @@
     "genres": ["Drama", "Mystery", "Sci-Fi"],
     "releaseDate": "2016-10-02",
     "trailer": "https://www.youtube.com/watch?v=LVcN0JgYodI",
-    "image": "https://image.tmdb.org/t/p/w500/y45Ug1rT9IWIHjTll2Ml3aOw6dH.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMjM2MTA5NjIwNV5BMl5BanBnXkFtZTgwNjI2OTMxNTM%40._V1_FMjpg_UX1000_.jpg"
   },
   {
     "id": 10,
@@ -90,7 +90,7 @@
     "genres": ["Action", "Adventure", "Drama"],
     "releaseDate": "2019-12-20",
     "trailer": "https://www.youtube.com/watch?v=ndl1W4ltcmg",
-    "image": "https://image.tmdb.org/t/p/w500/zrPpUlehQaBf8YX2NrVrKK8IEpf.jpg"
+    "image": "https://blogarchive.goodillustration.com/wp-content/uploads/2022/04/640.jpg"
   },
   {
     "id": 11,
@@ -99,7 +99,7 @@
     "genres": ["Drama", "Sci-Fi", "Thriller"],
     "releaseDate": "2011-12-04",
     "trailer": "https://www.youtube.com/watch?v=jDiYGjp5iFg",
-    "image": "https://image.tmdb.org/t/p/w500/9nYxMVWjnPE52dLCNnvC9HxAjm0.jpg"
+    "image": "https://media.themoviedb.org/t/p/w500/ztdy1f1cAjwsO0GpVKzNuqZ0PMv.jpg"
   },
   {
     "id": 12,
@@ -108,7 +108,7 @@
     "genres": ["Crime", "Drama"],
     "releaseDate": "2015-02-08",
     "trailer": "https://www.youtube.com/watch?v=H0qk4gSAYJ0",
-    "image": "https://image.tmdb.org/t/p/w500/bLBQAwf3Zh33aVf2Xh1d7sqLGwJ.jpg"
+    "image": "http://www.impawards.com/tv/posters/better_call_saul_ver6_xxlg.jpg"
   },
   {
     "id": 13,
@@ -135,7 +135,7 @@
     "genres": ["Action", "Comedy", "Crime"],
     "releaseDate": "2019-07-26",
     "trailer": "https://www.youtube.com/watch?v=3H9H4gR2JhQ",
-    "image": "https://image.tmdb.org/t/p/w500/tuomPhY2UtuPTqqFnKMVHvSb724.jpg"
+    "image": "https://image.tmdb.org/t/p/w500/y95lQLnuNKdPAzw9F9Ab8kJ80c3.jpg"
   },
   {
     "id": 16,
@@ -171,7 +171,7 @@
     "genres": ["Adventure", "Drama", "Fantasy"],
     "releaseDate": "2004-09-22",
     "trailer": "https://www.youtube.com/watch?v=5xQZpS2iMh0",
-    "image": "https://image.tmdb.org/t/p/w500/4pUdtF1mmk91pNQ1OVNRrZ1Og6Y.jpg"
+    "image": "https://www.imdb.com/title/tt0411008/mediaviewer/rm897811970/"
   },
   {
     "id": 20,
@@ -180,7 +180,7 @@
     "genres": ["Crime", "Drama", "Mystery"],
     "releaseDate": "2006-10-01",
     "trailer": "https://www.youtube.com/watch?v=WA7tqYHnnQU",
-    "image": "https://image.tmdb.org/t/p/w500/6xKCYgH16UzM1bQ2xDdS6Tcgx0N.jpg"
+    "image": "http://www.impawards.com/tv/posters/dexter_ver8.jpg"
   },
   {
     "id": 21,
@@ -189,7 +189,7 @@
     "genres": ["Animation", "Comedy"],
     "releaseDate": "1989-12-17",
     "trailer": "https://www.youtube.com/watch?v=lrL1l87QRQc",
-    "image": "https://image.tmdb.org/t/p/w500/7zXj3PiTThjD9eDYjqEtoEkvp6W.jpg"
+    "image": "http://www.impawards.com/shorts/2021/posters/simpsons_in_plusaversary_xlg.jpg"
   },
   {
     "id": 22,
@@ -198,7 +198,7 @@
     "genres": ["Crime", "Drama", "Thriller"],
     "releaseDate": "2017-07-21",
     "trailer": "https://www.youtube.com/watch?v=2DjoRjWf9q4",
-    "image": "https://image.tmdb.org/t/p/w500/5nKIwldG6eX5Vu0Q1pEd3zXtEY7.jpg"
+    "image": "http://www.impawards.com/tv/posters/ozark.jpg"
   },
   {
     "id": 23,
@@ -207,7 +207,7 @@
     "genres": ["Drama"],
     "releaseDate": "2013-02-01",
     "trailer": "https://www.youtube.com/watch?v=ULwUzF1q5w4",
-    "image": "https://image.tmdb.org/t/p/w500/3aMKgTwHgRiC5oi7NSpZxEg7NgF.jpg"
+    "image": "https://i.etsystatic.com/28509031/r/il/328289/4703606205/il_794xN.4703606205_sp5u.jpg"
   },
   {
     "id": 24,
@@ -225,7 +225,7 @@
     "genres": ["Drama", "Sci-Fi", "Thriller"],
     "releaseDate": "2017-04-26",
     "trailer": "https://www.youtube.com/watch?v=4zIEQ1i2HeM",
-    "image": "https://image.tmdb.org/t/p/w500/lTqcckfSN1Vx1QEdl8RXdIX8kSN.jpg"
+    "image": "https://m.media-amazon.com/images/I/61pnkMeoWeL._SL1500_.jpg"
   },
   {
     "id": 26,
@@ -234,7 +234,7 @@
     "genres": ["Crime", "Drama", "Mystery"],
     "releaseDate": "2014-01-12",
     "trailer": "https://www.youtube.com/watch?v=U_r2N-Av3yQ",
-    "image": "https://image.tmdb.org/t/p/w500/3GJ8s94k91BpMNNid50ywZhB9IU.jpg"
+    "image": "http://www.impawards.com/tv/posters/true_detective.jpg"
   },
   {
     "id": 27,
@@ -243,7 +243,7 @@
     "genres": ["Action", "Adventure", "Drama"],
     "releaseDate": "2013-03-03",
     "trailer": "https://www.youtube.com/watch?v=G8NG2p3fXYo",
-    "image": "https://image.tmdb.org/t/p/w500/qzA87WfneIEP0p5golc6ZbyE2kG.jpg"
+    "image": "https://cdn11.bigcommerce.com/s-yzgoj/images/stencil/1280x1280/products/3221615/6207980/PYRPAS0599__31848.1709693514.jpg?c=2"
   },
   {
     "id": 28,
@@ -270,7 +270,7 @@
     "genres": ["Drama", "Mystery"],
     "releaseDate": "2004-11-16",
     "trailer": "https://www.youtube.com/watch?v=MaM8t2zYuVg",
-    "image": "https://image.tmdb.org/t/p/w500/fknls2j2VvdIw6oCv9TghLmT8bT.jpg"
+    "image": "https://cdn.displate.com/artwork/230x320/2025-05-15/9bcffb55-df80-48c7-a80c-6ce2998f353f.jpg"
   },
   {
     "id": 31,
@@ -279,7 +279,7 @@
     "genres": ["Comedy", "Romance"],
     "releaseDate": "2007-09-24",
     "trailer": "https://www.youtube.com/watch?v=lab9vUUwpYQ",
-    "image": "https://image.tmdb.org/t/p/w500/pG5RrNRmIpeLz8hxq3AbJ2n2bwz.jpg"
+    "image": "https://m.media-amazon.com/images/I/81vrF68scGL._AC_UL320_.jpg"
   },
   {
     "id": 32,
@@ -288,7 +288,7 @@
     "genres": ["Crime", "Drama", "Mystery"],
     "releaseDate": "2017-12-01",
     "trailer": "https://www.youtube.com/watch?v=rrwycJ08PSA",
-    "image": "https://image.tmdb.org/t/p/w500/Ap8QYLYGzzlfqqnhyJTA0h0yuf3.jpg"
+    "image": "https://m.media-amazon.com/images/I/818UnpKZadL._AC_UY218_.jpg"
   },
   {
     "id": 33,
@@ -305,7 +305,7 @@
     "rating": 7.7,
     "genres": ["Comedy", "Drama"],
     "releaseDate": "2016-09-08",
-    "trailer": "",
+    "trailer": "https://m.media-amazon.com/images/I/91yipqwLQ3L._AC_UY218_.jpg",
     "image": "https://picsum.photos/seed/34/500/300"
   },
   {
@@ -315,7 +315,7 @@
     "genres": ["Drama", "Mystery", "Sci-Fi"],
     "releaseDate": "2015-12-14",
     "trailer": "https://www.youtube.com/watch?v=0mfIK8zxUds",
-    "image": "https://image.tmdb.org/t/p/w500/zzXRRrztx6VLy1FOmV6ePt5Rryi.jpg"
+    "image": "https://m.media-amazon.com/images/I/715Umbc3LyL._AC_UY218_.jpg"
   },
   {
     "id": 36,
@@ -324,7 +324,7 @@
     "genres": ["Crime", "Drama", "Thriller"],
     "releaseDate": "2014-04-15",
     "trailer": "https://www.youtube.com/watch?v=H9tEvfIsDyo",
-    "image": "https://image.tmdb.org/t/p/w500/kE6Fnf47BT6azWn8KDgG7SPmYbf.jpg"
+    "image": "http://www.impawards.com/tv/posters/fargo.jpg"
   },
   {
     "id": 37,
@@ -333,7 +333,7 @@
     "genres": ["Action", "Adventure", "Fantasy"],
     "releaseDate": "2022-12-25",
     "trailer": "https://www.youtube.com/watch?v=HwsKw1PB0eo",
-    "image": "https://image.tmdb.org/t/p/w500/9m7h8R5slJK8dOIjfFpAYX2DzrS.jpg"
+    "image": "http://www.impawards.com/tv/posters/witcher_blood_origin.jpg"
   },
   {
     "id": 38,
@@ -342,7 +342,7 @@
     "genres": ["Comedy", "Crime"],
     "releaseDate": "2013-09-17",
     "trailer": "https://www.youtube.com/watch?v=Ju8l4sjUbuY",
-    "image": "https://image.tmdb.org/t/p/w500/oNiHPmDjFJYlBZWvYj3GIv5dLWj.jpg"
+    "image": "http://www.impawards.com/tv/posters/brooklyn_nine_nine.jpg"
   },
   {
     "id": 39,
@@ -350,8 +350,8 @@
     "rating": 9.0,
     "genres": ["Drama", "Fantasy", "Horror"],
     "releaseDate": "1959-10-02",
-    "trailer": "",
-    "image": "https://picsum.photos/seed/39/500/300"
+    "trailer": "https://www.youtube.com/watch?v=29_gA_GDGvE",
+    "image": "http://www.impawards.com/tv/thumbs/imp_twilight_zone_new_ver17.jpg"
   },
   {
     "id": 40,
@@ -360,7 +360,7 @@
     "genres": ["Comedy", "Drama"],
     "releaseDate": "2017-03-17",
     "trailer": "https://www.youtube.com/watch?v=0JlghFhPfWs",
-    "image": "https://image.tmdb.org/t/p/w500/17h6HAYxwRf2hpQkGQTL7x8Jz0G.jpg"
+    "image": "http://www.impawards.com/tv/marvelous_mrs_maisel.html"
   },
   {
     "id": 41,
@@ -369,7 +369,7 @@
     "genres": ["Crime", "Drama", "Thriller"],
     "releaseDate": "2015-06-24",
     "trailer": "https://www.youtube.com/watch?v=xIBiJ_SzJTA",
-    "image": "https://image.tmdb.org/t/p/w500/fdXoGpMJYV5VxB2MQU7hgtA69ly.jpg"
+    "image": "http://www.impawards.com/tv/posters/mr_robot.jpg"
   },
   {
     "id": 42,
@@ -378,7 +378,7 @@
     "genres": ["Comedy", "Drama", "Fantasy"],
     "releaseDate": "2016-09-19",
     "trailer": "https://www.youtube.com/watch?v=Bl3B3KxA1nk",
-    "image": "https://image.tmdb.org/t/p/w500/qi1hPbM0nWlyL0sYxNOK6EVWqYO.jpg"
+    "image": "http://www.impawards.com/tv/posters/good_place.jpg"
   },
   {
     "id": 43,
@@ -387,7 +387,7 @@
     "genres": ["Comedy", "Romance"],
     "releaseDate": "2005-09-19",
     "trailer": "https://www.youtube.com/watch?v=8lgG9Y0oJ5Y",
-    "image": "https://image.tmdb.org/t/p/w500/a6XedhX6X9QZjiYwXltoF7rH1vP.jpg"
+    "image": "http://www.impawards.com/tv/posters/how_i_met_your_mother.jpg"
   },
   {
     "id": 44,
@@ -396,7 +396,7 @@
     "genres": ["Drama", "Western"],
     "releaseDate": "2004-03-21",
     "trailer": "https://www.youtube.com/watch?v=zPVZC1mnk9c",
-    "image": "https://image.tmdb.org/t/p/w500/4tpxUKJ6mrLz3UGTMOHTjLnE6A7.jpg"
+    "image": "http://www.impawards.com/tv/posters/deadwood_ver2.jpg"
   },
   {
     "id": 45,
@@ -405,7 +405,7 @@
     "genres": ["Drama", "Fantasy"],
     "releaseDate": "2022-08-21",
     "trailer": "https://www.youtube.com/watch?v=pLpDIFs0sSE",
-    "image": "https://image.tmdb.org/t/p/w500/dWWzYkYEbD7MrD0yK3bZUBrIh11.jpg"
+    "image": "http://www.impawards.com/tv/posters/house_of_the_dragon.jpg"
   },
   {
     "id": 46,
@@ -414,7 +414,7 @@
     "genres": ["Drama", "History", "Thriller"],
     "releaseDate": "2019-05-06",
     "trailer": "https://www.youtube.com/watch?v=s9APLXM9Ei8",
-    "image": "https://image.tmdb.org/t/p/w500/zfKh2kj1zB1Ce6fI3rb9a8TWuaV.jpg"
+    "image": "http://www.impawards.com/tv/posters/chernobyl.jpg"
   },
   {
     "id": 47,
@@ -423,7 +423,7 @@
     "genres": ["Action", "Adventure", "Sci-Fi"],
     "releaseDate": "2021-06-09",
     "trailer": "https://www.youtube.com/watch?v=OVhIy89T4vI",
-    "image": "https://image.tmdb.org/t/p/w500/u3C6m9bOBrzXeG3yV3vrYGVGm10.jpg"
+    "image": "http://www.impawards.com/intl/france/2022/posters/tori_et_lokita_ver3.jpg"
   },
   {
     "id": 48,
@@ -432,7 +432,7 @@
     "genres": ["Action", "Adventure", "Comedy"],
     "releaseDate": "2019-02-15",
     "trailer": "https://www.youtube.com/watch?v=3BrA3Mr2vBQ",
-    "image": "https://image.tmdb.org/t/p/w500/1fP0gl9JZq0V7YCC2QUM3v0GrPs.jpg"
+    "image": "http://www.impawards.com/tv/posters/umbrella_academy.jpg"
   },
   {
     "id": 49,
@@ -441,7 +441,7 @@
     "genres": ["Drama", "Horror", "Mystery"],
     "releaseDate": "2018-10-12",
     "trailer": "https://www.youtube.com/watch?v=UjmTsdPdlPY",
-    "image": "https://image.tmdb.org/t/p/w500/iW8Xo66cxoTnjGlGhcy0TYD77qW.jpg"
+    "image": "http://www.impawards.com/tv/posters/haunting_of_hill_house.jpg"
   },
   {
     "id": 50,
