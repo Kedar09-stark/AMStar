@@ -17,8 +17,6 @@
     "trailer": "https://youtube.com/watch?v=zAGVQLHvwOY",
     "image": "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
   },
-
-
   {
     "id": 3,
     "title": "Inception",
@@ -26,7 +24,7 @@
     "genres": ["Action", "Sci-Fi", "Thriller"],
     "releaseDate": "2010-07-16",
     "trailer": "https://youtube.com/watch?v=8hP9D6kZseM",
-    "image": "https://m.media-amazon.com/images/I/81p+xe8cbnL._SY300_.jpg"
+    "image": "https://m.media-amazon.com/images/I/81p+xe8cbnL.SY300.jpg"
   },
   {
     "id": 4,
@@ -143,7 +141,7 @@
     "genres": ["Adventure", "Fantasy"],
     "releaseDate": "2001-12-19",
     "trailer": "https://youtube.com/watch?v=V75dMMIW2B4",
-    "image": "https://m.media-amazon.com/images/I/41KBujRKB6L._SY445_SX342_.jpg"
+    "image": "https://m.media-amazon.com/images/I/41KBujRKB6L.SY445_SX342.jpg"
   },
   {
     "id": 17,
@@ -161,7 +159,7 @@
     "genres": ["Adventure", "Fantasy"],
     "releaseDate": "2003-12-17",
     "trailer": "https://youtube.com/watch?v=r5X-hFf6Bwo",
-    "image": "https://m.media-amazon.com/images/I/41KBujRKB6L._SY445_SX342_.jpg"
+    "image": "https://m.media-amazon.com/images/I/41KBujRKB6L.SY445_SX342.jpg"
   },
   {
     "id": 19,
@@ -197,7 +195,7 @@
     "genres": ["Action", "Sci-Fi"],
     "releaseDate": "1991-07-03",
     "trailer": "https://youtube.com/watch?v=CRRlbK5w8AE",
-    "image": "https://image.tmdb.org/t/p/w500/9TFP6pM7DkgTnL8dYIC3fgwHdgH.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.V1.jpg"
   },
   {
     "id": 23,
@@ -224,7 +222,7 @@
     "genres": ["Action", "Adventure", "Sci-Fi"],
     "releaseDate": "1993-06-11",
     "trailer": "https://youtube.com/watch?v=lc0UehYemQA",
-    "image": "https://image.tmdb.org/t/p/w500/c414cDeQ9b6qLPLeKmiJuLDUREJ.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 26,
@@ -242,7 +240,7 @@
     "genres": ["Drama", "War"],
     "releaseDate": "1998-07-24",
     "trailer": "https://youtube.com/watch?v=zwhP5b4tD6g",
-    "image": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@.V1.jpg"
   },
   {
     "id": 28,
@@ -260,7 +258,7 @@
     "genres": ["Drama", "Mystery", "Sci-Fi"],
     "releaseDate": "2006-10-20",
     "trailer": "https://youtube.com/watch?v=o4gHCmTQDVI",
-    "image": "https://image.tmdb.org/t/p/w500/5MXyQfz8xUP3dIFPTubhTsbFY6N.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 30,
@@ -269,7 +267,7 @@
     "genres": ["Drama", "Music"],
     "releaseDate": "2014-10-10",
     "trailer": "https://youtube.com/watch?v=7d_jQycdQGo",
-    "image": "https://image.tmdb.org/t/p/w500/qG3RYlIVpTYclR9XxMZH3QK5UzS.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BOTA5NDZlZGUtMjAxOS00YTRkLTkwYmMtYWQ0NWEwZDZiNjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 31,
@@ -278,7 +276,7 @@
     "genres": ["Action", "Adventure", "Sci-Fi"],
     "releaseDate": "2015-05-15",
     "trailer": "https://youtube.com/watch?v=hEJnMQG9ev8",
-    "image": "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BN2EwM2I5OWMtMGQyMi00Zjg1LWJkNTctZTdjYTA4OGUwZjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 32,
@@ -287,7 +285,7 @@
     "genres": ["Crime", "Drama", "Thriller"],
     "releaseDate": "2006-10-06",
     "trailer": "https://youtube.com/watch?v=iojhqm0JTW4",
-    "image": "https://image.tmdb.org/t/p/w500/hF5q1qANh6pHLLYl8nPU3wMvBhJ.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 33,
@@ -296,7 +294,7 @@
     "genres": ["Horror", "Sci-Fi"],
     "releaseDate": "1979-05-25",
     "trailer": "https://youtube.com/watch?v=LjLamj-b0I8",
-    "image": "https://image.tmdb.org/t/p/w500/evknn98oh4JmVTtrkTBFAZuvOBJ.jpg"
+    "image": "https://lumiere-a.akamaihd.net/v1/images/aiien35_584x800_ka_0a39ad0b.jpeg?region=0%2C0%2C584%2C800.jpg"
   },
   {
     "id": 34,
@@ -305,7 +303,7 @@
     "genres": ["Adventure", "Comedy", "Sci-Fi"],
     "releaseDate": "1985-07-03",
     "trailer": "https://youtube.com/watch?v=qvsgGtivCgs",
-    "image": "https://image.tmdb.org/t/p/w500/pTpxQB1N0waaSc3OSn0e9oc8kx9.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 35,
@@ -323,8 +321,7 @@
     "genres": ["Crime", "Drama", "Fantasy"],
     "releaseDate": "1999-12-10",
     "trailer": "https://youtube.com/watch?v=KTw058gMDKY",
-    "image": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_FMjpg_UX1000_.jpg"
-
+    "image": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 37,
@@ -333,7 +330,7 @@
     "genres": ["Biography", "Drama"],
     "releaseDate": "2001-12-21",
     "trailer": "https://youtube.com/watch?v=WFJdcbE8M_4",
-    "image": "https://image.tmdb.org/t/p/w500/hx1rXh0m7za7xH2EbLa1JJYti3v.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMzcwYWFkYzktZjAzNC00OGY1LWI4YTgtNzc5MzVjMDVmNjY0XkEyXkFqcGdeQXVyMTQxNzMzNDI@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 38,
@@ -342,7 +339,7 @@
     "genres": ["Drama", "Western"],
     "releaseDate": "2012-12-25",
     "trailer": "https://youtube.com/watch?v=eUdM9vrCbow",
-    "image": "https://image.tmdb.org/t/p/w500/0fUjp4yu7I95FTgO8WF2DXmJfT9.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 39,
@@ -351,7 +348,7 @@
     "genres": ["Biography", "Comedy", "Crime"],
     "releaseDate": "2013-12-25",
     "trailer": "https://youtube.com/watch?v=iszwuX1AK6A",
-    "image": "https://image.tmdb.org/t/p/w500/pWHf4khOloNVfCxscsXFj3jj6mP.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 40,
@@ -396,7 +393,7 @@
     "genres": ["Action", "Drama", "Sci-Fi"],
     "releaseDate": "2017-03-03",
     "trailer": "https://youtube.com/watch?v=Div0iP65aZo",
-    "image": "https://image.tmdb.org/t/p/w500/7ryNGekLTEPOlNduK1i8ia6ARYa.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BYzc5MTU4N2EtYTkyMi00NjdhLTg3NWEtMTY4OTEyMzJhZTAzXkEyXkFqcGdeQXVyNjc1NTYyMjg@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 45,
@@ -405,7 +402,7 @@
     "genres": ["Action", "Adventure", "Sci-Fi"],
     "releaseDate": "2018-02-16",
     "trailer": "https://youtube.com/watch?v=dxWvtMOGAhw",
-    "image": "https://image.tmdb.org/t/p/w500/jHWlxl2FnEs8haRSIR5u0dHvYJ0.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 46,
@@ -432,7 +429,7 @@
     "genres": ["Animation", "Adventure", "Family"],
     "releaseDate": "2017-11-22",
     "trailer": "https://youtube.com/watch?v=Rvr68u6k5sI",
-    "image": "https://image.tmdb.org/t/p/w500/gGjuHGIUGHKLfNf5t8NZN99MaUA.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BYjQ5NjM0Y2YtNjZkNC00ZDhkLWJjMWItN2QyNzFkMDE3ZjAxXkEyXkFqcGdeQXVyODIxMzk5NjA@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 49,
@@ -441,7 +438,7 @@
     "genres": ["Animation", "Adventure", "Comedy"],
     "releaseDate": "2003-05-30",
     "trailer": "https://youtube.com/watch?v=wZdpNglLbt8",
-    "image": "https://image.tmdb.org/t/p/w500/eSaiyBvh5F4ht7WdBojjIW4Aoxf.jpg"
+    "image": "https://resizing.flixster.com/MDACZCFqGbbEZKIundel0l1_QU8=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p31890_p_v10_bb.jpg"
   },
   {
     "id": 50,
@@ -450,7 +447,7 @@
     "genres": ["Animation", "Adventure", "Comedy"],
     "releaseDate": "2009-05-29",
     "trailer": "https://youtube.com/watch?v=pkqzFUhGPJg",
-    "image": "https://image.tmdb.org/t/p/w500/iQNwlmviT7baQplicDWEFLD5CEa.jpg"
+    "image": "https://static.wikia.nocookie.net/international-entertainment-project/images/0/0c/Up_-_poster.jpg/revision/latest?cb=20231112231307.jpg"
   },
   {
     "id": 51,
@@ -459,7 +456,7 @@
     "genres": ["Animation", "Adventure", "Comedy"],
     "releaseDate": "2015-06-19",
     "trailer": "https://youtube.com/watch?v=yRUAzGQ3nSY",
-    "image": "https://image.tmdb.org/t/p/w500/aAmfIX3TT40zUHGcck6tILGtZRK.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 52,
@@ -468,7 +465,7 @@
     "genres": ["Animation", "Action", "Adventure"],
     "releaseDate": "2004-11-05",
     "trailer": "https://youtube.com/watch?v=eZbzbC9285I",
-    "image": "https://image.tmdb.org/t/p/w500/7relptM7cQhutaYk44XKm5vsK.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 53,
@@ -477,7 +474,7 @@
     "genres": ["Action", "Comedy"],
     "releaseDate": "2016-02-12",
     "trailer": "https://youtube.com/watch?v=ZIM1HydF9UA",
-    "image": "https://image.tmdb.org/t/p/w500/fSRb7vyIP8rQpL0I47P31w9S7ac.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BYzE5MjY1ZDgtMTkyNC00MTMyLThhMjAtZGI5OTE1NzFlZGJjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 54,
@@ -495,7 +492,7 @@
     "genres": ["Action", "Adventure", "Fantasy"],
     "releaseDate": "2017-06-02",
     "trailer": "https://youtube.com/watch?v=VSB4wGIdDwo",
-    "image": "https://image.tmdb.org/t/p/w500/ylXCdC106IKiarftHkcacasaAcb.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMTYzODQzYjQtNTczNC00MzZhLTg1ZWYtZDUxYmQ3ZTY4NzA1XkEyXkFqcGdeQXVyODE5NzE3OTE@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 56,
@@ -504,7 +501,7 @@
     "genres": ["Animation", "Adventure", "Fantasy"],
     "releaseDate": "1997-07-12",
     "trailer": "https://youtube.com/watch?v=4OiMOHRDs14",
-    "image": "https://image.tmdb.org/t/p/w500/ym1dxyOk4jFcSl4Q2zmRrA5BEQ2.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMTVlNWM4NTAtNDQxYi00YWU5LWIwM2MtZmVjYWFmODZiODE5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 57,
@@ -531,7 +528,7 @@
     "genres": ["Action", "Adventure", "Drama"],
     "releaseDate": "2015-12-25",
     "trailer": "https://youtube.com/watch?v=LoebZZ8K5N0",
-    "image": "https://image.tmdb.org/t/p/w500/oXUWEc5i3wYyFnL1Ycu8ppxxPvs.jpg"
+    "image": "https://www.imdb.com/title/tt1663202/mediaviewer/rm1354918144/?ref_=tt_ov_i.jpg"
   },
   {
     "id": 60,
@@ -550,9 +547,7 @@
     "releaseDate": "2015-05-15",
     "trailer": "https://youtube.com/watch?v=hEJnMQG9ev8",
     "image": "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg"
-  },  
-
-
+  },
   {
     "id": 63,
     "title": "Toy Story 4",
@@ -560,9 +555,8 @@
     "genres": ["Animation", "Comedy", "Family"],
     "releaseDate": "2019-06-21",
     "trailer": "https://youtube.com/watch?v=wmiIUN-7qhE",
-    "image": "https://image.tmdb.org/t/p/w500/wnrzcoepOAj8P1piLrnPGgRps0n.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMTYzMDM4NzkxOV5BMl5BanBnXkFtZTgwNzM1Mzg2NzM@.V1_FMjpg_UX1000.jpg"
   },
-
   {
     "id": 64,
     "title": "Parasite",
@@ -626,8 +620,6 @@
     "trailer": "https://youtube.com/watch?v=ELeMaP8EPAA",
     "image": "https://image.tmdb.org/t/p/w500/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg"
   },
-
-  
   {
     "id": 71,
     "title": "Dangal",
@@ -635,7 +627,7 @@
     "genres": ["Biography", "Drama", "Sport"],
     "releaseDate": "2016-12-23",
     "trailer": "https://youtube.com/watch?v=x_7YlGv9u1g",
-    "image": "https://image.tmdb.org/t/p/w500/ykW9jtsUtnA0UyoFq2gT1fQj8UZ.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMTQ4MzQzMzM2Nl5BMl5BanBnXkFtZTgwMTQ1NzU3MDI@.V1_FMjpg_UX1000.jpg"
   },
   {
     "id": 72,
@@ -644,16 +636,16 @@
     "genres": ["Action", "Thriller"],
     "releaseDate": "2023-09-07",
     "trailer": "https://youtube.com/watch?v=XYZ_jawan_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/jawan_poster.jpg"
+    "image": "https://stat4.bollywoodhungama.in/wp-content/uploads/2021/07/Jawan-1-306x393.jpeg"
   },
   {
-    "id":73,
+    "id": 73,
     "title": "Pathaan",
     "rating": 6.8,
     "genres": ["Action", "Thriller"],
     "releaseDate": "2023-01-25",
     "trailer": "https://youtube.com/watch?v=aRGBYWS5v8w",
-    "image": "https://image.tmdb.org/t/p/w500/pathaan.jpg"
+    "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2023/01/25/5afd71e62fdefd33fdcad12dda4098a31674617290981272_original.jpg"
   },
   {
     "id": 74,
@@ -662,7 +654,7 @@
     "genres": ["Action", "Drama"],
     "releaseDate": "2023-12-01",
     "trailer": "https://youtube.com/watch?v=animal_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/animal.jpg"
+    "image": "https://www.thecelebrays.com/wp-content/uploads/2024/04/animal-film-has-achieved-significant-rs-600-crore-landmark-1.jpg"
   },
   {
     "id": 75,
@@ -671,16 +663,16 @@
     "genres": ["Adventure", "Drama", "Family"],
     "releaseDate": "2015-07-17",
     "trailer": "https://youtube.com/watch?v=vyXQ2a4I_cg",
-    "image": "https://image.tmdb.org/t/p/w500/bajrangi.jpg"
+    "image": "https://static.toiimg.com/thumb/msid-48098885,imgsize-230910,width-400,resizemode-4/48098885.jpg"
   },
   {
-    "id":76,
+    "id": 76,
     "title": "Secret Superstar",
     "rating": 7.2,
     "genres": ["Drama", "Music"],
     "releaseDate": "2017-10-19",
     "trailer": "https://youtube.com/watch?v=secret_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/secret_superstar.jpg"
+    "image": "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2018/01/secret-superstar-review-sto-647-101817010819-1516277316.jpg"
   },
   {
     "id": 77,
@@ -689,7 +681,7 @@
     "genres": ["Comedy", "Drama", "Sci-Fi"],
     "releaseDate": "2014-12-19",
     "trailer": "https://youtube.com/watch?v=secret_ack",
-    "image": "https://image.tmdb.org/t/p/w500/pk.jpg"
+    "image": "https://www.hollywoodreporter.com/wp-content/uploads/2015/05/pk_poster_chinese.jpg"
   },
   {
     "id": 78,
@@ -698,7 +690,7 @@
     "genres": ["Biography", "Drama"],
     "releaseDate": "2018-06-29",
     "trailer": "https://youtube.com/watch?v=sanju_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/sanju.jpg"
+    "image": "https://images.indianexpress.com/2018/05/ranbir-kapoor-sanju-6.jpg"
   },
   {
     "id": 79,
@@ -707,7 +699,7 @@
     "genres": ["Drama", "History", "Romance"],
     "releaseDate": "2018-01-25",
     "trailer": "https://youtube.com/watch?v=padmaavat_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/padmaavat.jpg"
+    "image": "https://www.theshowbizshine.com/wp-content/uploads/2024/04/maxresdefault-1-1.jpg"
   },
   {
     "id": 80,
@@ -716,7 +708,7 @@
     "genres": ["Action", "Thriller"],
     "releaseDate": "2019-10-02",
     "trailer": "https://youtube.com/watch?v=war_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/war.jpg"
+    "image": "https://specials-images.forbesimg.com/imageserve/5d97a69a67dd830006a2ba5c/-War-/960x0.jpg"
   },
   {
     "id": 81,
@@ -725,7 +717,7 @@
     "genres": ["Action", "Comedy", "Romance"],
     "releaseDate": "2013-08-09",
     "trailer": "https://youtube.com/watch?v=chennaiexpress",
-    "image": "https://image.tmdb.org/t/p/w500/chennaiexpress.jpg"
+    "image": "https://static.toiimg.com/thumb/imgsize-145282,msid-39611457,width-600,height-335,resizemode-75/39611457.jpg"
   },
   {
     "id": 82,
@@ -743,7 +735,7 @@
     "genres": ["Action", "Comedy", "Drama"],
     "releaseDate": "2018-12-28",
     "trailer": "https://youtube.com/watch?v=simmba",
-    "image": "https://image.tmdb.org/t/p/w500/simmba.jpg"
+    "image": "https://bsmedia.business-standard.com/_media/bs/img/article/2018-12/27/full/1545908563-1299.jpg"
   },
   {
     "id": 84,
@@ -752,7 +744,7 @@
     "genres": ["Horror", "Comedy"],
     "releaseDate": "2022-05-20",
     "trailer": "https://youtube.com/watch?v=bhoolbhulaiyaa2",
-    "image": "https://image.tmdb.org/t/p/w500/bh2.jpg"
+    "image": "https://images.cnbctv18.com/wp-content/uploads/2022/05/Bhool-Bhulaiyaa-2.jpg"
   },
   {
     "id": 85,
@@ -761,16 +753,16 @@
     "genres": ["Crime", "Drama", "Thriller"],
     "releaseDate": "2022-11-18",
     "trailer": "https://youtube.com/watch?v=drishyam2",
-    "image": "https://image.tmdb.org/t/p/w500/drishyam2.jpg"
+    "image": "https://www.koimoi.com/wp-content/new-galleries/2023/01/box-office-drishyam-2-continues-its-winning-run-tuesday-updates-001.jpg"
   },
   {
-    "id": 86,
+    "id":86,
     "title": "Uri: The Surgical Strike",
     "rating": 8.1,
     "genres": ["Action", "Drama", "War"],
     "releaseDate": "2019-01-11",
     "trailer": "https://youtube.com/watch?v=uri_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/uri.jpg"
+    "image": "https://static.toiimg.com/thumb/msid-67739945,imgsize-213091,width-400,resizemode-4/67739945.jpg"
   },
   {
     "id": 87,
@@ -779,7 +771,7 @@
     "genres": ["Action", "Drama", "History"],
     "releaseDate": "2020-01-10",
     "trailer": "https://youtube.com/watch?v=tanhaji",
-    "image": "https://image.tmdb.org/t/p/w500/tanhaji.jpg"
+    "image": "https://images.indianexpress.com/2019/11/Tanhaji-003.jpg"
   },
   {
     "id": 88,
@@ -788,7 +780,7 @@
     "genres": ["Drama", "Romance"],
     "releaseDate": "2019-06-21",
     "trailer": "https://youtube.com/watch?v=kabirsingh",
-    "image": "https://image.tmdb.org/t/p/w500/kabirsingh.jpg"
+    "image": "https://static.toiimg.com/thumb/imgsize-23456,msid-94570250,width-600,resizemode-4/94570250.jpg"
   },
   {
     "id": 89,
@@ -797,7 +789,7 @@
     "genres": ["Action", "Fantasy"],
     "releaseDate": "2023-06-16",
     "trailer": "https://youtube.com/watch?v=adipurush",
-    "image": "https://image.tmdb.org/t/p/w500/adipurush.jpg"
+    "image": "https://survi.in/wp-content/uploads/2023/06/Adipurush-Review-1024x576.jpg"
   },
   {
     "id": 90,
@@ -806,7 +798,7 @@
     "genres": ["Action", "Fantasy"],
     "releaseDate": "2022-09-09",
     "trailer": "https://youtube.com/watch?v=brahmastra",
-    "image": "https://image.tmdb.org/t/p/w500/brahmastra.jpg"
+    "image": "https://static.theprint.in/wp-content/uploads/2022/06/hgnhlgkjhlk20220611145332.jpg"
   },
   {
     "id": 91,
@@ -818,7 +810,7 @@
     "image": "https://image.tmdb.org/t/p/w500/stree2.jpg"
   },
   {
-    "id": 92,
+    "id":92,
     "title": "Chhaava",
     "rating": 6.7,
     "genres": ["Action", "Drama"],
@@ -833,7 +825,7 @@
     "genres": ["Action", "Drama", "History"],
     "releaseDate": "2023-08-11",
     "trailer": "https://youtube.com/watch?v=gadar2",
-    "image": "https://image.tmdb.org/t/p/w500/gadar2.jpg"
+    "image": "https://cdn.bollywoodbubble.com/wp-content/uploads/2023/07/Sunny-Deol-and-Utkarsh-Sharma-in-Gadar-2-new-motion-poster.jpg"
   },
   {
     "id": 94,
@@ -842,7 +834,7 @@
     "genres": ["History", "Drama"],
     "releaseDate": "2025-06-13",
     "trailer": "https://youtube.com/watch?v=kesari2",
-    "image": "https://image.tmdb.org/t/p/w500/kesari2.jpg"
+    "image": "https://static.theprint.in/wp-content/uploads/2019/03/kesari-e1553152199894-696x391.jpg"
   },
   {
     "id": 95,
@@ -851,7 +843,7 @@
     "genres": ["Biography", "Drama", "Sport"],
     "releaseDate": "2018-07-13",
     "trailer": "https://youtube.com/watch?v=soorma_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/soorma.jpg"
+    "image": "https://indianexpress.com/wp-content/uploads/2018/02/diljit-dosanjh-758.jpg"
   },
   {
     "id": 96,
@@ -860,7 +852,7 @@
     "genres": ["Comedy", "Drama"],
     "releaseDate": "2015-05-08",
     "trailer": "https://youtube.com/watch?v=oeiKUlUUNQ8",
-    "image": "https://image.tmdb.org/t/p/w500/piku.jpg"
+    "image": "https://resizing.flixster.com/kBgXPLbE7MqhhDaEOee2kDc74gg=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p11646174_p_v12_ad.jpg"
   },
   {
     "id": 97,
@@ -869,7 +861,7 @@
     "genres": ["Comedy", "Drama", "Romance"],
     "releaseDate": "2012-09-14",
     "trailer": "https://youtube.com/watch?v=barfi_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/barfi.jpg"
+    "image": "http://www.brns.com/bollywood/picts2/barfi1.jpg"
   },
   {
     "id": 98,
@@ -878,7 +870,7 @@
     "genres": ["Adventure", "Drama", "Sport"],
     "releaseDate": "2001-06-15",
     "trailer": "https://youtube.com/watch?v=lagaan_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/lagaan.jpg"
+    "image": "https://www.cricketcountry.com/wp-content/uploads/2014/10/Laagan628.jpg"
   },
   {
     "id": 99,
@@ -887,7 +879,7 @@
     "genres": ["Drama"],
     "releaseDate": "1957-10-25",
     "trailer": "https://youtube.com/watch?v=motherindia_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/motherindia.jpg"
+    "image": "https://resizing.flixster.com/ERRfQ4D-tFvG6zilI_6Dp4Cvsdc=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p67653_p_v10_ab.jpg"
   },
   {
     "id": 100,
@@ -896,6 +888,6 @@
     "genres": ["Action", "Adventure", "Drama"],
     "releaseDate": "1975-08-15",
     "trailer": "https://youtube.com/watch?v=sholay_trailer",
-    "image": "https://image.tmdb.org/t/p/w500/sholay.jpg"
+    "image": "https://www.siasat.com/wp-content/uploads/2024/08/Sholay.jpg"
   }
- ]
+]
