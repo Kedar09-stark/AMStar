@@ -1,84 +1,69 @@
 const express = require("express");
 const cors = require("cors");
-const fs = require("fs");
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+// Initialize Firebase Admin SDK (make sure this file exists and works)
+require("./config/firebaseAdmin");
+
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-
+// Middleware
 app.use(cors());
+app.use(express.json());
 
-// Helper to read JSON files
-const readJSON = (filename) => {
-  const data = fs.readFileSync(`./data/${filename}`, "utf8");
-  return JSON.parse(data);
-};
-
-// Routes matching your data files
-app.get("/top10", (req, res) => {
-  res.json(readJSON("top10Movies.json"));
-});
-
-app.get("/fan-favorites", (req, res) => {
-  res.json(readJSON("fanFavourites.json"));
-});
-
-app.get("/featured-today", (req, res) => {
-  res.json(readJSON("featuredItem.json"));
-});
-
-app.get("/celebrities", (req, res) => {
-  res.json(readJSON("Celebrities.json"));
-});
-
-app.get("/movies", (req, res) => {
-  res.json(readJSON("movies.json"));
-});
-
-app.get("/interest", (req, res) => {
-  res.json(readJSON("interest.json"));
-});
-
-app.get("/fullmovies", (req, res) => {
-  res.json(readJSON("fullmovies.json"));
-});
-
-app.get("/liveshows", (req, res) => {
-  res.json(readJSON("liveshows.json"));
-});
-app.get("/live", (req, res) => {
-  res.json(readJSON("live.json"));
-});
-app.get("/ftrecommendations", (req, res) => {
-  res.json(readJSON("ftrecommendations.json"));
-});
-app.get("/recomendationcelebrities", (req, res) => {
-  res.json(readJSON("recomendationcelebrities.json"));
-});
-app.get("/tvshow", (req, res) => {
-  res.json(readJSON("tvshow.json"));
-});
-
-app.get("/fullmoviesDetails/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const movies = readJSON("fullmoviesDetails.json");
-  const movie = movies.find((m) => m.id === id);
-  if (movie) {
-    res.json(movie);
-  } else {
-    res.status(404).json({ error: "Movie not found" });
+// Connect to MongoDB using Mongoose
+async function connectDB() {
+  try {
+    const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/Our_web_trackflix";
+    await mongoose.connect(mongoURI);
+    console.log("✅ MongoDB connected");
+  } catch (err) {
+    console.error("❌ MongoDB connection error:", err);
+    process.exit(1); // Exit app if cannot connect to DB
   }
-});
-app.get("/lived/:id", (req, res) => {
-  const id = parseInt(req.params.id);
-  const movies = readJSON("lived.json");
-  const movie = movies.find((m) => m.id === id);
-  if (movie) {
-    res.json(movie);
-  } else {
-    res.status(404).json({ error: "Movie not found" });
-  }
+}
+connectDB();
+
+// -------------------- ROUTES -------------------- //
+const usersRoutes = require("./routes/users");
+const loginEventsRoutes = require("./routes/loginEvents"); // Make sure filename matches exactly
+
+const celebrityRoutes = require("./routes/celebrityRoutes");
+const fanFavouriteRoutes = require("./routes/fanFavouriteRoutes");
+const featuredItemRoutes = require("./routes/featuredItemRoutes");
+const ftRecommendationRoutes = require("./routes/ftRecommendationRoutes");
+const fullMovieRoutes = require("./routes/fullMovieRoutes");
+const fullMovieDetailRoutes = require("./routes/fullMovieDetailRoutes");
+const interestRoutes = require("./routes/interestRoutes");
+const liveShowRoutes = require("./routes/liveShowRoutes");
+const liveTVShowRoutes = require("./routes/liveTVShowRoutes");
+const recommendationCelebritiesRoutes = require("./routes/recommendationCelebritiesRoutes");
+const topTenMovieRoutes = require("./routes/topTenMovieRoutes");
+
+// Mount routes
+app.use("/api/users", usersRoutes);
+app.use("/api/login-events", loginEventsRoutes);
+
+app.use("/api/celebrities", celebrityRoutes);
+app.use("/api/fanfavourites", fanFavouriteRoutes);
+app.use("/api/featureditems", featuredItemRoutes);
+app.use("/api/ftrecommendations", ftRecommendationRoutes);
+app.use("/api/fullmovies", fullMovieRoutes);
+app.use("/api/fullmoviedetails", fullMovieDetailRoutes);
+app.use("/api/interests", interestRoutes);
+app.use("/api/liveshows", liveShowRoutes);
+app.use("/api/livetvshows", liveTVShowRoutes);
+app.use("/api/recommendationcelebrities", recommendationCelebritiesRoutes);
+app.use("/api/toptenmovies", topTenMovieRoutes);
+
+// Simple home route to test server running
+app.get("/", (req, res) => {
+  res.send("🎬 Trackflix Backend is running!");
 });
 
+// Start Server
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
