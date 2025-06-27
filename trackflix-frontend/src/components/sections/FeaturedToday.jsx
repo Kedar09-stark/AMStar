@@ -32,7 +32,7 @@ const FeaturedToday = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/featured-today")
+    fetch("http://localhost:5000/api/featureditems")
       .then((res) => res.json())
       .then((data) => setFeaturedItems(data))
       .catch((err) => console.error("Failed to fetch featured items:", err));

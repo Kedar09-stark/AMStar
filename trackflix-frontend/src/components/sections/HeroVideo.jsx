@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { motion } from "framer-motion";
 import PlayIcon from "../icons/PlayIcon";
 import PauseIcon from "../icons/PauseIcon";
 import VolumeMuteIcon from "../icons/VolumeMuteIcon";
@@ -14,10 +15,11 @@ const HeroVideo = ({
   nextSlide,
   prevSlide,
 }) => {
+  const [isBuffering, setIsBuffering] = useState(false);
+
   const playPauseLabel = isPlaying ? "Pause video" : "Play video";
   const muteLabel = isMuted ? "Unmute video" : "Mute video";
 
-  // Pause video when component unmounts
   useEffect(() => {
     return () => {
       if (videoRef?.current) {
@@ -26,7 +28,6 @@ const HeroVideo = ({
     };
   }, [videoRef]);
 
-  // Pause/resume video on tab visibility change
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (!videoRef?.current) return;
@@ -34,99 +35,159 @@ const HeroVideo = ({
       if (document.hidden) {
         videoRef.current.pause();
       } else if (isPlaying) {
-        videoRef.current.play().catch(() => {
-          // handle promise rejection silently if autoplay blocked
-        });
+        videoRef.current.play().catch(() => {});
       }
     };
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
-    return () => {
+    return () =>
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, [videoRef, isPlaying]);
+
+  useEffect(() => {
+    if (!videoRef?.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting && isPlaying) {
+          videoRef.current.pause();
+        } else if (entry.isIntersecting && isPlaying) {
+          videoRef.current.play().catch(() => {});
+        }
+      },
+      { threshold: 0.25 }
+    );
+    observer.observe(videoRef.current);
+
+    return () => {
+      observer.disconnect();
     };
   }, [videoRef, isPlaying]);
 
-  // Keyboard handlers for accessibility on slide navigation
-  const handleKeyDownPrev = (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      prevSlide();
-    }
-  };
+  useEffect(() => {
+    if (!videoRef?.current) return;
+    const video = videoRef.current;
 
-  const handleKeyDownNext = (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      nextSlide();
-    }
-  };
+    const onWaiting = () => setIsBuffering(true);
+    const onPlaying = () => setIsBuffering(false);
+    const onCanPlay = () => setIsBuffering(false);
+
+    video.addEventListener("waiting", onWaiting);
+    video.addEventListener("playing", onPlaying);
+    video.addEventListener("canplay", onCanPlay);
+
+    return () => {
+      video.removeEventListener("waiting", onWaiting);
+      video.removeEventListener("playing", onPlaying);
+      video.removeEventListener("canplay", onCanPlay);
+    };
+  }, [videoRef]);
+
+  const handleKeyDownPrev = useCallback(
+    (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        prevSlide();
+      }
+    },
+    [prevSlide]
+  );
+
+  const handleKeyDownNext = useCallback(
+    (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        nextSlide();
+      }
+    },
+    [nextSlide]
+  );
+
+  const handleKeyDownTogglePlayPause = useCallback(
+    (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        togglePlayPause();
+      }
+    },
+    [togglePlayPause]
+  );
+
+  const handleKeyDownToggleMute = useCallback(
+    (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleMute();
+      }
+    },
+    [toggleMute]
+  );
 
   return (
     <section
       aria-label={`Featured movie trailer for ${currentMovie.title}`}
-      className="relative h-screen w-full overflow-hidden text-white select-none"
+      className="relative w-full h-[70vh] sm:h-[80vh] md:h-[90vh] lg:h-screen overflow-hidden"
     >
-      {/* Background Video with overlay */}
-      <div className="absolute inset-0 w-full h-full">
+      {/* Background Video */}
+      <motion.div className="absolute inset-0 w-full h-full z-0">
         <video
           ref={videoRef}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover pointer-events-none"
           src={currentMovie.video}
           autoPlay
           muted={isMuted}
           loop
           playsInline
           preload="auto"
-          poster={currentMovie.poster} // optional fallback image
+          poster={currentMovie.poster}
           aria-label={`Trailer video for ${currentMovie.title}`}
-        >
-          Sorry, your browser does not support embedded videos.
-        </video>
-        {/* Semi-transparent overlay for better text contrast */}
-        <div className="absolute inset-0 bg-black/70 pointer-events-none" />
-      </div>
+          loading="lazy"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40 pointer-events-none"
+        />
+        {isBuffering && (
+          <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+            <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin" />
+          </div>
+        )}
+      </motion.div>
 
-      {/* Playback Controls - Responsive & Accessible */}
-      <nav
+      {/* Controls */}
+      <div
         aria-label="Video playback controls"
-        className="absolute top-6 right-6 z-30 flex space-x-4 bg-black/70 rounded-full p-3 shadow-lg
-          sm:p-4 sm:space-x-6
-          md:p-5
-          lg:p-6
-          focus-within:ring-2 focus-within:ring-red-600"
+        role="group"
+        className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-30 flex space-x-6 items-center"
       >
         <button
           onClick={togglePlayPause}
-          className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14
-            text-white hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full"
+          onKeyDown={handleKeyDownTogglePlayPause}
+          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center text-white bg-black/40 hover:bg-black/60 rounded-full focus:outline-none focus:ring-2 focus:ring-red-600 transition"
           aria-label={playPauseLabel}
           title={playPauseLabel}
           type="button"
+          tabIndex={0}
         >
           {isPlaying ? <PauseIcon /> : <PlayIcon />}
         </button>
 
         <button
           onClick={toggleMute}
-          className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14
-            text-white hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-600 rounded-full"
+          onKeyDown={handleKeyDownToggleMute}
+          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center text-white bg-black/40 hover:bg-black/60 rounded-full focus:outline-none focus:ring-2 focus:ring-red-600 transition"
           aria-label={muteLabel}
           title={muteLabel}
           type="button"
+          tabIndex={0}
         >
           {isMuted ? <VolumeMuteIcon /> : <VolumeUpIcon />}
         </button>
-      </nav>
+      </div>
 
-      {/* Movie Info and Watch Link - Responsive Text and Buttons */}
-      <div
-        className="absolute bottom-8 left-6 z-20 max-w-xs sm:max-w-md md:max-w-lg
-          p-4 bg-black/50 rounded-lg
-          sm:p-6
-          md:p-8"
-      >
+      {/* Info Box */}
+      <div className="absolute bottom-6 left-4 z-30 w-[90%] sm:left-6 sm:max-w-sm md:max-w-md lg:max-w-lg">
         <h1
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 drop-shadow-lg"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-white mb-3"
           tabIndex={0}
         >
           {currentMovie.title}
@@ -135,29 +196,23 @@ const HeroVideo = ({
           href={currentMovie.netflixLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-red-600 hover:bg-red-700 focus:bg-red-800
-            text-white px-5 py-3 rounded-full font-semibold text-sm sm:text-base
-            transition-colors duration-200 shadow-md focus:outline-none focus:ring-4 focus:ring-red-500"
+          className="inline-block bg-red-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-red-700 transition"
           aria-label={`Watch ${currentMovie.title} on Netflix`}
         >
           Watch
         </a>
       </div>
 
-      {/* Slide Navigation Buttons - large touch targets and keyboard accessible */}
+      {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
         onKeyDown={handleKeyDownPrev}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2
-          bg-black/60 hover:bg-black/80 text-white p-4 rounded-full z-20
-          focus:outline-none focus:ring-4 focus:ring-red-600
-          transition
-          sm:p-5"
+        className="absolute left-3 top-1/2 -translate-y-1/2 text-white p-3 sm:p-4 rounded-full bg-black/40 hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-red-600 z-30 transition"
         aria-label="Previous movie"
         type="button"
         tabIndex={0}
       >
-        <span aria-hidden="true" className="text-2xl sm:text-3xl">
+        <span aria-hidden="true" className="text-xl sm:text-2xl md:text-3xl">
           &#10094;
         </span>
       </button>
@@ -165,16 +220,12 @@ const HeroVideo = ({
       <button
         onClick={nextSlide}
         onKeyDown={handleKeyDownNext}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2
-          bg-black/60 hover:bg-black/80 text-white p-4 rounded-full z-20
-          focus:outline-none focus:ring-4 focus:ring-red-600
-          transition
-          sm:p-5"
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-white p-3 sm:p-4 rounded-full bg-black/40 hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-red-600 z-30 transition"
         aria-label="Next movie"
         type="button"
         tabIndex={0}
       >
-        <span aria-hidden="true" className="text-2xl sm:text-3xl">
+        <span aria-hidden="true" className="text-xl sm:text-2xl md:text-3xl">
           &#10095;
         </span>
       </button>

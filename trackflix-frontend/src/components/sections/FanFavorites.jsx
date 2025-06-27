@@ -20,11 +20,12 @@ const FanFavourites = ({ isLoggedIn, onRequireLogin }) => {
   const scrollByValue = 240;
 
   useEffect(() => {
-    fetch("http://localhost:5000/fan-favorites")
-      .then((res) => res.json())
-      .then((data) => setFanFavorites(data))
-      .catch((err) => console.error("Failed to fetch fan favorites:", err));
-  }, []);
+  fetch("http://localhost:5000/api/fanfavourites")
+    .then((res) => res.json())
+    .then((data) => setFanFavorites(data))
+    .catch((err) => console.error("Failed to fetch fan favorites:", err));
+}, []);
+
 
   const scrollLeft = () => {
     if (!sliderRef.current) return;

@@ -9,10 +9,10 @@ const Top10Trackflix = ({ isLoggedIn }) => {
   const [top10, setTop10] = useState([]);
   const [showTrailer, setShowTrailer] = useState(false);
   const [currentTrailerUrl, setCurrentTrailerUrl] = useState(null);
-  const modalRef = React.useRef(null);
+  const modalRef = useRef(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/top10") // make sure your server is running!
+    fetch("http://localhost:5000/api/toptenmovies")
       .then((res) => res.json())
       .then((data) => setTop10(data))
       .catch((err) => console.error("Failed to fetch top10:", err));
@@ -27,7 +27,6 @@ const Top10Trackflix = ({ isLoggedIn }) => {
     });
   };
 
-  // Open trailer modal with embed url
   const openTrailer = (url) => {
     if (!url) return;
     const embedUrl = url.replace("watch?v=", "embed/");
@@ -35,7 +34,6 @@ const Top10Trackflix = ({ isLoggedIn }) => {
     setShowTrailer(true);
   };
 
-  // Handle Watchlist click
   const handleWatchlistClick = (e, title) => {
     e.preventDefault();
     e.stopPropagation();
@@ -47,7 +45,6 @@ const Top10Trackflix = ({ isLoggedIn }) => {
     }
   };
 
-  // Close modal on ESC key and prevent background scroll
   useEffect(() => {
     const onEsc = (e) => {
       if (e.key === "Escape" && showTrailer) {
@@ -72,7 +69,7 @@ const Top10Trackflix = ({ isLoggedIn }) => {
       className="bg-gradient-to-b from-zinc-900 to-black text-white px-4 sm:px-6 py-10 sm:py-14"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section header */}
+        {/* Section Header */}
         <header className="text-center mb-8 sm:mb-10">
           <h2
             id="top10-title"
@@ -85,7 +82,7 @@ const Top10Trackflix = ({ isLoggedIn }) => {
           </p>
         </header>
 
-        {/* Mobile slider */}
+        {/* Mobile Slider */}
         <div className="sm:hidden relative">
           <button
             onClick={() => scroll("left")}
@@ -96,15 +93,15 @@ const Top10Trackflix = ({ isLoggedIn }) => {
 
           <div
             ref={scrollRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide scroll-snap-x mandatory px-4"
+            className="flex gap-3 sm:gap-4 overflow-x-auto scrollbar-hide scroll-snap-x mandatory px-2"
             style={{ scrollSnapType: "x mandatory" }}
           >
             {top10.map(({ id, img, title, rank, rating, year, trailer }) => (
               <article
                 key={id}
-                className="flex-none w-[70%] min-w-[220px] max-w-xs relative rounded-xl overflow-hidden bg-zinc-800 hover:shadow-xl transition-shadow duration-300 flex flex-col scroll-snap-align-start"
+                className="flex-none w-[75vw] min-w-[160px] max-w-[240px] sm:w-[70%] relative rounded-xl overflow-hidden bg-zinc-800 hover:shadow-xl transition-shadow duration-300 flex flex-col scroll-snap-align-start"
               >
-                <div className="aspect-[2/3] bg-black overflow-hidden">
+                <div className="aspect-[3/4] sm:aspect-[2/3] bg-black overflow-hidden">
                   <img
                     src={img}
                     alt={title}
@@ -115,7 +112,7 @@ const Top10Trackflix = ({ isLoggedIn }) => {
 
                 <div className="p-3 flex flex-col flex-grow">
                   <h3
-                    className="text-base font-semibold text-white mb-1 truncate"
+                    className="text-sm sm:text-base font-semibold text-white mb-1 truncate"
                     title={title}
                   >
                     {title}
@@ -162,7 +159,7 @@ const Top10Trackflix = ({ isLoggedIn }) => {
           </button>
         </div>
 
-        {/* Desktop grid */}
+        {/* Desktop Grid */}
         <div className="hidden sm:grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {top10.map(({ id, img, title, rank, rating, year, trailer }) => (
             <article
@@ -233,7 +230,6 @@ const Top10Trackflix = ({ isLoggedIn }) => {
             tabIndex={-1}
             ref={modalRef}
           >
-            {/* Close button */}
             <button
               onClick={() => setShowTrailer(false)}
               className="absolute top-3 right-3 text-white bg-zinc-800 bg-opacity-70 rounded-full p-2 hover:bg-red-600 transition-colors z-10"
@@ -242,7 +238,6 @@ const Top10Trackflix = ({ isLoggedIn }) => {
               ×
             </button>
 
-            {/* Trailer iframe */}
             <iframe
               className="w-full h-full"
               src={currentTrailerUrl}

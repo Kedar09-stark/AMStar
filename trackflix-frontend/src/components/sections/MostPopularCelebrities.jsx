@@ -1,49 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const MostPopularCelebrities = () => {
   const [celebrities, setCelebrities] = useState([]);
-  const [startIndex, setStartIndex] = useState(0);
-  const [itemsToShow, setItemsToShow] = useState(5); // default for desktop
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const carouselRef = useRef(null);
 
-  // Fetch data from backend
   useEffect(() => {
-    fetch("http://localhost:5000/celebrities")
-      .then((res) => res.json())
-      .then((data) => setCelebrities(data))
-      .catch((err) => console.error("Failed to fetch celebrities:", err));
+    fetch("http://localhost:5000/api/celebrities")
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
+      .then((data) => {
+        setCelebrities(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
   }, []);
 
-  // Dynamically adjust items based on screen size
-  useEffect(() => {
-    const updateItemsToShow = () => {
-      const width = window.innerWidth;
-      if (width < 640) {
-        setItemsToShow(2);
-      } else if (width < 768) {
-        setItemsToShow(3);
-      } else {
-        setItemsToShow(5);
-      }
-    };
-
-    updateItemsToShow(); // Initial
-    window.addEventListener("resize", updateItemsToShow);
-    return () => window.removeEventListener("resize", updateItemsToShow);
+  const scrollByOffset = useCallback((offset) => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: offset, behavior: "smooth" });
+    }
   }, []);
 
-  const handlePrev = () => {
-    setStartIndex((prev) => Math.max(prev - itemsToShow, 0));
-  };
-
-  const handleNext = () => {
-    setStartIndex((prev) =>
-      Math.min(prev + itemsToShow, celebrities.length - itemsToShow)
+  if (loading)
+    return (
+      <p className="text-center text-gray-400 py-20">Loading celebrities...</p>
     );
-  };
+  if (error)
+    return (
+      <p className="text-center text-red-500 py-20">
+        Error loading celebrities: {error}
+      </p>
+    );
 
   return (
     <section className="bg-gradient-to-b from-zinc-900 to-black text-white px-4 sm:px-6 py-10">
@@ -55,65 +53,85 @@ const MostPopularCelebrities = () => {
           transition={{ duration: 0.6 }}
           className="mb-8 text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-yellow-400">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-yellow-400">
             Most Popular Celebrities
           </h2>
-          <p className="mt-2 text-gray-300 text-sm md:text-base">
+          <p className="mt-2 text-gray-300 text-sm sm:text-base">
             Discover the stars everyone is talking about
           </p>
         </motion.div>
 
-        {/* Controls */}
-        <div className="flex items-center justify-between mb-4 px-2 sm:px-0">
-          <button
-            onClick={handlePrev}
-            className="text-yellow-400 hover:text-yellow-600 text-xl p-2 disabled:opacity-50"
-            disabled={startIndex === 0}
+        {/* Carousel container */}
+        <div className="relative">
+          {/* Carousel Scrollable Area */}
+          <div
+            ref={carouselRef}
+            className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 px-2 sm:px-0"
+            style={{ scrollbarWidth: "none" }}
           >
-            <FaChevronLeft />
-          </button>
-
-          <button
-            onClick={handleNext}
-            className="text-yellow-400 hover:text-yellow-600 text-xl p-2 disabled:opacity-50"
-            disabled={startIndex + itemsToShow >= celebrities.length}
-          >
-            <FaChevronRight />
-          </button>
-        </div>
-
-        {/* Celebrity Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-          {celebrities
-            .slice(startIndex, startIndex + itemsToShow)
-            .map((celeb, index) => (
+            {celebrities.map(({ id, img, name }) => (
               <motion.div
-                key={celeb.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-                className="cursor-pointer relative"
+                key={id}
+                className="snap-start flex-shrink-0 w-40 sm:w-44 md:w-48 cursor-pointer relative outline-none"
+                onClick={() => navigate(`/celebrity/${id}`)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    navigate(`/celebrity/${id}`);
+                  }
+                }}
+                aria-label={`View details for ${name}`}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 8px 20px rgba(255, 215, 0, 0.5)",
+                }}
+                whileFocus={{
+                  scale: 1.05,
+                  boxShadow: "0 8px 20px rgba(255, 215, 0, 0.5)",
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <div className="relative w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 rounded-full overflow-hidden shadow-lg mx-auto bg-gray-800">
+                <div className="relative rounded-full overflow-hidden shadow-lg w-40 sm:w-44 md:w-48 h-40 sm:h-44 md:h-48 mx-auto bg-gray-800">
                   <img
-                    src={celeb.img}
-                    alt={celeb.name}
+                    src={img}
+                    alt={name}
+                    className="object-cover w-full h-full"
+                    loading="lazy"
                     onError={(e) => (e.target.src = "/fallback.jpg")}
-                    className="w-full h-full object-cover object-center"
                   />
                 </div>
-                <p className="mt-3 text-center font-semibold text-sm text-white">
-                  {celeb.name}
+                <p className="mt-3 text-center font-semibold text-lg truncate">
+                  {name}
                 </p>
               </motion.div>
             ))}
+          </div>
+
+          {/* Left Arrow */}
+          <button
+            onClick={() => scrollByOffset(-240)}
+            className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 bg-yellow-500 hover:bg-yellow-600 rounded-full shadow-lg z-10 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            aria-label="Scroll left"
+          >
+            <FaChevronLeft className="text-black" size={20} />
+          </button>
+
+          {/* Right Arrow */}
+          <button
+            onClick={() => scrollByOffset(240)}
+            className="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 bg-yellow-500 hover:bg-yellow-600 rounded-full shadow-lg z-10 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            aria-label="Scroll right"
+          >
+            <FaChevronRight className="text-black" size={20} />
+          </button>
         </div>
 
         {/* More Button */}
         <div className="mt-8 text-center">
           <button
             onClick={() => navigate("/recommendations2")}
-            className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-full font-medium flex items-center justify-center gap-2 transition duration-300"
+            className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-full font-medium flex items-center justify-center gap-2 mx-auto transition duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
           >
             Get More Recommendations <FaArrowRight />
           </button>

@@ -13,11 +13,15 @@ const PopularInterests = ({ isLoggedIn }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/interest")
-      .then((res) => res.json())
-      .then((data) => setInterests(data))
-      .catch((err) => console.error("Error fetching interests:", err));
-  }, []);
+  fetch("http://localhost:5000/api/interests")
+    .then((res) => {
+      if (!res.ok) throw new Error("Network response was not ok");
+      return res.json();
+    })
+    .then((data) => setInterests(data))
+    .catch((err) => console.error("Error fetching interests:", err));
+}, []);
+
 
   const totalPages = Math.ceil(interests.length / ITEMS_PER_PAGE);
   const startIndex = page * ITEMS_PER_PAGE;
@@ -67,7 +71,7 @@ const PopularInterests = ({ isLoggedIn }) => {
   }, [showTrailer]);
 
   return (
-    <section className="bg-gradient-to-br from-black-150 to-black-800 text-cyan-400 px-6 py-12 min-h-screen">
+   <section className="bg-gradient-to-br from-black-150 to-black-800 text-cyan-400 py-2 min-h-[33vh]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-10 text-center">
