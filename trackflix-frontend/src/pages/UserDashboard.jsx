@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signOut, getAuth, onAuthStateChanged } from "firebase/auth";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "../firebase/firebase-config";
 
 const UserDashboard = () => {
   const [watchlist, setWatchlist] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null); // <-- track user state here
+  const [authLoading, setAuthLoading] = useState(true);
+  const [dataLoading, setDataLoading] = useState(true);
+  const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const auth = getAuth();
 
@@ -18,7 +17,7 @@ const UserDashboard = () => {
       } else {
         navigate("/login");
       }
-      setLoading(false);
+      setAuthLoading(false);
     });
 
     return () => unsubscribe();
@@ -28,19 +27,19 @@ const UserDashboard = () => {
     if (!user) return;
 
     const fetchWatchlist = async () => {
-      setLoading(true);
+      setDataLoading(true);
       try {
-        const q = query(
-          collection(db, "watchlists"),
-          where("userEmail", "==", user.email)
-        );
-        const querySnapshot = await getDocs(q);
-        const movies = querySnapshot.docs.map((doc) => doc.data().movie);
-        setWatchlist(movies);
+        // Encode email to safely pass in URL
+        const userEmailEncoded = encodeURIComponent(user.email);
+        const res = await fetch(`/api/watchlist/${userEmailEncoded}`);
+        if (!res.ok) throw new Error("Failed to fetch watchlist");
+        const data = await res.json();
+        setWatchlist(data.movies || []);
       } catch (error) {
         console.error("Failed to fetch watchlist:", error);
+      } finally {
+        setDataLoading(false);
       }
-      setLoading(false);
     };
 
     fetchWatchlist();
@@ -48,14 +47,14 @@ const UserDashboard = () => {
 
   const handleLogout = async () => {
     await signOut(auth);
-    localStorage.clear(); // Clear admin/user flags
-    navigate("/");
+    localStorage.clear();
+    navigate("/login");
   };
 
-  if (loading) {
+  if (authLoading || dataLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Loading your watchlist...</p>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <p className="text-gray-700 text-lg">Loading your watchlist...</p>
       </div>
     );
   }
@@ -70,9 +69,9 @@ const UserDashboard = () => {
         <p className="text-center text-gray-700">Your watchlist is empty.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {watchlist.map((movie, idx) => (
+          {watchlist.map((movie) => (
             <div
-              key={idx}
+              key={movie.id || movie.title}
               className="bg-white rounded-lg shadow-md overflow-hidden"
             >
               <img
@@ -86,7 +85,7 @@ const UserDashboard = () => {
                 <h2 className="text-xl font-semibold">{movie.title}</h2>
                 <p className="text-yellow-400">⭐ {movie.rating}</p>
                 <p className="text-gray-600 text-sm mt-1">
-                  {movie.genres.join(", ")}
+                  {Array.isArray(movie.genres) ? movie.genres.join(", ") : ""}
                 </p>
               </div>
             </div>
@@ -97,7 +96,7 @@ const UserDashboard = () => {
       <div className="mt-8 flex justify-center">
         <button
           onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded"
+          className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded shadow-md transition"
         >
           Logout
         </button>
