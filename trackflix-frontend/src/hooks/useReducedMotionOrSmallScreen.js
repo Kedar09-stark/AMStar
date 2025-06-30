@@ -1,20 +1,21 @@
-// src/hooks/useReducedMotionOrSmallScreen.js
+import { useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export default function useReducedMotionOrSmallScreen() {
-  const [shouldReduceMotion, setShouldReduceMotion] = useState(false);
+const useReducedMotionOrSmallScreen = () => {
+  const prefersReducedMotion = useReducedMotion();
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia(
-      "(prefers-reduced-motion: reduce), (max-width: 640px)"
-    );
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
 
-    const handler = () => setShouldReduceMotion(mediaQuery.matches);
+    const checkScreen = () => setIsSmallScreen(mediaQuery.matches);
+    checkScreen();
 
-    handler();
-    mediaQuery.addEventListener("change", handler);
-    return () => mediaQuery.removeEventListener("change", handler);
+    mediaQuery.addEventListener("change", checkScreen);
+    return () => mediaQuery.removeEventListener("change", checkScreen);
   }, []);
 
-  return shouldReduceMotion;
-}
+  return prefersReducedMotion || isSmallScreen;
+};
+
+export default useReducedMotionOrSmallScreen;

@@ -9,7 +9,11 @@ import {
   formVariant,
 } from "../../animations/heroAnimations";
 
-// ✅ Custom hook to detect reduced motion or small screen
+import MatrixLetter from "../sectionExtra/MatrixLetter";
+
+const heading = "Keep your movie diary.";
+
+// Custom hook for reduced motion or small screen
 function useReducedMotionOrSmallScreen() {
   const [shouldReduceMotion, setShouldReduceMotion] = useState(false);
 
@@ -32,7 +36,7 @@ const HeroSearch = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
-  // ✅ Parallax effect using Framer Motion hooks
+  // Parallax effect using Framer Motion hooks
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, 100]);
 
@@ -55,13 +59,14 @@ const HeroSearch = () => {
           backgroundImage: "url('/images/he4.jpg')",
           y: y,
         }}
+        aria-hidden="true"
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/90 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/90 z-10" aria-hidden="true" />
 
       {/* Blur Overlay */}
-      <div className="absolute inset-0 backdrop-blur-sm z-20" />
+      <div className="absolute inset-0 backdrop-blur-sm z-20" aria-hidden="true" />
 
       {/* Main Content */}
       <motion.div
@@ -92,30 +97,40 @@ const HeroSearch = () => {
                   opacity: { duration: 3, repeat: Infinity },
                 }
           }
+          aria-hidden="true"
         />
 
         {/* Hero Text */}
         <motion.div className="space-y-4">
+          {/* Matrix Animated Heading */}
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight -mt-3"
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight -mt-3 flex flex-wrap justify-center"
             variants={textItem}
+            aria-label={heading}
           >
-            Keep your movie diary.
+            {heading.split("").map((char, i) => (
+              <MatrixLetter key={i} targetChar={char} delay={i * 100} />
+            ))}
           </motion.h1>
 
+          {/* Neon Glitch Subheading */}
           <motion.h2
-            className="text-xl sm:text-2xl md:text-3xl font-semibold leading-snug"
+            className="text-xl sm:text-2xl md:text-3xl font-semibold leading-snug neon-float"
             variants={textItem}
           >
             Craft your watchlist.
           </motion.h2>
 
-          <motion.h3
-            className="text-lg sm:text-xl md:text-2xl text-gray-200"
-            variants={textItem}
-          >
-            Be the critic your friends trust.
-          </motion.h3>
+          {/* Typewriter Subheading */}
+         <motion.h3
+  className="glitch-text text-lg sm:text-xl md:text-2xl font-bold text-white relative inline-block"
+  variants={textItem}
+  aria-label="Be the critic your friends trust."
+>
+  Be the critic your friends trust.
+  <span aria-hidden="true" className="glitch-text__copy">Be the critic your friends trust.</span>
+  <span aria-hidden="true" className="glitch-text__copy">Be the critic your friends trust.</span>
+</motion.h3>
         </motion.div>
 
         {/* Search Form */}
@@ -123,6 +138,8 @@ const HeroSearch = () => {
           onSubmit={handleSubmit}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 px-2 mt-6 w-full max-w-2xl mx-auto"
           variants={formVariant}
+          role="search"
+          aria-label="Movie search form"
         >
           <motion.input
             type="text"
@@ -132,6 +149,7 @@ const HeroSearch = () => {
             className="px-4 py-3 rounded-md text-black w-full sm:w-72 shadow-md focus:outline-none focus:ring-2 focus:ring-red-500"
             whileFocus={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
+            aria-label="Search movies"
           />
           <motion.button
             type="submit"
@@ -139,6 +157,7 @@ const HeroSearch = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
+            aria-label="Search"
           >
             Search
           </motion.button>

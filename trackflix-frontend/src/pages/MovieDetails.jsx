@@ -40,7 +40,7 @@ const MovieDetails = () => {
         throw new Error("Invalid movie ID");
       }
 
-      const res = await fetch(`http://localhost:5000/fullmoviesDetails/${id}`);
+      const res = await fetch(`http://localhost:5000/api/fullmoviedetails/${id}`);
 
       if (!res.ok) {
         if (res.status === 404) throw new Error("Movie not found");
@@ -60,29 +60,29 @@ const MovieDetails = () => {
     fetchMovie();
   }, [id]);
 
-  useEffect(() => {
-    const fetchSimilarMovies = async () => {
-      if (!movie?.similarMovies?.length) {
-        setSimilar([]);
-        return;
-      }
-      try {
-        const responses = await Promise.all(
-          movie.similarMovies.map(async (simId) => {
-            const res = await fetch(`http://localhost:5000/fullmoviesDetails/${simId}`);
-            if (res.ok) return res.json();
-            else return null;
-          })
-        );
-        setSimilar(responses.filter(Boolean));
-      } catch (err) {
-        console.error("Failed to fetch similar movies", err);
-        setSimilar([]);
-      }
-    };
+  //useEffect(() => {
+   // const fetchSimilarMovies = async () => {
+    //  if (!movie?.similarMovies?.length) {
+       // setSimilar([]);
+       // return;
+     // }
+      //try {
+       // const responses = await Promise.all(
+        //  movie.similarMovies.map(async (simId) => {
+          //  const res = await fetch(`http://localhost:5000/api/fullmoviedetails/${id}`);
+          //  if (res.ok) return res.json();
+          //  else return null;
+         // })
+       // );
+      //  setSimilar(responses.filter(Boolean));
+      //} catch (err) {
+       // console.error("Failed to fetch similar movies", err);
+       // setSimilar([]);
+     // }
+   // };
 
-    fetchSimilarMovies();
-  }, [movie]);
+   // fetchSimilarMovies();
+  //}, [movie]);
 
   const youtubeId = movie?.trailer ? new URL(movie.trailer).searchParams.get("v") : null;
 

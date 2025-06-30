@@ -1,16 +1,28 @@
 import React, { useRef, useState, useEffect } from "react";
 import { FaPlus, FaPlay, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
-const Top10Trackflix = ({ isLoggedIn }) => {
+const Top10Trackflix = () => {
   const scrollRef = useRef(null);
   const navigate = useNavigate();
+  const auth = getAuth();
 
   const [top10, setTop10] = useState([]);
   const [showTrailer, setShowTrailer] = useState(false);
   const [currentTrailerUrl, setCurrentTrailerUrl] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const modalRef = useRef(null);
 
+  // Track user login state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsLoggedIn(!!user);
+    });
+    return () => unsubscribe();
+  }, [auth]);
+
+  // Fetch top 10 movies
   useEffect(() => {
     fetch("http://localhost:5000/api/toptenmovies")
       .then((res) => res.json())
@@ -18,6 +30,7 @@ const Top10Trackflix = ({ isLoggedIn }) => {
       .catch((err) => console.error("Failed to fetch top10:", err));
   }, []);
 
+  // Scroll slider left or right
   const scroll = (direction) => {
     if (!scrollRef.current) return;
     const scrollAmount = scrollRef.current.offsetWidth;
@@ -27,6 +40,7 @@ const Top10Trackflix = ({ isLoggedIn }) => {
     });
   };
 
+  // Open trailer modal with embedded YouTube URL
   const openTrailer = (url) => {
     if (!url) return;
     const embedUrl = url.replace("watch?v=", "embed/");
@@ -34,17 +48,61 @@ const Top10Trackflix = ({ isLoggedIn }) => {
     setShowTrailer(true);
   };
 
-  const handleWatchlistClick = (e, title) => {
+  // Handle adding movie to watchlist with login check
+  const handleWatchlistClick = async (e, item) => {
     e.preventDefault();
     e.stopPropagation();
 
     if (!isLoggedIn) {
       navigate("/login");
-    } else {
-      alert(`Added "${title}" to your watchlist!`);
+      return;
+    }
+
+    const user = auth.currentUser;
+    if (!user) {
+      alert("User not authenticated.");
+      navigate("/login");
+      return;
+    }
+
+    const movieData = {
+      id: item.id,
+      title: item.title,
+      img: item.img,
+      rating: item.rating,
+      genres: item.genres || [],
+      trailerLink: item.trailer || "",
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/watchlist/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: user.uid,
+          userEmail: user.email,
+          movie: movieData,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert(data.message || `${item.title} added to your watchlist!`);
+        navigate("/dashboard");
+      } else if (response.status === 409) {
+        alert(`${item.title} is already in your watchlist!`);
+      } else {
+        alert("Failed to add to watchlist. Please try again.");
+      }
+    } catch (error) {
+      console.error("Failed to add to watchlist:", error);
+      alert("Failed to add to watchlist. Please try again.");
     }
   };
 
+  // Close trailer modal on Escape key and handle body scroll lock
   useEffect(() => {
     const onEsc = (e) => {
       if (e.key === "Escape" && showTrailer) {
@@ -61,6 +119,13 @@ const Top10Trackflix = ({ isLoggedIn }) => {
       window.removeEventListener("keydown", onEsc);
       document.body.style.overflow = "auto";
     };
+  }, [showTrailer]);
+
+  // Focus modal when it opens
+  useEffect(() => {
+    if (showTrailer && modalRef.current) {
+      modalRef.current.focus();
+    }
   }, [showTrailer]);
 
   return (
@@ -87,6 +152,7 @@ const Top10Trackflix = ({ isLoggedIn }) => {
           <button
             onClick={() => scroll("left")}
             className="absolute left-0 top-1/2 -translate-y-1/2 bg-zinc-800 bg-opacity-70 hover:bg-opacity-90 text-white rounded-full p-2 z-10"
+            aria-label="Scroll left"
           >
             <FaChevronLeft />
           </button>
@@ -96,15 +162,15 @@ const Top10Trackflix = ({ isLoggedIn }) => {
             className="flex gap-3 sm:gap-4 overflow-x-auto scrollbar-hide scroll-snap-x mandatory px-2"
             style={{ scrollSnapType: "x mandatory" }}
           >
-            {top10.map(({ id, img, title, rank, rating, year, trailer }) => (
+            {top10.map((item) => (
               <article
-                key={id}
+                key={item.id}
                 className="flex-none w-[75vw] min-w-[160px] max-w-[240px] sm:w-[70%] relative rounded-xl overflow-hidden bg-zinc-800 hover:shadow-xl transition-shadow duration-300 flex flex-col scroll-snap-align-start"
               >
                 <div className="aspect-[3/4] sm:aspect-[2/3] bg-black overflow-hidden">
                   <img
-                    src={img}
-                    alt={title}
+                    src={item.img}
+                    alt={item.title}
                     className="object-cover w-full h-full"
                     onError={(e) => (e.target.src = "/fallback.jpg")}
                   />
@@ -113,30 +179,30 @@ const Top10Trackflix = ({ isLoggedIn }) => {
                 <div className="p-3 flex flex-col flex-grow">
                   <h3
                     className="text-sm sm:text-base font-semibold text-white mb-1 truncate"
-                    title={title}
+                    title={item.title}
                   >
-                    {title}
+                    {item.title}
                   </h3>
                   <div className="flex items-center justify-between text-xs text-gray-300 mb-2">
-                    <time>{year}</time>
+                    <time>{item.year}</time>
                     <span className="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded">
-                      ⭐ {rating}
+                      ⭐ {item.rating}
                     </span>
                   </div>
                   <div className="flex gap-2 mt-auto text-xs">
                     <button
-                      onClick={() => openTrailer(trailer)}
+                      onClick={() => openTrailer(item.trailer)}
                       className="flex-1 flex items-center justify-center gap-1 border border-white px-2 py-1 rounded hover:bg-white hover:text-black transition"
-                      aria-label={`Watch trailer for ${title}`}
+                      aria-label={`Watch trailer for ${item.title}`}
                     >
                       <FaPlay className="text-xs" />
                       Trailer
                     </button>
                     <button
                       type="button"
-                      onClick={(e) => handleWatchlistClick(e, title)}
+                      onClick={(e) => handleWatchlistClick(e, item)}
                       className="flex-1 flex items-center justify-center gap-1 border border-white px-2 py-1 rounded hover:bg-white hover:text-black transition"
-                      aria-label={`Add ${title} to watchlist`}
+                      aria-label={`Add ${item.title} to watchlist`}
                     >
                       <FaPlus className="text-xs" />
                       Watchlist
@@ -145,7 +211,7 @@ const Top10Trackflix = ({ isLoggedIn }) => {
                 </div>
 
                 <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow">
-                  #{rank}
+                  #{item.rank}
                 </div>
               </article>
             ))}
@@ -154,6 +220,7 @@ const Top10Trackflix = ({ isLoggedIn }) => {
           <button
             onClick={() => scroll("right")}
             className="absolute right-0 top-1/2 -translate-y-1/2 bg-zinc-800 bg-opacity-70 hover:bg-opacity-90 text-white rounded-full p-2 z-10"
+            aria-label="Scroll right"
           >
             <FaChevronRight />
           </button>
@@ -161,15 +228,15 @@ const Top10Trackflix = ({ isLoggedIn }) => {
 
         {/* Desktop Grid */}
         <div className="hidden sm:grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-          {top10.map(({ id, img, title, rank, rating, year, trailer }) => (
+          {top10.map((item) => (
             <article
-              key={id}
+              key={item.id}
               className="relative rounded-xl overflow-hidden bg-zinc-800 hover:shadow-2xl transition-shadow duration-300 flex flex-col"
             >
               <div className="w-full aspect-[2/3] bg-black overflow-hidden">
                 <img
-                  src={img}
-                  alt={title}
+                  src={item.img}
+                  alt={item.title}
                   className="object-cover w-full h-full"
                   onError={(e) => (e.target.src = "/fallback.jpg")}
                 />
@@ -177,38 +244,38 @@ const Top10Trackflix = ({ isLoggedIn }) => {
               <div className="p-4 flex flex-col flex-grow">
                 <h3
                   className="text-lg font-semibold text-white mb-1 truncate"
-                  title={title}
+                  title={item.title}
                 >
-                  {title}
+                  {item.title}
                 </h3>
                 <div className="flex items-center justify-between text-sm text-gray-300 mb-3">
-                  <time dateTime={year}>{year}</time>
+                  <time dateTime={item.year}>{item.year}</time>
                   <span className="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded">
-                    ⭐ {rating}
+                    ⭐ {item.rating}
                   </span>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2 mt-auto text-sm">
                   <button
-                    onClick={() => openTrailer(trailer)}
+                    onClick={() => openTrailer(item.trailer)}
                     className="flex items-center justify-center gap-2 border border-white px-3 py-1 rounded hover:bg-white hover:text-black transition"
-                    aria-label={`Watch trailer for ${title}`}
+                    aria-label={`Watch trailer for ${item.title}`}
                   >
                     <FaPlay className="text-xs" />
                     Trailer
                   </button>
                   <button
                     type="button"
-                    onClick={(e) => handleWatchlistClick(e, title)}
+                    onClick={(e) => handleWatchlistClick(e, item)}
                     className="flex items-center justify-center gap-2 border border-white px-3 py-1 rounded hover:bg-white hover:text-black transition"
-                    aria-label={`Add ${title} to watchlist`}
+                    aria-label={`Add ${item.title} to watchlist`}
                   >
                     <FaPlus className="text-xs" />
                     Watchlist
                   </button>
                 </div>
               </div>
-              <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow">
-                #{rank}
+              <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow">
+                #{item.rank}
               </div>
             </article>
           ))}

@@ -1,7 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaStar, FaPlay, FaPlus } from "react-icons/fa";
-
 import { auth } from "../../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -10,10 +9,9 @@ const LiveCard = ({ movie }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const navigate = useNavigate();
-
-  // Get current logged-in user from Firebase
   const [user] = useAuthState(auth);
 
+  // Extract YouTube video ID from trailer URL
   const getEmbedUrl = (url) => {
     try {
       const videoId = new URL(url).searchParams.get("v");
@@ -23,21 +21,57 @@ const LiveCard = ({ movie }) => {
     }
   };
 
-  const handleWatchlistClick = () => {
+  // Handle adding movie to watchlist via API
+  const handleAddToWatchlist = async () => {
     if (!user) {
-      navigate("/login"); // redirect to login if not authenticated
-    } else {
-      // Add to watchlist logic here
-      alert("Added to watchlist!");
+      navigate("/login");
+      return;
+    }
+
+    const movieData = {
+      id: movie.id ? movie.id.toString() : null,
+      title: movie.title || "Untitled",
+      type: movie.type || "movie",
+      image: movie.image || movie.img || movie.poster || "",
+      rating: typeof movie.rating === "number" ? movie.rating : 0,
+      genres: Array.isArray(movie.genres) ? movie.genres : [],
+      releaseDate: movie.releaseDate ? movie.releaseDate.toString() : "",
+      trailerLink: movie.trailerLink || movie.trailer || "",
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/watchlist/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user.uid,
+          userEmail: user.email,
+          movie: movieData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.status === 201) {
+        alert(data.message || `"${movie.title}" added to your watchlist!`);
+        navigate("/dashboard");
+      } else if (response.status === 409) {
+        alert(`"${movie.title}" is already in your watchlist!`);
+      } else {
+        alert(data.message || "Failed to add to watchlist. Please try again.");
+      }
+    } catch (error) {
+      console.error("Failed to add to watchlist:", error);
+      alert("Failed to add to watchlist. Please try again.");
     }
   };
 
-  const embedUrl = getEmbedUrl(movie.trailer);
+  const embedUrl = getEmbedUrl(movie.trailer || movie.trailerLink);
 
   return (
     <>
       <div className="bg-zinc-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform duration-300 hover:scale-[1.03] group">
-        {/* Poster */}
+        {/* Poster Image */}
         <div className="relative w-full h-[350px] bg-zinc-800 overflow-hidden">
           {!imageLoaded && (
             <div className="absolute inset-0 flex items-center justify-center">
@@ -58,15 +92,13 @@ const LiveCard = ({ movie }) => {
 
         {/* Content */}
         <div className="p-4 space-y-3">
-          {/* Live  title wrapped with Link for navigation */}
-     <Link
-  to={`/liveD/${movie.id}`} // ✅ FIXED: matches the LiveDetails route
-  className="text-lg font-semibold text-white truncate block hover:underline"
->
-  {movie.title}
-</Link>
-
-
+          {/* Title */}
+          <Link
+            to={`/liveD/${movie.id}`}
+            className="text-lg font-semibold text-white truncate block hover:underline"
+          >
+            {movie.title}
+          </Link>
 
           {/* Rating */}
           <div className="relative group flex items-center gap-2 text-yellow-400 text-sm w-fit">
@@ -107,7 +139,7 @@ const LiveCard = ({ movie }) => {
             )}
 
             <button
-              onClick={handleWatchlistClick}
+              onClick={handleAddToWatchlist}
               className="flex items-center gap-2 text-red-400 hover:underline text-sm"
             >
               <FaPlus className="text-sm" />

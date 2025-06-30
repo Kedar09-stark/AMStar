@@ -30,7 +30,6 @@ const SignIn = () => {
     e.preventDefault();
     const { fullName, email, password, confirmPassword } = formData;
 
-    // Validation
     if (!fullName || !email || !password || !confirmPassword) {
       toast.error("All fields are required.");
       return;
@@ -52,14 +51,10 @@ const SignIn = () => {
       return;
     }
 
-    // Firebase Registration
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-      // Optional: set display name
-      await updateProfile(userCredential.user, {
-        displayName: fullName
-      });
+      await updateProfile(userCredential.user, { displayName: fullName });
 
       toast.success("Account created successfully!");
       setTimeout(() => navigate("/dashboard"), 1500);
@@ -70,7 +65,6 @@ const SignIn = () => {
   };
 
   return (
-   
     <div
       className="relative min-h-screen bg-cover bg-center"
       style={{ backgroundImage: "url('images/he4.jpg')" }}
@@ -112,6 +106,7 @@ const SignIn = () => {
                   setFormData({ ...formData, fullName: e.target.value })
                 }
                 required
+                autoComplete="name"
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
               <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-focus:top-1 peer-focus:text-xs peer-focus:text-yellow-600 peer-valid:top-1 peer-valid:text-xs">
@@ -128,6 +123,7 @@ const SignIn = () => {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 required
+                autoComplete="email"
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
               <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-focus:top-1 peer-focus:text-xs peer-focus:text-yellow-600 peer-valid:top-1 peer-valid:text-xs">
@@ -144,6 +140,7 @@ const SignIn = () => {
                   setFormData({ ...formData, password: e.target.value })
                 }
                 required
+                autoComplete="new-password"
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
               <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-focus:top-1 peer-focus:text-xs peer-focus:text-yellow-600 peer-valid:top-1 peer-valid:text-xs">
@@ -152,6 +149,10 @@ const SignIn = () => {
               <div
                 className="absolute right-4 top-4 text-gray-500 cursor-pointer hover:text-gray-800"
                 onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setShowPassword(!showPassword)}}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </div>
@@ -166,6 +167,7 @@ const SignIn = () => {
                   setFormData({ ...formData, confirmPassword: e.target.value })
                 }
                 required
+                autoComplete="new-password"
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
               />
               <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-focus:top-1 peer-focus:text-xs peer-focus:text-yellow-600 peer-valid:top-1 peer-valid:text-xs">
@@ -174,6 +176,10 @@ const SignIn = () => {
               <div
                 className="absolute right-4 top-4 text-gray-500 cursor-pointer hover:text-gray-800"
                 onClick={() => setShowConfirm(!showConfirm)}
+                aria-label={showConfirm ? "Hide confirm password" : "Show confirm password"}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setShowConfirm(!showConfirm)}}
               >
                 {showConfirm ? <FaEyeSlash /> : <FaEye />}
               </div>
@@ -192,10 +198,18 @@ const SignIn = () => {
           </div>
 
           <div className="flex justify-center gap-4">
-            <button className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded text-sm">
+            <button
+              onClick={() => toast.info("Google login coming soon!")}
+              className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded text-sm"
+              aria-label="Sign up with Google"
+            >
               <FaGoogle /> Google
             </button>
-            <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-sm">
+            <button
+              onClick={() => toast.info("Facebook login coming soon!")}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-sm"
+              aria-label="Sign up with Facebook"
+            >
               <FaFacebook /> Facebook
             </button>
           </div>
@@ -205,6 +219,9 @@ const SignIn = () => {
             <span
               onClick={() => navigate("/login")}
               className="text-blue-500 hover:underline cursor-pointer"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') navigate("/login") }}
             >
               Log in here
             </span>

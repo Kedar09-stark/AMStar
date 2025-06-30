@@ -16,7 +16,8 @@ function Footer() {
             <p className="mt-4">
               <Link
                 to="/new-to-movies"
-                className="inline-block text-blue-400 hover:underline hover:text-white"
+                className="inline-block text-yellow-400 hover:underline hover:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded transition-colors"
+                aria-label="New to movies? Start your journey here"
               >
                 New to movies? Start your journey here.
               </Link>
@@ -27,10 +28,22 @@ function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-2">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/about" className="hover:text-white">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
-              <li><Link to="/privacy" className="hover:text-white">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="hover:text-white">Terms of Service</Link></li>
+              {[
+                { to: "/about", label: "About Us" },
+                { to: "/contact", label: "Contact" },
+                { to: "/privacy", label: "Privacy Policy" },
+                { to: "/terms", label: "Terms of Service" },
+              ].map(({ to, label }) => (
+                <li key={to}>
+                  <Link
+                    to={to}
+                    className="hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded transition-colors"
+                    aria-label={label}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -38,49 +51,46 @@ function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-2">Follow Us</h3>
             <div className="flex space-x-4">
-              <a
-                href="https://www.facebook.com/"
-                aria-label="Facebook"
-                className="hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaFacebook />
-              </a>
-              <a
-                href="https://x.com/?lang=en"
-                aria-label="X"
-                className="hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaTwitter />
-              </a>
-              <a
-                href="https://www.instagram.com/"
-                aria-label="Instagram"
-                className="hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaInstagram />
-              </a>
-              <a
-                href="https://www.youtube.com/"
-                aria-label="YouTube"
-                className="hover:text-white"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaYoutube />
-              </a>
+              {[
+                {
+                  href: "https://www.facebook.com/",
+                  label: "Facebook",
+                  icon: <FaFacebook />,
+                },
+                {
+                  href: "https://x.com/?lang=en",
+                  label: "X",
+                  icon: <FaTwitter />,
+                },
+                {
+                  href: "https://www.instagram.com/",
+                  label: "Instagram",
+                  icon: <FaInstagram />,
+                },
+                {
+                  href: "https://www.youtube.com/",
+                  label: "YouTube",
+                  icon: <FaYoutube />,
+                },
+              ].map(({ href, label, icon }) => (
+                <a
+                  key={href}
+                  href={href}
+                  aria-label={label}
+                  className="hover:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded p-2 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {icon}
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Bottom Text */}
-        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-xs">
-          &copy; {new Date().getFullYear()} Trackflix. All rights reserved.
+        <div className="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
+          &copy; {new Date().getFullYear()} Trackflix.
         </div>
       </div>
     </footer>

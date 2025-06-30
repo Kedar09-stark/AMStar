@@ -1,19 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  FaArrowRight,
-  FaChevronLeft,
-  FaChevronRight,
-} from "react-icons/fa";
+import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import FlipCard from "../sectionExtra/FlipCard";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/firebase-config";
+import useReducedMotionOrSmallScreen from "../../hooks/useReducedMotionOrSmallScreen";
 
-
-
-const ITEM_WIDTH = 256;
-const GAP = 24;
+const ITEM_WIDTH = 200; // smaller width for compact display
+const GAP = 16;
 
 const FeaturedToday = () => {
   const [flippedCard, setFlippedCard] = useState(null);
@@ -22,9 +18,9 @@ const FeaturedToday = () => {
   const sliderRef = useRef(null);
   const navigate = useNavigate();
   const auth = getAuth();
+  const shouldReduceMotion = useReducedMotionOrSmallScreen();
 
   useEffect(() => {
-    // Listen for auth state changes to update login status
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsLoggedIn(!!user);
     });
@@ -58,7 +54,6 @@ const FeaturedToday = () => {
     }
   };
 
-  // Scroll handlers for arrows
   const scrollByOffset = (offset) => {
     if (sliderRef.current) {
       sliderRef.current.scrollBy({ left: offset, behavior: "smooth" });
@@ -68,7 +63,6 @@ const FeaturedToday = () => {
   const scrollLeft = () => scrollByOffset(-(ITEM_WIDTH + GAP));
   const scrollRight = () => scrollByOffset(ITEM_WIDTH + GAP);
 
-  // Touch swipe support
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
@@ -107,14 +101,19 @@ const FeaturedToday = () => {
   }, []);
 
   return (
-    <section className="bg-gradient-to-b from-zinc-900 to-black text-white px-4 py-8">
+    <motion.section
+      className="bg-zinc-900 text-white px-4 py-4"
+      initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
+      animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       <div className="max-w-7xl mx-auto">
-        <header className="mb-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-yellow-400">
+        <header className="mb-4 text-center">
+          <h2 className="text-xl sm:text-2xl font-bold text-yellow-400">
             🌟 Featured Today
           </h2>
-          <p className="mt-2 text-gray-300 text-sm md:text-base">
-            Explore hand-picked blockbuster favorites
+          <p className="mt-1 text-gray-400 text-xs sm:text-sm">
+            Blockbuster picks for you
           </p>
         </header>
 
@@ -122,12 +121,12 @@ const FeaturedToday = () => {
           <button
             aria-label="Scroll Left"
             onClick={scrollLeft}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-yellow-400 rounded-full p-2 z-10"
+            className="absolute left-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-yellow-400 rounded-full p-1 z-10"
           >
-            <FaChevronLeft size={20} />
+            <FaChevronLeft size={16} />
           </button>
 
-          <div
+     <div
             ref={sliderRef}
             className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide px-10"
             style={{ scrollPaddingLeft: "40px", scrollPaddingRight: "40px" }}
@@ -145,25 +144,26 @@ const FeaturedToday = () => {
             ))}
           </div>
 
+
           <button
             aria-label="Scroll Right"
             onClick={scrollRight}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-yellow-400 rounded-full p-2 z-10"
+            className="absolute right-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-yellow-400 rounded-full p-1 z-10"
           >
-            <FaChevronRight size={20} />
+            <FaChevronRight size={16} />
           </button>
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-4 text-center">
           <button
             onClick={() => navigate("/recommendations")}
-            className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-2 rounded-full font-medium flex items-center justify-center gap-2 transition duration-300"
+            className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-1.5 rounded-full text-sm font-medium flex items-center justify-center gap-1 transition duration-300"
           >
-            Get More Recommendations <FaArrowRight />
+            Get More <FaArrowRight />
           </button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import MovieCard from "../components/MoviePages/LiveCard";
@@ -33,7 +31,7 @@ const LiveShow = () => {
     const fetchMovies = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:5000/tvshow");
+        const res = await fetch("http://localhost:5000/api/livetvshows");
         if (!res.ok) throw new Error("Failed to fetch movies.");
         const data = await res.json();
         setAllMovies(data);
@@ -47,8 +45,9 @@ const LiveShow = () => {
     fetchMovies();
   }, []);
 
+  // Safely handle movies with or without genres
   const allGenres = Array.from(
-    new Set(allMovies.flatMap((movie) => movie.genres))
+    new Set(allMovies.flatMap((movie) => movie.genres || []))
   );
 
   const filteredMovies = allMovies
@@ -58,7 +57,7 @@ const LiveShow = () => {
     .filter((movie) =>
       selectedGenres.length === 0
         ? true
-        : selectedGenres.every((genre) => movie.genres.includes(genre))
+        : selectedGenres.every((genre) => (movie.genres || []).includes(genre))
     );
 
   const sortedMovies = [...filteredMovies].sort((a, b) => {
@@ -92,8 +91,11 @@ const LiveShow = () => {
         {/* Filters Panel */}
         <aside className="w-full lg:w-1/4 space-y-6">
           <div>
-            <label className="block mb-2 text-sm font-semibold">Search</label>
+            <label className="block mb-2 text-sm font-semibold" htmlFor="search-input">
+              Search
+            </label>
             <input
+              id="search-input"
               type="text"
               className="w-full px-4 py-2 bg-zinc-900 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
               placeholder="Find a movie..."
@@ -106,8 +108,11 @@ const LiveShow = () => {
           </div>
 
           <div>
-            <label className="block mb-2 text-sm font-semibold">Sort by</label>
+            <label className="block mb-2 text-sm font-semibold" htmlFor="sort-select">
+              Sort by
+            </label>
             <select
+              id="sort-select"
               className="w-full px-4 py-2 bg-zinc-900 text-white rounded-md"
               value={sortType}
               onChange={(e) => setSortType(e.target.value)}

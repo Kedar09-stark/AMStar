@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+
 import MovieCard from "../components/MoviePages/MovieCard";
 import GenreFilter from "../components/MoviePages/GenreFilter";
 import Pagination from "../components/MoviePages/Pagination";
@@ -22,6 +24,9 @@ const Movie = () => {
 
   const itemsPerPage = 48;
 
+  const navigate = useNavigate();
+  const auth = getAuth();
+
   useEffect(() => {
     setSearchTerm(initialQuery);
     setCurrentPage(1);
@@ -31,7 +36,7 @@ const Movie = () => {
     const fetchMovies = async () => {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:5000/fullmovies");
+        const res = await fetch("http://localhost:5000/api/fullmovies");
         if (!res.ok) throw new Error("Failed to fetch movies.");
         const data = await res.json();
         setAllMovies(data);
@@ -46,7 +51,7 @@ const Movie = () => {
   }, []);
 
   const allGenres = Array.from(
-    new Set(allMovies.flatMap((movie) => movie.genres))
+    new Set(allMovies.flatMap((movie) => movie.genres || []))
   );
 
   const filteredMovies = allMovies
@@ -56,7 +61,7 @@ const Movie = () => {
     .filter((movie) =>
       selectedGenres.length === 0
         ? true
-        : selectedGenres.every((genre) => movie.genres.includes(genre))
+        : selectedGenres.every((genre) => movie.genres?.includes(genre))
     );
 
   const sortedMovies = [...filteredMovies].sort((a, b) => {
@@ -83,6 +88,61 @@ const Movie = () => {
     setSelectedGenres([]);
     setCurrentPage(1);
   };
+const handleAddToWatchlist = async (movie) => {
+  const user = auth.currentUser;
+  if (!user) {
+    navigate("/login");
+    return;
+  }
+
+  // ✅ Construct valid movieData
+  const movieData = {
+    id: movie.id ? movie.id.toString() : null,
+    title: movie.title || "Untitled",
+    type: movie.type || "movie", // Backend requires this
+    image: movie.image || movie.img || movie.poster || "", // Backend requires this
+    rating: typeof movie.rating === "number" ? movie.rating : 0,
+    genres: Array.isArray(movie.genres) ? movie.genres : [],
+    releaseDate: movie.releaseDate ? movie.releaseDate.toString() : "",
+    trailerLink: movie.trailerLink || movie.trailer || "",
+  };
+
+  console.log("📦 Sending to backend:", {
+    userId: user.uid,
+    userEmail: user.email,
+    movie: movieData,
+  });
+
+  try {
+    const response = await fetch("http://localhost:5000/api/watchlist/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userId: user.uid,
+        userEmail: user.email,
+        movie: movieData,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (response.status === 201) {
+      alert(data.message || `"${movie.title}" added to your watchlist!`);
+      navigate("/dashboard");
+    } else if (response.status === 409) {
+      alert(`"${movie.title}" is already in your watchlist!`);
+    } else {
+      console.error("Server response:", response.status, data);
+      alert(data.message || "Failed to add to watchlist. Please try again.");
+    }
+  } catch (error) {
+    console.error("Failed to add to watchlist:", error);
+    alert("Failed to add to watchlist. Please try again.");
+  }
+};
+
 
   return (
     <section className="bg-black min-h-screen pt-28 px-4 md:px-10 text-white">
@@ -136,7 +196,11 @@ const Movie = () => {
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
                 {paginatedMovies.map((movie) => (
-                  <MovieCard key={movie.id} movie={movie} />
+                  <MovieCard
+                    key={movie.id}
+                    movie={movie}
+                    onAddToWatchlist={() => handleAddToWatchlist(movie)}
+                  />
                 ))}
               </div>
 

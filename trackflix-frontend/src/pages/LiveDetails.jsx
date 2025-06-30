@@ -36,7 +36,7 @@ const LiveDetails = () => {
 
       if (!isValidId) throw new Error("Invalid movie ID");
 
-      const res = await fetch(`http://localhost:5000/lived/${id}`);
+      const res = await fetch(`http://localhost:5000/api/liveshows/${id}`);
       if (!res.ok) {
         if (res.status === 404) throw new Error("Movie not found");
         else throw new Error("Failed to fetch movie");
@@ -72,7 +72,7 @@ const LiveDetails = () => {
       try {
         const responses = await Promise.all(
           movie.similarMovies.map(async (simId) => {
-            const res = await fetch(`http://localhost:5000/lived/${simId}`);
+            const res = await fetch(`http://localhost:5000/api/liveshows/${simId}`);
             if (res.ok) return res.json();
             return null;
           })

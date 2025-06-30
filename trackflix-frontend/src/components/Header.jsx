@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { adminEmails } from "../constants/adminEmails"; // adjust the path if needed
 
 function Header() {
@@ -23,12 +23,25 @@ function Header() {
       }
     });
 
-    return () => unsubscribe(); // cleanup on unmount
+    return () => unsubscribe();
   }, []);
 
   const handleDashboard = () => {
     setIsMenuOpen(false);
-    navigate(isAdmin ? "/admin-dashboard" : "/dashboard");
+    navigate(isAdmin ? "/admin" : "/dashboard");
+  };
+
+  const handleLogout = async () => {
+    const auth = getAuth();
+    try {
+      await signOut(auth);
+      setCurrentUserEmail(null);
+      setIsAdmin(false);
+      setIsMenuOpen(false);
+      navigate("/"); // Redirect after logout
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
   };
 
   return (
@@ -75,14 +88,24 @@ function Header() {
           </NavLink>
 
           {currentUserEmail ? (
-            <div
-              onClick={handleDashboard}
-              className="cursor-pointer hover:text-yellow-400 transition duration-200 text-xl"
-              title={`Logged in as ${currentUserEmail}`}
-              aria-label="User Profile or Admin Dashboard"
-            >
-              {isAdmin ? "🛡️" : "👤"}
-            </div>
+            <>
+              <div
+                onClick={handleDashboard}
+                className="cursor-pointer hover:text-yellow-400 transition duration-200 text-xl"
+                title={`Logged in as ${currentUserEmail}`}
+                aria-label="User Profile or Admin Dashboard"
+              >
+                {isAdmin ? "🛡️" : "👤"}
+              </div>
+
+              <button
+                onClick={handleLogout}
+                className="ml-4 bg-yellow-400 text-gray-900 px-3 py-1 rounded hover:bg-yellow-500 transition duration-200"
+                aria-label="Logout"
+              >
+                Logout
+              </button>
+            </>
           ) : (
             <>
               <NavLink
@@ -174,14 +197,26 @@ function Header() {
           </NavLink>
 
           {currentUserEmail ? (
-            <div
-              onClick={handleDashboard}
-              className="block hover:text-yellow-400 text-xl font-semibold cursor-pointer"
-              aria-label="User Profile or Admin Dashboard"
-              title={`Logged in as ${currentUserEmail}`}
-            >
-              {isAdmin ? "🛡️ Admin Dashboard" : "👤 Dashboard"}
-            </div>
+            <>
+              <div
+                onClick={handleDashboard}
+                className="block hover:text-yellow-400 text-xl font-semibold cursor-pointer"
+                aria-label="User Profile or Admin Dashboard"
+                title={`Logged in as ${currentUserEmail}`}
+              >
+                {isAdmin ? "🛡️ Admin Dashboard" : "👤 Dashboard"}
+              </div>
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setIsMenuOpen(false);
+                }}
+                className="block w-full text-left text-yellow-400 font-bold text-lg hover:text-yellow-500"
+                aria-label="Logout"
+              >
+                Logout
+              </button>
+            </>
           ) : (
             <>
               <NavLink

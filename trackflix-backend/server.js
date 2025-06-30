@@ -41,6 +41,12 @@ const liveShowRoutes = require("./routes/liveShowRoutes");
 const liveTVShowRoutes = require("./routes/liveTVShowRoutes");
 const recommendationCelebritiesRoutes = require("./routes/recommendationCelebritiesRoutes");
 const topTenMovieRoutes = require("./routes/topTenMovieRoutes");
+const watchlistRoutes = require("./routes/watchlistRoutes");
+const ratingsRoutes = require("./routes/ratingsRoutes");
+
+app.use("/api/ratings", ratingsRoutes);
+
+
 
 // Mount routes
 app.use("/api/users", usersRoutes);
@@ -57,6 +63,8 @@ app.use("/api/liveshows", liveShowRoutes);
 app.use("/api/livetvshows", liveTVShowRoutes);
 app.use("/api/recommendationcelebrities", recommendationCelebritiesRoutes);
 app.use("/api/toptenmovies", topTenMovieRoutes);
+app.use("/api/watchlist", watchlistRoutes);
+
 
 // Simple home route to test server running
 app.get("/", (req, res) => {

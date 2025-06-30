@@ -35,14 +35,17 @@ const LogIn = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const userEmail = userCredential.user.email;
 
+      // Check if logged in user is an admin
       const isAdminEmail = adminEmails.includes(userEmail);
       setIsAdmin(isAdminEmail);
 
+      // Persist login info locally (consider syncing with global context too)
       localStorage.setItem("isAdmin", isAdminEmail ? "true" : "false");
       localStorage.setItem("userEmail", userEmail);
 
       toast.success(isAdminEmail ? "Admin login successful!" : "User login successful!");
 
+      // Redirect after short delay
       setTimeout(() => {
         navigate(isAdminEmail ? "/admin" : "/dashboard");
       }, 1500);
@@ -94,10 +97,8 @@ const LogIn = () => {
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 required
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                placeholder="Email Address"
               />
-              <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-focus:top-1 peer-focus:text-xs peer-focus:text-yellow-600 peer-valid:top-1 peer-valid:text-xs">
-                Email Address
-              </label>
             </div>
 
             <div className="relative">
@@ -107,10 +108,8 @@ const LogIn = () => {
                 onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                 required
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                placeholder="Password"
               />
-              <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-focus:top-1 peer-focus:text-xs peer-focus:text-yellow-600 peer-valid:top-1 peer-valid:text-xs">
-                Password
-              </label>
               <div
                 className="absolute right-4 top-4 text-gray-500 cursor-pointer hover:text-gray-800"
                 onClick={() => setShowPassword(!showPassword)}
@@ -132,10 +131,16 @@ const LogIn = () => {
           </div>
 
           <div className="flex justify-center gap-4">
-            <button className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded text-sm">
+            <button
+              onClick={() => toast.info("Google login coming soon!")}
+              className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded text-sm"
+            >
               <FaGoogle /> Google
             </button>
-            <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-sm">
+            <button
+              onClick={() => toast.info("Facebook login coming soon!")}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-sm"
+            >
               <FaFacebook /> Facebook
             </button>
           </div>

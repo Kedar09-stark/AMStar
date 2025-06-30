@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FaPlay, FaArrowRight } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase/firebase-config";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const ITEMS_PER_PAGE = 5;
 
-const PopularInterests = ({ isLoggedIn }) => {
+const PopularInterests = () => {
+  const [user] = useAuthState(auth);
   const [interests, setInterests] = useState([]);
   const [page, setPage] = useState(0);
   const [showTrailer, setShowTrailer] = useState(false);
@@ -13,15 +16,14 @@ const PopularInterests = ({ isLoggedIn }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-  fetch("http://localhost:5000/api/interests")
-    .then((res) => {
-      if (!res.ok) throw new Error("Network response was not ok");
-      return res.json();
-    })
-    .then((data) => setInterests(data))
-    .catch((err) => console.error("Error fetching interests:", err));
-}, []);
-
+    fetch("http://localhost:5000/api/interests")
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
+      .then((data) => setInterests(data))
+      .catch((err) => console.error("Error fetching interests:", err));
+  }, []);
 
   const totalPages = Math.ceil(interests.length / ITEMS_PER_PAGE);
   const startIndex = page * ITEMS_PER_PAGE;
@@ -42,13 +44,50 @@ const PopularInterests = ({ isLoggedIn }) => {
     setShowTrailer(true);
   };
 
-  const handleWatchlistClick = (e, title) => {
+  const handleWatchlistClick = async (e, movie) => {
     e.stopPropagation();
-    e.preventDefault();
-    if (!isLoggedIn) {
+
+    if (!user) {
+      alert("Please log in to add to your watchlist.");
       navigate("/login");
-    } else {
-      alert(`Added "${title}" to your watchlist!`);
+      return;
+    }
+
+    const movieData = {
+      id: movie.id?.toString() || null,
+      title: movie.title || "Untitled",
+      type: movie.type || "movie",
+      image: movie.image || movie.img || movie.poster || "",
+      rating: typeof movie.rating === "number" ? movie.rating : 0,
+      genres: Array.isArray(movie.genres) ? movie.genres : [],
+      releaseDate: movie.releaseDate?.toString() || "",
+      trailerLink: movie.trailerLink || movie.trailer || "",
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/watchlist/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: user.uid,
+          userEmail: user.email,
+          movie: movieData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.status === 201) {
+        alert(data.message || `"${movie.title}" added to your watchlist!`);
+        navigate("/dashboard");
+      } else if (response.status === 409) {
+        alert(`"${movie.title}" is already in your watchlist!`);
+      } else {
+        alert(data.message || "Failed to add to watchlist. Please try again.");
+      }
+    } catch (error) {
+      console.error("Failed to add to watchlist:", error);
+      alert("Failed to add to watchlist. Please try again.");
     }
   };
 
@@ -71,13 +110,13 @@ const PopularInterests = ({ isLoggedIn }) => {
   }, [showTrailer]);
 
   return (
-   <section className="bg-gradient-to-br from-black-150 to-black-800 text-cyan-400 py-2 min-h-[33vh]">
+    <section className="bg-gradient-to-br from-black-150 to-black-800 text-cyan-400 py-2 min-h-[33vh]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <header className="mb-10 text-center">
-        <h2 className="text-5xl font-bold tracking-wide drop-shadow-lg text-purple-600 animate-pulse">Upcoming...</h2>
-
-
+          <h2 className="text-5xl font-bold tracking-wide drop-shadow-lg text-purple-600 animate-pulse">
+            Upcoming...
+          </h2>
 
           <p className="mt-3 text-cyan-300 text-lg max-w-xl mx-auto">
             Discover trending favorites with rich details and smooth experience.
@@ -116,7 +155,7 @@ const PopularInterests = ({ isLoggedIn }) => {
                     <button
                       type="button"
                       className="bg-transparent border border-cyan-400 hover:bg-cyan-400 hover:text-black rounded-md py-1.5 font-semibold text-sm transition"
-                      onClick={(e) => handleWatchlistClick(e, item.title)}
+                      onClick={(e) => handleWatchlistClick(e, item)}
                     >
                       Add to Watchlist
                     </button>
@@ -156,11 +195,13 @@ const PopularInterests = ({ isLoggedIn }) => {
                     <FaPlay /> Watch Trailer
                   </button>
                   <button
-                    type="button"
-                    className="bg-transparent border border-cyan-400 hover:bg-cyan-400 hover:text-black rounded-md py-1.5 font-semibold text-sm transition"
-                    onClick={(e) => handleWatchlistClick(e, item.title)}
+                    className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600 transition"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleWatchlistClick(e, item);
+                    }}
                   >
-                    Add to Watchlist
+                    + Watchlist
                   </button>
                 </div>
               </div>
@@ -186,8 +227,6 @@ const PopularInterests = ({ isLoggedIn }) => {
             Next
           </button>
         </div>
-
-        
       </div>
 
       {/* Trailer Modal */}

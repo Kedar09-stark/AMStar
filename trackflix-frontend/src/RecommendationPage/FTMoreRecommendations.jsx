@@ -22,7 +22,7 @@ const FTMoreRecommendations = () => {
 
   // Fetch recommendation movies
   useEffect(() => {
-    fetch("http://localhost:5000/ftrecommendations")
+    fetch("http://localhost:5000/api/ftrecommendations")
       .then((res) => res.json())
       .then((data) => setRecommendations(data))
       .catch((err) =>
