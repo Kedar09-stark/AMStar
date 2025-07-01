@@ -1,15 +1,19 @@
-// MovieCard.jsx
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 
 const MovieCard = ({ movie, onRate, editable = false }) => {
   const movieId = movie.id || movie.movieId;
-  const imageSrc = movie.image || movie.img || movie.poster || "/fallback.jpg";
-  const isValidImage =
-    typeof imageSrc === "string" &&
-    (imageSrc.startsWith("http") || imageSrc.startsWith("data:image"));
 
-  // For editable mode, keep local userRating state, else just show fixed rating
+  const imageSrc = useMemo(() => {
+    return movie.image || movie.img || movie.poster || "/fallback.jpg";
+  }, [movie]);
+
+  const isValidImage = useMemo(() => {
+    return (
+      typeof imageSrc === "string" &&
+      (imageSrc.startsWith("http") || imageSrc.startsWith("data:image"))
+    );
+  }, [imageSrc]);
+
   const [userRating, setUserRating] = useState(movie.userRating || 0);
 
   useEffect(() => {
@@ -19,53 +23,57 @@ const MovieCard = ({ movie, onRate, editable = false }) => {
   const handleRatingChange = (e) => {
     const newRating = Number(e.target.value);
     setUserRating(newRating);
-    if (onRate) {
-      onRate(movieId, newRating);
-    }
+    if (onRate) onRate(movieId, newRating);
   };
+
+  const ratingOptions = useMemo(() => [0, ...Array.from({ length: 10 }, (_, i) => i + 1)], []);
 
   return (
     <article
       tabIndex={0}
-      className="bg-white rounded-lg shadow-md hover:shadow-xl transition duration-300 focus:outline-none focus:ring-4 focus:ring-blue-400 max-w-xs mx-auto"
-      aria-label={`Movie: ${movie.title || "Untitled"}`}
+      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group w-full max-w-[160px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[250px] mx-auto"
     >
-      <img
-        src={isValidImage ? imageSrc : "/fallback.jpg"}
-        alt={movie.title || "Movie poster"}
-        className="w-full h-64 object-cover"
-        loading="lazy"
-        onError={(e) => {
-          e.target.src = "/fallback.jpg";
-        }}
-      />
-      <div className="p-4">
-        <h2 className="text-xl font-semibold text-gray-900 truncate">{movie.title || "Untitled"}</h2>
-        <p className="text-yellow-500 mt-1">
-          ⭐ {editable ? userRating.toFixed(1) : (movie.rating || 0).toFixed(1)}
-        </p>
-        <p className="text-gray-600 text-sm mt-2">
+      <div className="relative w-full aspect-[2/3] overflow-hidden">
+        <img
+          src={isValidImage ? imageSrc : "/fallback.jpg"}
+          alt={movie.title || "Movie poster"}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          loading="lazy"
+          onError={(e) => {
+            if (e.target.src !== "/fallback.jpg") {
+              e.target.src = "/fallback.jpg";
+            }
+          }}
+        />
+        <div className="absolute top-2 left-2 bg-yellow-400 text-black text-[11px] px-2 py-[2px] rounded-full font-semibold shadow">
+          ⭐ {(editable ? userRating : movie.rating || 0).toFixed(1)}
+        </div>
+      </div>
+
+      <div className="p-3 bg-gradient-to-t from-white via-white/80 to-transparent">
+        <h2 className="text-sm md:text-base font-semibold text-gray-900 line-clamp-1">
+          {movie.title || "Untitled"}
+        </h2>
+        <p className="text-xs text-gray-600 line-clamp-2 mt-1">
           {Array.isArray(movie.genres) && movie.genres.length > 0
             ? movie.genres.join(", ")
             : "Genre N/A"}
         </p>
 
-        {/* Show rating dropdown only if editable */}
         {editable && (
-          <div className="mt-4">
-            <label htmlFor={`rating-${movieId}`} className="block text-sm font-medium text-gray-700">
-              Rate this movie:
+          <div className="mt-3">
+            <label htmlFor={`rating-${movieId}`} className="sr-only">
+              Rate {movie.title}
             </label>
             <select
               id={`rating-${movieId}`}
               value={userRating}
               onChange={handleRatingChange}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
+              className="w-full text-xs rounded-md border border-gray-300 p-1 focus:ring-2 focus:ring-blue-400"
             >
-              <option value={0}>No rating</option>
-              {[...Array(10)].map((_, i) => (
-                <option key={i + 1} value={i + 1}>
-                  {i + 1}
+              {ratingOptions.map((value) => (
+                <option key={value} value={value}>
+                  {value === 0 ? "None" : value}
                 </option>
               ))}
             </select>
@@ -74,6 +82,17 @@ const MovieCard = ({ movie, onRate, editable = false }) => {
       </div>
     </article>
   );
+};
+
+MovieCard.defaultProps = {
+  movie: {
+    title: "Untitled",
+    rating: 0,
+    userRating: 0,
+    genres: [],
+    image: "/fallback.jpg",
+  },
+  editable: false,
 };
 
 export default MovieCard;

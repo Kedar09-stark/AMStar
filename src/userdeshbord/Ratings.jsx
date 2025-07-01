@@ -61,27 +61,69 @@ const Ratings = ({ user }) => {
   if (loading) return <CenteredMessage message="Loading your ratings..." />;
   if (ratings.length === 0) return <CenteredMessage message="No ratings found." />;
 
-  return (
-    <div>
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-2xl font-bold">My Ratings</h2>
-        <select
-          className="border p-1 rounded"
-          value={sortBy}
-          onChange={(e) => setSortBy(e.target.value)}
-        >
-          <option value="newest">Newest First</option>
-          <option value="highest">Highest Rating</option>
-          <option value="lowest">Lowest Rating</option>
-        </select>
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {sortedRatings.map((movie, idx) => (
-          <RatingMovieCard key={movie.id || idx} movie={movie} onRate={updateRating} />
-        ))}
+return (
+  <div className="px-4 sm:px-6 lg:px-8 py-6">
+    {/* Header with title and filter */}
+    <div className="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
+      <h2 className="text-2xl font-extrabold text-yellow-700 drop-shadow-sm transition-colors duration-300 hover:text-yellow-900">
+        My Ratings
+      </h2>
+
+      <div className="w-full max-w-xs">
+        <div className="relative w-full">
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="
+              block
+              appearance-none
+              w-full
+              bg-yellow-50
+              border border-yellow-400
+              text-yellow-700
+              font-semibold
+              py-2.5
+              pl-4 pr-10
+              rounded-lg
+              shadow-sm
+              focus:outline-none
+              focus:ring-4 focus:ring-yellow-300 focus:border-yellow-500
+              transition
+              duration-300
+              ease-in-out
+              hover:bg-yellow-100
+              hover:shadow-md
+              cursor-pointer
+            "
+          >
+            <option value="newest">Newest First</option>
+            <option value="highest">Highest Rating</option>
+            <option value="lowest">Lowest Rating</option>
+          </select>
+          <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+            <svg
+              className="h-5 w-5 text-yellow-600"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
-  );
+
+    {/* Responsive grid of movie cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {sortedRatings.map((movie, idx) => (
+        <RatingMovieCard key={movie.id || idx} movie={movie} onRate={updateRating} />
+      ))}
+    </div>
+  </div>
+);
 };
 
 export default Ratings;
