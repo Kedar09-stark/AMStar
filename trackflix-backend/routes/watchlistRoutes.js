@@ -43,10 +43,11 @@ router.post("/add", async (req, res) => {
     } else {
       if (!watchlist.movies) watchlist.movies = [];
 
-      const exists = watchlist.movies.some((m) => m.id === normalizedMovie.id);
-      if (exists) {
-        return res.status(409).json({ message: "Movie already in watchlist" });
-      }
+      // Commented out duplicate check to allow duplicates
+      // const exists = watchlist.movies.some((m) => m.id === normalizedMovie.id);
+      // if (exists) {
+      //   return res.status(409).json({ message: "Movie already in watchlist" });
+      // }
 
       watchlist.movies.push(normalizedMovie);
 
@@ -81,7 +82,6 @@ router.get("/:userId", async (req, res) => {
 });
 
 // ----------- NEW: Update movie rating in watchlist -----------
-
 router.post("/ratings/:userId", async (req, res) => {
   const { userId } = req.params;
   const { movieId, userRating } = req.body;

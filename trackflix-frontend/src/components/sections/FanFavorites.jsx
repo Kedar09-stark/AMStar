@@ -4,6 +4,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { addMovieToWatchlist } from "../../api/watchlist";
 
 const FanFavourites = ({ isLoggedIn, onRequireLogin }) => {
   const navigate = useNavigate(); // <-- Added here
@@ -88,56 +89,48 @@ const [user] = useAuthState(auth);
   };
 
   // Handle watchlist click - redirect to login if not logged in
-const handleWatchlistClick = async (e, movie) => {
-  e.stopPropagation();
+  const handleWatchlistClick = async (e, movie) => {
+    e.stopPropagation();
 
-  if (!user) {
-    if (onRequireLogin) {
-      onRequireLogin();
-    } else {
-      alert("Please log in to add to your watchlist.");
+    if (!user) {
+      if (onRequireLogin) {
+        onRequireLogin();
+      } else {
+        alert("Please log in to add to your watchlist.");
+      }
+      return;
     }
-    return;
-  }
 
-  const movieData = {
-    id: movie.id?.toString() || null,
-    title: movie.title || "Untitled",
-    type: movie.type || "movie",
-    image: movie.image || movie.img || movie.poster || "",
-    rating: typeof movie.rating === "number" ? movie.rating : 0,
-    genres: Array.isArray(movie.genres) ? movie.genres : [],
-    releaseDate: movie.releaseDate?.toString() || "",
-    trailerLink: movie.trailerLink || movie.trailer || "",
+    if (!movie.id) {
+      alert("Movie ID is missing. Cannot add to watchlist.");
+      return;
+    }
+
+    const movieData = {
+      id: movie.id.toString(),
+      title: movie.title || "Untitled",
+      type: movie.type || "movie",
+      image: movie.image || movie.img || movie.poster || "",
+      rating: typeof movie.rating === "number" ? movie.rating : 0,
+      genres: Array.isArray(movie.genres) ? movie.genres : [],
+      releaseDate: movie.releaseDate ? movie.releaseDate.toString() : "",
+      trailerLink: movie.trailerLink || movie.trailer || "",
+    };
+
+    try {
+      const response = await addMovieToWatchlist(user.uid, user.email, movieData);
+
+      if (response.success) {
+        alert(response.data.message || `"${movie.title}" added to your watchlist!`);
+        navigate("/dashboard");
+      } else {
+        alert(response.message);
+      }
+    } catch (error) {
+      console.error("Failed to add to watchlist:", error);
+      alert("Failed to add to watchlist. Please try again.");
+    }
   };
-
-  try {
-    const response = await fetch("http://localhost:5000/api/watchlist/add", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        userId: user.uid,
-        userEmail: user.email,
-        movie: movieData,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (response.status === 201) {
-      alert(data.message || `"${movie.title}" added to your watchlist!`);
-      navigate("/dashboard");
-    } else if (response.status === 409) {
-      alert(`"${movie.title}" is already in your watchlist!`);
-    } else {
-      alert(data.message || "Failed to add to watchlist. Please try again.");
-    }
-  } catch (error) {
-    console.error("Failed to add to watchlist:", error);
-    alert("Failed to add to watchlist. Please try again.");
-  }
-};
-
 
   return (
     <section

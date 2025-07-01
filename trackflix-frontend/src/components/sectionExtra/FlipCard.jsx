@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaPlay, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
+import { addMovieToWatchlist } from "../../api/watchlist";
+
 
 const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
   const [showTrailer, setShowTrailer] = useState(false);
@@ -28,35 +30,24 @@ const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
     }
 
     const movieData = {
-      id: item.id,
+      id: item.id.toString(),
       title: item.title,
-      img: item.img,
-      rating: item.rating,
-      genres: item.genres,
-      trailerLink: item.trailerLink,
+      image: item.image || item.img || item.poster || "",
+      rating: item.rating || 0,
+      genres: item.genres || [],
+      trailerLink: item.trailerLink || "",
+      type: item.type || "movie",
+      releaseDate: item.releaseDate || "",
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/watchlist/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: user.uid,
-          userEmail: user.email,
-          movie: movieData,
-        }),
-      });
+      const response = await addMovieToWatchlist(user.uid, user.email, movieData);
 
-      if (response.ok) {
-        const data = await response.json();
-        alert(data.message || `"${item.title}" added to your watchlist!`);
-        navigate("/dashboard");
-      } else if (response.status === 409) {
-        alert(`"${item.title}" is already in your watchlist!`);
+      if (!response.success) {
+        alert(response.message);
       } else {
-        alert("Failed to add to watchlist. Please try again.");
+        alert(`"${item.title}" added to your watchlist!`);
+        navigate("/dashboard");
       }
     } catch (error) {
       console.error("Failed to add to watchlist:", error);

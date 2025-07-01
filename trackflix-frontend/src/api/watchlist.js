@@ -10,14 +10,13 @@ export async function fetchWatchlist(userId, token) {
 
     if (!res.ok) {
       if (res.status === 404) {
-        // No watchlist found for this user
         return null;
       }
       throw new Error("Failed to fetch watchlist");
     }
 
     const data = await res.json();
-    return data; // return full watchlist object { userId, userEmail, movies }
+    return data;
   } catch (err) {
     throw err;
   }
@@ -33,13 +32,19 @@ export async function addMovieToWatchlist(userId, userEmail, movie) {
       body: JSON.stringify({ userId, userEmail, movie }),
     });
 
+    if (res.status === 409) {
+      const errorData = await res.json();
+      return { success: false, message: errorData.message || "Movie already in watchlist" };
+    }
+
     if (!res.ok) {
       const errorData = await res.json();
       throw new Error(errorData.message || "Failed to add movie");
     }
 
-    return await res.json();
+    const data = await res.json();
+    return { success: true, data };
   } catch (err) {
-    throw err;
+    return { success: false, message: err.message || "Something went wrong" };
   }
 }
