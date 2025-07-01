@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "The Tonight Show",
+        "host": "Jimmy Fallon",
+        "startTime": "9:00 PM",
+        "image": "https://i.imgur.com/fake-show1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Late Night With Seth Meyers",
+        "host": "Seth Meyers",
+        "startTime": "10:00 PM",
+        "image": "https://i.imgur.com/fake-show2.jpg"
+    }
+]

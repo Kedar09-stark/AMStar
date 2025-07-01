@@ -1,0 +1,4626 @@
+[
+    {
+        "id": 1,
+        "title": "Avengers: Endgame",
+        "overview": "After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more to reverse Thanos' actions and restore balance to the universe.",
+        "releaseDate": "2019-04-26",
+        "rating": 8.4,
+        "genres": [
+            "Action",
+            "Sci-Fi"
+        ],
+        "runtime": 181,
+        "language": "English",
+        "country": "USA",
+        "budget": 356000000,
+        "boxOffice": 2797800564,
+        "productionCompanies": [
+            "Marvel Studios"
+        ],
+        "ageRating": "PG-13",
+        "director": "Anthony Russo, Joe Russo",
+        "writers": [
+            "Christopher Markus",
+            "Stephen McFeely"
+        ],
+        "cast": [
+            "Robert Downey Jr.",
+            "Chris Evans",
+            "Mark Ruffalo",
+            "Scarlett Johansson"
+        ],
+        "trailer": "https://youtube.com/watch?v=TcMBFSGVi1c",
+        "image": "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Visual Effects",
+                "result": "Nominated",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            2,
+            3,
+            4
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Joker",
+        "overview": "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime.",
+        "releaseDate": "2019-10-04",
+        "rating": 8.5,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "runtime": 122,
+        "language": "English",
+        "country": "USA",
+        "budget": 55000000,
+        "boxOffice": 1074251311,
+        "productionCompanies": [
+            "Warner Bros.",
+            "DC Films"
+        ],
+        "ageRating": "R",
+        "director": "Todd Phillips",
+        "writers": [
+            "Todd Phillips",
+            "Scott Silver"
+        ],
+        "cast": [
+            "Joaquin Phoenix",
+            "Robert De Niro",
+            "Zazie Beetz",
+            "Frances Conroy"
+        ],
+        "trailer": "https://youtube.com/watch?v=zAGVQLHvwOY",
+        "image": "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Actor",
+                "result": "Won",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            1,
+            4,
+            5
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Inception",
+        "overview": "A skilled thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
+        "releaseDate": "2010-07-16",
+        "rating": 8.8,
+        "genres": [
+            "Action",
+            "Sci-Fi",
+            "Thriller"
+        ],
+        "runtime": 148,
+        "language": "English",
+        "country": "USA",
+        "budget": 160000000,
+        "boxOffice": 829895144,
+        "productionCompanies": [
+            "Syncopy",
+            "Legendary Pictures"
+        ],
+        "ageRating": "PG-13",
+        "director": "Christopher Nolan",
+        "writers": [
+            "Christopher Nolan"
+        ],
+        "cast": [
+            "Leonardo DiCaprio",
+            "Joseph Gordon-Levitt",
+            "Elliot Page",
+            "Tom Hardy"
+        ],
+        "trailer": "https://youtube.com/watch?v=8hP9D6kZseM",
+        "image": "https://m.media-amazon.com/images/I/81p+xe8cbnL._SY300_.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Cinematography",
+                "result": "Won",
+                "year": 2011
+            }
+        ],
+        "similarMovies": [
+            1,
+            2,
+            4
+        ]
+    },
+    {
+        "id": 4,
+        "title": "The Dark Knight",
+        "overview": "Batman sets out to dismantle the remaining criminal organizations that plague Gotham. The arrival of the Joker throws the city into chaos and forces Batman closer to crossing the fine line between hero and vigilante.",
+        "releaseDate": "2008-07-18",
+        "rating": 9,
+        "genres": [
+            "Action",
+            "Crime",
+            "Drama"
+        ],
+        "runtime": 152,
+        "language": "English",
+        "country": "USA",
+        "budget": 185000000,
+        "boxOffice": 1004558444,
+        "productionCompanies": [
+            "Legendary Pictures",
+            "DC Comics",
+            "Warner Bros."
+        ],
+        "ageRating": "PG-13",
+        "director": "Christopher Nolan",
+        "writers": [
+            "Jonathan Nolan",
+            "Christopher Nolan"
+        ],
+        "cast": [
+            "Christian Bale",
+            "Heath Ledger",
+            "Aaron Eckhart",
+            "Maggie Gyllenhaal"
+        ],
+        "trailer": "https://youtube.com/watch?v=EXeTwQWrcwY",
+        "image": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Supporting Actor",
+                "result": "Won",
+                "year": 2009
+            }
+        ],
+        "similarMovies": [
+            1,
+            2,
+            3
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Parasite",
+        "overview": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+        "releaseDate": "2019-05-30",
+        "rating": 8.6,
+        "genres": [
+            "Thriller",
+            "Drama"
+        ],
+        "runtime": 132,
+        "language": "Korean",
+        "country": "South Korea",
+        "budget": 11400000,
+        "boxOffice": 263000000,
+        "productionCompanies": [
+            "Barunson E&A",
+            "CJ Entertainment"
+        ],
+        "ageRating": "R",
+        "director": "Bong Joon-ho",
+        "writers": [
+            "Bong Joon-ho",
+            "Han Jin-won"
+        ],
+        "cast": [
+            "Song Kang-ho",
+            "Lee Sun-kyun",
+            "Cho Yeo-jeong",
+            "Choi Woo-shik"
+        ],
+        "trailer": "https://youtube.com/watch?v=5xH0HfJHsaY",
+        "image": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            1,
+            2,
+            6
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Interstellar",
+        "overview": "A team of explorers travels through a wormhole in space in an attempt to ensure humanity's survival.",
+        "releaseDate": "2014-11-07",
+        "rating": 8.6,
+        "genres": [
+            "Adventure",
+            "Drama",
+            "Sci-Fi"
+        ],
+        "runtime": 169,
+        "language": "English",
+        "country": "USA",
+        "budget": 165000000,
+        "boxOffice": 701729206,
+        "productionCompanies": [
+            "Paramount Pictures",
+            "Warner Bros.",
+            "Legendary Pictures"
+        ],
+        "ageRating": "PG-13",
+        "director": "Christopher Nolan",
+        "writers": [
+            "Jonathan Nolan",
+            "Christopher Nolan"
+        ],
+        "cast": [
+            "Matthew McConaughey",
+            "Anne Hathaway",
+            "Jessica Chastain",
+            "Michael Caine"
+        ],
+        "trailer": "https://youtube.com/watch?v=zSWdZVtXT7E",
+        "image": "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Visual Effects",
+                "result": "Won",
+                "year": 2015
+            }
+        ],
+        "similarMovies": [
+            3,
+            1,
+            5
+        ]
+    },
+    {
+        "id": 7,
+        "title": "The Shawshank Redemption",
+        "overview": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+        "releaseDate": "1994-09-23",
+        "rating": 9.3,
+        "genres": [
+            "Drama",
+            "Crime"
+        ],
+        "runtime": 142,
+        "language": "English",
+        "country": "USA",
+        "budget": 25000000,
+        "boxOffice": 28800000,
+        "productionCompanies": [
+            "Castle Rock Entertainment"
+        ],
+        "ageRating": "R",
+        "director": "Frank Darabont",
+        "writers": [
+            "Frank Darabont",
+            "Stephen King (short story)"
+        ],
+        "cast": [
+            "Tim Robbins",
+            "Morgan Freeman",
+            "Bob Gunton",
+            "William Sadler"
+        ],
+        "trailer": "https://youtube.com/watch?v=6hB3S9bIaco",
+        "image": "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Nominated",
+                "year": 1995
+            }
+        ],
+        "similarMovies": [
+            4,
+            9,
+            10
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Pulp Fiction",
+        "overview": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+        "releaseDate": "1994-10-14",
+        "rating": 8.9,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "runtime": 154,
+        "language": "English",
+        "country": "USA",
+        "budget": 8000000,
+        "boxOffice": 213928762,
+        "productionCompanies": [
+            "Miramax"
+        ],
+        "ageRating": "R",
+        "director": "Quentin Tarantino",
+        "writers": [
+            "Quentin Tarantino",
+            "Roger Avary"
+        ],
+        "cast": [
+            "John Travolta",
+            "Uma Thurman",
+            "Samuel L. Jackson",
+            "Bruce Willis"
+        ],
+        "trailer": "https://youtube.com/watch?v=s7EdQ4FqbhY",
+        "image": "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Original Screenplay",
+                "result": "Won",
+                "year": 1995
+            }
+        ],
+        "similarMovies": [
+            7,
+            9,
+            10
+        ]
+    },
+    {
+        "id": 9,
+        "title": "The Godfather",
+        "overview": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+        "releaseDate": "1972-03-24",
+        "rating": 9.2,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "runtime": 175,
+        "language": "English",
+        "country": "USA",
+        "budget": 6000000,
+        "boxOffice": 250000000,
+        "productionCompanies": [
+            "Paramount Pictures"
+        ],
+        "ageRating": "R",
+        "director": "Francis Ford Coppola",
+        "writers": [
+            "Mario Puzo",
+            "Francis Ford Coppola"
+        ],
+        "cast": [
+            "Marlon Brando",
+            "Al Pacino",
+            "James Caan",
+            "Robert Duvall"
+        ],
+        "trailer": "https://youtube.com/watch?v=sY1S34973zA",
+        "image": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 1973
+            }
+        ],
+        "similarMovies": [
+            7,
+            8,
+            10
+        ]
+    },
+    {
+        "id": 10,
+        "title": "The Godfather Part II",
+        "overview": "The continuation of the Corleone saga, this sequel explores the rise of young Vito Corleone and the struggles of Michael Corleone as he expands the family business.",
+        "releaseDate": "1974-12-20",
+        "rating": 9,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "runtime": 202,
+        "language": "English",
+        "country": "USA",
+        "budget": 13000000,
+        "boxOffice": 475000000,
+        "productionCompanies": [
+            "Paramount Pictures"
+        ],
+        "ageRating": "R",
+        "director": "Francis Ford Coppola",
+        "writers": [
+            "Mario Puzo",
+            "Francis Ford Coppola"
+        ],
+        "cast": [
+            "Al Pacino",
+            "Robert De Niro",
+            "Robert Duvall",
+            "Diane Keaton"
+        ],
+        "trailer": "https://youtube.com/watch?v=qJr92K_hKl0",
+        "image": "https://resizing.flixster.com/lQFJ7WL7yvGucQ89K7GtSlyPN24=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p6319_p_v8_bc.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 1975
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Director",
+                "result": "Won",
+                "year": 1975
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Supporting Actor (Robert De Niro)",
+                "result": "Won",
+                "year": 1975
+            }
+        ],
+        "similarMovies": [
+            1,
+            4,
+            3
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Fight Club",
+        "overview": "An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much more.",
+        "releaseDate": "1999-10-15",
+        "rating": 8.8,
+        "genres": [
+            "Drama"
+        ],
+        "runtime": 139,
+        "language": "English",
+        "country": "USA",
+        "budget": 63000000,
+        "boxOffice": 100853753,
+        "productionCompanies": [
+            "20th Century Fox",
+            "Regency Enterprises"
+        ],
+        "ageRating": "R",
+        "director": "David Fincher",
+        "writers": [
+            "Chuck Palahniuk (novel)",
+            "Jim Uhls (screenplay)"
+        ],
+        "cast": [
+            "Edward Norton",
+            "Brad Pitt",
+            "Helena Bonham Carter",
+            "Meat Loaf"
+        ],
+        "trailer": "https://youtube.com/watch?v=SUXWAEX2jlg",
+        "image": "https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg",
+        "awards": [
+            {
+                "name": "Empire Awards",
+                "category": "Best Film",
+                "result": "Won",
+                "year": 2000
+            }
+        ],
+        "similarMovies": [
+            13,
+            15,
+            1
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Forrest Gump",
+        "overview": "The presidencies of Kennedy and Johnson, Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.",
+        "releaseDate": "1994-07-06",
+        "rating": 8.8,
+        "genres": [
+            "Drama",
+            "Romance"
+        ],
+        "runtime": 142,
+        "language": "English",
+        "country": "USA",
+        "budget": 55000000,
+        "boxOffice": 678222284,
+        "productionCompanies": [
+            "Paramount Pictures",
+            "Wendy Finerman Productions"
+        ],
+        "ageRating": "PG-13",
+        "director": "Robert Zemeckis",
+        "writers": [
+            "Winston Groom (novel)",
+            "Eric Roth (screenplay)"
+        ],
+        "cast": [
+            "Tom Hanks",
+            "Robin Wright",
+            "Gary Sinise",
+            "Sally Field"
+        ],
+        "trailer": "https://youtube.com/watch?v=bLvqoHBptjg",
+        "image": "https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 1995
+            }
+        ],
+        "similarMovies": [
+            14,
+            11,
+            19
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Gladiator",
+        "overview": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+        "releaseDate": "2000-05-05",
+        "rating": 8.5,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "runtime": 155,
+        "language": "English",
+        "country": "USA",
+        "budget": 103000000,
+        "boxOffice": 460583960,
+        "productionCompanies": [
+            "DreamWorks Pictures",
+            "Universal Pictures"
+        ],
+        "ageRating": "R",
+        "director": "Ridley Scott",
+        "writers": [
+            "David Franzoni",
+            "John Logan",
+            "William Nicholson"
+        ],
+        "cast": [
+            "Russell Crowe",
+            "Joaquin Phoenix",
+            "Connie Nielsen",
+            "Oliver Reed"
+        ],
+        "trailer": "https://youtube.com/watch?v=owK1qxDselE",
+        "image": "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 2001
+            }
+        ],
+        "similarMovies": [
+            11,
+            1,
+            20
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Titanic",
+        "overview": "A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.",
+        "releaseDate": "1997-12-19",
+        "rating": 7.8,
+        "genres": [
+            "Drama",
+            "Romance"
+        ],
+        "runtime": 195,
+        "language": "English",
+        "country": "USA",
+        "budget": 200000000,
+        "boxOffice": 2187463944,
+        "productionCompanies": [
+            "20th Century Fox",
+            "Paramount Pictures"
+        ],
+        "ageRating": "PG-13",
+        "director": "James Cameron",
+        "writers": [
+            "James Cameron"
+        ],
+        "cast": [
+            "Leonardo DiCaprio",
+            "Kate Winslet",
+            "Billy Zane",
+            "Kathy Bates"
+        ],
+        "trailer": "https://youtube.com/watch?v=kVrqfYjkTdQ",
+        "image": "https://image.tmdb.org/t/p/w500/6VmFqApQRyZZzmiGOQq2C92jyvH.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 1998
+            }
+        ],
+        "similarMovies": [
+            12,
+            16,
+            18
+        ]
+    },
+    {
+        "id": 15,
+        "title": "The Matrix",
+        "overview": "A computer hacker learns about the true nature of his reality and his role in the war against its controllers.",
+        "releaseDate": "1999-03-31",
+        "rating": 8.7,
+        "genres": [
+            "Action",
+            "Sci-Fi"
+        ],
+        "runtime": 136,
+        "language": "English",
+        "country": "USA",
+        "budget": 63000000,
+        "boxOffice": 463517383,
+        "productionCompanies": [
+            "Warner Bros.",
+            "Village Roadshow Pictures"
+        ],
+        "ageRating": "R",
+        "director": "Lana Wachowski, Lilly Wachowski",
+        "writers": [
+            "Lana Wachowski",
+            "Lilly Wachowski"
+        ],
+        "cast": [
+            "Keanu Reeves",
+            "Laurence Fishburne",
+            "Carrie-Anne Moss",
+            "Hugo Weaving"
+        ],
+        "trailer": "https://youtube.com/watch?v=vKQi3bBA1y8",
+        "image": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Film Editing",
+                "result": "Won",
+                "year": 2000
+            }
+        ],
+        "similarMovies": [
+            1,
+            3,
+            20
+        ]
+    },
+    {
+        "id": 16,
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "overview": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+        "releaseDate": "2001-12-19",
+        "rating": 8.8,
+        "genres": [
+            "Adventure",
+            "Fantasy"
+        ],
+        "runtime": 178,
+        "language": "English",
+        "country": "New Zealand, USA",
+        "budget": 93000000,
+        "boxOffice": 871530324,
+        "productionCompanies": [
+            "New Line Cinema",
+            "WingNut Films"
+        ],
+        "ageRating": "PG-13",
+        "director": "Peter Jackson",
+        "writers": [
+            "J.R.R. Tolkien (novel)",
+            "Fran Walsh",
+            "Philippa Boyens",
+            "Peter Jackson"
+        ],
+        "cast": [
+            "Elijah Wood",
+            "Ian McKellen",
+            "Orlando Bloom",
+            "Sean Astin"
+        ],
+        "trailer": "https://youtube.com/watch?v=V75dMMIW2B4",
+        "image": "https://m.media-amazon.com/images/I/41KBujRKB6L._SY445_SX342_.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Cinematography",
+                "result": "Won",
+                "year": 2002
+            }
+        ],
+        "similarMovies": [
+            17,
+            18,
+            19
+        ]
+    },
+    {
+        "id": 17,
+        "title": "The Lord of the Rings: The Two Towers",
+        "overview": "Frodo and Sam continue their journey to Mordor to destroy the One Ring, while the divided Fellowship makes plans to defend Middle-earth from Sauron's forces.",
+        "releaseDate": "2002-12-18",
+        "rating": 8.7,
+        "genres": [
+            "Adventure",
+            "Fantasy"
+        ],
+        "runtime": 179,
+        "language": "English",
+        "country": "New Zealand, USA",
+        "budget": 94000000,
+        "boxOffice": 951201230,
+        "productionCompanies": [
+            "New Line Cinema",
+            "WingNut Films"
+        ],
+        "ageRating": "PG-13",
+        "director": "Peter Jackson",
+        "writers": [
+            "J.R.R. Tolkien (novel)",
+            "Fran Walsh",
+            "Philippa Boyens",
+            "Peter Jackson"
+        ],
+        "cast": [
+            "Elijah Wood",
+            "Ian McKellen",
+            "Viggo Mortensen",
+            "Sean Astin"
+        ],
+        "trailer": "https://youtube.com/watch?v=LbfMDwc4azU",
+        "image": "https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
+        "awards": [
+            {
+                "name": "BAFTA Awards",
+                "category": "Best Visual Effects",
+                "result": "Won",
+                "year": 2003
+            }
+        ],
+        "similarMovies": [
+            16,
+            18,
+            19
+        ]
+    },
+    {
+        "id": 18,
+        "title": "The Lord of the Rings: The Return of the King",
+        "overview": "The final confrontation between the forces of good and evil fighting for control of Middle-earth. Frodo and Sam reach Mordor to destroy the One Ring.",
+        "releaseDate": "2003-12-17",
+        "rating": 8.9,
+        "genres": [
+            "Adventure",
+            "Fantasy"
+        ],
+        "runtime": 201,
+        "language": "English",
+        "country": "New Zealand, USA",
+        "budget": 94000000,
+        "boxOffice": 1146030912,
+        "productionCompanies": [
+            "New Line Cinema",
+            "WingNut Films"
+        ],
+        "ageRating": "PG-13",
+        "director": "Peter Jackson",
+        "writers": [
+            "J.R.R. Tolkien (novel)",
+            "Fran Walsh",
+            "Philippa Boyens",
+            "Peter Jackson"
+        ],
+        "cast": [
+            "Elijah Wood",
+            "Ian McKellen",
+            "Viggo Mortensen",
+            "Orlando Bloom"
+        ],
+        "trailer": "https://youtube.com/watch?v=r5X-hFf6Bwo",
+        "image": "https://m.media-amazon.com/images/I/41KBujRKB6L._SY445_SX342_.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 2004
+            }
+        ],
+        "similarMovies": [
+            16,
+            17,
+            19
+        ]
+    },
+    {
+        "id": 19,
+        "title": "Spirited Away",
+        "overview": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.",
+        "releaseDate": "2001-07-20",
+        "rating": 8.6,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Family"
+        ],
+        "runtime": 125,
+        "language": "Japanese",
+        "country": "Japan",
+        "budget": 15000000,
+        "boxOffice": 355467146,
+        "productionCompanies": [
+            "Studio Ghibli"
+        ],
+        "ageRating": "PG",
+        "director": "Hayao Miyazaki",
+        "writers": [
+            "Hayao Miyazaki"
+        ],
+        "cast": [
+            "Rumi Hiiragi",
+            "Miyu Irino",
+            "Mari Natsuki",
+            "Takashi Naitō"
+        ],
+        "trailer": "https://youtube.com/watch?v=ByXuk9QqQkk",
+        "image": "https://image.tmdb.org/t/p/w500/dL11DBPcRhWWnJcFXl9A07MrqTI.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Animated Feature",
+                "result": "Won",
+                "year": 2003
+            }
+        ],
+        "similarMovies": [
+            12,
+            14,
+            16
+        ]
+    },
+    {
+        "id": 20,
+        "title": "Avengers: Infinity War",
+        "overview": "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.",
+        "releaseDate": "2018-04-27",
+        "rating": 8.4,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "runtime": 149,
+        "language": "English",
+        "country": "USA",
+        "budget": 316000000,
+        "boxOffice": 2048359754,
+        "productionCompanies": [
+            "Marvel Studios"
+        ],
+        "ageRating": "PG-13",
+        "director": "Anthony Russo, Joe Russo",
+        "writers": [
+            "Christopher Markus",
+            "Stephen McFeely"
+        ],
+        "cast": [
+            "Robert Downey Jr.",
+            "Chris Hemsworth",
+            "Mark Ruffalo",
+            "Chris Evans"
+        ],
+        "trailer": "https://youtube.com/watch?v=6ZfuNTqbHE8",
+        "image": "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+        "awards": [
+            {
+                "name": "Saturn Awards",
+                "category": "Best Science Fiction Film",
+                "result": "Won",
+                "year": 2019
+            }
+        ],
+        "similarMovies": [
+            1,
+            3,
+            15
+        ]
+    },
+    {
+        "id": 21,
+        "title": "The Lion King",
+        "overview": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself.",
+        "releaseDate": "1994-06-15",
+        "rating": 8.5,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Drama"
+        ],
+        "runtime": 88,
+        "language": "English",
+        "country": "USA",
+        "budget": 45000000,
+        "boxOffice": 968483777,
+        "productionCompanies": [
+            "Walt Disney Pictures"
+        ],
+        "ageRating": "G",
+        "director": "Roger Allers, Rob Minkoff",
+        "writers": [
+            "Irene Mecchi",
+            "Jonathan Roberts",
+            "Linda Woolverton"
+        ],
+        "cast": [
+            "Matthew Broderick",
+            "Jeremy Irons",
+            "James Earl Jones",
+            "Moira Kelly"
+        ],
+        "trailer": "https://youtube.com/watch?v=7TavVZMewpY",
+        "image": "https://image.tmdb.org/t/p/w500/2CAL2433ZeIihfX1Hb2139CX0pW.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Original Song",
+                "result": "Won",
+                "year": 1995
+            }
+        ],
+        "similarMovies": [
+            25,
+            30,
+            29
+        ]
+    },
+    {
+        "id": 22,
+        "title": "Terminator 2: Judgment Day",
+        "overview": "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her teenage son from a more advanced and powerful cyborg.",
+        "releaseDate": "1991-07-03",
+        "rating": 8.5,
+        "genres": [
+            "Action",
+            "Sci-Fi"
+        ],
+        "runtime": 137,
+        "language": "English",
+        "country": "USA",
+        "budget": 102000000,
+        "boxOffice": 520000000,
+        "productionCompanies": [
+            "Carolco Pictures",
+            "TriStar Pictures"
+        ],
+        "ageRating": "R",
+        "director": "James Cameron",
+        "writers": [
+            "James Cameron",
+            "William Wisher Jr."
+        ],
+        "cast": [
+            "Arnold Schwarzenegger",
+            "Linda Hamilton",
+            "Edward Furlong",
+            "Robert Patrick"
+        ],
+        "trailer": "https://youtube.com/watch?v=CRRlbK5w8AE",
+        "image": "https://image.tmdb.org/t/p/w500/9TFP6pM7DkgTnL8dYIC3fgwHdgH.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Visual Effects",
+                "result": "Won",
+                "year": 1992
+            }
+        ],
+        "similarMovies": [
+            1,
+            3,
+            23
+        ]
+    },
+    {
+        "id": 23,
+        "title": "Star Wars: Episode V - The Empire Strikes Back",
+        "overview": "After the Rebels are overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda while his friends are pursued by Darth Vader.",
+        "releaseDate": "1980-05-21",
+        "rating": 8.7,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "runtime": 124,
+        "language": "English",
+        "country": "USA",
+        "budget": 18000000,
+        "boxOffice": 538375067,
+        "productionCompanies": [
+            "Lucasfilm Ltd."
+        ],
+        "ageRating": "PG",
+        "director": "Irvin Kershner",
+        "writers": [
+            "Leigh Brackett",
+            "Lawrence Kasdan",
+            "George Lucas"
+        ],
+        "cast": [
+            "Mark Hamill",
+            "Harrison Ford",
+            "Carrie Fisher",
+            "Billy Dee Williams"
+        ],
+        "trailer": "https://youtube.com/watch?v=JNwNXF9Y6kY",
+        "image": "https://image.tmdb.org/t/p/w500/7BuH8itoSrLExs2YZSsM01Qk2no.jpg",
+        "awards": [
+            {
+                "name": "Saturn Awards",
+                "category": "Best Science Fiction Film",
+                "result": "Won",
+                "year": 1981
+            }
+        ],
+        "similarMovies": [
+            24,
+            1,
+            22
+        ]
+    },
+    {
+        "id": 24,
+        "title": "Star Wars: Episode IV - A New Hope",
+        "overview": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee, and two droids to save the galaxy and rescue Princess Leia from the Empire’s world-destroying battle station.",
+        "releaseDate": "1977-05-25",
+        "rating": 8.6,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "runtime": 121,
+        "language": "English",
+        "country": "USA",
+        "budget": 11000000,
+        "boxOffice": 775398007,
+        "productionCompanies": [
+            "Lucasfilm Ltd."
+        ],
+        "ageRating": "PG",
+        "director": "George Lucas",
+        "writers": [
+            "George Lucas"
+        ],
+        "cast": [
+            "Mark Hamill",
+            "Harrison Ford",
+            "Carrie Fisher",
+            "Alec Guinness"
+        ],
+        "trailer": "https://youtube.com/watch?v=vZ734NWnAHA",
+        "image": "https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Art Direction",
+                "result": "Won",
+                "year": 1978
+            }
+        ],
+        "similarMovies": [
+            23,
+            25,
+            1
+        ]
+    },
+    {
+        "id": 25,
+        "title": "Jurassic Park",
+        "overview": "During a preview tour, a theme park suffers a major power breakdown that allows its cloned dinosaur exhibits to run amok.",
+        "releaseDate": "1993-06-11",
+        "rating": 8.1,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "runtime": 127,
+        "language": "English",
+        "country": "USA",
+        "budget": 63000000,
+        "boxOffice": 1070000000,
+        "productionCompanies": [
+            "Universal Pictures",
+            "Amblin Entertainment"
+        ],
+        "ageRating": "PG-13",
+        "director": "Steven Spielberg",
+        "writers": [
+            "Michael Crichton",
+            "David Koepp"
+        ],
+        "cast": [
+            "Sam Neill",
+            "Laura Dern",
+            "Jeff Goldblum",
+            "Richard Attenborough"
+        ],
+        "trailer": "https://youtube.com/watch?v=lc0UehYemQA",
+        "image": "https://image.tmdb.org/t/p/w500/c414cDeQ9b6qLPLeKmiJuLDUREJ.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Visual Effects",
+                "result": "Won",
+                "year": 1994
+            }
+        ],
+        "similarMovies": [
+            1,
+            22,
+            26
+        ]
+    },
+    {
+        "id": 26,
+        "title": "The Silence of the Lambs",
+        "overview": "A young FBI cadet must confide in an incarcerated and manipulative killer to receive his help on catching another serial killer.",
+        "releaseDate": "1991-02-14",
+        "rating": 8.6,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "runtime": 118,
+        "language": "English",
+        "country": "USA",
+        "budget": 19000000,
+        "boxOffice": 272742922,
+        "productionCompanies": [
+            "Strong Heart Productions",
+            "Orion Pictures"
+        ],
+        "ageRating": "R",
+        "director": "Jonathan Demme",
+        "writers": [
+            "Ted Tally",
+            "Thomas Harris"
+        ],
+        "cast": [
+            "Jodie Foster",
+            "Anthony Hopkins",
+            "Lawrence A. Bonney",
+            "Kasi Lemmons"
+        ],
+        "trailer": "https://youtube.com/watch?v=W6Mm8Sbe__o",
+        "image": "https://image.tmdb.org/t/p/w500/rplLJ2hPcOQmkFhTqUte0MkEaO2.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 1992
+            }
+        ],
+        "similarMovies": [
+            2,
+            27,
+            28
+        ]
+    },
+    {
+        "id": 27,
+        "title": "Saving Private Ryan",
+        "overview": "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.",
+        "releaseDate": "1998-07-24",
+        "rating": 8.6,
+        "genres": [
+            "Drama",
+            "War"
+        ],
+        "runtime": 169,
+        "language": "English",
+        "country": "USA",
+        "budget": 70000000,
+        "boxOffice": 482349603,
+        "productionCompanies": [
+            "DreamWorks Pictures",
+            "Amblin Entertainment"
+        ],
+        "ageRating": "R",
+        "director": "Steven Spielberg",
+        "writers": [
+            "Robert Rodat"
+        ],
+        "cast": [
+            "Tom Hanks",
+            "Matt Damon",
+            "Tom Sizemore",
+            "Edward Burns"
+        ],
+        "trailer": "https://youtube.com/watch?v=zwhP5b4tD6g",
+        "image": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Director",
+                "result": "Won",
+                "year": 1999
+            }
+        ],
+        "similarMovies": [
+            26,
+            28,
+            1
+        ]
+    },
+    {
+        "id": 28,
+        "title": "Schindler's List",
+        "overview": "In German-occupied Poland during World War II, Oskar Schindler becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
+        "releaseDate": "1993-11-30",
+        "rating": 8.9,
+        "genres": [
+            "Biography",
+            "Drama",
+            "History"
+        ],
+        "runtime": 195,
+        "language": "English",
+        "country": "USA",
+        "budget": 22000000,
+        "boxOffice": 322161245,
+        "productionCompanies": [
+            "Universal Pictures",
+            "Amblin Entertainment"
+        ],
+        "ageRating": "R",
+        "director": "Steven Spielberg",
+        "writers": [
+            "Thomas Keneally",
+            "Steven Zaillian"
+        ],
+        "cast": [
+            "Liam Neeson",
+            "Ralph Fiennes",
+            "Ben Kingsley",
+            "Caroline Goodall"
+        ],
+        "trailer": "https://youtube.com/watch?v=gG22XNhtnoY",
+        "image": "https://image.tmdb.org/t/p/w500/c8Ass7acuOe4za6DhSattE359gr.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 1994
+            }
+        ],
+        "similarMovies": [
+            27,
+            26,
+            29
+        ]
+    },
+    {
+        "id": 29,
+        "title": "The Prestige",
+        "overview": "Two stage magicians engage in competitive rivalry that leads them on a life-long battle to create the ultimate illusion while sacrificing everything they have to outwit each other.",
+        "releaseDate": "2006-10-20",
+        "rating": 8.5,
+        "genres": [
+            "Drama",
+            "Mystery",
+            "Sci-Fi"
+        ],
+        "runtime": 130,
+        "language": "English",
+        "country": "USA",
+        "budget": 40000000,
+        "boxOffice": 109676311,
+        "productionCompanies": [
+            "Touchstone Pictures",
+            "Warner Bros."
+        ],
+        "ageRating": "PG-13",
+        "director": "Christopher Nolan",
+        "writers": [
+            "Jonathan Nolan",
+            "Christopher Nolan"
+        ],
+        "cast": [
+            "Christian Bale",
+            "Hugh Jackman",
+            "Scarlett Johansson",
+            "Michael Caine"
+        ],
+        "trailer": "https://youtube.com/watch?v=o4gHCmTQDVI",
+        "image": "https://image.tmdb.org/t/p/w500/5MXyQfz8xUP3dIFPTubhTsbFY6N.jpg",
+        "awards": [
+            {
+                "name": "BAFTA Awards",
+                "category": "Best Production Design",
+                "result": "Won",
+                "year": 2007
+            }
+        ],
+        "similarMovies": [
+            1,
+            3,
+            4
+        ]
+    },
+    {
+        "id": 30,
+        "title": "Whiplash",
+        "overview": "A promising young drummer enrolls at a cutthroat music conservatory where his dreams of greatness are mentored by an abusive instructor.",
+        "releaseDate": "2014-10-10",
+        "rating": 8.5,
+        "genres": [
+            "Drama",
+            "Music"
+        ],
+        "runtime": 107,
+        "language": "English",
+        "country": "USA",
+        "budget": 3300000,
+        "boxOffice": 49000000,
+        "productionCompanies": [
+            "Bold Films"
+        ],
+        "ageRating": "R",
+        "director": "Damien Chazelle",
+        "writers": [
+            "Damien Chazelle"
+        ],
+        "cast": [
+            "Miles Teller",
+            "J.K. Simmons",
+            "Melissa Benoist",
+            "Paul Reiser"
+        ],
+        "trailer": "https://youtube.com/watch?v=7d_jQycdQGo",
+        "image": "https://image.tmdb.org/t/p/w500/qG3RYlIVpTYclR9XxMZH3QK5UzS.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Supporting Actor",
+                "result": "Won",
+                "year": 2015
+            }
+        ],
+        "similarMovies": [
+            29,
+            28,
+            27
+        ]
+    },
+    {
+        "id": 31,
+        "title": "Mad Max: Fury Road",
+        "overview": "In a post-apocalyptic wasteland, Max teams up with Furiosa to flee from a cult leader and his army in a high-octane road war.",
+        "releaseDate": "2015-05-15",
+        "rating": 8.1,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "runtime": 120,
+        "language": "English",
+        "country": "Australia",
+        "budget": 150000000,
+        "boxOffice": 379000000,
+        "productionCompanies": [
+            "Kennedy Miller Mitchell",
+            "Village Roadshow Pictures"
+        ],
+        "ageRating": "R",
+        "director": "George Miller",
+        "writers": [
+            "George Miller",
+            "Brendan McCarthy",
+            "Nico Lathouris"
+        ],
+        "cast": [
+            "Tom Hardy",
+            "Charlize Theron",
+            "Nicholas Hoult",
+            "Hugh Keays-Byrne"
+        ],
+        "trailer": "https://youtube.com/watch?v=hEJnMQG9ev8",
+        "image": "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Costume Design",
+                "result": "Won",
+                "year": 2016
+            }
+        ],
+        "similarMovies": [
+            33,
+            1,
+            3
+        ]
+    },
+    {
+        "id": 32,
+        "title": "The Departed",
+        "overview": "An undercover cop and a mole in the police try to identify each other while infiltrating an Irish gang in Boston.",
+        "releaseDate": "2006-10-06",
+        "rating": 8.5,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "runtime": 151,
+        "language": "English",
+        "country": "USA",
+        "budget": 90000000,
+        "boxOffice": 291000000,
+        "productionCompanies": [
+            "Warner Bros.",
+            "Plan B Entertainment"
+        ],
+        "ageRating": "R",
+        "director": "Martin Scorsese",
+        "writers": [
+            "William Monahan"
+        ],
+        "cast": [
+            "Leonardo DiCaprio",
+            "Matt Damon",
+            "Jack Nicholson",
+            "Mark Wahlberg"
+        ],
+        "trailer": "https://youtube.com/watch?v=iojhqm0JTW4",
+        "image": "https://image.tmdb.org/t/p/w500/hF5q1qANh6pHLLYl8nPU3wMvBhJ.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 2007
+            }
+        ],
+        "similarMovies": [
+            35,
+            2,
+            39
+        ]
+    },
+    {
+        "id": 33,
+        "title": "Alien",
+        "overview": "After a space merchant vessel receives an unknown transmission, one of the crew is attacked by a mysterious lifeform.",
+        "releaseDate": "1979-05-25",
+        "rating": 8.4,
+        "genres": [
+            "Horror",
+            "Sci-Fi"
+        ],
+        "runtime": 117,
+        "language": "English",
+        "country": "UK",
+        "budget": 11000000,
+        "boxOffice": 106000000,
+        "productionCompanies": [
+            "Brandywine Productions",
+            "20th Century Fox"
+        ],
+        "ageRating": "R",
+        "director": "Ridley Scott",
+        "writers": [
+            "Dan O'Bannon"
+        ],
+        "cast": [
+            "Sigourney Weaver",
+            "Tom Skerritt",
+            "John Hurt",
+            "Veronica Cartwright"
+        ],
+        "trailer": "https://youtube.com/watch?v=LjLamj-b0I8",
+        "image": "https://image.tmdb.org/t/p/w500/evknn98oh4JmVTtrkTBFAZuvOBJ.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Visual Effects",
+                "result": "Won",
+                "year": 1980
+            }
+        ],
+        "similarMovies": [
+            3,
+            31,
+            1
+        ]
+    },
+    {
+        "id": 34,
+        "title": "Back to the Future",
+        "overview": "Marty McFly, a teenager, is accidentally sent back in time in a DeLorean and must ensure his parents fall in love.",
+        "releaseDate": "1985-07-03",
+        "rating": 8.5,
+        "genres": [
+            "Adventure",
+            "Comedy",
+            "Sci-Fi"
+        ],
+        "runtime": 116,
+        "language": "English",
+        "country": "USA",
+        "budget": 19000000,
+        "boxOffice": 388800000,
+        "productionCompanies": [
+            "Universal Pictures",
+            "Amblin Entertainment"
+        ],
+        "ageRating": "PG",
+        "director": "Robert Zemeckis",
+        "writers": [
+            "Robert Zemeckis",
+            "Bob Gale"
+        ],
+        "cast": [
+            "Michael J. Fox",
+            "Christopher Lloyd",
+            "Lea Thompson",
+            "Crispin Glover"
+        ],
+        "trailer": "https://youtube.com/watch?v=qvsgGtivCgs",
+        "image": "https://image.tmdb.org/t/p/w500/pTpxQB1N0waaSc3OSn0e9oc8kx9.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Sound Effects Editing",
+                "result": "Won",
+                "year": 1986
+            }
+        ],
+        "similarMovies": [
+            3,
+            36,
+            1
+        ]
+    },
+    {
+        "id": 35,
+        "title": "Goodfellas",
+        "overview": "The story of Henry Hill and his life in the mob, covering his relationship with wife Karen and his mafia partners.",
+        "releaseDate": "1990-09-19",
+        "rating": 8.7,
+        "genres": [
+            "Biography",
+            "Crime",
+            "Drama"
+        ],
+        "runtime": 146,
+        "language": "English",
+        "country": "USA",
+        "budget": 25000000,
+        "boxOffice": 47000000,
+        "productionCompanies": [
+            "Warner Bros.",
+            "Irwin Winkler Productions"
+        ],
+        "ageRating": "R",
+        "director": "Martin Scorsese",
+        "writers": [
+            "Nicholas Pileggi",
+            "Martin Scorsese"
+        ],
+        "cast": [
+            "Ray Liotta",
+            "Robert De Niro",
+            "Joe Pesci",
+            "Lorraine Bracco"
+        ],
+        "trailer": "https://youtube.com/watch?v=2ilzidi_J8Q",
+        "image": "https://image.tmdb.org/t/p/w500/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Supporting Actor",
+                "result": "Won",
+                "year": 1991
+            }
+        ],
+        "similarMovies": [
+            32,
+            2,
+            39
+        ]
+    },
+    {
+        "id": 36,
+        "title": "The Green Mile",
+        "overview": "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.",
+        "releaseDate": "1999-12-10",
+        "rating": 8.6,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Fantasy"
+        ],
+        "runtime": 189,
+        "language": "English",
+        "country": "USA",
+        "budget": 60000000,
+        "boxOffice": 286800000,
+        "productionCompanies": [
+            "Castle Rock Entertainment"
+        ],
+        "ageRating": "R",
+        "director": "Frank Darabont",
+        "writers": [
+            "Frank Darabont",
+            "Stephen King"
+        ],
+        "cast": [
+            "Tom Hanks",
+            "Michael Clarke Duncan",
+            "David Morse",
+            "Bonnie Hunt"
+        ],
+        "trailer": "https://youtube.com/watch?v=KTw058gMDKY",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_FMjpg_UX1000_.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Nominated",
+                "year": 2000
+            }
+        ],
+        "similarMovies": [
+            37,
+            34,
+            2
+        ]
+    },
+    {
+        "id": 37,
+        "title": "A Beautiful Mind",
+        "overview": "After John Nash, a brilliant but asocial mathematician, accepts secret work in cryptography, his life takes a turn for the nightmarish.",
+        "releaseDate": "2001-12-21",
+        "rating": 8.2,
+        "genres": [
+            "Biography",
+            "Drama"
+        ],
+        "runtime": 135,
+        "language": "English",
+        "country": "USA",
+        "budget": 58000000,
+        "boxOffice": 313000000,
+        "productionCompanies": [
+            "Imagine Entertainment",
+            "Universal Pictures"
+        ],
+        "ageRating": "PG-13",
+        "director": "Ron Howard",
+        "writers": [
+            "Akiva Goldsman",
+            "Sylvia Nasar"
+        ],
+        "cast": [
+            "Russell Crowe",
+            "Ed Harris",
+            "Jennifer Connelly",
+            "Paul Bettany"
+        ],
+        "trailer": "https://youtube.com/watch?v=WFJdcbE8M_4",
+        "image": "https://image.tmdb.org/t/p/w500/hx1rXh0m7za7xH2EbLa1JJYti3v.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 2002
+            }
+        ],
+        "similarMovies": [
+            36,
+            40,
+            39
+        ]
+    },
+    {
+        "id": 38,
+        "title": "Django Unchained",
+        "overview": "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
+        "releaseDate": "2012-12-25",
+        "rating": 8.4,
+        "genres": [
+            "Drama",
+            "Western"
+        ],
+        "runtime": 165,
+        "language": "English",
+        "country": "USA",
+        "budget": 100000000,
+        "boxOffice": 426000000,
+        "productionCompanies": [
+            "Columbia Pictures",
+            "The Weinstein Company"
+        ],
+        "ageRating": "R",
+        "director": "Quentin Tarantino",
+        "writers": [
+            "Quentin Tarantino"
+        ],
+        "cast": [
+            "Jamie Foxx",
+            "Christoph Waltz",
+            "Leonardo DiCaprio",
+            "Kerry Washington"
+        ],
+        "trailer": "https://youtube.com/watch?v=eUdM9vrCbow",
+        "image": "https://image.tmdb.org/t/p/w500/0fUjp4yu7I95FTgO8WF2DXmJfT9.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Original Screenplay",
+                "result": "Won",
+                "year": 2013
+            }
+        ],
+        "similarMovies": [
+            2,
+            35,
+            39
+        ]
+    },
+    {
+        "id": 39,
+        "title": "The Wolf of Wall Street",
+        "overview": "Based on the true story of Jordan Belfort, from his rise to a wealthy stock-broker to his fall involving crime, corruption and the federal government.",
+        "releaseDate": "2013-12-25",
+        "rating": 8.2,
+        "genres": [
+            "Biography",
+            "Comedy",
+            "Crime"
+        ],
+        "runtime": 180,
+        "language": "English",
+        "country": "USA",
+        "budget": 100000000,
+        "boxOffice": 392000000,
+        "productionCompanies": [
+            "Appian Way",
+            "Paramount Pictures"
+        ],
+        "ageRating": "R",
+        "director": "Martin Scorsese",
+        "writers": [
+            "Terence Winter",
+            "Jordan Belfort"
+        ],
+        "cast": [
+            "Leonardo DiCaprio",
+            "Jonah Hill",
+            "Margot Robbie",
+            "Kyle Chandler"
+        ],
+        "trailer": "https://youtube.com/watch?v=iszwuX1AK6A",
+        "image": "https://image.tmdb.org/t/p/w500/pWHf4khOloNVfCxscsXFj3jj6mP.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Actor",
+                "result": "Nominated",
+                "year": 2014
+            }
+        ],
+        "similarMovies": [
+            32,
+            35,
+            2
+        ]
+    },
+    {
+        "id": 40,
+        "title": "La La Land",
+        "overview": "While navigating their careers in Los Angeles, a pianist and an actress fall in love while attempting to reconcile their aspirations.",
+        "releaseDate": "2016-12-09",
+        "rating": 8,
+        "genres": [
+            "Comedy",
+            "Drama",
+            "Music"
+        ],
+        "runtime": 128,
+        "language": "English",
+        "country": "USA",
+        "budget": 30000000,
+        "boxOffice": 448000000,
+        "productionCompanies": [
+            "Summit Entertainment",
+            "Black Label Media"
+        ],
+        "ageRating": "PG-13",
+        "director": "Damien Chazelle",
+        "writers": [
+            "Damien Chazelle"
+        ],
+        "cast": [
+            "Ryan Gosling",
+            "Emma Stone",
+            "John Legend",
+            "Rosemarie DeWitt"
+        ],
+        "trailer": "https://youtube.com/watch?v=0pdqf4P9MB8",
+        "image": "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Director",
+                "result": "Won",
+                "year": 2017
+            }
+        ],
+        "similarMovies": [
+            37,
+            39,
+            2
+        ]
+    },
+    {
+        "id": 41,
+        "title": "Blade Runner 2049",
+        "overview": "A young blade runner discovers a long-buried secret that has the potential to plunge society into chaos.",
+        "releaseDate": "2017-10-06",
+        "rating": 8,
+        "genres": [
+            "Drama",
+            "Mystery",
+            "Sci‑Fi"
+        ],
+        "runtime": 163,
+        "language": "English",
+        "country": "USA",
+        "budget": 185000000,
+        "boxOffice": 276600000,
+        "productionCompanies": [
+            "Alcon Entertainment",
+            "Columbia Pictures",
+            "Scott Free Productions"
+        ],
+        "ageRating": "R",
+        "director": "Denis Villeneuve",
+        "writers": [
+            "Hampton Fancher",
+            "Michael Green"
+        ],
+        "cast": [
+            "Ryan Gosling",
+            "Harrison Ford",
+            "Ana de Armas",
+            "Jared Leto"
+        ],
+        "trailer": "https://youtube.com/watch?v=gCcx85zbxz4",
+        "image": "https://image.tmdb.org/t/p/w500/aMpyrCizvSdc0UIMblJ1srVgAEF.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Cinematography",
+                "result": "Won",
+                "year": 2018
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Visual Effects",
+                "result": "Won",
+                "year": 2018
+            }
+        ],
+        "similarMovies": [
+            3,
+            4,
+            41
+        ]
+    },
+    {
+        "id": 42,
+        "title": "Avengers: Age of Ultron",
+        "overview": "The Avengers reassemble to face Ultron, a technological enemy bent on human extinction.",
+        "releaseDate": "2015-05-01",
+        "rating": 7.3,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci‑Fi"
+        ],
+        "runtime": 141,
+        "language": "English",
+        "country": "USA",
+        "budget": 250000000,
+        "boxOffice": 1405018068,
+        "productionCompanies": [
+            "Marvel Studios"
+        ],
+        "ageRating": "PG‑13",
+        "director": "Joss Whedon",
+        "writers": [
+            "Joss Whedon"
+        ],
+        "cast": [
+            "Robert Downey Jr.",
+            "Chris Evans",
+            "Scarlett Johansson",
+            "Mark Ruffalo"
+        ],
+        "trailer": "https://youtube.com/watch?v=tmeOjFno6Do",
+        "image": "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
+        "awards": [
+            {
+                "name": "MTV Movie Awards",
+                "category": "Best Ensemble",
+                "result": "Nominated",
+                "year": 2016
+            },
+            {
+                "name": "Visual Effects Society Awards",
+                "category": "Outstanding Visual Effects",
+                "result": "Nominated",
+                "year": 2016
+            }
+        ],
+        "similarMovies": [
+            1,
+            45,
+            43
+        ]
+    },
+    {
+        "id": 43,
+        "title": "Guardians of the Galaxy",
+        "overview": "A group of intergalactic criminals must pull together to stop a fanatical warrior with plans to purge the universe.",
+        "releaseDate": "2014-08-01",
+        "rating": 8,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Comedy"
+        ],
+        "runtime": 121,
+        "language": "English",
+        "country": "USA",
+        "budget": 170000000,
+        "boxOffice": 773350376,
+        "productionCompanies": [
+            "Marvel Studios"
+        ],
+        "ageRating": "PG‑13",
+        "director": "James Gunn",
+        "writers": [
+            "James Gunn",
+            "Nicole Perlman"
+        ],
+        "cast": [
+            "Chris Pratt",
+            "Zoe Saldana",
+            "Dave Bautista",
+            "Bradley Cooper"
+        ],
+        "trailer": "https://youtube.com/watch?v=d96cjJhvlMA",
+        "image": "https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Visual Effects",
+                "result": "Nominated",
+                "year": 2015
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Makeup and Hairstyling",
+                "result": "Nominated",
+                "year": 2015
+            },
+            {
+                "name": "Critics' Choice Movie Awards",
+                "category": "Best Action Movie",
+                "result": "Won",
+                "year": 2015
+            }
+        ],
+        "similarMovies": [
+            42,
+            45,
+            41
+        ]
+    },
+    {
+        "id": 44,
+        "title": "Logan",
+        "overview": "An aging Wolverine and a frail Professor X try to find refuge—but get pulled into a final mission protecting a young mutant girl.",
+        "releaseDate": "2017-03-03",
+        "rating": 8.1,
+        "genres": [
+            "Action",
+            "Drama",
+            "Sci‑Fi"
+        ],
+        "runtime": 137,
+        "language": "English",
+        "country": "USA",
+        "budget": 97000000,
+        "boxOffice": 619200000,
+        "productionCompanies": [
+            "20th Century Fox"
+        ],
+        "ageRating": "R",
+        "director": "James Mangold",
+        "writers": [
+            "James Mangold",
+            "Michael Green",
+            "Scott Frank"
+        ],
+        "cast": [
+            "Hugh Jackman",
+            "Patrick Stewart",
+            "Dafne Keen",
+            "Boyd Holbrook"
+        ],
+        "trailer": "https://youtube.com/watch?v=Div0iP65aZo",
+        "image": "https://image.tmdb.org/t/p/w500/7ryNGekLTEPOlNduK1i8ia6ARYa.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Adapted Screenplay",
+                "result": "Nominated",
+                "year": 2018
+            },
+            {
+                "name": "Saturn Awards",
+                "category": "Best Actor (Hugh Jackman)",
+                "result": "Won",
+                "year": 2018
+            },
+            {
+                "name": "Empire Awards",
+                "category": "Best Actor",
+                "result": "Won",
+                "year": 2018
+            }
+        ],
+        "similarMovies": [
+            4,
+            41,
+            42
+        ]
+    },
+    {
+        "id": 45,
+        "title": "Black Panther",
+        "overview": "T’Challa returns home as king of Wakanda but finds his sovereignty challenged by a powerful adversary.",
+        "releaseDate": "2018-02-16",
+        "rating": 7.3,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci‑Fi"
+        ],
+        "runtime": 134,
+        "language": "English",
+        "country": "USA",
+        "budget": 200000000,
+        "boxOffice": 1350000000,
+        "productionCompanies": [
+            "Marvel Studios"
+        ],
+        "ageRating": "PG‑13",
+        "director": "Ryan Coogler",
+        "writers": [
+            "Ryan Coogler",
+            "Joe Robert Cole"
+        ],
+        "cast": [
+            "Chadwick Boseman",
+            "Michael B. Jordan",
+            "Lupita Nyong’o",
+            "Danai Gurira"
+        ],
+        "trailer": "https://youtube.com/watch?v=dxWvtMOGAhw",
+        "image": "https://image.tmdb.org/t/p/w500/jHWlxl2FnEs8haRSIR5u0dHvYJ0.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Production Design",
+                "result": "Won",
+                "year": 2019
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Costume Design",
+                "result": "Won",
+                "year": 2019
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Original Score",
+                "result": "Won",
+                "year": 2019
+            },
+            {
+                "name": "Golden Globe Awards",
+                "category": "Best Motion Picture – Drama",
+                "result": "Nominated",
+                "year": 2019
+            }
+        ],
+        "similarMovies": [
+            42,
+            43,
+            1
+        ]
+    },
+    {
+        "id": 46,
+        "title": "Toy Story",
+        "overview": "A cowboy doll is profoundly threatened and jealous when a new spaceman action figure supplants him as top toy in a boy’s room.",
+        "releaseDate": "1995-11-22",
+        "rating": 8.3,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "runtime": 81,
+        "language": "English",
+        "country": "USA",
+        "budget": 30000000,
+        "boxOffice": 394400000,
+        "productionCompanies": [
+            "Pixar Animation Studios"
+        ],
+        "ageRating": "G",
+        "director": "John Lasseter",
+        "writers": [
+            "Joss Whedon",
+            "Andrew Stanton",
+            "Joel Cohen"
+        ],
+        "cast": [
+            "Tom Hanks",
+            "Tim Allen",
+            "Don Rickles",
+            "Jim Varney"
+        ],
+        "trailer": "https://youtube.com/watch?v=KYz2wyBy3kc",
+        "image": "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg",
+        "awards": [
+            {
+                "name": "Special Achievement Academy Award",
+                "category": "Innovative animation and storytelling",
+                "result": "Won",
+                "year": 1996
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Original Song",
+                "result": "Nominated",
+                "year": 1996
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Original Score",
+                "result": "Nominated",
+                "year": 1996
+            }
+        ],
+        "similarMovies": [
+            47,
+            50,
+            49
+        ]
+    },
+    {
+        "id": 47,
+        "title": "Toy Story 3",
+        "overview": "As Andy prepares to depart for college, the toys find themselves mistakenly delivered to a day‑care center and must find their way home.",
+        "releaseDate": "2010-06-18",
+        "rating": 8.3,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "runtime": 103,
+        "language": "English",
+        "country": "USA",
+        "budget": 200000000,
+        "boxOffice": 1067170000,
+        "productionCompanies": [
+            "Pixar Animation Studios"
+        ],
+        "ageRating": "G",
+        "director": "Lee Unkrich",
+        "writers": [
+            "Michael Arndt",
+            "Lee Unkrich",
+            "John Lasseter"
+        ],
+        "cast": [
+            "Tom Hanks",
+            "Tim Allen",
+            "Joan Cusack",
+            "Michael Keaton"
+        ],
+        "trailer": "https://youtube.com/watch?v=JcpWXaA2qeg",
+        "image": "https://image.tmdb.org/t/p/w500/rNk1Wi8SvVgMnsFTtYpwPuaWR0a.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Animated Feature",
+                "result": "Won",
+                "year": 2011
+            }
+        ],
+        "similarMovies": [
+            46,
+            50,
+            48
+        ]
+    },
+    {
+        "id": 48,
+        "title": "Coco",
+        "overview": "Aspiring musician Miguel travels to the Land of the Dead to unlock his family's history and confront his ban on music.",
+        "releaseDate": "2017-11-22",
+        "rating": 8.4,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Family"
+        ],
+        "runtime": 106,
+        "language": "English",
+        "country": "USA",
+        "budget": 175000000,
+        "boxOffice": 814300000,
+        "productionCompanies": [
+            "Pixar Animation Studios"
+        ],
+        "ageRating": "PG",
+        "director": "Lee Unkrich",
+        "writers": [
+            "Lee Unkrich",
+            "Adrian Molina"
+        ],
+        "cast": [
+            "Anthony Gonzalez",
+            "Gael García Bernal",
+            "Benjamin Bratt",
+            "Alanna Ubach"
+        ],
+        "trailer": "https://youtube.com/watch?v=Rvr68u6k5I",
+        "image": "https://image.tmdb.org/t/p/w500/gGjuHGIUGHKLfNf5t8NZN99MaUA.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Animated Feature",
+                "result": "Won",
+                "year": 2018
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Original Song",
+                "result": "Won",
+                "year": 2018
+            }
+        ],
+        "similarMovies": [
+            46,
+            47,
+            50
+        ]
+    },
+    {
+        "id": 49,
+        "title": "Finding Nemo",
+        "overview": "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home.",
+        "releaseDate": "2003-05-30",
+        "rating": 8.1,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "runtime": 100,
+        "language": "English",
+        "country": "USA",
+        "budget": 94000000,
+        "boxOffice": 940000000,
+        "productionCompanies": [
+            "Pixar Animation Studios"
+        ],
+        "ageRating": "G",
+        "director": "Andrew Stanton",
+        "writers": [
+            "Andrew Stanton",
+            "Bob Peterson",
+            "David Reynolds"
+        ],
+        "cast": [
+            "Albert Brooks",
+            "Ellen DeGeneres",
+            "Alexander Gould",
+            "Willem Dafoe"
+        ],
+        "trailer": "https://youtube.com/watch?v=wZdpNglLbt8",
+        "image": "https://image.tmdb.org/t/p/w500/eSaiyBvh5F4ht7WdBojjIW4Aoxf.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Animated Feature",
+                "result": "Won",
+                "year": 2004
+            },
+            {
+                "name": "BAFTA Awards",
+                "category": "Best Screenplay (Original)",
+                "result": "Nominated",
+                "year": 2004
+            },
+            {
+                "name": "Annie Awards",
+                "category": "Best Feature",
+                "result": "Won",
+                "year": 2003
+            }
+        ],
+        "similarMovies": [
+            50,
+            48,
+            46
+        ]
+    },
+    {
+        "id": 50,
+        "title": "Up",
+        "overview": "An elderly widower and an earnest young Wilderness Explorer fly to South America in a house lifted by balloons.",
+        "releaseDate": "2009-05-29",
+        "rating": 8.2,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "runtime": 96,
+        "language": "English",
+        "country": "USA",
+        "budget": 175000000,
+        "boxOffice": 735000000,
+        "productionCompanies": [
+            "Pixar Animation Studios"
+        ],
+        "ageRating": "PG",
+        "director": "Pete Docter",
+        "writers": [
+            "Pete Docter",
+            "Bob Peterson"
+        ],
+        "cast": [
+            "Ed Asner",
+            "Jordan Nagai",
+            "John Ratzenberger",
+            "Christopher Plummer"
+        ],
+        "trailer": "https://youtube.com/watch?v=pkqzFUhGPJg",
+        "image": "https://image.tmdb.org/t/p/w500/iQNwlmviT7baQplicDWEFLD5CEa.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Animated Feature",
+                "result": "Won",
+                "year": 2010
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Original Score",
+                "result": "Won",
+                "year": 2010
+            },
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Nominated",
+                "year": 2010
+            }
+        ],
+        "similarMovies": [
+            49,
+            47,
+            48
+        ]
+    },
+    {
+        "id": 51,
+        "title": "Inside Out",
+        "overview": "After young Riley is uprooted from her Midwest life and moved to San Francisco, her emotions – Joy, Fear, Anger, Disgust, and Sadness – conflict on how best to navigate a new city, house, and school.",
+        "releaseDate": "2015-06-19",
+        "rating": 8.2,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "runtime": 95,
+        "language": "English",
+        "country": "USA",
+        "budget": 175000000,
+        "boxOffice": 858800000,
+        "productionCompanies": [
+            "Pixar Animation Studios",
+            "Walt Disney Pictures"
+        ],
+        "ageRating": "PG",
+        "director": "Pete Docter",
+        "writers": [
+            "Pete Docter",
+            "Meg LeFauve",
+            "Josh Cooley"
+        ],
+        "cast": [
+            "Amy Poehler",
+            "Phyllis Smith",
+            "Richard Kind",
+            "Bill Hader"
+        ],
+        "trailer": "https://youtube.com/watch?v=yRUAzGQ3nSY",
+        "image": "https://image.tmdb.org/t/p/w500/aAmfIX3TT40zUHGcck6tILGtZRK.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Animated Feature",
+                "result": "Won",
+                "year": 2016
+            }
+        ],
+        "similarMovies": [
+            52,
+            56,
+            57
+        ]
+    },
+    {
+        "id": 52,
+        "title": "The Incredibles",
+        "overview": "A family of undercover superheroes, while trying to live the quiet suburban life, are forced into action to save the world.",
+        "releaseDate": "2004-11-05",
+        "rating": 8,
+        "genres": [
+            "Animation",
+            "Action",
+            "Adventure"
+        ],
+        "runtime": 115,
+        "language": "English",
+        "country": "USA",
+        "budget": 92000000,
+        "boxOffice": 633000000,
+        "productionCompanies": [
+            "Pixar Animation Studios",
+            "Walt Disney Pictures"
+        ],
+        "ageRating": "PG",
+        "director": "Brad Bird",
+        "writers": [
+            "Brad Bird"
+        ],
+        "cast": [
+            "Craig T. Nelson",
+            "Holly Hunter",
+            "Samuel L. Jackson",
+            "Jason Lee"
+        ],
+        "trailer": "https://youtube.com/watch?v=eZbzbC9285I",
+        "image": "https://image.tmdb.org/t/p/w500/7relptM7cQhutaYk44XKm5vsK.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Animated Feature",
+                "result": "Won",
+                "year": 2005
+            }
+        ],
+        "similarMovies": [
+            51,
+            56,
+            58
+        ]
+    },
+    {
+        "id": 53,
+        "title": "Deadpool",
+        "overview": "A fast-talking mercenary with a morbid sense of humor is subjected to a rogue experiment that leaves him with accelerated healing powers and a quest for revenge.",
+        "releaseDate": "2016-02-12",
+        "rating": 8,
+        "genres": [
+            "Action",
+            "Comedy"
+        ],
+        "runtime": 108,
+        "language": "English",
+        "country": "USA",
+        "budget": 58000000,
+        "boxOffice": 782000000,
+        "productionCompanies": [
+            "20th Century Fox",
+            "Marvel Entertainment"
+        ],
+        "ageRating": "R",
+        "director": "Tim Miller",
+        "writers": [
+            "Rhett Reese",
+            "Paul Wernick"
+        ],
+        "cast": [
+            "Ryan Reynolds",
+            "Morena Baccarin",
+            "Ed Skrein",
+            "T.J. Miller"
+        ],
+        "trailer": "https://youtube.com/watch?v=ZIM1HydF9UA",
+        "image": "https://image.tmdb.org/t/p/w500/fSRb7vyIP8rQpL0I47P31w9S7ac.jpg",
+        "awards": [],
+        "similarMovies": [
+            54,
+            55,
+            59
+        ]
+    },
+    {
+        "id": 54,
+        "title": "Deadpool 2",
+        "overview": "Foul-mouthed mutant mercenary Wade Wilson (a.k.a. Deadpool), brings together a team of fellow mutant rogues to protect a young boy with supernatural abilities from the brutal, time-traveling cyborg, Cable.",
+        "releaseDate": "2018-05-18",
+        "rating": 7.7,
+        "genres": [
+            "Action",
+            "Comedy"
+        ],
+        "runtime": 119,
+        "language": "English",
+        "country": "USA",
+        "budget": 110000000,
+        "boxOffice": 785000000,
+        "productionCompanies": [
+            "20th Century Fox",
+            "Marvel Entertainment"
+        ],
+        "ageRating": "R",
+        "director": "David Leitch",
+        "writers": [
+            "Rhett Reese",
+            "Paul Wernick",
+            "Ryan Reynolds"
+        ],
+        "cast": [
+            "Ryan Reynolds",
+            "Josh Brolin",
+            "Zazie Beetz",
+            "Julian Dennison"
+        ],
+        "trailer": "https://youtube.com/watch?v=HuYMJXaWzqY",
+        "image": "https://image.tmdb.org/t/p/w500/9xNOiv6DZZjH7ABoUUDP0ZynouU.jpg",
+        "awards": [],
+        "similarMovies": [
+            53,
+            55,
+            58
+        ]
+    },
+    {
+        "id": 55,
+        "title": "Wonder Woman",
+        "overview": "When an American pilot crashes on the shores of her sheltered island paradise and tells tales of a massive conflict raging in the outside world, Diana leaves her home to stop the threat and becomes Wonder Woman.",
+        "releaseDate": "2017-06-02",
+        "rating": 7.4,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+        ],
+        "runtime": 141,
+        "language": "English",
+        "country": "USA",
+        "budget": 149000000,
+        "boxOffice": 822000000,
+        "productionCompanies": [
+            "Warner Bros.",
+            "DC Entertainment"
+        ],
+        "ageRating": "PG-13",
+        "director": "Patty Jenkins",
+        "writers": [
+            "Allan Heinberg",
+            "Zack Snyder"
+        ],
+        "cast": [
+            "Gal Gadot",
+            "Chris Pine",
+            "Robin Wright",
+            "David Thewlis"
+        ],
+        "trailer": "https://youtube.com/watch?v=VSB4wGIdDwo",
+        "image": "https://image.tmdb.org/t/p/w500/ylXCdC106IKiarftHkcacasaAcb.jpg",
+        "awards": [],
+        "similarMovies": [
+            54,
+            59,
+            60
+        ]
+    },
+    {
+        "id": 56,
+        "title": "Princess Mononoke",
+        "overview": "On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony.",
+        "releaseDate": "1997-07-12",
+        "rating": 8.4,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Fantasy"
+        ],
+        "runtime": 134,
+        "language": "Japanese",
+        "country": "Japan",
+        "budget": 23000000,
+        "boxOffice": 169785629,
+        "productionCompanies": [
+            "Studio Ghibli"
+        ],
+        "ageRating": "PG-13",
+        "director": "Hayao Miyazaki",
+        "writers": [
+            "Hayao Miyazaki"
+        ],
+        "cast": [
+            "Yōji Matsuda",
+            "Yuriko Ishida",
+            "Yūko Tanaka",
+            "Billy Crudup (dub)"
+        ],
+        "trailer": "https://youtube.com/watch?v=4OiMOHRDs14",
+        "image": "https://image.tmdb.org/t/p/w500/ym1dxyOk4jFcSl4Q2zmRrA5BEQ2.jpg",
+        "awards": [],
+        "similarMovies": [
+            57,
+            51,
+            58
+        ]
+    },
+    {
+        "id": 57,
+        "title": "Your Name",
+        "overview": "Two teenagers share a profound, magical connection upon discovering they are swapping bodies. Things manage to become even more complicated when the boy and girl decide to meet in person.",
+        "releaseDate": "2016-08-26",
+        "rating": 8.4,
+        "genres": [
+            "Animation",
+            "Drama",
+            "Fantasy"
+        ],
+        "runtime": 106,
+        "language": "Japanese",
+        "country": "Japan",
+        "budget": 3600000,
+        "boxOffice": 358000000,
+        "productionCompanies": [
+            "CoMix Wave Films"
+        ],
+        "ageRating": "PG",
+        "director": "Makoto Shinkai",
+        "writers": [
+            "Makoto Shinkai"
+        ],
+        "cast": [
+            "Ryunosuke Kamiki",
+            "Mone Kamishiraishi",
+            "Ryô Narita",
+            "Aoi Yuki"
+        ],
+        "trailer": "https://youtube.com/watch?v=hRfHcp2GjVI",
+        "image": "https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg",
+        "awards": [],
+        "similarMovies": [
+            56,
+            58,
+            51
+        ]
+    },
+    {
+        "id": 58,
+        "title": "Spiderman: Into the Spider-Verse",
+        "overview": "Teen Miles Morales becomes Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.",
+        "releaseDate": "2018-12-14",
+        "rating": 8.4,
+        "genres": [
+            "Animation",
+            "Action",
+            "Adventure"
+        ],
+        "runtime": 117,
+        "language": "English",
+        "country": "USA",
+        "budget": 90000000,
+        "boxOffice": 375000000,
+        "productionCompanies": [
+            "Sony Pictures Animation",
+            "Marvel Entertainment"
+        ],
+        "ageRating": "PG",
+        "director": [
+            "Bob Persichetti",
+            "Peter Ramsey",
+            "Rodney Rothman"
+        ],
+        "writers": [
+            "Phil Lord",
+            "Rodney Rothman"
+        ],
+        "cast": [
+            "Shameik Moore",
+            "Jake Johnson",
+            "Hailee Steinfeld",
+            "Mahershala Ali"
+        ],
+        "trailer": "https://youtube.com/watch?v=tg52up16eq0",
+        "image": "https://image.tmdb.org/t/p/w500/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Animated Feature",
+                "result": "Won",
+                "year": 2019
+            }
+        ],
+        "similarMovies": [
+            56,
+            57,
+            54
+        ]
+    },
+    {
+        "id": 59,
+        "title": "The Revenant",
+        "overview": "A frontiersman on a fur trading expedition in the 1820s fights for survival after being mauled by a bear and left for dead by members of his own hunting team.",
+        "releaseDate": "2015-12-25",
+        "rating": 8,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "runtime": 156,
+        "language": "English",
+        "country": "USA",
+        "budget": 135000000,
+        "boxOffice": 533000000,
+        "productionCompanies": [
+            "Regency Enterprises",
+            "20th Century Fox"
+        ],
+        "ageRating": "R",
+        "director": "Alejandro G. Iñárritu",
+        "writers": [
+            "Mark L. Smith",
+            "Alejandro G. Iñárritu"
+        ],
+        "cast": [
+            "Leonardo DiCaprio",
+            "Tom Hardy",
+            "Domhnall Gleeson",
+            "Will Poulter"
+        ],
+        "trailer": "https://youtube.com/watch?v=LoebZZ8K5N0",
+        "image": "https://image.tmdb.org/t/p/w500/oXUWEc5i3wYyFnL1Ycu8ppxxPvs.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Actor",
+                "result": "Won",
+                "year": 2016
+            }
+        ],
+        "similarMovies": [
+            55,
+            60,
+            53
+        ]
+    },
+    {
+        "id": 60,
+        "title": "Gravity",
+        "overview": "Two astronauts work together to survive after an accident leaves them stranded in space.",
+        "releaseDate": "2013-10-04",
+        "rating": 7.7,
+        "genres": [
+            "Drama",
+            "Sci-Fi",
+            "Thriller"
+        ],
+        "runtime": 91,
+        "language": "English",
+        "country": "USA",
+        "budget": 100000000,
+        "boxOffice": 723000000,
+        "productionCompanies": [
+            "Warner Bros.",
+            "Esperanto Filmoj"
+        ],
+        "ageRating": "PG-13",
+        "director": "Alfonso Cuarón",
+        "writers": [
+            "Alfonso Cuarón",
+            "Jonás Cuarón"
+        ],
+        "cast": [
+            "Sandra Bullock",
+            "George Clooney",
+            "Ed Harris"
+        ],
+        "trailer": "https://youtube.com/watch?v=OiTiKOy59o4",
+        "image": "https://image.tmdb.org/t/p/w500/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Director",
+                "result": "Won",
+                "year": 2014
+            }
+        ],
+        "similarMovies": [
+            55,
+            59,
+            53
+        ]
+    },
+    {
+        "id": 61,
+        "title": "Mad Max: Fury Road",
+        "overview": "In a post-apocalyptic wasteland, Max teams up with a mysterious woman, Furiosa, to flee from a tyrant and his army in a high-speed road war.",
+        "releaseDate": "2015-05-15",
+        "rating": 6.9,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "runtime": 120,
+        "language": "English",
+        "country": "Australia",
+        "budget": 150000000,
+        "boxOffice": 374736354,
+        "productionCompanies": [
+            "Village Roadshow Pictures",
+            "Kennedy Miller Mitchell"
+        ],
+        "ageRating": "R",
+        "director": "George Miller",
+        "writers": [
+            "George Miller",
+            "Brendan McCarthy",
+            "Nico Lathouris"
+        ],
+        "cast": [
+            "Tom Hardy",
+            "Charlize Theron",
+            "Nicholas Hoult",
+            "Hugh Keays-Byrne"
+        ],
+        "trailer": "https://youtube.com/watch?v=hEJnMQG9ev8",
+        "image": "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Film Editing",
+                "result": "Won",
+                "year": 2016
+            }
+        ],
+        "similarMovies": [
+            1,
+            3,
+            68
+        ]
+    },
+    {
+        "id": 63,
+        "title": "Toy Story 4",
+        "overview": "When Bonnie adds a reluctant new toy called 'Forky' to her room, a road trip alongside old and new friends reveals how big the world can be for a toy.",
+        "releaseDate": "2019-06-21",
+        "rating": 7.8,
+        "genres": [
+            "Animation",
+            "Comedy",
+            "Family"
+        ],
+        "runtime": 100,
+        "language": "English",
+        "country": "USA",
+        "budget": 200000000,
+        "boxOffice": 1073394593,
+        "productionCompanies": [
+            "Pixar Animation Studios"
+        ],
+        "ageRating": "G",
+        "director": "Josh Cooley",
+        "writers": [
+            "Andrew Stanton",
+            "Stephany Folsom"
+        ],
+        "cast": [
+            "Tom Hanks",
+            "Tim Allen",
+            "Annie Potts",
+            "Tony Hale"
+        ],
+        "trailer": "https://youtube.com/watch?v=wmiIUN-7qhE",
+        "image": "https://image.tmdb.org/t/p/w500/wnrzcoepOAj8P1piLrnPGgRps0n.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Animated Feature",
+                "result": "Won",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            65,
+            67,
+            66
+        ]
+    },
+    {
+        "id": 64,
+        "title": "Parasite",
+        "overview": "A poor family schemes to become employed by a wealthy family by infiltrating their household and posing as unrelated, highly qualified individuals.",
+        "releaseDate": "2019-05-30",
+        "rating": 8.6,
+        "genres": [
+            "Thriller",
+            "Drama"
+        ],
+        "runtime": 132,
+        "language": "Korean",
+        "country": "South Korea",
+        "budget": 11400000,
+        "boxOffice": 263184901,
+        "productionCompanies": [
+            "Barunson E&A"
+        ],
+        "ageRating": "R",
+        "director": "Bong Joon-ho",
+        "writers": [
+            "Bong Joon-ho",
+            "Han Jin-won"
+        ],
+        "cast": [
+            "Song Kang-ho",
+            "Lee Sun-kyun",
+            "Cho Yeo-jeong",
+            "Choi Woo-shik"
+        ],
+        "trailer": "https://youtube.com/watch?v=5xH0HfJHsaY",
+        "image": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Picture",
+                "result": "Won",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            66,
+            70,
+            2
+        ]
+    },
+    {
+        "id": 65,
+        "title": "Frozen II",
+        "overview": "Elsa, Anna, Kristoff, Olaf and Sven leave Arendelle to travel to an ancient forest to discover the origin of Elsa's magical powers and save their kingdom.",
+        "releaseDate": "2019-11-22",
+        "rating": 6.9,
+        "genres": [
+            "Animation",
+            "Family",
+            "Fantasy"
+        ],
+        "runtime": 103,
+        "language": "English",
+        "country": "USA",
+        "budget": 150000000,
+        "boxOffice": 1450026933,
+        "productionCompanies": [
+            "Walt Disney Animation Studios"
+        ],
+        "ageRating": "PG",
+        "director": "Chris Buck, Jennifer Lee",
+        "writers": [
+            "Jennifer Lee"
+        ],
+        "cast": [
+            "Idina Menzel",
+            "Kristen Bell",
+            "Josh Gad",
+            "Jonathan Groff"
+        ],
+        "trailer": "https://youtube.com/watch?v=Zi4LMpSDccc",
+        "image": "https://image.tmdb.org/t/p/w500/pjeMs3yqRmFL3giJy4PMXWZTTPa.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Original Song",
+                "result": "Nominated",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            63,
+            67,
+            4
+        ]
+    },
+    {
+        "id": 66,
+        "title": "Knives Out",
+        "overview": "A detective investigates the death of a patriarch of an eccentric, combative family.",
+        "releaseDate": "2019-11-27",
+        "rating": 7.9,
+        "genres": [
+            "Comedy",
+            "Crime",
+            "Drama"
+        ],
+        "runtime": 131,
+        "language": "English",
+        "country": "USA",
+        "budget": 40000000,
+        "boxOffice": 312897920,
+        "productionCompanies": [
+            "MRC",
+            "Lionsgate"
+        ],
+        "ageRating": "PG-13",
+        "director": "Rian Johnson",
+        "writers": [
+            "Rian Johnson"
+        ],
+        "cast": [
+            "Daniel Craig",
+            "Chris Evans",
+            "Ana de Armas",
+            "Jamie Lee Curtis"
+        ],
+        "trailer": "https://youtube.com/watch?v=qGqiHJTsRkQ",
+        "image": "https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Original Screenplay",
+                "result": "Nominated",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            64,
+            70,
+            2
+        ]
+    },
+    {
+        "id": 67,
+        "title": "The Lion King",
+        "overview": "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.",
+        "releaseDate": "2019-07-19",
+        "rating": 6.9,
+        "genres": [
+            "Adventure",
+            "Drama",
+            "Family"
+        ],
+        "runtime": 118,
+        "language": "English",
+        "country": "USA",
+        "budget": 260000000,
+        "boxOffice": 1662000000,
+        "productionCompanies": [
+            "Walt Disney Pictures"
+        ],
+        "ageRating": "PG",
+        "director": "Jon Favreau",
+        "writers": [
+            "Jeff Nathanson"
+        ],
+        "cast": [
+            "Donald Glover",
+            "Beyoncé",
+            "James Earl Jones",
+            "Chiwetel Ejiofor"
+        ],
+        "trailer": "https://youtube.com/watch?v=7TavVZMewpY",
+        "image": "https://image.tmdb.org/t/p/w500/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Visual Effects",
+                "result": "Nominated",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            65,
+            63,
+            4
+        ]
+    },
+    {
+        "id": 68,
+        "title": "1917",
+        "overview": "Two British soldiers must deliver a message deep in enemy territory that will stop 1,600 men, including one of the soldier's brothers, from walking into a deadly trap.",
+        "releaseDate": "2019-12-25",
+        "rating": 8.3,
+        "genres": [
+            "War",
+            "Drama",
+            "Action"
+        ],
+        "runtime": 119,
+        "language": "English",
+        "country": "UK",
+        "budget": 95000000,
+        "boxOffice": 384919803,
+        "productionCompanies": [
+            "DreamWorks Pictures",
+            "Universal Pictures"
+        ],
+        "ageRating": "R",
+        "director": "Sam Mendes",
+        "writers": [
+            "Sam Mendes",
+            "Krysty Wilson-Cairns"
+        ],
+        "cast": [
+            "George MacKay",
+            "Dean-Charles Chapman",
+            "Mark Strong",
+            "Benedict Cumberbatch"
+        ],
+        "trailer": "https://youtube.com/watch?v=YqNYrYUiMfg",
+        "image": "https://image.tmdb.org/t/p/w500/iZf0KyrE25z1sage4SYFLCCrMi9.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Cinematography",
+                "result": "Won",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            69,
+            61,
+            1
+        ]
+    },
+    {
+        "id": 69,
+        "title": "Ford v Ferrari",
+        "overview": "American car designer Carroll Shelby and driver Ken Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford.",
+        "releaseDate": "2019-11-15",
+        "rating": 8.1,
+        "genres": [
+            "Drama",
+            "Action",
+            "Biography"
+        ],
+        "runtime": 152,
+        "language": "English",
+        "country": "USA",
+        "budget": 97600000,
+        "boxOffice": 225508210,
+        "productionCompanies": [
+            "20th Century Fox",
+            "Chernin Entertainment"
+        ],
+        "ageRating": "PG-13",
+        "director": "James Mangold",
+        "writers": [
+            "Jez Butterworth",
+            "John-Henry Butterworth"
+        ],
+        "cast": [
+            "Matt Damon",
+            "Christian Bale",
+            "Jon Bernthal",
+            "Caitriona Balfe"
+        ],
+        "trailer": "https://youtube.com/watch?v=zyYgDtY2AMY",
+        "image": "https://image.tmdb.org/t/p/w500/6ApDtO7xaWAfPqfi2IARXIzj8QS.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Film Editing",
+                "result": "Won",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            68,
+            1,
+            70
+        ]
+    },
+    {
+        "id": 70,
+        "title": "Once Upon a Time in Hollywood",
+        "overview": "A faded television actor and his stunt double strive to achieve fame and success in the final years of Hollywood's Golden Age in 1969 Los Angeles.",
+        "releaseDate": "2019-07-26",
+        "rating": 7.6,
+        "genres": [
+            "Comedy",
+            "Drama"
+        ],
+        "runtime": 161,
+        "language": "English",
+        "country": "USA",
+        "budget": 90000000,
+        "boxOffice": 377426903,
+        "productionCompanies": [
+            "Columbia Pictures",
+            "Heyday Films"
+        ],
+        "ageRating": "R",
+        "director": "Quentin Tarantino",
+        "writers": [
+            "Quentin Tarantino"
+        ],
+        "cast": [
+            "Leonardo DiCaprio",
+            "Brad Pitt",
+            "Margot Robbie",
+            "Al Pacino"
+        ],
+        "trailer": "https://youtube.com/watch?v=ELeMaP8EPAA",
+        "image": "https://image.tmdb.org/t/p/w500/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Supporting Actor",
+                "result": "Won",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            64,
+            66,
+            69
+        ]
+    },
+    {
+        "id": 71,
+        "title": "Dangal",
+        "overview": "Former wrestler Mahavir Singh Phogat trains his daughters Geeta and Babita to become world-class wrestlers, breaking societal norms in the process.",
+        "releaseDate": "2016-12-23",
+        "rating": 8.4,
+        "genres": [
+            "Biography",
+            "Drama",
+            "Sport"
+        ],
+        "runtime": 161,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 70000000,
+        "boxOffice": 3040000000,
+        "productionCompanies": [
+            "Aamir Khan Productions",
+            "Walt Disney Pictures India"
+        ],
+        "ageRating": "U",
+        "director": "Nitesh Tiwari",
+        "writers": [
+            "Nitesh Tiwari",
+            "Piyush Gupta"
+        ],
+        "cast": [
+            "Aamir Khan",
+            "Sakshi Tanwar",
+            "Fatima Sana Shaikh",
+            "Sanya Malhotra"
+        ],
+        "trailer": "https://youtube.com/watch?v=x_7YlGv9u1g",
+        "image": "https://image.tmdb.org/t/p/w500/ykW9jtsUtnA0UyoFq2gT1fQj8UZ.jpg",
+        "awards": [
+            {
+                "name": "Filmfare Awards",
+                "category": "Best Film",
+                "result": "Won",
+                "year": 2017
+            }
+        ],
+        "similarMovies": [
+            75,
+            76,
+            78
+        ]
+    },
+    {
+        "id": 72,
+        "title": "Jawan",
+        "overview": "A man driven by a personal vendetta rises to take down corrupt systems while dealing with his own past.",
+        "releaseDate": "2023-09-07",
+        "rating": 7.1,
+        "genres": [
+            "Action",
+            "Thriller"
+        ],
+        "runtime": 169,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 300000000,
+        "boxOffice": 1100000000,
+        "productionCompanies": [
+            "Red Chillies Entertainment"
+        ],
+        "ageRating": "UA",
+        "director": "Atlee",
+        "writers": [
+            "Atlee",
+            "S. Ramanagirivasan"
+        ],
+        "cast": [
+            "Shah Rukh Khan",
+            "Nayanthara",
+            "Vijay Sethupathi",
+            "Deepika Padukone"
+        ],
+        "trailer": "https://youtube.com/watch?v=XYZ_jawan_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/jawan_poster.jpg",
+        "awards": [],
+        "similarMovies": [
+            73,
+            80,
+            74
+        ]
+    },
+    {
+        "id": 73,
+        "title": "Pathaan",
+        "overview": "An Indian spy battles terrorism in a race against time while reconnecting with his past.",
+        "releaseDate": "2023-01-25",
+        "rating": 6.8,
+        "genres": [
+            "Action",
+            "Thriller"
+        ],
+        "runtime": 146,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 250000000,
+        "boxOffice": 1050000000,
+        "productionCompanies": [
+            "Yash Raj Films"
+        ],
+        "ageRating": "UA",
+        "director": "Siddharth Anand",
+        "writers": [
+            "Shridhar Raghavan",
+            "Abbas Tyrewala"
+        ],
+        "cast": [
+            "Shah Rukh Khan",
+            "Deepika Padukone",
+            "John Abraham"
+        ],
+        "trailer": "https://youtube.com/watch?v=aRGBYWS5v8w",
+        "image": "https://image.tmdb.org/t/p/w500/pathaan.jpg",
+        "awards": [],
+        "similarMovies": [
+            72,
+            80,
+            77
+        ]
+    },
+    {
+        "id": 74,
+        "title": "Animal",
+        "overview": "A complex father-son relationship evolves amidst violence, power, and emotional trauma.",
+        "releaseDate": "2023-12-01",
+        "rating": 7,
+        "genres": [
+            "Action",
+            "Drama"
+        ],
+        "runtime": 201,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 100000000,
+        "boxOffice": 900000000,
+        "productionCompanies": [
+            "T-Series",
+            "Cine1 Studios"
+        ],
+        "ageRating": "A",
+        "director": "Sandeep Reddy Vanga",
+        "writers": [
+            "Saurabh Gupta",
+            "Sandeep Vanga"
+        ],
+        "cast": [
+            "Ranbir Kapoor",
+            "Rashmika Mandanna",
+            "Anil Kapoor",
+            "Triptii Dimri"
+        ],
+        "trailer": "https://youtube.com/watch?v=animal_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/animal.jpg",
+        "awards": [],
+        "similarMovies": [
+            73,
+            72,
+            75
+        ]
+    },
+    {
+        "id": 75,
+        "title": "Bajrangi Bhaijaan",
+        "overview": "An Indian man with a magnanimous heart takes a young mute Pakistani girl back to her homeland to reunite her with her family.",
+        "releaseDate": "2015-07-17",
+        "rating": 8,
+        "genres": [
+            "Adventure",
+            "Drama",
+            "Family"
+        ],
+        "runtime": 159,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 90000000,
+        "boxOffice": 969000000,
+        "productionCompanies": [
+            "Salman Khan Films",
+            "Eros International"
+        ],
+        "ageRating": "U",
+        "director": "Kabir Khan",
+        "writers": [
+            "Vijayendra Prasad",
+            "Kabir Khan"
+        ],
+        "cast": [
+            "Salman Khan",
+            "Harshaali Malhotra",
+            "Nawazuddin Siddiqui",
+            "Kareena Kapoor"
+        ],
+        "trailer": "https://youtube.com/watch?v=vyXQ2a4I_cg",
+        "image": "https://image.tmdb.org/t/p/w500/bajrangi.jpg",
+        "awards": [
+            {
+                "name": "National Film Awards",
+                "category": "Best Popular Film",
+                "result": "Won",
+                "year": 2016
+            }
+        ],
+        "similarMovies": [
+            71,
+            78,
+            76
+        ]
+    },
+    {
+        "id": 76,
+        "title": "Secret Superstar",
+        "overview": "A teenage girl dreams of becoming a singer but must overcome her conservative family's objections.",
+        "releaseDate": "2017-10-19",
+        "rating": 7.2,
+        "genres": [
+            "Drama",
+            "Music"
+        ],
+        "runtime": 150,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 15000000,
+        "boxOffice": 965000000,
+        "productionCompanies": [
+            "Aamir Khan Productions",
+            "Zee Studios"
+        ],
+        "ageRating": "U",
+        "director": "Advait Chandan",
+        "writers": [
+            "Advait Chandan"
+        ],
+        "cast": [
+            "Zaira Wasim",
+            "Meher Vij",
+            "Aamir Khan",
+            "Raj Arjun"
+        ],
+        "trailer": "https://youtube.com/watch?v=secret_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/secret_superstar.jpg",
+        "awards": [
+            {
+                "name": "Filmfare Awards",
+                "category": "Best Actress (Critics)",
+                "result": "Won",
+                "year": 2018
+            }
+        ],
+        "similarMovies": [
+            71,
+            75,
+            78
+        ]
+    },
+    {
+        "id": 77,
+        "title": "PK",
+        "overview": "An alien on Earth loses the only device he can use to communicate with his spaceship. His innocent nature and child-like questions force people to evaluate the impact of religion on their lives.",
+        "releaseDate": "2014-12-19",
+        "rating": 8.1,
+        "genres": [
+            "Comedy",
+            "Drama",
+            "Sci-Fi"
+        ],
+        "runtime": 153,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 85000000,
+        "boxOffice": 832000000,
+        "productionCompanies": [
+            "Vinod Chopra Films",
+            "Rajkumar Hirani Films"
+        ],
+        "ageRating": "UA",
+        "director": "Rajkumar Hirani",
+        "writers": [
+            "Rajkumar Hirani",
+            "Abhijat Joshi"
+        ],
+        "cast": [
+            "Aamir Khan",
+            "Anushka Sharma",
+            "Sushant Singh Rajput",
+            "Boman Irani"
+        ],
+        "trailer": "https://youtube.com/watch?v=secret_ack",
+        "image": "https://image.tmdb.org/t/p/w500/pk.jpg",
+        "awards": [
+            {
+                "name": "Filmfare Awards",
+                "category": "Best Screenplay",
+                "result": "Won",
+                "year": 2015
+            }
+        ],
+        "similarMovies": [
+            76,
+            78,
+            79
+        ]
+    },
+    {
+        "id": 78,
+        "title": "Sanju",
+        "overview": "A biopic of controversial actor Sanjay Dutt, covering his film career, jail time, and personal struggles.",
+        "releaseDate": "2018-06-29",
+        "rating": 7.5,
+        "genres": [
+            "Biography",
+            "Drama"
+        ],
+        "runtime": 161,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 100000000,
+        "boxOffice": 586000000,
+        "productionCompanies": [
+            "Vinod Chopra Films",
+            "Rajkumar Hirani Films"
+        ],
+        "ageRating": "UA",
+        "director": "Rajkumar Hirani",
+        "writers": [
+            "Rajkumar Hirani",
+            "Abhijat Joshi"
+        ],
+        "cast": [
+            "Ranbir Kapoor",
+            "Paresh Rawal",
+            "Manisha Koirala",
+            "Dia Mirza"
+        ],
+        "trailer": "https://youtube.com/watch?v=sanju_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/sanju.jpg",
+        "awards": [],
+        "similarMovies": [
+            71,
+            75,
+            77
+        ]
+    },
+    {
+        "id": 79,
+        "title": "Padmaavat",
+        "overview": "Rani Padmavati is the wife of Maharawal Ratan Singh and pride of the Rajput kingdom. The legend of her beauty reaches Alauddin Khilji who becomes obsessed with her.",
+        "releaseDate": "2018-01-25",
+        "rating": 7,
+        "genres": [
+            "Drama",
+            "History",
+            "Romance"
+        ],
+        "runtime": 164,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 215000000,
+        "boxOffice": 585000000,
+        "productionCompanies": [
+            "Bhansali Productions",
+            "Viacom18 Studios"
+        ],
+        "ageRating": "UA",
+        "director": "Sanjay Leela Bhansali",
+        "writers": [
+            "Prakash Kapadia",
+            "Sanjay Leela Bhansali"
+        ],
+        "cast": [
+            "Deepika Padukone",
+            "Ranveer Singh",
+            "Shahid Kapoor",
+            "Jim Sarbh"
+        ],
+        "trailer": "https://youtube.com/watch?v=padmaavat_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/padmaavat.jpg",
+        "awards": [],
+        "similarMovies": [
+            74,
+            80,
+            78
+        ]
+    },
+    {
+        "id": 80,
+        "title": "War",
+        "overview": "An Indian soldier is assigned to eliminate his former mentor who has gone rogue.",
+        "releaseDate": "2019-10-02",
+        "rating": 6.5,
+        "genres": [
+            "Action",
+            "Thriller"
+        ],
+        "runtime": 154,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 170000000,
+        "boxOffice": 475000000,
+        "productionCompanies": [
+            "Yash Raj Films"
+        ],
+        "ageRating": "UA",
+        "director": "Siddharth Anand",
+        "writers": [
+            "Shridhar Raghavan",
+            "Abbas Tyrewala"
+        ],
+        "cast": [
+            "Hrithik Roshan",
+            "Tiger Shroff",
+            "Vaani Kapoor"
+        ],
+        "trailer": "https://youtube.com/watch?v=war_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/war.jpg",
+        "awards": [],
+        "similarMovies": [
+            72,
+            73,
+            74
+        ]
+    },
+    {
+        "id": 81,
+        "title": "Chennai Express",
+        "overview": "A man travels to a small town in South India to immerse his late grandfather's ashes but gets caught up in a series of adventures with a mysterious woman.",
+        "releaseDate": "2013-08-09",
+        "rating": 6,
+        "genres": [
+            "Action",
+            "Comedy",
+            "Romance"
+        ],
+        "runtime": 141,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 35000000,
+        "boxOffice": 80000000,
+        "productionCompanies": [
+            "Red Chillies Entertainment"
+        ],
+        "ageRating": "PG-13",
+        "director": "Rohit Shetty",
+        "writers": [
+            "Kailash Surendranath",
+            "Siddharth Randeria"
+        ],
+        "cast": [
+            "Shah Rukh Khan",
+            "Deepika Padukone",
+            "Nikitin Dheer",
+            "Lekha Washington"
+        ],
+        "trailer": "https://youtube.com/watch?v=chennaiexpress",
+        "image": "https://image.tmdb.org/t/p/w500/chennaiexpress.jpg",
+        "awards": [],
+        "similarMovies": [
+            82,
+            83,
+            87
+        ]
+    },
+    {
+        "id": 82,
+        "title": "3 Idiots",
+        "overview": "Three engineering students navigate their friendship, college pressures, and expectations to find their true calling.",
+        "releaseDate": "2009-12-25",
+        "rating": 8,
+        "genres": [
+            "Comedy",
+            "Drama"
+        ],
+        "runtime": 170,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 38000000,
+        "boxOffice": 92000000,
+        "productionCompanies": [
+            "Vidhu Vinod Chopra Productions"
+        ],
+        "ageRating": "PG-13",
+        "director": "Rajkumar Hirani",
+        "writers": [
+            "Rajkumar Hirani",
+            "Abhijat Joshi"
+        ],
+        "cast": [
+            "Aamir Khan",
+            "R. Madhavan",
+            "Sharman Joshi",
+            "Kareena Kapoor"
+        ],
+        "trailer": "https://youtube.com/watch?v=3idiots",
+        "image": "https://image.tmdb.org/t/p/w500/3idiots.jpg",
+        "awards": [
+            {
+                "name": "Filmfare Awards",
+                "category": "Best Film",
+                "result": "Won",
+                "year": 2010
+            }
+        ],
+        "similarMovies": [
+            81,
+            83,
+            85
+        ]
+    },
+    {
+        "id": 83,
+        "title": "Simmba",
+        "overview": "A corrupt cop becomes an unlikely hero after a tragedy changes his perspective on justice.",
+        "releaseDate": "2018-12-28",
+        "rating": 6.8,
+        "genres": [
+            "Action",
+            "Comedy",
+            "Drama"
+        ],
+        "runtime": 158,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 40000000,
+        "boxOffice": 125000000,
+        "productionCompanies": [
+            "Dharma Productions",
+            "Rohit Shetty Picturez"
+        ],
+        "ageRating": "PG-13",
+        "director": "Rohit Shetty",
+        "writers": [
+            "Sajid-Farhad",
+            "Rohit Shetty"
+        ],
+        "cast": [
+            "Ranveer Singh",
+            "Sara Ali Khan",
+            "Sonu Sood"
+        ],
+        "trailer": "https://youtube.com/watch?v=simmba",
+        "image": "https://image.tmdb.org/t/p/w500/simmba.jpg",
+        "awards": [],
+        "similarMovies": [
+            81,
+            82,
+            87
+        ]
+    },
+    {
+        "id": 84,
+        "title": "Bhool Bhulaiyaa 2",
+        "overview": "A young man gets trapped in a haunted haveli while searching for his roots and uncovers unexpected secrets.",
+        "releaseDate": "2022-05-20",
+        "rating": 5.9,
+        "genres": [
+            "Horror",
+            "Comedy"
+        ],
+        "runtime": 140,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 25000000,
+        "boxOffice": 60000000,
+        "productionCompanies": [
+            "T-Series",
+            "Viacom18 Studios"
+        ],
+        "ageRating": "PG-13",
+        "director": "Anees Bazmee",
+        "writers": [
+            "Farhad Samji"
+        ],
+        "cast": [
+            "Kartikey Malhotra",
+            "Kiara Advani"
+        ],
+        "trailer": "https://youtube.com/watch?v=bhoolbhulaiyaa2",
+        "image": "https://image.tmdb.org/t/p/w500/bh2.jpg",
+        "awards": [],
+        "similarMovies": [
+            83,
+            88
+        ]
+    },
+    {
+        "id": 85,
+        "title": "Drishyam 2",
+        "overview": "A man continues to protect his family from a crime that threatens to unravel their lives, years after the first incident.",
+        "releaseDate": "2022-11-18",
+        "rating": 8.1,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "runtime": 158,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 20000000,
+        "boxOffice": 50000000,
+        "productionCompanies": [
+            "Viacom18 Studios"
+        ],
+        "ageRating": "PG-13",
+        "director": "Abhishek Pathak",
+        "writers": [
+            "Jeethu Joseph"
+        ],
+        "cast": [
+            "Ajay Devgn",
+            "Tabu",
+            "Shriya Saran"
+        ],
+        "trailer": "https://youtube.com/watch?v=drishyam2",
+        "image": "https://image.tmdb.org/t/p/w500/drishyam2.jpg",
+        "awards": [],
+        "similarMovies": [
+            82,
+            86
+        ]
+    },
+    {
+        "id": 86,
+        "title": "Uri: The Surgical Strike",
+        "overview": "An Indian army officer leads a covert operation to avenge the attack on their base in Uri.",
+        "releaseDate": "2019-01-11",
+        "rating": 8.1,
+        "genres": [
+            "Action",
+            "Drama",
+            "War"
+        ],
+        "runtime": 138,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 28000000,
+        "boxOffice": 78000000,
+        "productionCompanies": [
+            "Aditya Dhar Films"
+        ],
+        "ageRating": "PG-13",
+        "director": "Aditya Dhar",
+        "writers": [
+            "Aditya Dhar"
+        ],
+        "cast": [
+            "Vicky Kaushal",
+            "Paresh Rawal",
+            "Mohit Raina"
+        ],
+        "trailer": "https://youtube.com/watch?v=uri_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/uri.jpg",
+        "awards": [
+            {
+                "name": "National Film Awards",
+                "category": "Best Feature Film on National Integration",
+                "result": "Won",
+                "year": 2020
+            }
+        ],
+        "similarMovies": [
+            85,
+            87
+        ]
+    },
+    {
+        "id": 87,
+        "title": "Tanhaji: The Unsung Warrior",
+        "overview": "The story of Maratha warrior Tanhaji Malusare and his fight against the Mughal Empire to reclaim a strategic fort.",
+        "releaseDate": "2020-01-10",
+        "rating": 7.6,
+        "genres": [
+            "Action",
+            "Drama",
+            "History"
+        ],
+        "runtime": 135,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 40000000,
+        "boxOffice": 92000000,
+        "productionCompanies": [
+            "Ajay Devgn FFilms"
+        ],
+        "ageRating": "PG-13",
+        "director": "Om Raut",
+        "writers": [
+            "Prakash Kapadia"
+        ],
+        "cast": [
+            "Ajay Devgn",
+            "Saif Ali Khan",
+            "Kajol"
+        ],
+        "trailer": "https://youtube.com/watch?v=tanhaji",
+        "image": "https://image.tmdb.org/t/p/w500/tanhaji.jpg",
+        "awards": [
+            {
+                "name": "National Film Awards",
+                "category": "Best Popular Film Providing Wholesome Entertainment",
+                "result": "Won",
+                "year": 2021
+            }
+        ],
+        "similarMovies": [
+            86,
+            85
+        ]
+    },
+    {
+        "id": 88,
+        "title": "Kabir Singh",
+        "overview": "An impulsive surgeon spirals into self-destruction after his girlfriend is forced to marry someone else.",
+        "releaseDate": "2019-06-21",
+        "rating": 6.4,
+        "genres": [
+            "Drama",
+            "Romance"
+        ],
+        "runtime": 173,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 25000000,
+        "boxOffice": 50000000,
+        "productionCompanies": [
+            "T-Series Films"
+        ],
+        "ageRating": "R",
+        "director": "Sandeep Reddy Vanga",
+        "writers": [
+            "Sandeep Reddy Vanga"
+        ],
+        "cast": [
+            "Shahid Kapoor",
+            "Kiara Advani"
+        ],
+        "trailer": "https://youtube.com/watch?v=kabirsingh",
+        "image": "https://image.tmdb.org/t/p/w500/kabirsingh.jpg",
+        "awards": [],
+        "similarMovies": [
+            84,
+            85
+        ]
+    },
+    {
+        "id": 89,
+        "title": "Adipurush",
+        "overview": "An epic retelling of the Hindu epic Ramayana, depicting Lord Ram's battle against the demon king Ravana.",
+        "releaseDate": "2023-06-16",
+        "rating": 4.8,
+        "genres": [
+            "Action",
+            "Fantasy"
+        ],
+        "runtime": 150,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 80000000,
+        "boxOffice": 100000000,
+        "productionCompanies": [
+            "T-Series",
+            "Retrophiles"
+        ],
+        "ageRating": "PG-13",
+        "director": "Om Raut",
+        "writers": [
+            "Om Raut",
+            "Sandeep Shrivastava"
+        ],
+        "cast": [
+            "Prabhas",
+            "Saif Ali Khan",
+            "Kriti Sanon"
+        ],
+        "trailer": "https://youtube.com/watch?v=adipurush",
+        "image": "https://image.tmdb.org/t/p/w500/adipurush.jpg",
+        "awards": [],
+        "similarMovies": [
+            90,
+            87
+        ]
+    },
+    {
+        "id": 90,
+        "title": "Brahmastra: Part One – Shiva",
+        "overview": "A young man discovers his mystical powers and embarks on a journey to save the world from dark forces.",
+        "releaseDate": "2022-09-09",
+        "rating": 6,
+        "genres": [
+            "Action",
+            "Fantasy"
+        ],
+        "runtime": 160,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 85000000,
+        "boxOffice": 100000000,
+        "productionCompanies": [
+            "Dharma Productions",
+            "Star Studios"
+        ],
+        "ageRating": "PG-13",
+        "director": "Ayan Mukerji",
+        "writers": [
+            "Ayan Mukerji"
+        ],
+        "cast": [
+            "Ranbir Kapoor",
+            "Alia Bhatt",
+            "Amitabh Bachchan"
+        ],
+        "trailer": "https://youtube.com/watch?v=brahmastra",
+        "image": "https://image.tmdb.org/t/p/w500/brahmastra.jpg",
+        "awards": [],
+        "similarMovies": [
+            89,
+            83
+        ]
+    },
+    {
+        "id": 91,
+        "title": "Stree 2",
+        "overview": "The sequel to the hit horror-comedy Stree, where a small town is haunted by a mysterious spirit, blending scares with laughs.",
+        "releaseDate": "2024-08-15",
+        "rating": 6.2,
+        "genres": [
+            "Horror",
+            "Comedy"
+        ],
+        "runtime": 120,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 15000000,
+        "boxOffice": 45000000,
+        "productionCompanies": [
+            "Dinesh Vijan Productions"
+        ],
+        "ageRating": "UA",
+        "director": "Amar Kaushik",
+        "writers": [
+            "Radhika Anand",
+            "Amar Kaushik"
+        ],
+        "cast": [
+            "Rajkummar Rao",
+            "Shraddha Kapoor",
+            "Pankaj Tripathi",
+            "Neena Gupta"
+        ],
+        "trailer": "https://youtube.com/watch?v=stree2",
+        "image": "https://image.tmdb.org/t/p/w500/stree2.jpg",
+        "awards": [
+            {
+                "name": "Filmfare Awards",
+                "category": "Best Horror Film",
+                "result": "Nominated",
+                "year": 2025
+            }
+        ],
+        "similarMovies": [
+            92,
+            93,
+            95
+        ]
+    },
+    {
+        "id": 92,
+        "title": "Chhaava",
+        "overview": "An action-packed drama centered around a soldier’s journey and the sacrifices made to protect the nation.",
+        "releaseDate": "2025-02-14",
+        "rating": 6.7,
+        "genres": [
+            "Action",
+            "Drama"
+        ],
+        "runtime": 140,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 22000000,
+        "boxOffice": 60000000,
+        "productionCompanies": [
+            "Reliance Entertainment"
+        ],
+        "ageRating": "UA",
+        "director": "Ravi Kumar",
+        "writers": [
+            "Ravi Kumar",
+            "Anjali Mehta"
+        ],
+        "cast": [
+            "Ranveer Singh",
+            "Kangana Ranaut",
+            "Nawazuddin Siddiqui",
+            "Anil Kapoor"
+        ],
+        "trailer": "https://youtube.com/watch?v=77vRyWNqZjM",
+        "image": "https://image.tmdb.org/t/p/w500/chhaava.jpg",
+        "awards": [],
+        "similarMovies": [
+            91,
+            93,
+            96
+        ]
+    },
+    {
+        "id": 93,
+        "title": "Gadar 2",
+        "overview": "The sequel to the blockbuster Gadar, depicting a gripping story of love and patriotism during turbulent times in India’s history.",
+        "releaseDate": "2023-08-11",
+        "rating": 7,
+        "genres": [
+            "Action",
+            "Drama",
+            "History"
+        ],
+        "runtime": 150,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 35000000,
+        "boxOffice": 95000000,
+        "productionCompanies": [
+            "Sanjay Leela Bhansali Productions"
+        ],
+        "ageRating": "UA",
+        "director": "Anil Sharma",
+        "writers": [
+            "Anil Sharma"
+        ],
+        "cast": [
+            "Sunny Deol",
+            "Amisha Patel",
+            "Utkarsh Sharma",
+            "Zarine Khan"
+        ],
+        "trailer": "https://youtube.com/watch?v=gadar2",
+        "image": "https://image.tmdb.org/t/p/w500/gadar2.jpg",
+        "awards": [
+            {
+                "name": "National Film Awards",
+                "category": "Best Popular Film",
+                "result": "Nominated",
+                "year": 2024
+            }
+        ],
+        "similarMovies": [
+            91,
+            92,
+            94
+        ]
+    },
+    {
+        "id": 94,
+        "title": "Kesari Chapter 2: The Untold Story of Jallianwala Bagh",
+        "overview": "A historical drama depicting the brutal massacre at Jallianwala Bagh and the struggle for Indian independence.",
+        "releaseDate": "2025-06-13",
+        "rating": 7.4,
+        "genres": [
+            "History",
+            "Drama"
+        ],
+        "runtime": 165,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 40000000,
+        "boxOffice": 120000000,
+        "productionCompanies": [
+            "Yash Raj Films"
+        ],
+        "ageRating": "UA",
+        "director": "Anurag Singh",
+        "writers": [
+            "Anurag Singh",
+            "Gurpreet Singh"
+        ],
+        "cast": [
+            "Akshay Kumar",
+            "Parineeti Chopra",
+            "Manoj Bajpayee",
+            "Kumud Mishra"
+        ],
+        "trailer": "https://youtube.com/watch?v=kesari2",
+        "image": "https://image.tmdb.org/t/p/w500/kesari2.jpg",
+        "awards": [],
+        "similarMovies": [
+            93,
+            95,
+            96
+        ]
+    },
+    {
+        "id": 95,
+        "title": "Soorma",
+        "overview": "Based on the true story of hockey player Sandeep Singh, who makes an inspiring comeback after a severe injury.",
+        "releaseDate": "2018-07-13",
+        "rating": 7.1,
+        "genres": [
+            "Biography",
+            "Drama",
+            "Sport"
+        ],
+        "runtime": 138,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 18000000,
+        "boxOffice": 37000000,
+        "productionCompanies": [
+            "Sony Pictures India"
+        ],
+        "ageRating": "UA",
+        "director": "Shaad Ali",
+        "writers": [
+            "Shaad Ali",
+            "Amitosh Nagpal"
+        ],
+        "cast": [
+            "Diljit Dosanjh",
+            "Taapsee Pannu",
+            "Angad Bedi",
+            "Hiten Tejwani"
+        ],
+        "trailer": "https://youtube.com/watch?v=soorma_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/soorma.jpg",
+        "awards": [
+            {
+                "name": "Screen Awards",
+                "category": "Best Actor (Diljit Dosanjh)",
+                "result": "Nominated",
+                "year": 2019
+            }
+        ],
+        "similarMovies": [
+            94,
+            96,
+            97
+        ]
+    },
+    {
+        "id": 96,
+        "title": "Piku",
+        "overview": "A quirky and heartwarming tale of a father-daughter relationship that explores life's ups and downs.",
+        "releaseDate": "2015-05-08",
+        "rating": 7.6,
+        "genres": [
+            "Comedy",
+            "Drama"
+        ],
+        "runtime": 123,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 15000000,
+        "boxOffice": 32000000,
+        "productionCompanies": [
+            "Dharma Productions"
+        ],
+        "ageRating": "UA",
+        "director": "Shoojit Sircar",
+        "writers": [
+            "Juhi Chaturvedi"
+        ],
+        "cast": [
+            "Deepika Padukone",
+            "Amitabh Bachchan",
+            "Irrfan Khan",
+            "Jishu Sengupta"
+        ],
+        "trailer": "https://youtube.com/watch?v=oeiKUlUUNQ8",
+        "image": "https://image.tmdb.org/t/p/w500/piku.jpg",
+        "awards": [
+            {
+                "name": "National Film Awards",
+                "category": "Best Feature Film in Hindi",
+                "result": "Won",
+                "year": 2016
+            }
+        ],
+        "similarMovies": [
+            95,
+            97,
+            98
+        ]
+    },
+    {
+        "id": 97,
+        "title": "Barfi!",
+        "overview": "A romantic comedy-drama about the adventures and relationships of a deaf and mute young man in India.",
+        "releaseDate": "2012-09-14",
+        "rating": 8.1,
+        "genres": [
+            "Comedy",
+            "Drama",
+            "Romance"
+        ],
+        "runtime": 151,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 20000000,
+        "boxOffice": 60000000,
+        "productionCompanies": [
+            "UTV Motion Pictures"
+        ],
+        "ageRating": "UA",
+        "director": "Anurag Basu",
+        "writers": [
+            "Anurag Basu"
+        ],
+        "cast": [
+            "Ranbir Kapoor",
+            "Priyanka Chopra",
+            "Ileana D'Cruz",
+            "Nawazuddin Siddiqui"
+        ],
+        "trailer": "https://youtube.com/watch?v=barfi_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/barfi.jpg",
+        "awards": [
+            {
+                "name": "Filmfare Awards",
+                "category": "Best Film",
+                "result": "Nominated",
+                "year": 2013
+            },
+            {
+                "name": "National Film Awards",
+                "category": "Best Popular Film Providing Wholesome Entertainment",
+                "result": "Won",
+                "year": 2013
+            }
+        ],
+        "similarMovies": [
+            96,
+            98,
+            99
+        ]
+    },
+    {
+        "id": 98,
+        "title": "Lagaan",
+        "overview": "Villagers in colonial India challenge their British rulers to a cricket match to avoid paying oppressive taxes.",
+        "releaseDate": "2001-06-15",
+        "rating": 8.1,
+        "genres": [
+            "Adventure",
+            "Drama",
+            "Sport"
+        ],
+        "runtime": 224,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 13000000,
+        "boxOffice": 30000000,
+        "productionCompanies": [
+            "Aamir Khan Productions"
+        ],
+        "ageRating": "UA",
+        "director": "Ashutosh Gowariker",
+        "writers": [
+            "Ashutosh Gowariker"
+        ],
+        "cast": [
+            "Aamir Khan",
+            "Gracy Singh",
+            "Raghuvir Yadav",
+            "Rachel Shelley"
+        ],
+        "trailer": "https://youtube.com/watch?v=lagaan_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/lagaan.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Foreign Language Film",
+                "result": "Nominated",
+                "year": 2002
+            },
+            {
+                "name": "National Film Awards",
+                "category": "Best Popular Film Providing Wholesome Entertainment",
+                "result": "Won",
+                "year": 2002
+            }
+        ],
+        "similarMovies": [
+            97,
+            99,
+            100
+        ]
+    },
+    {
+        "id": 99,
+        "title": "Mother India",
+        "overview": "A powerful drama about a poverty-stricken woman who struggles to raise her sons and keep her family together.",
+        "releaseDate": "1957-10-25",
+        "rating": 8.3,
+        "genres": [
+            "Drama"
+        ],
+        "runtime": 189,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 500000,
+        "boxOffice": 1000000,
+        "productionCompanies": [
+            "Raj Kapoor Films"
+        ],
+        "ageRating": "U",
+        "director": "Mehboob Khan",
+        "writers": [
+            "K.A. Abbas"
+        ],
+        "cast": [
+            "Nargis",
+            "Sunil Dutt",
+            "Raaj Kumar",
+            "Rajendra Kumar"
+        ],
+        "trailer": "https://youtube.com/watch?v=motherindia_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/motherindia.jpg",
+        "awards": [
+            {
+                "name": "Academy Awards",
+                "category": "Best Foreign Language Film",
+                "result": "Nominated",
+                "year": 1959
+            },
+            {
+                "name": "Filmfare Awards",
+                "category": "Best Film",
+                "result": "Won",
+                "year": 1958
+            }
+        ],
+        "similarMovies": [
+            98,
+            100,
+            97
+        ]
+    },
+    {
+        "id": 100,
+        "title": "Sholay",
+        "overview": "A classic action-adventure film about two ex-convicts hired to capture a ruthless bandit terrorizing a village.",
+        "releaseDate": "1975-08-15",
+        "rating": 8.2,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "runtime": 204,
+        "language": "Hindi",
+        "country": "India",
+        "budget": 3000000,
+        "boxOffice": 15000000,
+        "productionCompanies": [
+            "Sippy Films"
+        ],
+        "ageRating": "U",
+        "director": "Ramesh Sippy",
+        "writers": [
+            "Salim-Javed"
+        ],
+        "cast": [
+            "Amitabh Bachchan",
+            "Dharmendra",
+            "Hema Malini",
+            "Jaya Bhaduri"
+        ],
+        "trailer": "https://youtube.com/watch?v=sholay_trailer",
+        "image": "https://image.tmdb.org/t/p/w500/sholay.jpg",
+        "awards": [
+            {
+                "name": "Filmfare Awards",
+                "category": "Best Film",
+                "result": "Nominated",
+                "year": 1976
+            }
+        ],
+        "similarMovies": [
+            99,
+            98,
+            97
+        ]
+    }
+]

@@ -1,0 +1,1248 @@
+[
+    {
+        "id": 1,
+        "title": "Avengers: Endgame",
+        "rating": 8.4,
+        "genres": [
+            "Action",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2019-04-26",
+        "trailer": "https://youtube.com/watch?v=TcMBFSGVi1c",
+        "image": "https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Joker",
+        "rating": 8.5,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "releaseDate": "2019-10-04",
+        "trailer": "https://youtube.com/watch?v=zAGVQLHvwOY",
+        "image": "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Inception",
+        "rating": 8.8,
+        "genres": [
+            "Action",
+            "Sci-Fi",
+            "Thriller"
+        ],
+        "releaseDate": "2010-07-16",
+        "trailer": "https://youtube.com/watch?v=8hP9D6kZseM",
+        "image": "https://m.media-amazon.com/images/I/81p+xe8cbnL.SY300.jpg"
+    },
+    {
+        "id": 4,
+        "title": "The Dark Knight",
+        "rating": 9,
+        "genres": [
+            "Action",
+            "Crime",
+            "Drama"
+        ],
+        "releaseDate": "2008-07-18",
+        "trailer": "https://youtube.com/watch?v=EXeTwQWrcwY",
+        "image": "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Parasite",
+        "rating": 8.6,
+        "genres": [
+            "Thriller",
+            "Drama"
+        ],
+        "releaseDate": "2019-05-30",
+        "trailer": "https://youtube.com/watch?v=5xH0HfJHsaY",
+        "image": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Interstellar",
+        "rating": 8.6,
+        "genres": [
+            "Adventure",
+            "Drama",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2014-11-07",
+        "trailer": "https://youtube.com/watch?v=zSWdZVtXT7E",
+        "image": "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg"
+    },
+    {
+        "id": 7,
+        "title": "The Shawshank Redemption",
+        "rating": 9.3,
+        "genres": [
+            "Drama",
+            "Crime"
+        ],
+        "releaseDate": "1994-09-23",
+        "trailer": "https://youtube.com/watch?v=6hB3S9bIaco",
+        "image": "https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Pulp Fiction",
+        "rating": 8.9,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "releaseDate": "1994-10-14",
+        "trailer": "https://youtube.com/watch?v=s7EdQ4FqbhY",
+        "image": "https://image.tmdb.org/t/p/w500/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg"
+    },
+    {
+        "id": 9,
+        "title": "The Godfather",
+        "rating": 9.2,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "releaseDate": "1972-03-24",
+        "trailer": "https://youtube.com/watch?v=sY1S34973zA",
+        "image": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+    },
+    {
+        "id": 10,
+        "title": "The Godfather Part II",
+        "rating": 9,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "releaseDate": "1974-12-20",
+        "trailer": "https://youtube.com/watch?v=qJr92K_hKl0",
+        "image": "https://resizing.flixster.com/lQFJ7WL7yvGucQ89K7GtSlyPN24=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p6319_p_v8_bc.jpg"
+    },
+    {
+        "id": 11,
+        "title": "Fight Club",
+        "rating": 8.8,
+        "genres": [
+            "Drama"
+        ],
+        "releaseDate": "1999-10-15",
+        "trailer": "https://youtube.com/watch?v=SUXWAEX2jlg",
+        "image": "https://image.tmdb.org/t/p/w500/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg"
+    },
+    {
+        "id": 12,
+        "title": "Forrest Gump",
+        "rating": 8.8,
+        "genres": [
+            "Drama",
+            "Romance"
+        ],
+        "releaseDate": "1994-07-06",
+        "trailer": "https://youtube.com/watch?v=bLvqoHBptjg",
+        "image": "https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg"
+    },
+    {
+        "id": 13,
+        "title": "Gladiator",
+        "rating": 8.5,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "releaseDate": "2000-05-05",
+        "trailer": "https://youtube.com/watch?v=owK1qxDselE",
+        "image": "https://image.tmdb.org/t/p/w500/ty8TGRuvJLPUmAR1H1nRIsgwvim.jpg"
+    },
+    {
+        "id": 14,
+        "title": "Titanic",
+        "rating": 7.8,
+        "genres": [
+            "Drama",
+            "Romance"
+        ],
+        "releaseDate": "1997-12-19",
+        "trailer": "https://youtube.com/watch?v=kVrqfYjkTdQ",
+        "image": "https://image.tmdb.org/t/p/w500/6VmFqApQRyZZzmiGOQq2C92jyvH.jpg"
+    },
+    {
+        "id": 15,
+        "title": "The Matrix",
+        "rating": 8.7,
+        "genres": [
+            "Action",
+            "Sci-Fi"
+        ],
+        "releaseDate": "1999-03-31",
+        "trailer": "https://youtube.com/watch?v=vKQi3bBA1y8",
+        "image": "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg"
+    },
+    {
+        "id": 16,
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "rating": 8.8,
+        "genres": [
+            "Adventure",
+            "Fantasy"
+        ],
+        "releaseDate": "2001-12-19",
+        "trailer": "https://youtube.com/watch?v=V75dMMIW2B4",
+        "image": "https://m.media-amazon.com/images/I/41KBujRKB6L.SY445_SX342.jpg"
+    },
+    {
+        "id": 17,
+        "title": "The Lord of the Rings: The Two Towers",
+        "rating": 8.7,
+        "genres": [
+            "Adventure",
+            "Fantasy"
+        ],
+        "releaseDate": "2002-12-18",
+        "trailer": "https://youtube.com/watch?v=LbfMDwc4azU",
+        "image": "https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg"
+    },
+    {
+        "id": 18,
+        "title": "The Lord of the Rings: The Return of the King",
+        "rating": 8.9,
+        "genres": [
+            "Adventure",
+            "Fantasy"
+        ],
+        "releaseDate": "2003-12-17",
+        "trailer": "https://youtube.com/watch?v=r5X-hFf6Bwo",
+        "image": "https://m.media-amazon.com/images/I/41KBujRKB6L.SY445_SX342.jpg"
+    },
+    {
+        "id": 19,
+        "title": "Spirited Away",
+        "rating": 8.6,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Family"
+        ],
+        "releaseDate": "2001-07-20",
+        "trailer": "https://youtube.com/watch?v=ByXuk9QqQkk",
+        "image": "https://image.tmdb.org/t/p/w500/dL11DBPcRhWWnJcFXl9A07MrqTI.jpg"
+    },
+    {
+        "id": 20,
+        "title": "Avengers: Infinity War",
+        "rating": 8.4,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2018-04-27",
+        "trailer": "https://youtube.com/watch?v=6ZfuNTqbHE8",
+        "image": "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg"
+    },
+    {
+        "id": 21,
+        "title": "The Lion King",
+        "rating": 8.5,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Drama"
+        ],
+        "releaseDate": "1994-06-15",
+        "trailer": "https://youtube.com/watch?v=7TavVZMewpY",
+        "image": "https://image.tmdb.org/t/p/w500/2CAL2433ZeIihfX1Hb2139CX0pW.jpg"
+    },
+    {
+        "id": 22,
+        "title": "Terminator 2: Judgment Day",
+        "rating": 8.5,
+        "genres": [
+            "Action",
+            "Sci-Fi"
+        ],
+        "releaseDate": "1991-07-03",
+        "trailer": "https://youtube.com/watch?v=CRRlbK5w8AE",
+        "image": "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.V1.jpg"
+    },
+    {
+        "id": 23,
+        "title": "Star Wars: Episode V - The Empire Strikes Back",
+        "rating": 8.7,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "releaseDate": "1980-05-21",
+        "trailer": "https://youtube.com/watch?v=JNwNXF9Y6kY",
+        "image": "https://image.tmdb.org/t/p/w500/7BuH8itoSrLExs2YZSsM01Qk2no.jpg"
+    },
+    {
+        "id": 24,
+        "title": "Star Wars: Episode IV - A New Hope",
+        "rating": 8.6,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "releaseDate": "1977-05-25",
+        "trailer": "https://youtube.com/watch?v=vZ734NWnAHA",
+        "image": "https://image.tmdb.org/t/p/w500/6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg"
+    },
+    {
+        "id": 25,
+        "title": "Jurassic Park",
+        "rating": 8.1,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "releaseDate": "1993-06-11",
+        "trailer": "https://youtube.com/watch?v=lc0UehYemQA",
+        "image": "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 26,
+        "title": "The Silence of the Lambs",
+        "rating": 8.6,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "releaseDate": "1991-02-14",
+        "trailer": "https://youtube.com/watch?v=W6Mm8Sbe__o",
+        "image": "https://image.tmdb.org/t/p/w500/rplLJ2hPcOQmkFhTqUte0MkEaO2.jpg"
+    },
+    {
+        "id": 27,
+        "title": "Saving Private Ryan",
+        "rating": 8.6,
+        "genres": [
+            "Drama",
+            "War"
+        ],
+        "releaseDate": "1998-07-24",
+        "trailer": "https://youtube.com/watch?v=zwhP5b4tD6g",
+        "image": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@.V1.jpg"
+    },
+    {
+        "id": 28,
+        "title": "Schindler's List",
+        "rating": 8.9,
+        "genres": [
+            "Biography",
+            "Drama",
+            "History"
+        ],
+        "releaseDate": "1993-11-30",
+        "trailer": "https://youtube.com/watch?v=gG22XNhtnoY",
+        "image": "https://image.tmdb.org/t/p/w500/c8Ass7acuOe4za6DhSattE359gr.jpg"
+    },
+    {
+        "id": 29,
+        "title": "The Prestige",
+        "rating": 8.5,
+        "genres": [
+            "Drama",
+            "Mystery",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2006-10-20",
+        "trailer": "https://youtube.com/watch?v=o4gHCmTQDVI",
+        "image": "https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 30,
+        "title": "Whiplash",
+        "rating": 8.5,
+        "genres": [
+            "Drama",
+            "Music"
+        ],
+        "releaseDate": "2014-10-10",
+        "trailer": "https://youtube.com/watch?v=7d_jQycdQGo",
+        "image": "https://m.media-amazon.com/images/M/MV5BOTA5NDZlZGUtMjAxOS00YTRkLTkwYmMtYWQ0NWEwZDZiNjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 31,
+        "title": "Mad Max: Fury Road",
+        "rating": 8.1,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2015-05-15",
+        "trailer": "https://youtube.com/watch?v=hEJnMQG9ev8",
+        "image": "https://m.media-amazon.com/images/M/MV5BN2EwM2I5OWMtMGQyMi00Zjg1LWJkNTctZTdjYTA4OGUwZjMyXkEyXkFqcGdeQXVyMTMxODk2OTU@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 32,
+        "title": "The Departed",
+        "rating": 8.5,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "releaseDate": "2006-10-06",
+        "trailer": "https://youtube.com/watch?v=iojhqm0JTW4",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 33,
+        "title": "Alien",
+        "rating": 8.4,
+        "genres": [
+            "Horror",
+            "Sci-Fi"
+        ],
+        "releaseDate": "1979-05-25",
+        "trailer": "https://youtube.com/watch?v=LjLamj-b0I8",
+        "image": "https://lumiere-a.akamaihd.net/v1/images/aiien35_584x800_ka_0a39ad0b.jpeg?region=0%2C0%2C584%2C800.jpg"
+    },
+    {
+        "id": 34,
+        "title": "Back to the Future",
+        "rating": 8.5,
+        "genres": [
+            "Adventure",
+            "Comedy",
+            "Sci-Fi"
+        ],
+        "releaseDate": "1985-07-03",
+        "trailer": "https://youtube.com/watch?v=qvsgGtivCgs",
+        "image": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 35,
+        "title": "Goodfellas",
+        "rating": 8.7,
+        "genres": [
+            "Biography",
+            "Crime",
+            "Drama"
+        ],
+        "releaseDate": "1990-09-19",
+        "trailer": "https://youtube.com/watch?v=2ilzidi_J8Q",
+        "image": "https://image.tmdb.org/t/p/w500/aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg"
+    },
+    {
+        "id": 36,
+        "title": "The Green Mile",
+        "rating": 8.6,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Fantasy"
+        ],
+        "releaseDate": "1999-12-10",
+        "trailer": "https://youtube.com/watch?v=KTw058gMDKY",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 37,
+        "title": "A Beautiful Mind",
+        "rating": 8.2,
+        "genres": [
+            "Biography",
+            "Drama"
+        ],
+        "releaseDate": "2001-12-21",
+        "trailer": "https://youtube.com/watch?v=WFJdcbE8M_4",
+        "image": "https://m.media-amazon.com/images/M/MV5BMzcwYWFkYzktZjAzNC00OGY1LWI4YTgtNzc5MzVjMDVmNjY0XkEyXkFqcGdeQXVyMTQxNzMzNDI@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 38,
+        "title": "Django Unchained",
+        "rating": 8.4,
+        "genres": [
+            "Drama",
+            "Western"
+        ],
+        "releaseDate": "2012-12-25",
+        "trailer": "https://youtube.com/watch?v=eUdM9vrCbow",
+        "image": "https://m.media-amazon.com/images/M/MV5BMjIyNTQ5NjQ1OV5BMl5BanBnXkFtZTcwODg1MDU4OA@@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 39,
+        "title": "The Wolf of Wall Street",
+        "rating": 8.2,
+        "genres": [
+            "Biography",
+            "Comedy",
+            "Crime"
+        ],
+        "releaseDate": "2013-12-25",
+        "trailer": "https://youtube.com/watch?v=iszwuX1AK6A",
+        "image": "https://m.media-amazon.com/images/M/MV5BMjIxMjgxNTk0MF5BMl5BanBnXkFtZTgwNjIyOTg2MDE@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 40,
+        "title": "La La Land",
+        "rating": 8,
+        "genres": [
+            "Comedy",
+            "Drama",
+            "Music"
+        ],
+        "releaseDate": "2016-12-09",
+        "trailer": "https://youtube.com/watch?v=0pdqf4P9MB8",
+        "image": "https://image.tmdb.org/t/p/w500/uDO8zWDhfWwoFdKS4fzkUJt0Rf0.jpg"
+    },
+    {
+        "id": 41,
+        "title": "Blade Runner 2049",
+        "rating": 8,
+        "genres": [
+            "Drama",
+            "Mystery",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2017-10-06",
+        "trailer": "https://youtube.com/watch?v=gCcx85zbxz4",
+        "image": "https://image.tmdb.org/t/p/w500/aMpyrCizvSdc0UIMblJ1srVgAEF.jpg"
+    },
+    {
+        "id": 42,
+        "title": "Avengers: Age of Ultron",
+        "rating": 7.3,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2015-05-01",
+        "trailer": "https://youtube.com/watch?v=tmeOjFno6Do",
+        "image": "https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg"
+    },
+    {
+        "id": 43,
+        "title": "Guardians of the Galaxy",
+        "rating": 8,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Comedy"
+        ],
+        "releaseDate": "2014-08-01",
+        "trailer": "https://youtube.com/watch?v=d96cjJhvlMA",
+        "image": "https://image.tmdb.org/t/p/w500/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg"
+    },
+    {
+        "id": 44,
+        "title": "Logan",
+        "rating": 8.1,
+        "genres": [
+            "Action",
+            "Drama",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2017-03-03",
+        "trailer": "https://youtube.com/watch?v=Div0iP65aZo",
+        "image": "https://m.media-amazon.com/images/M/MV5BYzc5MTU4N2EtYTkyMi00NjdhLTg3NWEtMTY4OTEyMzJhZTAzXkEyXkFqcGdeQXVyNjc1NTYyMjg@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 45,
+        "title": "Black Panther",
+        "rating": 7.3,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2018-02-16",
+        "trailer": "https://youtube.com/watch?v=dxWvtMOGAhw",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 46,
+        "title": "Toy Story",
+        "rating": 8.3,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "releaseDate": "1995-11-22",
+        "trailer": "https://youtube.com/watch?v=KYz2wyBy3kc",
+        "image": "https://image.tmdb.org/t/p/w500/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg"
+    },
+    {
+        "id": 47,
+        "title": "Toy Story 3",
+        "rating": 8.3,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "releaseDate": "2010-06-18",
+        "trailer": "https://youtube.com/watch?v=JcpWXaA2qeg",
+        "image": "https://image.tmdb.org/t/p/w500/rNk1Wi8SvVgMnsFTtYpwPuaWR0a.jpg"
+    },
+    {
+        "id": 48,
+        "title": "Coco",
+        "rating": 8.4,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Family"
+        ],
+        "releaseDate": "2017-11-22",
+        "trailer": "https://youtube.com/watch?v=Rvr68u6k5sI",
+        "image": "https://m.media-amazon.com/images/M/MV5BYjQ5NjM0Y2YtNjZkNC00ZDhkLWJjMWItN2QyNzFkMDE3ZjAxXkEyXkFqcGdeQXVyODIxMzk5NjA@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 49,
+        "title": "Finding Nemo",
+        "rating": 8.1,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "releaseDate": "2003-05-30",
+        "trailer": "https://youtube.com/watch?v=wZdpNglLbt8",
+        "image": "https://resizing.flixster.com/MDACZCFqGbbEZKIundel0l1_QU8=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p31890_p_v10_bb.jpg"
+    },
+    {
+        "id": 50,
+        "title": "Up",
+        "rating": 8.2,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "releaseDate": "2009-05-29",
+        "trailer": "https://youtube.com/watch?v=pkqzFUhGPJg",
+        "image": "https://static.wikia.nocookie.net/international-entertainment-project/images/0/0c/Up_-_poster.jpg/revision/latest?cb=20231112231307.jpg"
+    },
+    {
+        "id": 51,
+        "title": "Inside Out",
+        "rating": 8.2,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "releaseDate": "2015-06-19",
+        "trailer": "https://youtube.com/watch?v=yRUAzGQ3nSY",
+        "image": "https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 52,
+        "title": "The Incredibles",
+        "rating": 8,
+        "genres": [
+            "Animation",
+            "Action",
+            "Adventure"
+        ],
+        "releaseDate": "2004-11-05",
+        "trailer": "https://youtube.com/watch?v=eZbzbC9285I",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTY5OTU0OTc2NV5BMl5BanBnXkFtZTcwMzU4MDcyMQ@@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 53,
+        "title": "Deadpool",
+        "rating": 8,
+        "genres": [
+            "Action",
+            "Comedy"
+        ],
+        "releaseDate": "2016-02-12",
+        "trailer": "https://youtube.com/watch?v=ZIM1HydF9UA",
+        "image": "https://m.media-amazon.com/images/M/MV5BYzE5MjY1ZDgtMTkyNC00MTMyLThhMjAtZGI5OTE1NzFlZGJjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 54,
+        "title": "Deadpool 2",
+        "rating": 7.7,
+        "genres": [
+            "Action",
+            "Comedy"
+        ],
+        "releaseDate": "2018-05-18",
+        "trailer": "https://youtube.com/watch?v=HuYMJXaWzqY",
+        "image": "https://image.tmdb.org/t/p/w500/9xNOiv6DZZjH7ABoUUDP0ZynouU.jpg"
+    },
+    {
+        "id": 55,
+        "title": "Wonder Woman",
+        "rating": 7.4,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+        ],
+        "releaseDate": "2017-06-02",
+        "trailer": "https://youtube.com/watch?v=VSB4wGIdDwo",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTYzODQzYjQtNTczNC00MzZhLTg1ZWYtZDUxYmQ3ZTY4NzA1XkEyXkFqcGdeQXVyODE5NzE3OTE@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 56,
+        "title": "Princess Mononoke",
+        "rating": 8.4,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Fantasy"
+        ],
+        "releaseDate": "1997-07-12",
+        "trailer": "https://youtube.com/watch?v=4OiMOHRDs14",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTVlNWM4NTAtNDQxYi00YWU5LWIwM2MtZmVjYWFmODZiODE5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 57,
+        "title": "Your Name",
+        "rating": 8.4,
+        "genres": [
+            "Animation",
+            "Drama",
+            "Fantasy"
+        ],
+        "releaseDate": "2016-08-26",
+        "trailer": "https://youtube.com/watch?v=hRfHcp2GjVI",
+        "image": "https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg"
+    },
+    {
+        "id": 58,
+        "title": "Spiderman: Into the Spider-Verse",
+        "rating": 8.4,
+        "genres": [
+            "Animation",
+            "Action",
+            "Adventure"
+        ],
+        "releaseDate": "2018-12-14",
+        "trailer": "https://youtube.com/watch?v=tg52up16eq0",
+        "image": "https://image.tmdb.org/t/p/w500/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg"
+    },
+    {
+        "id": 59,
+        "title": "The Revenant",
+        "rating": 8,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "releaseDate": "2015-12-25",
+        "trailer": "https://youtube.com/watch?v=LoebZZ8K5N0",
+        "image": "https://www.imdb.com/title/tt1663202/mediaviewer/rm1354918144/?ref_=tt_ov_i.jpg"
+    },
+    {
+        "id": 60,
+        "title": "Gravity",
+        "rating": 7.7,
+        "genres": [
+            "Drama",
+            "Sci-Fi",
+            "Thriller"
+        ],
+        "releaseDate": "2013-10-04",
+        "trailer": "https://youtube.com/watch?v=OiTiKOy59o4",
+        "image": "https://image.tmdb.org/t/p/w500/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg"
+    },
+    {
+        "id": 61,
+        "title": "Mad Max",
+        "rating": 6.9,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2015-05-15",
+        "trailer": "https://youtube.com/watch?v=hEJnMQG9ev8",
+        "image": "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg"
+    },
+    {
+        "id": 63,
+        "title": "Toy Story 4",
+        "rating": 7.8,
+        "genres": [
+            "Animation",
+            "Comedy",
+            "Family"
+        ],
+        "releaseDate": "2019-06-21",
+        "trailer": "https://youtube.com/watch?v=wmiIUN-7qhE",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTYzMDM4NzkxOV5BMl5BanBnXkFtZTgwNzM1Mzg2NzM@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 64,
+        "title": "Parasite",
+        "rating": 8.6,
+        "genres": [
+            "Thriller",
+            "Drama"
+        ],
+        "releaseDate": "2019-05-30",
+        "trailer": "https://youtube.com/watch?v=5xH0HfJHsaY",
+        "image": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+    },
+    {
+        "id": 65,
+        "title": "Frozen II",
+        "rating": 6.9,
+        "genres": [
+            "Animation",
+            "Family",
+            "Fantasy"
+        ],
+        "releaseDate": "2019-11-22",
+        "trailer": "https://youtube.com/watch?v=Zi4LMpSDccc",
+        "image": "https://image.tmdb.org/t/p/w500/pjeMs3yqRmFL3giJy4PMXWZTTPa.jpg"
+    },
+    {
+        "id": 66,
+        "title": "Knives Out",
+        "rating": 7.9,
+        "genres": [
+            "Comedy",
+            "Crime",
+            "Drama"
+        ],
+        "releaseDate": "2019-11-27",
+        "trailer": "https://youtube.com/watch?v=qGqiHJTsRkQ",
+        "image": "https://image.tmdb.org/t/p/w500/pThyQovXQrw2m0s9x82twj48Jq4.jpg"
+    },
+    {
+        "id": 67,
+        "title": "The Lion King",
+        "rating": 6.9,
+        "genres": [
+            "Adventure",
+            "Drama",
+            "Family"
+        ],
+        "releaseDate": "2019-07-19",
+        "trailer": "https://youtube.com/watch?v=7TavVZMewpY",
+        "image": "https://image.tmdb.org/t/p/w500/dzBtMocZuJbjLOXvrl4zGYigDzh.jpg"
+    },
+    {
+        "id": 68,
+        "title": "1917",
+        "rating": 8.3,
+        "genres": [
+            "War",
+            "Drama",
+            "Action"
+        ],
+        "releaseDate": "2019-12-25",
+        "trailer": "https://youtube.com/watch?v=YqNYrYUiMfg",
+        "image": "https://image.tmdb.org/t/p/w500/iZf0KyrE25z1sage4SYFLCCrMi9.jpg"
+    },
+    {
+        "id": 69,
+        "title": "Ford v Ferrari",
+        "rating": 8.1,
+        "genres": [
+            "Drama",
+            "Action",
+            "Biography"
+        ],
+        "releaseDate": "2019-11-15",
+        "trailer": "https://youtube.com/watch?v=zyYgDtY2AMY",
+        "image": "https://image.tmdb.org/t/p/w500/6ApDtO7xaWAfPqfi2IARXIzj8QS.jpg"
+    },
+    {
+        "id": 70,
+        "title": "Once Upon a Time in Hollywood",
+        "rating": 7.6,
+        "genres": [
+            "Comedy",
+            "Drama"
+        ],
+        "releaseDate": "2019-07-26",
+        "trailer": "https://youtube.com/watch?v=ELeMaP8EPAA",
+        "image": "https://image.tmdb.org/t/p/w500/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg"
+    },
+    {
+        "id": 71,
+        "title": "Dangal",
+        "rating": 8.4,
+        "genres": [
+            "Biography",
+            "Drama",
+            "Sport"
+        ],
+        "releaseDate": "2016-12-23",
+        "trailer": "https://youtube.com/watch?v=x_7YlGv9u1g",
+        "image": "https://m.media-amazon.com/images/M/MV5BMTQ4MzQzMzM2Nl5BMl5BanBnXkFtZTgwMTQ1NzU3MDI@.V1_FMjpg_UX1000.jpg"
+    },
+    {
+        "id": 72,
+        "title": "Jawan",
+        "rating": 7.1,
+        "genres": [
+            "Action",
+            "Thriller"
+        ],
+        "releaseDate": "2023-09-07",
+        "trailer": "https://youtube.com/watch?v=XYZ_jawan_trailer",
+        "image": "https://stat4.bollywoodhungama.in/wp-content/uploads/2021/07/Jawan-1-306x393.jpeg"
+    },
+    {
+        "id": 73,
+        "title": "Pathaan",
+        "rating": 6.8,
+        "genres": [
+            "Action",
+            "Thriller"
+        ],
+        "releaseDate": "2023-01-25",
+        "trailer": "https://youtube.com/watch?v=aRGBYWS5v8w",
+        "image": "https://feeds.abplive.com/onecms/images/uploaded-images/2023/01/25/5afd71e62fdefd33fdcad12dda4098a31674617290981272_original.jpg"
+    },
+    {
+        "id": 74,
+        "title": "Animal",
+        "rating": 7,
+        "genres": [
+            "Action",
+            "Drama"
+        ],
+        "releaseDate": "2023-12-01",
+        "trailer": "https://youtube.com/watch?v=animal_trailer",
+        "image": "https://www.thecelebrays.com/wp-content/uploads/2024/04/animal-film-has-achieved-significant-rs-600-crore-landmark-1.jpg"
+    },
+    {
+        "id": 75,
+        "title": "Bajrangi Bhaijaan",
+        "rating": 8,
+        "genres": [
+            "Adventure",
+            "Drama",
+            "Family"
+        ],
+        "releaseDate": "2015-07-17",
+        "trailer": "https://youtube.com/watch?v=vyXQ2a4I_cg",
+        "image": "https://static.toiimg.com/thumb/msid-48098885,imgsize-230910,width-400,resizemode-4/48098885.jpg"
+    },
+    {
+        "id": 76,
+        "title": "Secret Superstar",
+        "rating": 7.2,
+        "genres": [
+            "Drama",
+            "Music"
+        ],
+        "releaseDate": "2017-10-19",
+        "trailer": "https://youtube.com/watch?v=secret_trailer",
+        "image": "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2018/01/secret-superstar-review-sto-647-101817010819-1516277316.jpg"
+    },
+    {
+        "id": 77,
+        "title": "PK",
+        "rating": 8.1,
+        "genres": [
+            "Comedy",
+            "Drama",
+            "Sci-Fi"
+        ],
+        "releaseDate": "2014-12-19",
+        "trailer": "https://youtube.com/watch?v=secret_ack",
+        "image": "https://www.hollywoodreporter.com/wp-content/uploads/2015/05/pk_poster_chinese.jpg"
+    },
+    {
+        "id": 78,
+        "title": "Sanju",
+        "rating": 7.5,
+        "genres": [
+            "Biography",
+            "Drama"
+        ],
+        "releaseDate": "2018-06-29",
+        "trailer": "https://youtube.com/watch?v=sanju_trailer",
+        "image": "https://images.indianexpress.com/2018/05/ranbir-kapoor-sanju-6.jpg"
+    },
+    {
+        "id": 79,
+        "title": "Padmaavat",
+        "rating": 7,
+        "genres": [
+            "Drama",
+            "History",
+            "Romance"
+        ],
+        "releaseDate": "2018-01-25",
+        "trailer": "https://youtube.com/watch?v=padmaavat_trailer",
+        "image": "https://www.theshowbizshine.com/wp-content/uploads/2024/04/maxresdefault-1-1.jpg"
+    },
+    {
+        "id": 80,
+        "title": "War",
+        "rating": 6.5,
+        "genres": [
+            "Action",
+            "Thriller"
+        ],
+        "releaseDate": "2019-10-02",
+        "trailer": "https://youtube.com/watch?v=war_trailer",
+        "image": "https://specials-images.forbesimg.com/imageserve/5d97a69a67dd830006a2ba5c/-War-/960x0.jpg"
+    },
+    {
+        "id": 81,
+        "title": "Chennai Express",
+        "rating": 6,
+        "genres": [
+            "Action",
+            "Comedy",
+            "Romance"
+        ],
+        "releaseDate": "2013-08-09",
+        "trailer": "https://youtube.com/watch?v=chennaiexpress",
+        "image": "https://static.toiimg.com/thumb/imgsize-145282,msid-39611457,width-600,height-335,resizemode-75/39611457.jpg"
+    },
+    {
+        "id": 82,
+        "title": "3 Idiots",
+        "rating": 8,
+        "genres": [
+            "Comedy",
+            "Drama"
+        ],
+        "releaseDate": "2009-12-25",
+        "trailer": "https://youtube.com/watch?v=3idiots",
+        "image": "https://image.tmdb.org/t/p/w500/3idiots.jpg"
+    },
+    {
+        "id": 83,
+        "title": "Simmba",
+        "rating": 6.8,
+        "genres": [
+            "Action",
+            "Comedy",
+            "Drama"
+        ],
+        "releaseDate": "2018-12-28",
+        "trailer": "https://youtube.com/watch?v=simmba",
+        "image": "https://bsmedia.business-standard.com/_media/bs/img/article/2018-12/27/full/1545908563-1299.jpg"
+    },
+    {
+        "id": 84,
+        "title": "Bhool Bhulaiyaa 2",
+        "rating": 5.9,
+        "genres": [
+            "Horror",
+            "Comedy"
+        ],
+        "releaseDate": "2022-05-20",
+        "trailer": "https://youtube.com/watch?v=bhoolbhulaiyaa2",
+        "image": "https://images.cnbctv18.com/wp-content/uploads/2022/05/Bhool-Bhulaiyaa-2.jpg"
+    },
+    {
+        "id": 85,
+        "title": "Drishyam 2",
+        "rating": 8.1,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "releaseDate": "2022-11-18",
+        "trailer": "https://youtube.com/watch?v=drishyam2",
+        "image": "https://www.koimoi.com/wp-content/new-galleries/2023/01/box-office-drishyam-2-continues-its-winning-run-tuesday-updates-001.jpg"
+    },
+    {
+        "id": 86,
+        "title": "Uri: The Surgical Strike",
+        "rating": 8.1,
+        "genres": [
+            "Action",
+            "Drama",
+            "War"
+        ],
+        "releaseDate": "2019-01-11",
+        "trailer": "https://youtube.com/watch?v=uri_trailer",
+        "image": "https://static.toiimg.com/thumb/msid-67739945,imgsize-213091,width-400,resizemode-4/67739945.jpg"
+    },
+    {
+        "id": 87,
+        "title": "Tanhaji: The Unsung Warrior",
+        "rating": 7.6,
+        "genres": [
+            "Action",
+            "Drama",
+            "History"
+        ],
+        "releaseDate": "2020-01-10",
+        "trailer": "https://youtube.com/watch?v=tanhaji",
+        "image": "https://images.indianexpress.com/2019/11/Tanhaji-003.jpg"
+    },
+    {
+        "id": 88,
+        "title": "Kabir Singh",
+        "rating": 6.4,
+        "genres": [
+            "Drama",
+            "Romance"
+        ],
+        "releaseDate": "2019-06-21",
+        "trailer": "https://youtube.com/watch?v=kabirsingh",
+        "image": "https://static.toiimg.com/thumb/imgsize-23456,msid-94570250,width-600,resizemode-4/94570250.jpg"
+    },
+    {
+        "id": 89,
+        "title": "Adipurush",
+        "rating": 4.8,
+        "genres": [
+            "Action",
+            "Fantasy"
+        ],
+        "releaseDate": "2023-06-16",
+        "trailer": "https://youtube.com/watch?v=adipurush",
+        "image": "https://survi.in/wp-content/uploads/2023/06/Adipurush-Review-1024x576.jpg"
+    },
+    {
+        "id": 90,
+        "title": "Brahmastra: Part One – Shiva",
+        "rating": 6,
+        "genres": [
+            "Action",
+            "Fantasy"
+        ],
+        "releaseDate": "2022-09-09",
+        "trailer": "https://youtube.com/watch?v=brahmastra",
+        "image": "https://static.theprint.in/wp-content/uploads/2022/06/hgnhlgkjhlk20220611145332.jpg"
+    },
+    {
+        "id": 91,
+        "title": "Stree 2",
+        "rating": 6.2,
+        "genres": [
+            "Horror",
+            "Comedy"
+        ],
+        "releaseDate": "2024-08-15",
+        "trailer": "https://youtube.com/watch?v=stree2",
+        "image": "https://image.tmdb.org/t/p/w500/stree2.jpg"
+    },
+    {
+        "id": 92,
+        "title": "Chhaava",
+        "rating": 6.7,
+        "genres": [
+            "Action",
+            "Drama"
+        ],
+        "releaseDate": "2025-02-14",
+        "trailer": "https://youtube.com/watch?v=77vRyWNqZjM",
+        "image": "https://image.tmdb.org/t/p/w500/chhaava.jpg"
+    },
+    {
+        "id": 93,
+        "title": "Gadar 2",
+        "rating": 7,
+        "genres": [
+            "Action",
+            "Drama",
+            "History"
+        ],
+        "releaseDate": "2023-08-11",
+        "trailer": "https://youtube.com/watch?v=gadar2",
+        "image": "https://cdn.bollywoodbubble.com/wp-content/uploads/2023/07/Sunny-Deol-and-Utkarsh-Sharma-in-Gadar-2-new-motion-poster.jpg"
+    },
+    {
+        "id": 94,
+        "title": "Kesari Chapter 2: The Untold Story of Jallianwala Bagh",
+        "rating": 7.4,
+        "genres": [
+            "History",
+            "Drama"
+        ],
+        "releaseDate": "2025-06-13",
+        "trailer": "https://youtube.com/watch?v=kesari2",
+        "image": "https://static.theprint.in/wp-content/uploads/2019/03/kesari-e1553152199894-696x391.jpg"
+    },
+    {
+        "id": 95,
+        "title": "Soorma",
+        "rating": 7.1,
+        "genres": [
+            "Biography",
+            "Drama",
+            "Sport"
+        ],
+        "releaseDate": "2018-07-13",
+        "trailer": "https://youtube.com/watch?v=soorma_trailer",
+        "image": "https://indianexpress.com/wp-content/uploads/2018/02/diljit-dosanjh-758.jpg"
+    },
+    {
+        "id": 96,
+        "title": "Piku",
+        "rating": 7.6,
+        "genres": [
+            "Comedy",
+            "Drama"
+        ],
+        "releaseDate": "2015-05-08",
+        "trailer": "https://youtube.com/watch?v=oeiKUlUUNQ8",
+        "image": "https://resizing.flixster.com/kBgXPLbE7MqhhDaEOee2kDc74gg=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p11646174_p_v12_ad.jpg"
+    },
+    {
+        "id": 97,
+        "title": "Barfi!",
+        "rating": 8.1,
+        "genres": [
+            "Comedy",
+            "Drama",
+            "Romance"
+        ],
+        "releaseDate": "2012-09-14",
+        "trailer": "https://youtube.com/watch?v=barfi_trailer",
+        "image": "http://www.brns.com/bollywood/picts2/barfi1.jpg"
+    },
+    {
+        "id": 98,
+        "title": "Lagaan",
+        "rating": 8.1,
+        "genres": [
+            "Adventure",
+            "Drama",
+            "Sport"
+        ],
+        "releaseDate": "2001-06-15",
+        "trailer": "https://youtube.com/watch?v=lagaan_trailer",
+        "image": "https://www.cricketcountry.com/wp-content/uploads/2014/10/Laagan628.jpg"
+    },
+    {
+        "id": 99,
+        "title": "Mother India",
+        "rating": 8.3,
+        "genres": [
+            "Drama"
+        ],
+        "releaseDate": "1957-10-25",
+        "trailer": "https://youtube.com/watch?v=motherindia_trailer",
+        "image": "https://resizing.flixster.com/ERRfQ4D-tFvG6zilI_6Dp4Cvsdc=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p67653_p_v10_ab.jpg"
+    },
+    {
+        "id": 100,
+        "title": "Sholay",
+        "rating": 8.2,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "releaseDate": "1975-08-15",
+        "trailer": "https://youtube.com/watch?v=sholay_trailer",
+        "image": "https://www.siasat.com/wp-content/uploads/2024/08/Sholay.jpg"
+    }
+]

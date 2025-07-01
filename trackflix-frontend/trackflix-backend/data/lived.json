@@ -1,0 +1,2683 @@
+[
+    {
+        "id": 1,
+        "title": "The Queen's Gambit",
+        "overview": "Orphaned at the age of nine, prodigious introvert Beth Harmon discovers and masters the game of chess in 1960s USA.",
+        "releaseDate": "2020-10-23",
+        "status": "Ended",
+        "rating": 8.6,
+        "genres": [
+            "Drama",
+            "Sport"
+        ],
+        "episodeRuntime": 55,
+        "seasons": 1,
+        "episodes": 7,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Scott Frank",
+            "Allan Scott"
+        ],
+        "cast": [
+            "Anya Taylor-Joy",
+            "Bill Camp",
+            "Marielle Heller"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=CDrieqwSdgI",
+        "image": "https://m.media-amazon.com/images/M/MV5BMmRlNjQxNWQtMjk1OS00N2QxLTk0YWQtMzRhYjY5YTFhNjMxXkEyXkFqcGc%40._V1_.jpg",
+        "awards": [
+            "11 Primetime Emmys",
+            "2 Golden Globes"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Stranger Things",
+        "overview": "A group of young friends in 1980s Indiana witness supernatural forces and secret government exploits.",
+        "releaseDate": "2016-07-15",
+        "status": "Returning Series",
+        "rating": 8.7,
+        "genres": [
+            "Drama",
+            "Fantasy",
+            "Horror"
+        ],
+        "episodeRuntime": 50,
+        "seasons": 4,
+        "episodes": 34,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "The Duffer Brothers"
+        ],
+        "cast": [
+            "Millie Bobby Brown",
+            "Finn Wolfhard",
+            "David Harbour"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=b9EkMc79ZSU",
+        "image": "https://m.media-amazon.com/images/I/71boRt7iDhL._UF894%2C1000_QL80_.jpg",
+        "awards": [
+            "7 Primetime Emmys",
+            "Screen Actors Guild Award"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Breaking Bad",
+        "overview": "A high school chemistry teacher turns to a life of crime after a terminal cancer diagnosis.",
+        "releaseDate": "2008-01-20",
+        "status": "Ended",
+        "rating": 9.5,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "episodeRuntime": 47,
+        "seasons": 5,
+        "episodes": 62,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "AMC"
+        ],
+        "creators": [
+            "Vince Gilligan"
+        ],
+        "cast": [
+            "Bryan Cranston",
+            "Aaron Paul",
+            "Anna Gunn"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=HhesaQXLuRY",
+        "image": "https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg",
+        "awards": [
+            "16 Primetime Emmys",
+            "2 Golden Globes"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "The Crown",
+        "overview": "A chronicle of the life of Queen Elizabeth II from the 1940s to modern times.",
+        "releaseDate": "2016-11-04",
+        "status": "Returning Series",
+        "rating": 8.7,
+        "genres": [
+            "Drama",
+            "History"
+        ],
+        "episodeRuntime": 58,
+        "seasons": 6,
+        "episodes": 60,
+        "language": "English",
+        "country": "United Kingdom",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Peter Morgan"
+        ],
+        "cast": [
+            "Claire Foy",
+            "Olivia Colman",
+            "Imelda Staunton"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=JWtnJjn6ng0",
+        "image": "https://image.tmdb.org/t/p/original/1M876KPjulVwppEpldhdc8V4o68.jpg",
+        "awards": [
+            "21 Primetime Emmys",
+            "7 Golden Globes"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Game of Thrones",
+        "overview": "Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns.",
+        "releaseDate": "2011-04-17",
+        "status": "Ended",
+        "rating": 9.3,
+        "genres": [
+            "Drama",
+            "Fantasy",
+            "Adventure"
+        ],
+        "episodeRuntime": 57,
+        "seasons": 8,
+        "episodes": 73,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "HBO"
+        ],
+        "creators": [
+            "David Benioff",
+            "D. B. Weiss"
+        ],
+        "cast": [
+            "Emilia Clarke",
+            "Kit Harington",
+            "Peter Dinklage"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=gcTkNV5Vg1E",
+        "image": "https://image.tmdb.org/t/p/w500/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
+        "awards": [
+            "59 Primetime Emmys",
+            "1 Golden Globe"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "The Mandalorian",
+        "overview": "A lone gunfighter makes his way through the outer reaches of the galaxy, far from the authority of the New Republic.",
+        "releaseDate": "2019-11-12",
+        "status": "Returning Series",
+        "rating": 8.8,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "episodeRuntime": 40,
+        "seasons": 3,
+        "episodes": 24,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Disney+"
+        ],
+        "creators": [
+            "Jon Favreau"
+        ],
+        "cast": [
+            "Pedro Pascal",
+            "Carl Weathers",
+            "Giancarlo Esposito"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=aOC8E8z_ifw",
+        "image": "https://image.tmdb.org/t/p/w500/sWgBv7LV2PRoQgkxwlibdGXKz1S.jpg",
+        "awards": [
+            "14 Primetime Emmys",
+            "Visual Effects Society Award"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Friends",
+        "overview": "Follows the personal and professional lives of six twenty to thirty-something friends living in Manhattan.",
+        "releaseDate": "1994-09-22",
+        "status": "Ended",
+        "rating": 8.9,
+        "genres": [
+            "Comedy",
+            "Romance"
+        ],
+        "episodeRuntime": 22,
+        "seasons": 10,
+        "episodes": 236,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "NBC"
+        ],
+        "creators": [
+            "David Crane",
+            "Marta Kauffman"
+        ],
+        "cast": [
+            "Jennifer Aniston",
+            "Courteney Cox",
+            "Matthew Perry"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=hDNNmeeJs1Q",
+        "image": "https://image.tmdb.org/t/p/w500/f496cm9enuEsZkSPzCwnTESEK5s.jpg",
+        "awards": [
+            "6 Primetime Emmys",
+            "Golden Globe"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Sherlock",
+        "overview": "A modern update finds the famous sleuth and his doctor partner solving crime in 21st century London.",
+        "releaseDate": "2010-07-25",
+        "status": "Ended",
+        "rating": 9.1,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Mystery"
+        ],
+        "episodeRuntime": 90,
+        "seasons": 4,
+        "episodes": 13,
+        "language": "English",
+        "country": "United Kingdom",
+        "networks": [
+            "BBC One"
+        ],
+        "creators": [
+            "Mark Gatiss",
+            "Steven Moffat"
+        ],
+        "cast": [
+            "Benedict Cumberbatch",
+            "Martin Freeman",
+            "Rupert Graves"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=xK7S9mrFWL4",
+        "image": "https://image.tmdb.org/t/p/w500/7WTsnHkbA0FaG6R9twfFde0I9hl.jpg",
+        "awards": [
+            "9 Primetime Emmys",
+            "Peabody Award"
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Westworld",
+        "overview": "A dark odyssey about the dawn of artificial consciousness and the evolution of sin.",
+        "releaseDate": "2016-10-02",
+        "status": "Ended",
+        "rating": 8.6,
+        "genres": [
+            "Drama",
+            "Mystery",
+            "Sci-Fi"
+        ],
+        "episodeRuntime": 57,
+        "seasons": 4,
+        "episodes": 36,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "HBO"
+        ],
+        "creators": [
+            "Jonathan Nolan",
+            "Lisa Joy"
+        ],
+        "cast": [
+            "Evan Rachel Wood",
+            "Thandiwe Newton",
+            "Jeffrey Wright"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=9BqKiZhEFFw",
+        "image": "https://m.media-amazon.com/images/M/MV5BMjM2MTA5NjIwNV5BMl5BanBnXkFtZTgwNjI2OTMxNTM%40._V1_FMjpg_UX1000_.jpg",
+        "awards": [
+            "9 Primetime Emmys",
+            "Saturn Award"
+        ]
+    },
+    {
+        "id": 10,
+        "title": "The Witcher",
+        "overview": "Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world.",
+        "releaseDate": "2019-12-20",
+        "status": "Returning Series",
+        "rating": 8.2,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 3,
+        "episodes": 24,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Lauren Schmidt Hissrich"
+        ],
+        "cast": [
+            "Henry Cavill",
+            "Anya Chalotra",
+            "Freya Allan"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=ndl1W4ltcmg",
+        "image": "https://blogarchive.goodillustration.com/wp-content/uploads/2022/04/640.jpg",
+        "awards": [
+            "Saturn Award",
+            "BMI Film & TV Award"
+        ]
+    },
+    {
+        "id": 11,
+        "title": "Narcos",
+        "overview": "A gritty crime drama chronicling the rise and fall of Pablo Escobar and the Medellín cartel, followed by the DEA's pursuit of the Cali cartel.",
+        "releaseDate": "2015-08-28",
+        "status": "Ended",
+        "rating": 8.8,
+        "genres": [
+            "Biography",
+            "Crime",
+            "Drama"
+        ],
+        "episodeRuntime": [
+            43,
+            60
+        ],
+        "seasons": 3,
+        "episodes": 30,
+        "language": [
+            "English",
+            "Spanish"
+        ],
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Chris Brancato",
+            "Carlo Bernard",
+            "Doug Miro"
+        ],
+        "cast": [
+            "Wagner Moura",
+            "Pedro Pascal",
+            "Boyd Holbrook",
+            "Damián Alcázar",
+            "Alberto Ammann",
+            "Maurice Compte",
+            "Stephanie Sigman",
+            "José María Yazpik",
+            "Eric Lange"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=U7elNhHwgBU",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vymSK4vGr33fPSp3RfzyJedYGAI.jpg",
+        "awards": [
+            "8 wins & 20 nominations",
+            "Golden Globe nominations",
+            "BAFTA TV International Programme",
+            "WGA Episodic Drama",
+            "Emmy nominations"
+        ]
+    },
+    {
+        "id": 12,
+        "title": "The Office (US)",
+        "overview": "A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.",
+        "releaseDate": "2005-03-24",
+        "status": "Ended",
+        "rating": 8.9,
+        "genres": [
+            "Comedy"
+        ],
+        "episodeRuntime": 22,
+        "seasons": 9,
+        "episodes": 201,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "NBC"
+        ],
+        "creators": [
+            "Greg Daniels"
+        ],
+        "cast": [
+            "Steve Carell",
+            "Rainn Wilson",
+            "John Krasinski",
+            "Jenna Fischer",
+            "Mindy Kaling",
+            "B.J. Novak",
+            "Ellie Kemper",
+            "Ed Helms"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=Vmb1tqYqyII",
+        "image": "https://image.tmdb.org/t/p/w500/qWnJzyZhyy74gjpSjIXWmuk0ifX.jpg",
+        "awards": [
+            "5 Primetime Emmy Awards",
+            "Golden Globe Award for Steve Carell",
+            "Screen Actors Guild Awards",
+            "Peabody Award"
+        ]
+    },
+    {
+        "id": 13,
+        "title": "Money Heist",
+        "overview": "A criminal mastermind who goes by 'The Professor' plans the biggest heist in recorded history to print billions of euros in the Royal Mint of Spain.",
+        "releaseDate": "2017-05-02",
+        "status": "Ended",
+        "rating": 8.3,
+        "genres": [
+            "Action",
+            "Crime",
+            "Drama"
+        ],
+        "episodeRuntime": 47,
+        "seasons": 5,
+        "episodes": 41,
+        "language": [
+            "Spanish"
+        ],
+        "country": "Spain",
+        "networks": [
+            "Antena 3",
+            "Netflix"
+        ],
+        "creators": [
+            "Álex Pina"
+        ],
+        "cast": [
+            "Úrsula Corberó",
+            "Álvaro Morte",
+            "Itziar Ituño",
+            "Pedro Alonso",
+            "Miguel Herrán",
+            "Jaime Lorente",
+            "Esther Acebo"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=HhesaQXLuRY",
+        "image": "https://image.tmdb.org/t/p/w500/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
+        "awards": [
+            "International Emmy Award",
+            "Premios Fénix",
+            "Premios Iris"
+        ]
+    },
+    {
+        "id": 14,
+        "title": "House of Cards",
+        "overview": "A ruthless congressman and his equally ambitious wife manipulate their way to power in Washington, D.C.",
+        "releaseDate": "2013-02-01",
+        "status": "Ended",
+        "rating": 8.7,
+        "genres": [
+            "Drama"
+        ],
+        "episodeRuntime": 50,
+        "seasons": 6,
+        "episodes": 73,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Beau Willimon"
+        ],
+        "cast": [
+            "Kevin Spacey",
+            "Robin Wright",
+            "Michael Kelly",
+            "Kate Mara",
+            "Corey Stoll"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=yYipbPRKqzQ&list=RDyYipbPRKqzQ&start_radio=1",
+        "image": "https://i.etsystatic.com/28509031/r/il/328289/4703606205/il_794xN.4703606205_sp5u.jpg",
+        "awards": [
+            "Golden Globe Awards",
+            "Primetime Emmy Awards",
+            "Screen Actors Guild Awards"
+        ]
+    },
+    {
+        "id": 15,
+        "title": "The Flash",
+        "overview": "After being struck by lightning, Barry Allen wakes from his coma to discover he's been given the power of super speed.",
+        "releaseDate": "2014-10-07",
+        "status": "Running",
+        "rating": 7.6,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "episodeRuntime": 44,
+        "seasons": 9,
+        "episodes": 184,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "The CW"
+        ],
+        "creators": [
+            "Greg Berlanti",
+            "Andrew Kreisberg",
+            "Geoff Johns"
+        ],
+        "cast": [
+            "Grant Gustin",
+            "Candice Patton",
+            "Danielle Panabaker",
+            "Carlos Valdes",
+            "Tom Cavanagh"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=7X9KMnRzNKQ",
+        "image": "https://image.tmdb.org/t/p/w500/wHa6KOJAoNTFLFtp7wguUJKSnju.jpg",
+        "awards": [
+            "Teen Choice Awards",
+            "Leo Awards"
+        ]
+    },
+    {
+        "id": 16,
+        "title": "The Handmaid's Tale",
+        "overview": "In a dystopian future, a woman is forced to live as a concubine under a fundamentalist theocratic dictatorship.",
+        "releaseDate": "2017-04-26",
+        "status": "Running",
+        "rating": 8.4,
+        "genres": [
+            "Drama",
+            "Sci-Fi",
+            "Thriller"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 5,
+        "episodes": 46,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Hulu"
+        ],
+        "creators": [
+            "Bruce Miller"
+        ],
+        "cast": [
+            "Elisabeth Moss",
+            "Joseph Fiennes",
+            "Yvonne Strahovski",
+            "Alexis Bledel",
+            "Ann Dowd"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=4zIEQ1i2HeM",
+        "image": "https://m.media-amazon.com/images/I/61pnkMeoWeL._SL1500_.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards",
+            "Screen Actors Guild Awards"
+        ]
+    },
+    {
+        "id": 17,
+        "title": "Vikings1",
+        "overview": "The adventures of Ragnar Lothbrok, a legendary Viking chieftain and farmer, and his crew.",
+        "releaseDate": "2013-03-03",
+        "status": "Ended",
+        "rating": 8.5,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "episodeRuntime": 44,
+        "seasons": 6,
+        "episodes": 89,
+        "language": "English",
+        "country": "Canada",
+        "networks": [
+            "History Channel"
+        ],
+        "creators": [
+            "Michael Hirst"
+        ],
+        "cast": [
+            "Travis Fimmel",
+            "Katheryn Winnick",
+            "Clive Standen",
+            "Gustaf Skarsgård",
+            "Alexander Ludwig"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=VnHXGSYqC9g",
+        "image": "https://cdn11.bigcommerce.com/s-yzgoj/images/stencil/1280x1280/products/3221615/6207980/PYRPAS0599__31848.1709693514.jpg?c=2",
+        "awards": [
+            "Canadian Screen Awards",
+            "Leo Awards"
+        ]
+    },
+    {
+        "id": 18,
+        "title": "Supernatural",
+        "overview": "Two brothers follow their father's footsteps as hunters who battle paranormal beings, demons, and monsters.",
+        "releaseDate": "2005-09-13",
+        "status": "Ended",
+        "rating": 8.4,
+        "genres": [
+            "Drama",
+            "Fantasy",
+            "Horror"
+        ],
+        "episodeRuntime": 42,
+        "seasons": 15,
+        "episodes": 327,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "The WB",
+            "The CW"
+        ],
+        "creators": [
+            "Eric Kripke"
+        ],
+        "cast": [
+            "Jared Padalecki",
+            "Jensen Ackles",
+            "Misha Collins",
+            "Mark Sheppard",
+            "Jim Beaver"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=Rg_QYxBthjA",
+        "image": "https://image.tmdb.org/t/p/w500/KoYWXbnYuS3b0GyQPkbuexlVK9.jpg",
+        "awards": [
+            "People's Choice Awards",
+            "Primetime Emmy nominations"
+        ]
+    },
+    {
+        "id": 19,
+        "title": "The Big Bang Theory",
+        "overview": "A woman who moves into an apartment next to two brilliant but socially awkward physicists shows them how little they know about life outside the lab.",
+        "releaseDate": "2007-09-24",
+        "status": "Ended",
+        "rating": 8.1,
+        "genres": [
+            "Comedy",
+            "Romance"
+        ],
+        "episodeRuntime": 22,
+        "seasons": 12,
+        "episodes": 279,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "CBS"
+        ],
+        "creators": [
+            "Chuck Lorre",
+            "Bill Prady"
+        ],
+        "cast": [
+            "Johnny Galecki",
+            "Jim Parsons",
+            "Kaley Cuoco",
+            "Simon Helberg",
+            "Kunal Nayyar"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=lab9vUUwpYQ",
+        "image": "https://m.media-amazon.com/images/I/81vrF68scGL._AC_UL320_.jpg",
+        "awards": [
+            "7 Primetime Emmy Awards",
+            "People's Choice Awards",
+            "Golden Globe nominations"
+        ]
+    },
+    {
+        "id": 20,
+        "title": "Dark",
+        "overview": "A family saga with a supernatural twist, set in a German town where the disappearance of two young children exposes the relationships among four families.",
+        "releaseDate": "2017-12-01",
+        "status": "Ended",
+        "rating": 8.8,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Mystery"
+        ],
+        "episodeRuntime": 53,
+        "seasons": 3,
+        "episodes": 26,
+        "language": [
+            "German"
+        ],
+        "country": "Germany",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Baran bo Odar",
+            "Jantje Friese"
+        ],
+        "cast": [
+            "Louis Hofmann",
+            "Maja Schöne",
+            "Andreas Pietschmann",
+            "Lisa Vicari",
+            "Moritz Jahn"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=rrwycJ08PSA",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1DLjjvSWMYo17B7wuz6YikB96hH.jpg",
+        "awards": [
+            "German Television Award",
+            "Grimme-Preis",
+            "IMDb Best TV Series 2017"
+        ]
+    },
+    {
+        "id": 21,
+        "title": "Better Things",
+        "overview": "A single mother and working actress balances the challenges of raising her three daughters in Los Angeles.",
+        "releaseDate": "2016-09-08",
+        "status": "Ended",
+        "rating": 7.7,
+        "genres": [
+            "Comedy",
+            "Drama"
+        ],
+        "episodeRuntime": 30,
+        "seasons": 5,
+        "episodes": 56,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "FX"
+        ],
+        "creators": [
+            "Pamela Adlon",
+            "Louis C.K."
+        ],
+        "cast": [
+            "Pamela Adlon",
+            "Mikey Madison",
+            "Hannah Alligood",
+            "Olivia Edward"
+        ],
+        "trailer": "https://m.media-amazon.com/images/I/91yipqwLQ3L._AC_UY218_.jpg",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/n4GUwwQTT9nneRGp7Mah10m4xU2.jpg",
+        "awards": [
+            "Peabody Award",
+            "Critics' Choice Television Award nominations"
+        ]
+    },
+    {
+        "id": 22,
+        "title": "The Expanse",
+        "overview": "A detective and a rogue ship captain investigate a vast conspiracy that threatens the solar system's fragile peace.",
+        "releaseDate": "2015-12-14",
+        "status": "Ended",
+        "rating": 8.5,
+        "genres": [
+            "Drama",
+            "Mystery",
+            "Sci-Fi"
+        ],
+        "episodeRuntime": 45,
+        "seasons": 6,
+        "episodes": 62,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Syfy",
+            "Amazon Prime Video"
+        ],
+        "creators": [
+            "Mark Fergus",
+            "Hawk Ostby"
+        ],
+        "cast": [
+            "Steven Strait",
+            "Dominique Tipper",
+            "Wes Chatham",
+            "Cas Anvar",
+            "Shohreh Aghdashloo"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=0mfIK8zxUds",
+        "image": "https://m.media-amazon.com/images/I/715Umbc3LyL._AC_UY218_.jpg",
+        "awards": [
+            "Saturn Award nominations",
+            "Hugo Award nominations"
+        ]
+    },
+    {
+        "id": 23,
+        "title": "The Witcher: Blood Origin",
+        "overview": "Set 1200 years before the events of The Witcher, this limited series explores the origins of the first Witcher and the events that led to the 'Conjunction of the Spheres.'",
+        "releaseDate": "2022-12-25",
+        "status": "Ended",
+        "rating": 6.2,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 1,
+        "episodes": 6,
+        "language": "English",
+        "country": "United Kingdom",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Declan de Barra"
+        ],
+        "cast": [
+            "Lily Cooper",
+            "Sophia Brown",
+            "Mirren Mack",
+            "Michelle Yeoh",
+            "Laurence O'Fuarain"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=HwsKw1PB0eo",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vpfJK9F0UJNcAIIeC42oJyKMnZQ.jpg",
+        "awards": []
+    },
+    {
+        "id": 24,
+        "title": "The Twilight Zone",
+        "overview": "An anthology series featuring tales of the strange, mysterious, and macabre with unexpected twists and social commentary.",
+        "releaseDate": "1959-10-02",
+        "status": "Ended",
+        "rating": 9,
+        "genres": [
+            "Drama",
+            "Fantasy",
+            "Horror"
+        ],
+        "episodeRuntime": 25,
+        "seasons": 5,
+        "episodes": 156,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "CBS"
+        ],
+        "creators": [
+            "Rod Serling"
+        ],
+        "cast": [
+            "Rod Serling",
+            "Burgess Meredith",
+            "William Shatner",
+            "Robert Redford"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=29_gA_GDGvE",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sS1ykUhvyurff4CohExIh8qYO99.jpg",
+        "awards": [
+            "Peabody Award",
+            "Emmy Award",
+            "Hugo Award"
+        ]
+    },
+    {
+        "id": 25,
+        "title": "The Good Place",
+        "overview": "A woman finds herself in the afterlife’s 'Good Place,' but realizes she doesn’t belong there and tries to become a better person to avoid being sent to the Bad Place.",
+        "releaseDate": "2016-09-19",
+        "status": "Ended",
+        "rating": 8.2,
+        "genres": [
+            "Comedy",
+            "Drama",
+            "Fantasy"
+        ],
+        "episodeRuntime": 22,
+        "seasons": 4,
+        "episodes": 53,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "NBC"
+        ],
+        "creators": [
+            "Michael Schur"
+        ],
+        "cast": [
+            "Kristen Bell",
+            "Ted Danson",
+            "William Jackson Harper",
+            "Jameela Jamil",
+            "D'Arcy Carden"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=Bl3B3KxA1nk",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qIhsuhoIYR5yTnDta0IL4senbeN.jpg",
+        "awards": [
+            "Critics' Choice Television Awards",
+            "Peabody Award"
+        ]
+    },
+    {
+        "id": 26,
+        "title": "How I Met Your Mother",
+        "overview": "A father recounts to his children the story of how he met their mother, sharing tales of friendship and love along the way.",
+        "releaseDate": "2005-09-19",
+        "status": "Ended",
+        "rating": 8.3,
+        "genres": [
+            "Comedy",
+            "Romance"
+        ],
+        "episodeRuntime": 22,
+        "seasons": 9,
+        "episodes": 208,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "CBS"
+        ],
+        "creators": [
+            "Carter Bays",
+            "Craig Thomas"
+        ],
+        "cast": [
+            "Josh Radnor",
+            "Jason Segel",
+            "Cobie Smulders",
+            "Neil Patrick Harris",
+            "Alyson Hannigan"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=8lgG9Y0oJ5Y",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/b34jPzmB0wZy7EjUZoleXOl2RRI.jpg",
+        "awards": [
+            "People's Choice Awards",
+            "Primetime Emmy nominations"
+        ]
+    },
+    {
+        "id": 27,
+        "title": "Stranger Things 4",
+        "overview": "The gang faces new supernatural threats and personal challenges in the town of Hawkins during the 1980s.",
+        "releaseDate": "2022-05-27",
+        "status": "Running",
+        "rating": 9,
+        "genres": [
+            "Drama",
+            "Fantasy",
+            "Horror"
+        ],
+        "episodeRuntime": 78,
+        "seasons": 4,
+        "episodes": 9,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "The Duffer Brothers"
+        ],
+        "cast": [
+            "Millie Bobby Brown",
+            "Finn Wolfhard",
+            "Gaten Matarazzo",
+            "Caleb McLaughlin",
+            "Sadie Sink"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=b9EkMc79ZSU",
+        "image": "https://image.tmdb.org/t/p/w500/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Screen Actors Guild Awards"
+        ]
+    },
+    {
+        "id": 28,
+        "title": "Peaky Blinders",
+        "overview": "A gangster family epic set in 1919 Birmingham, England, centered on a gang who sew razor blades in their caps.",
+        "releaseDate": "2013-09-12",
+        "status": "Ended",
+        "rating": 8.8,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 6,
+        "episodes": 36,
+        "language": "English",
+        "country": "United Kingdom",
+        "networks": [
+            "BBC One"
+        ],
+        "creators": [
+            "Steven Knight"
+        ],
+        "cast": [
+            "Cillian Murphy",
+            "Helen McCrory",
+            "Paul Anderson",
+            "Sophie Rundle",
+            "Joe Cole"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=YHzyJxl3C1Y",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg",
+        "awards": [
+            "National Television Awards",
+            "BAFTA nominations"
+        ]
+    },
+    {
+        "id": 29,
+        "title": "Cobra Kai",
+        "overview": "Decades after their 1984 showdown, Johnny Lawrence and Daniel LaRusso rekindle their rivalry in a new generation of karate kids.",
+        "releaseDate": "2018-05-02",
+        "status": "Running",
+        "rating": 8.6,
+        "genres": [
+            "Action",
+            "Drama"
+        ],
+        "episodeRuntime": 30,
+        "seasons": 5,
+        "episodes": 50,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "YouTube Premium",
+            "Netflix"
+        ],
+        "creators": [
+            "Josh Heald",
+            "Jon Hurwitz",
+            "Hayden Schlossberg"
+        ],
+        "cast": [
+            "Ralph Macchio",
+            "William Zabka",
+            "Xolo Maridueña",
+            "Mary Mouser",
+            "Tanner Buchanan"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=TXzPaCbpAHc",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6GDW4EsgsXlYrL1ASb5eCHQK4er.jpg",
+        "awards": [
+            "People's Choice Awards",
+            "Teen Choice Awards"
+        ]
+    },
+    {
+        "id": 30,
+        "title": "Chernobyl",
+        "overview": "A dramatization of the 1986 nuclear disaster and the cleanup efforts that followed in Soviet Ukraine.",
+        "releaseDate": "2019-05-06",
+        "status": "Ended",
+        "rating": 9.4,
+        "genres": [
+            "Drama",
+            "History",
+            "Thriller"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 1,
+        "episodes": 5,
+        "language": "English",
+        "country": "United Kingdom",
+        "networks": [
+            "HBO"
+        ],
+        "creators": [
+            "Craig Mazin"
+        ],
+        "cast": [
+            "Jared Harris",
+            "Stellan Skarsgård",
+            "Emily Watson",
+            "Paul Ritter",
+            "Jessie Buckley"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=s9APLXM9Ei8",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards",
+            "BAFTA TV Awards"
+        ]
+    },
+    {
+        "id": 31,
+        "title": "The Expanse",
+        "overview": "A thriller set two hundred years in the future, The Expanse follows a conspiracy that threatens the solar system's fragile state of cold war.",
+        "releaseDate": "2015-12-14",
+        "status": "Ended",
+        "rating": 8.5,
+        "genres": [
+            "Drama",
+            "Mystery",
+            "Sci-Fi"
+        ],
+        "episodeRuntime": 44,
+        "seasons": 6,
+        "episodes": 62,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Syfy",
+            "Amazon Prime Video"
+        ],
+        "creators": [
+            "Mark Fergus",
+            "Hawk Ostby"
+        ],
+        "cast": [
+            "Steven Strait",
+            "Dominique Tipper",
+            "Wes Chatham",
+            "Shohreh Aghdashloo",
+            "Thomas Jane"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=eyXGm8JCBrk",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8djpxDeWpINnGhjpFXQjnBe6zbx.jpg",
+        "awards": [
+            "Saturn Award nomination",
+            "Critical acclaim for world-building"
+        ]
+    },
+    {
+        "id": 32,
+        "title": "Mindhunter",
+        "overview": "In the late 1970s, two FBI agents expand criminal science by delving into the psychology of murder and getting uneasily close to all-too-real monsters.",
+        "releaseDate": "2017-10-13",
+        "status": "Ended",
+        "rating": 8.6,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 2,
+        "episodes": 19,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Joe Penhall"
+        ],
+        "cast": [
+            "Jonathan Groff",
+            "Holt McCallany",
+            "Anna Torv",
+            "Hannah Gross",
+            "Cotter Smith"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=DHJO6VR6TYY",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fbKE87mojpIETWepSbD5Qt741fp.jpg",
+        "awards": [
+            "Critically acclaimed",
+            "Multiple award nominations"
+        ]
+    },
+    {
+        "id": 33,
+        "title": "Vikings",
+        "overview": "The adventures of Ragnar Lothbrok, a legendary Viking chieftain and farmer, and his crew.",
+        "releaseDate": "2013-03-03",
+        "status": "Ended",
+        "rating": 8.5,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Drama"
+        ],
+        "episodeRuntime": 44,
+        "seasons": 6,
+        "episodes": 89,
+        "language": "English",
+        "country": "Canada",
+        "networks": [
+            "History Channel"
+        ],
+        "creators": [
+            "Michael Hirst"
+        ],
+        "cast": [
+            "Travis Fimmel",
+            "Katheryn Winnick",
+            "Clive Standen",
+            "Gustaf Skarsgård",
+            "Alexander Ludwig"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=Yi4YnwFT7Gk",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/bQLrHIRNEkE3PdIWQrZHynQZazu.jpg",
+        "awards": [
+            "Canadian Screen Awards",
+            "Leo Awards"
+        ]
+    },
+    {
+        "id": 34,
+        "title": "Black Mirror",
+        "overview": "An anthology series exploring a twisted, high-tech world where humanity's greatest innovations and darkest instincts collide.",
+        "releaseDate": "2011-12-04",
+        "status": "Running",
+        "rating": 8.8,
+        "genres": [
+            "Drama",
+            "Sci-Fi",
+            "Thriller"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 6,
+        "episodes": 22,
+        "language": "English",
+        "country": "United Kingdom",
+        "networks": [
+            "Channel 4",
+            "Netflix"
+        ],
+        "creators": [
+            "Charlie Brooker"
+        ],
+        "cast": [
+            "Various (Anthology series)"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=jDiYGjp5iFg",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/seN6rRfN0I6n8iDXjlSMk1QjNcq.jpg",
+        "awards": [
+            "Emmy Awards",
+            "BAFTA Awards"
+        ]
+    },
+    {
+        "id": 35,
+        "title": "The Crown",
+        "overview": "Follows the political rivalries and romance of Queen Elizabeth II’s reign and the events that shaped the second half of the 20th century.",
+        "releaseDate": "2016-11-04",
+        "status": "Running",
+        "rating": 8.7,
+        "genres": [
+            "Drama",
+            "History"
+        ],
+        "episodeRuntime": 58,
+        "seasons": 5,
+        "episodes": 50,
+        "language": "English",
+        "country": "United Kingdom",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Peter Morgan"
+        ],
+        "cast": [
+            "Olivia Colman",
+            "Tobias Menzies",
+            "Helena Bonham Carter",
+            "Josh O'Connor",
+            "Emma Corrin"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=JWtnJjn6ng0",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1DDE0Z2Y805rqfkEjPbZsMLyPwa.jpg",
+        "awards": [
+            "Golden Globe Awards",
+            "Primetime Emmy Awards"
+        ]
+    },
+    {
+        "id": 36,
+        "title": "Ozark",
+        "overview": "A financial advisor drags his family from Chicago to the Missouri Ozarks, where he must launder money to appease a drug cartel boss.",
+        "releaseDate": "2017-07-21",
+        "status": "Ended",
+        "rating": 8.4,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 4,
+        "episodes": 44,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Bill Dubuque",
+            "Mark Williams"
+        ],
+        "cast": [
+            "Jason Bateman",
+            "Laura Linney",
+            "Julia Garner",
+            "Sofia Hublitz",
+            "Charlie Tahan"
+        ],
+        "trailer": "https://youtu.be/5hAXVqrljbs?si=TIMHhQDjIezYPwP6",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/pCGyPVrI9Fzw6rE1Pvi4BIXF6ET.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe nominations"
+        ]
+    },
+    {
+        "id": 37,
+        "title": "House of Cards",
+        "overview": "A ruthless congressman and his equally ambitious wife manipulate their way to power in Washington, D.C.",
+        "releaseDate": "2013-02-01",
+        "status": "Ended",
+        "rating": 8.7,
+        "genres": [
+            "Drama"
+        ],
+        "episodeRuntime": 50,
+        "seasons": 6,
+        "episodes": 73,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Beau Willimon"
+        ],
+        "cast": [
+            "Kevin Spacey",
+            "Robin Wright",
+            "Michael Kelly",
+            "Kate Mara",
+            "Corey Stoll"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=x1E8PSGcyqI",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hKWxWjFwnMvkWQawbhvC0Y7ygQ8.jpg",
+        "awards": [
+            "Golden Globe Awards",
+            "Primetime Emmy Awards",
+            "Screen Actors Guild Awards"
+        ]
+    },
+    {
+        "id": 38,
+        "title": "Brooklyn Nine-Nine",
+        "overview": "Comedy series following a team of detectives in the NYPD's 99th Precinct, balancing crime solving with hilarious antics.",
+        "releaseDate": "2013-09-17",
+        "status": "Ended",
+        "rating": 8.4,
+        "genres": [
+            "Comedy",
+            "Crime"
+        ],
+        "episodeRuntime": 22,
+        "seasons": 8,
+        "episodes": 153,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Fox",
+            "NBC"
+        ],
+        "creators": [
+            "Michael Schur",
+            "Dan Goor"
+        ],
+        "cast": [
+            "Andy Samberg",
+            "Terry Crews",
+            "Stephanie Beatriz",
+            "Melissa Fumero",
+            "Andre Braugher"
+        ],
+        "trailer": "https://youtu.be/sEOuJ4z5aTc?si=pRWHYwAhf8h5G28j",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/hgRMSOt7a1b8qyQR68vUixJPang.jpg",
+        "awards": [
+            "Golden Globe Award",
+            "Primetime Emmy nominations"
+        ]
+    },
+    {
+        "id": 39,
+        "title": "The Marvelous Mrs. Maisel",
+        "overview": "In 1950s New York, a housewife discovers her talent for stand-up comedy and pursues a career in the male-dominated comedy world.",
+        "releaseDate": "2017-03-17",
+        "status": "Running",
+        "rating": 8.7,
+        "genres": [
+            "Comedy",
+            "Drama"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 5,
+        "episodes": 43,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Amazon Prime Video"
+        ],
+        "creators": [
+            "Amy Sherman-Palladino"
+        ],
+        "cast": [
+            "Rachel Brosnahan",
+            "Tony Shalhoub",
+            "Alex Borstein",
+            "Marin Hinkle",
+            "Michael Zegen"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=fOmwkTrW4OQ",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zS7fQiOZiKCVH2vlYSiIsFWW8hh.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards"
+        ]
+    },
+    {
+        "id": 40,
+        "title": "Mr. Robot",
+        "overview": "A cybersecurity engineer and hacker with dissociative identity disorder is recruited by an anarchist to bring down corporate America.",
+        "releaseDate": "2015-06-24",
+        "status": "Ended",
+        "rating": 8.6,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "episodeRuntime": 45,
+        "seasons": 4,
+        "episodes": 45,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "USA Network"
+        ],
+        "creators": [
+            "Sam Esmail"
+        ],
+        "cast": [
+            "Rami Malek",
+            "Christian Slater",
+            "Portia Doubleday",
+            "Carly Chaikin",
+            "Martin Wallström"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=xIBiJ_SzJTA",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kv1nRqgebSsREnd7vdC2pSGjpLo.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards"
+        ]
+    },
+    {
+        "id": 41,
+        "title": "True Detective",
+        "overview": "Seasonal anthology series in which police investigations unearth personal and professional secrets of those involved, both within and outside the law.",
+        "releaseDate": "2014-01-12",
+        "status": "Running",
+        "rating": 9,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Mystery"
+        ],
+        "episodeRuntime": 55,
+        "seasons": 4,
+        "episodes": 24,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "HBO"
+        ],
+        "creators": [
+            "Nic Pizzolatto"
+        ],
+        "cast": [
+            "Matthew McConaughey",
+            "Woody Harrelson",
+            "Mahershala Ali",
+            "Colin Farrell",
+            "Rachel McAdams"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=fVQUcaO4AvE",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fAZpwffGhMQvk8SrrMnILcXtbQH.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Award for Best Actor (Mahershala Ali)"
+        ]
+    },
+    {
+        "id": 42,
+        "title": "The Boys",
+        "overview": "A group of vigilantes set out to take down corrupt superheroes who abuse their superpowers.",
+        "releaseDate": "2019-07-26",
+        "status": "Running",
+        "rating": 8.7,
+        "genres": [
+            "Action",
+            "Comedy",
+            "Crime"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 4,
+        "episodes": 32,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Amazon Prime Video"
+        ],
+        "creators": [
+            "Eric Kripke"
+        ],
+        "cast": [
+            "Karl Urban",
+            "Jack Quaid",
+            "Antony Starr",
+            "Erin Moriarty",
+            "Dominique McElligott"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=M1bhOaLV4FU",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/2zmTngn1tYC1AvfnrFLhxeD82hz.jpg",
+        "awards": [
+            "Primetime Emmy Award",
+            "Critics' Choice Super Award"
+        ]
+    },
+    {
+        "id": 43,
+        "title": "Money Heist",
+        "overview": "A criminal mastermind called 'The Professor' orchestrates heists on the Royal Mint of Spain and the Bank of Spain with a group of uniquely skilled criminals.",
+        "releaseDate": "2017-05-02",
+        "status": "Ended",
+        "rating": 8.3,
+        "genres": [
+            "Action",
+            "Crime",
+            "Drama"
+        ],
+        "episodeRuntime": 47,
+        "seasons": 5,
+        "episodes": 41,
+        "language": [
+            "Spanish"
+        ],
+        "country": "Spain",
+        "networks": [
+            "Antena 3",
+            "Netflix"
+        ],
+        "creators": [
+            "Álex Pina"
+        ],
+        "cast": [
+            "Úrsula Corberó",
+            "Álvaro Morte",
+            "Itziar Ituño",
+            "Pedro Alonso",
+            "Miguel Herrán"
+        ],
+        "trailer": "https://youtu.be/_InqQJRqGW4?si=de0Y81yk73neaCiY",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg",
+        "awards": [
+            "International Emmy Award",
+            "Premios Fénix"
+        ]
+    },
+    {
+        "id": 44,
+        "title": "Rick and Morty",
+        "overview": "An animated series that follows the exploits of a super scientist and his not-so-bright grandson.",
+        "releaseDate": "2013-12-02",
+        "status": "Running",
+        "rating": 9.2,
+        "genres": [
+            "Animation",
+            "Adventure",
+            "Comedy"
+        ],
+        "episodeRuntime": 23,
+        "seasons": 6,
+        "episodes": 61,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Adult Swim"
+        ],
+        "creators": [
+            "Dan Harmon",
+            "Justin Roiland"
+        ],
+        "cast": [
+            "Justin Roiland",
+            "Chris Parnell",
+            "Spencer Grammer",
+            "Sarah Chalke"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=5ymPE0W-0Ns",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/WGRQ8FpjkDTzivQJ43t94bOuY0.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Annie Awards"
+        ]
+    },
+    {
+        "id": 45,
+        "title": "The Walking Dead",
+        "overview": "Sheriff's deputy Rick Grimes wakes from a coma to learn the world is in ruins, dominated by flesh-eating zombies.",
+        "releaseDate": "2010-10-31",
+        "status": "Ended",
+        "rating": 8.2,
+        "genres": [
+            "Drama",
+            "Horror",
+            "Thriller"
+        ],
+        "episodeRuntime": 44,
+        "seasons": 11,
+        "episodes": 177,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "AMC"
+        ],
+        "creators": [
+            "Frank Darabont",
+            "Robert Kirkman",
+            "Tony Moore",
+            "Charlie Adlard"
+        ],
+        "cast": [
+            "Andrew Lincoln",
+            "Norman Reedus",
+            "Melissa McBride",
+            "Lauren Cohan",
+            "Danai Gurira"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=R1v0uFms68U",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/ng3cMtxYKt1OSQYqFlnKWnVsqNO.jpg",
+        "awards": [
+            "Saturn Awards",
+            "Primetime Emmy Awards nominations"
+        ]
+    },
+    {
+        "id": 46,
+        "title": "Lost",
+        "overview": "Survivors of a plane crash struggle to survive and unravel the mysteries of a strange island.",
+        "releaseDate": "2004-09-22",
+        "status": "Ended",
+        "rating": 8.3,
+        "genres": [
+            "Adventure",
+            "Drama",
+            "Fantasy"
+        ],
+        "episodeRuntime": 44,
+        "seasons": 6,
+        "episodes": 121,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "ABC"
+        ],
+        "creators": [
+            "J.J. Abrams",
+            "Damon Lindelof",
+            "Jeffrey Lieber"
+        ],
+        "cast": [
+            "Matthew Fox",
+            "Evangeline Lilly",
+            "Terry O'Quinn",
+            "Josh Holloway",
+            "Naveen Andrews"
+        ],
+        "trailer": "https://youtu.be/KTu8iDynwNc?si=w9-XuzdqZ5uHtMOC",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/og6S0aTZU6YUJAbqxeKjCa3kY1E.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards"
+        ]
+    },
+    {
+        "id": 47,
+        "title": "Dexter",
+        "overview": "A Miami-based blood splatter expert moonlights as a serial killer of criminals who evade justice.",
+        "releaseDate": "2006-10-01",
+        "status": "Ended",
+        "rating": 8.6,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Mystery"
+        ],
+        "episodeRuntime": 53,
+        "seasons": 8,
+        "episodes": 96,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Showtime"
+        ],
+        "creators": [
+            "James Manos Jr."
+        ],
+        "cast": [
+            "Michael C. Hall",
+            "Jennifer Carpenter",
+            "David Zayas",
+            "Julie Benz",
+            "Desmond Harrington"
+        ],
+        "trailer": "https://youtu.be/YQeUmSD1c3g?si=N_7brYFT-Qzlt_HL",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/q8dWfc4JwQuv3HayIZeO84jAXED.jpg",
+        "awards": [
+            "Golden Globe Awards",
+            "Primetime Emmy Awards"
+        ]
+    },
+    {
+        "id": 48,
+        "title": "The Simpsons",
+        "overview": "The satirical adventures of a working-class family in the misfit city of Springfield.",
+        "releaseDate": "1989-12-17",
+        "status": "Running",
+        "rating": 8.6,
+        "genres": [
+            "Animation",
+            "Comedy"
+        ],
+        "episodeRuntime": 22,
+        "seasons": 34,
+        "episodes": 750,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Fox"
+        ],
+        "creators": [
+            "Matt Groening"
+        ],
+        "cast": [
+            "Dan Castellaneta",
+            "Julie Kavner",
+            "Nancy Cartwright",
+            "Yeardley Smith",
+            "Hank Azaria"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=XPG0MqIcby8",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/vHqeLzYl3dEAutojCO26g0LIkom.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Peabody Awards"
+        ]
+    },
+    {
+        "id": 49,
+        "title": "House",
+        "overview": "An antisocial maverick doctor who specializes in diagnostic medicine does whatever it takes to solve puzzling cases.",
+        "releaseDate": "2004-11-16",
+        "status": "Ended",
+        "rating": 8.7,
+        "genres": [
+            "Drama",
+            "Mystery"
+        ],
+        "episodeRuntime": 44,
+        "seasons": 8,
+        "episodes": 177,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Fox"
+        ],
+        "creators": [
+            "David Shore"
+        ],
+        "cast": [
+            "Hugh Laurie",
+            "Lisa Edelstein",
+            "Robert Sean Leonard",
+            "Omar Epps",
+            "Jennifer Morrison"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=MczMB8nU1sY",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/3Cz7ySOQJmqiuTdrc6CY0r65yDI.jpg",
+        "awards": [
+            "Golden Globe Awards",
+            "Primetime Emmy Awards"
+        ]
+    },
+    {
+        "id": 50,
+        "title": "The Handmaid's Tale",
+        "overview": "In a dystopian future, a woman is forced to live as a concubine under a fundamentalist theocratic dictatorship.",
+        "releaseDate": "2017-04-26",
+        "status": "Running",
+        "rating": 8.4,
+        "genres": [
+            "Drama",
+            "Sci-Fi",
+            "Thriller"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 5,
+        "episodes": 46,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Hulu"
+        ],
+        "creators": [
+            "Bruce Miller"
+        ],
+        "cast": [
+            "Elisabeth Moss",
+            "Joseph Fiennes",
+            "Yvonne Strahovski",
+            "Alexis Bledel",
+            "Ann Dowd"
+        ],
+        "trailer": "https://youtu.be/dVLiDETfx1c?si=pmVH2_P-QAZufffA",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eGUT7j3n3rn5yGihlCgwUnD70HV.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards",
+            "Screen Actors Guild Awards"
+        ]
+    },
+    {
+        "id": 51,
+        "title": "Lucifer",
+        "overview": "Lucifer Morningstar, the Devil, abandons Hell for Los Angeles where he runs a nightclub and becomes a consultant to the LAPD.",
+        "releaseDate": "2016-01-25",
+        "status": "Ended",
+        "rating": 8.1,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Fantasy"
+        ],
+        "episodeRuntime": 42,
+        "seasons": 6,
+        "episodes": 93,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Fox",
+            "Netflix"
+        ],
+        "creators": [
+            "Tom Kapinos"
+        ],
+        "cast": [
+            "Tom Ellis",
+            "Lauren German",
+            "Kevin Alejandro",
+            "D.B. Woodside",
+            "Lesley-Ann Brandt",
+            "Rachael Harris"
+        ],
+        "trailer": "https://youtu.be/X4bF_quwNtw?si=It2HvToAXjoo5plf",
+        "image": "https://image.tmdb.org/t/p/w500/4EYPN5mVIhKLfxGruy7Dy41dTVn.jpg",
+        "awards": [
+            "Nominated for 3 People's Choice Awards",
+            "Nominated for Saturn Awards"
+        ]
+    },
+    {
+        "id": 52,
+        "title": "Lost in Space",
+        "overview": "The Robinson family fights for survival after crash-landing on a mysterious alien planet in this reimagining of the classic sci-fi series.",
+        "releaseDate": "2018-04-13",
+        "status": "Ended",
+        "rating": 7.3,
+        "genres": [
+            "Adventure",
+            "Drama",
+            "Sci-Fi"
+        ],
+        "episodeRuntime": 45,
+        "seasons": 3,
+        "episodes": 30,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Matt Sazama",
+            "Burk Sharpless"
+        ],
+        "cast": [
+            "Toby Stephens",
+            "Molly Parker",
+            "Maxwell Jenkins",
+            "Taylor Russell",
+            "Mina Sundwall"
+        ],
+        "trailer": "https://youtu.be/fzmM0AB60QQ?si=NKpdJ1VLORPK4jQ8",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/f7xArCMZPBW7SoCsqsOXvc3X8Ry.jpg",
+        "awards": [
+            "Primetime Emmy nomination for visual effects"
+        ]
+    },
+    {
+        "id": 53,
+        "title": "House of the Dragon",
+        "overview": "Set 200 years before Game of Thrones, House of the Dragon chronicles the beginning of the end of House Targaryen.",
+        "releaseDate": "2022-08-21",
+        "status": "Running",
+        "rating": 8.5,
+        "genres": [
+            "Drama",
+            "Fantasy"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 1,
+        "episodes": 10,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "HBO"
+        ],
+        "creators": [
+            "Ryan Condal",
+            "George R.R. Martin"
+        ],
+        "cast": [
+            "Paddy Considine",
+            "Emma D'Arcy",
+            "Matt Smith",
+            "Olivia Cooke",
+            "Rhys Ifans"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=DotnJ7tTA34",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oxmdHR5Ka28HAJuMmS2hk5K6QQY.jpg",
+        "awards": [
+            "Primetime Emmy nominations",
+            "Critics' Choice Award"
+        ]
+    },
+    {
+        "id": 54,
+        "title": "The Haunting of Hill House",
+        "overview": "A modern reimagining of Shirley Jackson's classic novel, exploring a family confronting traumatic memories and terrifying supernatural events.",
+        "releaseDate": "2018-10-12",
+        "status": "Ended",
+        "rating": 8.6,
+        "genres": [
+            "Drama",
+            "Horror",
+            "Mystery"
+        ],
+        "episodeRuntime": 50,
+        "seasons": 1,
+        "episodes": 10,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Mike Flanagan"
+        ],
+        "cast": [
+            "Michiel Huisman",
+            "Carla Gugino",
+            "Henry Thomas",
+            "Elizabeth Reaser",
+            "Oliver Jackson-Cohen"
+        ],
+        "trailer": "https://youtu.be/3eqxXqJDmcY?si=cyhvyXNT0cnxfWub",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/38PkhBGRQtmVx2drvPik3F42qHO.jpg",
+        "awards": [
+            "Saturn Award for Best Horror Television Series"
+        ]
+    },
+    {
+        "id": 55,
+        "title": "Loki",
+        "overview": "The God of Mischief, Loki, steps out of his brother's shadow to embark on his own adventures after the events of Avengers: Endgame.",
+        "releaseDate": "2021-06-09",
+        "status": "Running",
+        "rating": 8.1,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Sci-Fi"
+        ],
+        "episodeRuntime": 45,
+        "seasons": 2,
+        "episodes": 12,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Disney+"
+        ],
+        "creators": [
+            "Michael Waldron"
+        ],
+        "cast": [
+            "Tom Hiddleston",
+            "Owen Wilson",
+            "Gugu Mbatha-Raw",
+            "Sophia Di Martino"
+        ],
+        "trailer": "https://youtu.be/nW948Va-l10?si=ra6bRyvcBbaWsWeZ",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oJdVHUYrjdS2IqiNztVIP4GPB1p.jpg",
+        "awards": [
+            "Primetime Emmy nominations"
+        ]
+    },
+    {
+        "id": 56,
+        "title": "The Umbrella Academy",
+        "overview": "A dysfunctional family of adopted sibling superheroes reunite to solve the mystery of their father's death and the threat of an impending apocalypse.",
+        "releaseDate": "2019-02-15",
+        "status": "Running",
+        "rating": 8,
+        "genres": [
+            "Action",
+            "Adventure",
+            "Comedy"
+        ],
+        "episodeRuntime": 55,
+        "seasons": 3,
+        "episodes": 30,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Steve Blackman",
+            "Jeremy Slater"
+        ],
+        "cast": [
+            "Elliot Page",
+            "Tom Hopper",
+            "David Castañeda",
+            "Robert Sheehan",
+            "Aidan Gallagher"
+        ],
+        "trailer": "https://youtu.be/0DAmWHxeoKw?si=8_Q2xOePeXIVe5EC",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/scZlQQYnDVlnpxFTxaIv2g0BWnL.jpg",
+        "awards": [
+            "Emmy nominations"
+        ]
+    },
+    {
+        "id": 57,
+        "title": "Stranger Things 4",
+        "overview": "In the fourth season, the kids face new supernatural threats, uncover dark secrets, and battle the terrifying Vecna.",
+        "releaseDate": "2022-05-27",
+        "status": "Ended",
+        "rating": 9,
+        "genres": [
+            "Drama",
+            "Fantasy",
+            "Horror"
+        ],
+        "episodeRuntime": 78,
+        "seasons": 1,
+        "episodes": 9,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "The Duffer Brothers"
+        ],
+        "cast": [
+            "Millie Bobby Brown",
+            "Finn Wolfhard",
+            "Gaten Matarazzo",
+            "Caleb McLaughlin",
+            "Sadie Sink"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=b9EkMc79ZSU",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/olAK0DWZmTpqRTRyNpqFUxKGbw6.jpg",
+        "awards": [
+            "Primetime Emmy nominations",
+            "Screen Actors Guild nominations"
+        ]
+    },
+    {
+        "id": 58,
+        "title": "Better Call Saul",
+        "overview": "The trials and tribulations of criminal lawyer Jimmy McGill before he becomes the sleazy lawyer Saul Goodman.",
+        "releaseDate": "2015-02-08",
+        "status": "Ended",
+        "rating": 8.7,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "episodeRuntime": 47,
+        "seasons": 6,
+        "episodes": 63,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "AMC"
+        ],
+        "creators": [
+            "Vince Gilligan",
+            "Peter Gould"
+        ],
+        "cast": [
+            "Bob Odenkirk",
+            "Jonathan Banks",
+            "Rhea Seehorn",
+            "Michael McKean",
+            "Giancarlo Esposito"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=HN4oydykJFc",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/zjg4jpK1Wp2kiRvtt5ND0kznako.jpg",
+        "awards": [
+            "Primetime Emmy nominations",
+            "Golden Globe nominations"
+        ]
+    },
+    {
+        "id": 59,
+        "title": "Stranger Things 3",
+        "overview": "In the third season, the kids face new supernatural challenges and a growing evil force beneath Hawkins.",
+        "releaseDate": "2019-07-04",
+        "status": "Ended",
+        "rating": 8.8,
+        "genres": [
+            "Drama",
+            "Fantasy",
+            "Horror"
+        ],
+        "episodeRuntime": 50,
+        "seasons": 1,
+        "episodes": 8,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "The Duffer Brothers"
+        ],
+        "cast": [
+            "Millie Bobby Brown",
+            "Finn Wolfhard",
+            "Gaten Matarazzo",
+            "Caleb McLaughlin",
+            "Sadie Sink"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=6Am4v0C_z8c",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/oMkVNujGNmGmfNeHwxcUF6mncQJ.jpg",
+        "awards": [
+            "Primetime Emmy nominations",
+            "Screen Actors Guild nominations"
+        ]
+    },
+    {
+        "id": 60,
+        "title": "Peaky Blinders: The Bloody Season",
+        "overview": "A documentary-style series exploring the history and impact of the Peaky Blinders gang in early 20th century England.",
+        "releaseDate": "2018-04-15",
+        "status": "Ended",
+        "rating": 8.3,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "episodeRuntime": 50,
+        "seasons": 1,
+        "episodes": 3,
+        "language": "English",
+        "country": "United Kingdom",
+        "networks": [
+            "Netflix"
+        ],
+        "creators": [
+            "Stephen Murphy"
+        ],
+        "cast": [],
+        "trailer": "https://youtu.be/whgdkjDJAjg?si=b6Rkw138gsxT02vF",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1cno5aQ14y1psSrU8eEzKZDtQci.jpg",
+        "awards": []
+    },
+    {
+        "id": 61,
+        "title": "24",
+        "overview": "Counterterrorism agent Jack Bauer races against the clock to subvert terrorist plots and save his country in this real-time thriller.",
+        "releaseDate": "2001-11-06",
+        "status": "Ended",
+        "rating": 8.3,
+        "genres": [
+            "Action",
+            "Crime",
+            "Drama"
+        ],
+        "episodeRuntime": 44,
+        "seasons": 9,
+        "episodes": 204,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Fox"
+        ],
+        "creators": [
+            "Joel Surnow",
+            "Robert Cochran"
+        ],
+        "cast": [
+            "Kiefer Sutherland",
+            "Mary Lynn Rajskub",
+            "Carlos Bernard",
+            "Dennis Haysbert",
+            "Elisha Cuthbert"
+        ],
+        "trailer": "https://youtu.be/kyWafhzs6zw?si=psIz5h-qrl4TyuYz",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iq6yrZ5LEDXf1ArCOYLq8PIUBpV.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards",
+            "Screen Actors Guild Awards"
+        ]
+    },
+    {
+        "id": 62,
+        "title": "Succession",
+        "overview": "The Roy family, owners of a global media and entertainment empire, struggle for control of the company amid uncertain health of the patriarch.",
+        "releaseDate": "2018-06-03",
+        "status": "Running",
+        "rating": 8.8,
+        "genres": [
+            "Drama"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 4,
+        "episodes": 39,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "HBO"
+        ],
+        "creators": [
+            "Jesse Armstrong"
+        ],
+        "cast": [
+            "Brian Cox",
+            "Jeremy Strong",
+            "Sarah Snook",
+            "Kieran Culkin",
+            "Nicholas Braun"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=OzYxJV_rmE8",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/z0XiwdrCQ9yVIr4O0pxzaAYRxdW.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards",
+            "Peabody Award"
+        ]
+    },
+    {
+        "id": 63,
+        "title": "Schitt's Creek",
+        "overview": "A wealthy family loses their fortune and is forced to live in a small town they once bought as a joke, rebuilding their lives with humor and heart.",
+        "releaseDate": "2015-01-13",
+        "status": "Ended",
+        "rating": 8.5,
+        "genres": [
+            "Comedy",
+            "Family"
+        ],
+        "episodeRuntime": 22,
+        "seasons": 6,
+        "episodes": 80,
+        "language": "English",
+        "country": "Canada",
+        "networks": [
+            "CBC",
+            "Pop TV"
+        ],
+        "creators": [
+            "Eugene Levy",
+            "Dan Levy"
+        ],
+        "cast": [
+            "Eugene Levy",
+            "Catherine O'Hara",
+            "Dan Levy",
+            "Annie Murphy",
+            "Emily Hampshire"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=W0uWS6CnC2o",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/bqSgt3OZDvHnOfoZEr7l0jVrSqB.jpg",
+        "awards": [
+            "9 Primetime Emmy Awards",
+            "Canadian Screen Awards",
+            "Golden Globe nominations"
+        ]
+    },
+    {
+        "id": 64,
+        "title": "Mad Men",
+        "overview": "Set in the 1960s, follows the professional and personal lives of advertising executives on Madison Avenue in New York City.",
+        "releaseDate": "2007-03-19",
+        "status": "Ended",
+        "rating": 8.6,
+        "genres": [
+            "Drama"
+        ],
+        "episodeRuntime": 47,
+        "seasons": 7,
+        "episodes": 92,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "AMC"
+        ],
+        "creators": [
+            "Matthew Weiner"
+        ],
+        "cast": [
+            "Jon Hamm",
+            "Elisabeth Moss",
+            "Vincent Kartheiser",
+            "January Jones",
+            "Christina Hendricks"
+        ],
+        "trailer": "https://youtu.be/m7NChV93LBw?si=DDfPYqZVkvOodMiD",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7v8iCNzKFpdlrCMcqCoJyn74Nsa.jpg",
+        "awards": [
+            "16 Primetime Emmy Awards",
+            "5 Golden Globes",
+            "Peabody Award"
+        ]
+    },
+    {
+        "id": 65,
+        "title": "Homeland",
+        "overview": "A bipolar CIA operative becomes convinced that a rescued American POW has been turned by al-Qaeda and poses a threat to the United States.",
+        "releaseDate": "2011-10-02",
+        "status": "Ended",
+        "rating": 8.3,
+        "genres": [
+            "Drama",
+            "Mystery",
+            "Thriller"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 8,
+        "episodes": 96,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Showtime"
+        ],
+        "creators": [
+            "Howard Gordon",
+            "Alex Gansa"
+        ],
+        "cast": [
+            "Claire Danes",
+            "Damian Lewis",
+            "Mandy Patinkin",
+            "Rupert Friend",
+            "Morena Baccarin"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=KyFmS3wRPCQ",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6GAvS2e6VIRsms9FpVt33PsCoEW.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards",
+            "Peabody Award"
+        ]
+    },
+    {
+        "id": 66,
+        "title": "The Sopranos",
+        "overview": "New Jersey mob boss Tony Soprano deals with personal and professional issues in his home and business life, seeking therapy to cope with his problems.",
+        "releaseDate": "1999-01-10",
+        "status": "Ended",
+        "rating": 9.2,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "episodeRuntime": 55,
+        "seasons": 6,
+        "episodes": 86,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "HBO"
+        ],
+        "creators": [
+            "David Chase"
+        ],
+        "cast": [
+            "James Gandolfini",
+            "Lorraine Bracco",
+            "Edie Falco",
+            "Michael Imperioli",
+            "Tony Sirico"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=Q8cBFvpqmH0",
+        "image": "https://image.tmdb.org/t/p/w500/eEslKSwcqmiNS6va24Pbxf2UKmJ.jpg",
+        "awards": [
+            "21 Primetime Emmy Awards",
+            "5 Golden Globes",
+            "Peabody Award"
+        ]
+    },
+    {
+        "id": 67,
+        "title": "The Leftovers",
+        "overview": "Three years after 2% of the world's population mysteriously disappears, those left behind struggle to find meaning and normalcy.",
+        "releaseDate": "2014-06-29",
+        "status": "Ended",
+        "rating": 8.7,
+        "genres": [
+            "Drama",
+            "Mystery",
+            "Fantasy"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 3,
+        "episodes": 28,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "HBO"
+        ],
+        "creators": [
+            "Damon Lindelof",
+            "Tom Perrotta"
+        ],
+        "cast": [
+            "Justin Theroux",
+            "Carrie Coon",
+            "Amy Brenneman",
+            "Christopher Eccleston",
+            "Ann Dowd"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=FLT3YUALJno",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9IgLF8QCPfQ1fXnL7kfwgMBdJny.jpg",
+        "awards": [
+            "Critics' Choice Television Award",
+            "Peabody Award"
+        ]
+    },
+    {
+        "id": 68,
+        "title": "Deadwood",
+        "overview": "In the 1870s, the town of Deadwood, South Dakota is a lawless settlement in the American West, where residents seek their fortunes amid corruption.",
+        "releaseDate": "2004-03-21",
+        "status": "Ended",
+        "rating": 8.6,
+        "genres": [
+            "Drama",
+            "Western"
+        ],
+        "episodeRuntime": 55,
+        "seasons": 3,
+        "episodes": 36,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "HBO"
+        ],
+        "creators": [
+            "David Milch"
+        ],
+        "cast": [
+            "Timothy Olyphant",
+            "Ian McShane",
+            "Molly Parker",
+            "John Hawkes",
+            "Brad Dourif"
+        ],
+        "trailer": "https://youtu.be/Ix61iFpceM4?si=zkIkwILiemNxFQu9",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/4Yp35DVbVOAWkfQUIQ7pbh3u0aN.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards",
+            "Peabody Award"
+        ]
+    },
+    {
+        "id": 69,
+        "title": "Arrested Development",
+        "overview": "The Bluth family’s dysfunctional relationships are the centerpiece of this sitcom that follows the fallout of the patriarch's imprisonment.",
+        "releaseDate": "2003-11-02",
+        "status": "Ended",
+        "rating": 8.7,
+        "genres": [
+            "Comedy"
+        ],
+        "episodeRuntime": 22,
+        "seasons": 5,
+        "episodes": 84,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Fox",
+            "Netflix"
+        ],
+        "creators": [
+            "Mitchell Hurwitz"
+        ],
+        "cast": [
+            "Jason Bateman",
+            "Michael Cera",
+            "Portia de Rossi",
+            "Will Arnett",
+            "Jeffrey Tambor"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=3AszWG7TAqs",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/p4r4RD7RsNcJVoz0H6z3dBoTBtW.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards",
+            "Screen Actors Guild Awards"
+        ]
+    },
+    {
+        "id": 70,
+        "title": "Fargo",
+        "overview": "Various chronicles of deception, intrigue and murder in and around frozen Minnesota. Inspired by the 1996 film of the same name.",
+        "releaseDate": "2014-04-15",
+        "status": "Running",
+        "rating": 8.9,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "episodeRuntime": 50,
+        "seasons": 5,
+        "episodes": 46,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "FX"
+        ],
+        "creators": [
+            "Noah Hawley"
+        ],
+        "cast": [
+            "Billy Bob Thornton",
+            "Martin Freeman",
+            "Allison Tolman",
+            "Ewan McGregor",
+            "Chris Rock"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=setgvHG3w48",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6U9CPeD8obHzweikFhiLhpc7YBT.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards",
+            "Peabody Award"
+        ]
+    },
+    {
+        "id": 71,
+        "title": "Rick and Morty Season 4",
+        "overview": "The mad scientist Rick Sanchez and his good-hearted but easily distressed grandson Morty go on dangerous, outlandish adventures across the cosmos and alternate realities.",
+        "releaseDate": "2019-11-10",
+        "status": "Ended",
+        "rating": 9,
+        "genres": [
+            "Animation",
+            "Sci-Fi",
+            "Comedy"
+        ],
+        "episodeRuntime": 22,
+        "seasons": 1,
+        "episodes": 10,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "Adult Swim"
+        ],
+        "creators": [
+            "Dan Harmon",
+            "Justin Roiland"
+        ],
+        "cast": [
+            "Justin Roiland",
+            "Chris Parnell",
+            "Spencer Grammer",
+            "Sarah Chalke"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=hl1U0bxTHbY",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7iVwF5l0jkIkIOVSvHI6HM4gKU5.jpg",
+        "awards": [
+            "Annie Award for Outstanding Achievement",
+            "Primetime Emmy Awards nominations"
+        ]
+    },
+    {
+        "id": 72,
+        "title": "Westworld",
+        "overview": "Set in a technologically advanced Wild-West-themed amusement park populated by android hosts, where guests can live out their fantasies without consequences.",
+        "releaseDate": "2016-10-02",
+        "status": "Running",
+        "rating": 8.6,
+        "genres": [
+            "Drama",
+            "Mystery",
+            "Sci-Fi"
+        ],
+        "episodeRuntime": 60,
+        "seasons": 4,
+        "episodes": 36,
+        "language": "English",
+        "country": "United States",
+        "networks": [
+            "HBO"
+        ],
+        "creators": [
+            "Jonathan Nolan",
+            "Lisa Joy"
+        ],
+        "cast": [
+            "Evan Rachel Wood",
+            "Jeffrey Wright",
+            "Thandie Newton",
+            "Tessa Thompson",
+            "Ed Harris",
+            "Anthony Hopkins"
+        ],
+        "trailer": "https://www.youtube.com/watch?v=kEkZdgWu7mM",
+        "image": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/8MfgyFHf7XEboZJPZXCIDqqiz6e.jpg",
+        "awards": [
+            "Primetime Emmy Awards",
+            "Golden Globe Awards",
+            "Saturn Awards"
+        ]
+    }
+]
