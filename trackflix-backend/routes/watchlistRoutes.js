@@ -42,7 +42,6 @@ router.post("/add", async (req, res) => {
       });
     } else {
       if (!watchlist.movies) watchlist.movies = [];
-
       // Commented out duplicate check to allow duplicates
       // const exists = watchlist.movies.some((m) => m.id === normalizedMovie.id);
       // if (exists) {

@@ -1,228 +1,132 @@
 import React, { useState } from "react";
-import MovieCard from "./WatchlistMovieCard";
-
-const OMDB_API_KEY = "be28d8e8";
-
-const sampleGenres = [
-  "Action", "Comedy", "Drama", "Thriller", "Romance",
-  "Sci-Fi", "Horror", "Adventure", "Animation", "Crime",
-];
-
-function getRandomGenres() {
-  const count = Math.floor(Math.random() * 3) + 1;
-  const shuffled = [...sampleGenres].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-}
+import { quizQuestions } from "./Recommendationsextrasuser/constants";
+import { fetchMovies } from "./Recommendationsextrasuser/fetchMovies";
+import Quiz from "./Recommendationsextrasuser/Quiz";
+import MovieRecommendation from "./Recommendationsextrasuser/MovieRecommendation";
 
 const Recommendations = () => {
-  const [query, setQuery] = useState("");
-  const [searchBy, setSearchBy] = useState("title"); // title, genre, rating
-  const [movies, setMovies] = useState([]);
+  const [quizMode, setQuizMode] = useState(false);
+  const [quizStep, setQuizStep] = useState(0);
+  const [quizAnswers, setQuizAnswers] = useState({});
+  const [recommendedMovie, setRecommendedMovie] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Fetch movies by title only (always call API with a search term >= 3 chars)
-  // For genre and rating, fetch generic results and filter client side
+  const handleAnswer = (key, value) => {
+    const question = quizQuestions.find((q) => q.id === key);
+    if (!question) return;
 
-  const fetchMovies = async (searchTerm) => {
-    const res = await fetch(
-      `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&s=${encodeURIComponent(searchTerm)}&type=movie`
-    );
-    const data = await res.json();
-    return data;
+    if (question.multiple) {
+      setQuizAnswers((prev) => {
+        const current = prev[key] || [];
+        if (current.includes(value)) {
+          return { ...prev, [key]: current.filter((v) => v !== value) };
+        } else {
+          return { ...prev, [key]: [...current, value] };
+        }
+      });
+    } else {
+      setQuizAnswers((prev) => ({ ...prev, [key]: value }));
+      setQuizStep((prev) => prev + 1);
+    }
   };
 
-  const handleSearch = async () => {
+  const resetQuiz = () => {
+    setQuizMode(false);
+    setQuizStep(0);
+    setQuizAnswers({});
+    setRecommendedMovie(null);
     setError(null);
-    setMovies([]);
+  };
 
-    if (searchBy === "title") {
-      if (query.trim().length < 3) {
-        setError("Please enter at least 3 characters for title search.");
+  const getRecommendation = async () => {
+    setLoading(true);
+    setError(null);
+    setRecommendedMovie(null);
+
+    try {
+      const selectedGenres =
+        quizAnswers.genres && quizAnswers.genres.length > 0
+          ? quizAnswers.genres
+          : ["Action"];
+
+      let allMovies = [];
+
+      for (const genre of selectedGenres) {
+        const data = await fetchMovies(genre);
+        if (data && data.Response === "True") {
+          allMovies.push(...data.Search);
+        }
+      }
+
+      const uniqueMoviesMap = {};
+      allMovies.forEach((m) => {
+        uniqueMoviesMap[m.imdbID] = m;
+      });
+
+      const uniqueMovies = Object.values(uniqueMoviesMap);
+
+      if (uniqueMovies.length === 0) {
+        setError("No movies found based on your genre preferences.");
+        setLoading(false);
         return;
       }
-      setLoading(true);
-      try {
-        const data = await fetchMovies(query.trim());
-        if (data.Response === "True") {
-          const moviesWithDetails = data.Search.map((movie) => ({
-            id: movie.imdbID,
-            title: movie.Title,
-            image: movie.Poster !== "N/A" ? movie.Poster : null,
-            genres: getRandomGenres(),
-            rating: parseFloat((Math.random() * 4.9 + 5).toFixed(1)),
-          }));
-          setMovies(moviesWithDetails);
-        } else if (data.Error === "Too many results.") {
-          setError("Too many results. Please refine your search.");
-        } else {
-          setError(data.Error || "No movies found.");
-        }
-      } catch {
-        setError("Failed to fetch movies.");
-      } finally {
-        setLoading(false);
-      }
-    } else {
-      // For genre or rating searches: fetch generic term 'a' (or 'the', etc) to get enough results
-      setLoading(true);
-      try {
-        const data = await fetchMovies("a");
-        if (data.Response === "True") {
-          let moviesWithDetails = data.Search.map((movie) => ({
-            id: movie.imdbID,
-            title: movie.Title,
-            image: movie.Poster !== "N/A" ? movie.Poster : null,
-            genres: getRandomGenres(),
-            rating: parseFloat((Math.random() * 4.9 + 5).toFixed(1)),
-          }));
 
-          if (searchBy === "genre") {
-            moviesWithDetails = moviesWithDetails.filter((m) =>
-              m.genres.some((g) =>
-                g.toLowerCase().includes(query.trim().toLowerCase())
-              )
-            );
-            if (moviesWithDetails.length === 0) {
-              setError("No movies found for that genre.");
-            }
-          } else if (searchBy === "rating") {
-            const ratingQuery = parseFloat(query);
-            if (isNaN(ratingQuery) || ratingQuery < 0 || ratingQuery > 10) {
-              setError("Please enter a valid rating between 0 and 10.");
-              moviesWithDetails = [];
-            } else {
-              moviesWithDetails = moviesWithDetails.filter(
-                (m) => m.rating >= ratingQuery
-              );
-              if (moviesWithDetails.length === 0) {
-                setError("No movies found with that rating or higher.");
-              }
-            }
-          }
-          setMovies(moviesWithDetails);
-        } else {
-          setError(data.Error || "No movies found.");
-          setMovies([]);
-        }
-      } catch {
-        setError("Failed to fetch movies.");
-        setMovies([]);
-      } finally {
-        setLoading(false);
-      }
+      const randomMovie =
+        uniqueMovies[Math.floor(Math.random() * uniqueMovies.length)];
+
+      setRecommendedMovie({
+        id: randomMovie.imdbID,
+        title: randomMovie.Title,
+        image: randomMovie.Poster !== "N/A" ? randomMovie.Poster : null,
+        genres: selectedGenres,
+        rating: parseFloat((Math.random() * 4.9 + 5).toFixed(1)),
+      });
+    } catch {
+      setError("Failed to fetch recommendation.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h2 className="text-3xl font-extrabold mb-8 text-center text-blue-800">
-        Movie Recommendations & Search
-      </h2>
-
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSearch();
-        }}
-        className="flex flex-col sm:flex-row items-center gap-4 mb-8"
-        aria-label="Movie search form"
-      >
-        <label htmlFor="searchBy" className="sr-only">
-          Search type
-        </label>
-        <select
-          id="searchBy"
-          value={searchBy}
-          onChange={(e) => setSearchBy(e.target.value)}
-          className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        >
-          <option value="title">Title</option>
-          <option value="genre">Genre</option>
-          <option value="rating">Minimum Rating</option>
-        </select>
-
-        <label htmlFor="searchQuery" className="sr-only">
-          Search query
-        </label>
-        <input
-          id="searchQuery"
-          type="text"
-          value={query}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setError(null);
-          }}
-          placeholder={
-            searchBy === "rating"
-              ? "e.g. 7.5"
-              : searchBy === "genre"
-              ? "e.g. Drama"
-              : "Search movies by title..."
-          }
-          className="flex-grow border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          aria-label="Search input"
+    <div className="max-w-4xl mx-auto p-6 bg-gray-900 text-gray-200 min-h-screen">
+      {!quizMode ? (
+        <div className="text-center">
+          <h2 className="text-3xl font-bold mb-4 text-yellow-400">
+            🎬 Movie Recommendation Engine
+          </h2>
+          <p className="mb-4">
+            Can’t decide what to watch? Answer 6 questions and let us pick a
+            movie for you!
+          </p>
+          <button
+            onClick={() => setQuizMode(true)}
+            className="bg-yellow-500 text-gray-900 px-6 py-3 rounded hover:bg-yellow-600 font-semibold"
+          >
+            Start Now
+          </button>
+        </div>
+      ) : quizStep < quizQuestions.length ? (
+        <Quiz
+          question={quizQuestions[quizStep]}
+          selectedAnswers={quizAnswers}
+          onAnswer={handleAnswer}
+          onNext={() => setQuizStep((prev) => prev + 1)}
+          onBack={quizStep > 0 ? () => setQuizStep((prev) => prev - 1) : null}
         />
-
-        <button
-          type="submit"
-          disabled={loading}
-          className={`px-6 py-2 rounded-md font-semibold text-white transition ${
-            loading
-              ? "bg-blue-400 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-700"
-          }`}
-          aria-label="Search movies"
-        >
-          {loading ? (
-            <svg
-              className="animate-spin h-5 w-5 mx-auto text-white"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 010 16v-4l-3 3 3 3v-4a8 8 0 01-8-8z"
-              ></path>
-            </svg>
-          ) : (
-            "Search"
-          )}
-        </button>
-      </form>
-
-      {error && (
-        <p className="text-red-600 text-center mb-6 font-medium" role="alert">
-          {error}
-        </p>
+      ) : (
+        <MovieRecommendation
+          movie={recommendedMovie}
+          loading={loading}
+          error={error}
+          onGetAnother={getRecommendation}
+          onReset={resetQuiz}
+        />
       )}
-
-      {!loading && movies.length === 0 && !error && (
-        <p className="text-center text-gray-600">No movies found.</p>
-      )}
-
-      <section
-        aria-live="polite"
-        aria-label="Search results"
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-      >
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
-      </section>
     </div>
   );
 };
 
 export default Recommendations;
+

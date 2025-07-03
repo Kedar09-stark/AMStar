@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
+import { toast } from "react-toastify";
 
 import MovieCard from "../components/MoviePages/MovieCard";
 import GenreFilter from "../components/MoviePages/GenreFilter";
@@ -50,26 +51,30 @@ const Movie = () => {
     fetchMovies();
   }, []);
 
-  const allGenres = Array.from(
-    new Set(allMovies.flatMap((movie) => movie.genres || []))
-  );
+  const allGenres = useMemo(() => {
+    return Array.from(new Set(allMovies.flatMap((movie) => movie.genres || [])));
+  }, [allMovies]);
 
-  const filteredMovies = allMovies
-    .filter((movie) =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .filter((movie) =>
-      selectedGenres.length === 0
-        ? true
-        : selectedGenres.every((genre) => movie.genres?.includes(genre))
-    );
+  const filteredMovies = useMemo(() => {
+    return allMovies
+      .filter((movie) =>
+        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .filter((movie) =>
+        selectedGenres.length === 0
+          ? true
+          : selectedGenres.every((genre) => movie.genres?.includes(genre))
+      );
+  }, [allMovies, searchTerm, selectedGenres]);
 
-  const sortedMovies = [...filteredMovies].sort((a, b) => {
-    if (sortType === "rating") return b.rating - a.rating;
-    if (sortType === "releaseDate")
-      return new Date(b.releaseDate) - new Date(a.releaseDate);
-    return 0;
-  });
+  const sortedMovies = useMemo(() => {
+    return [...filteredMovies].sort((a, b) => {
+      if (sortType === "rating") return b.rating - a.rating;
+      if (sortType === "releaseDate")
+        return new Date(b.releaseDate) - new Date(a.releaseDate);
+      return 0;
+    });
+  }, [filteredMovies, sortType]);
 
   const totalPages = Math.ceil(sortedMovies.length / itemsPerPage);
   const paginatedMovies = sortedMovies.slice(
@@ -88,61 +93,53 @@ const Movie = () => {
     setSelectedGenres([]);
     setCurrentPage(1);
   };
-const handleAddToWatchlist = async (movie) => {
-  const user = auth.currentUser;
-  if (!user) {
-    navigate("/login");
-    return;
-  }
 
-  // ✅ Construct valid movieData
-  const movieData = {
-    id: movie.id ? movie.id.toString() : null,
-    title: movie.title || "Untitled",
-    type: movie.type || "movie", // Backend requires this
-    image: movie.image || movie.img || movie.poster || "", // Backend requires this
-    rating: typeof movie.rating === "number" ? movie.rating : 0,
-    genres: Array.isArray(movie.genres) ? movie.genres : [],
-    releaseDate: movie.releaseDate ? movie.releaseDate.toString() : "",
-    trailerLink: movie.trailerLink || movie.trailer || "",
-  };
-
-  console.log("📦 Sending to backend:", {
-    userId: user.uid,
-    userEmail: user.email,
-    movie: movieData,
-  });
-
-  try {
-    const response = await fetch("http://localhost:5000/api/watchlist/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userId: user.uid,
-        userEmail: user.email,
-        movie: movieData,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (response.status === 201) {
-      alert(data.message || `"${movie.title}" added to your watchlist!`);
-      navigate("/dashboard");
-    } else if (response.status === 409) {
-      alert(`"${movie.title}" is already in your watchlist!`);
-    } else {
-      console.error("Server response:", response.status, data);
-      alert(data.message || "Failed to add to watchlist. Please try again.");
+  const handleAddToWatchlist = async (movie) => {
+    const user = auth.currentUser;
+    if (!user) {
+      navigate("/login");
+      return;
     }
-  } catch (error) {
-    console.error("Failed to add to watchlist:", error);
-    alert("Failed to add to watchlist. Please try again.");
-  }
-};
 
+    const movieData = {
+      id: movie.id ? movie.id.toString() : null,
+      title: movie.title || "Untitled",
+      type: movie.type || "movie",
+      image: movie.image || movie.img || movie.poster || "",
+      rating: typeof movie.rating === "number" ? movie.rating : 0,
+      genres: Array.isArray(movie.genres) ? movie.genres : [],
+      releaseDate: movie.releaseDate ? movie.releaseDate.toString() : "",
+      trailerLink: movie.trailerLink || movie.trailer || "",
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/watchlist/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: user.uid,
+          userEmail: user.email,
+          movie: movieData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.status === 201) {
+        toast.success(data.message || `"${movie.title}" added to your watchlist!`);
+        navigate("/dashboard");
+      } else if (response.status === 409) {
+        toast.info(`"${movie.title}" is already in your watchlist!`);
+      } else {
+        toast.error(data.message || "Failed to add to watchlist. Please try again.");
+      }
+    } catch (error) {
+      console.error("Failed to add to watchlist:", error);
+      toast.error("Failed to add to watchlist. Please try again.");
+    }
+  };
 
   return (
     <section className="bg-black min-h-screen pt-28 px-4 md:px-10 text-white">
