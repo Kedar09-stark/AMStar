@@ -12,18 +12,19 @@
 
 //module.exports = admin;
 
- const admin = require("firebase-admin");
-const path = require("path");
+const admin = require("firebase-admin");
 
-// Path to your Firebase service account JSON file
-const serviceAccountPath = path.join(__dirname, "..", "serviceAccountKey.json");
+let serviceAccount;
 
-const serviceAccount = require(serviceAccountPath);
+if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+  serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+} else {
+  serviceAccount = require("../serviceAccountKey.json");
+}
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
 module.exports = admin;
-
 
