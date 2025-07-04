@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MovieCard from "../WatchlistMovieCard";
+import { motion } from "framer-motion";
+import Confetti from "react-confetti";
+import { useWindowSize } from "@uidotdev/usehooks"; 
 
 const MovieRecommendation = ({
   movie,
@@ -8,52 +11,97 @@ const MovieRecommendation = ({
   onGetAnother,
   onReset,
 }) => {
+  const { width, height } = useWindowSize();
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  useEffect(() => {
+    if (movie) {
+      setShowConfetti(true);
+      const timer = setTimeout(() => setShowConfetti(false), 3000); // show for 3 seconds
+      return () => clearTimeout(timer);
+    }
+  }, [movie]);
+
   return (
-    <div className="text-center">
+    <motion.div
+      className="w-full text-center p-6 sm:p-10 rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 shadow-lg relative"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      {showConfetti && <Confetti width={width} height={height} />}
+      
       {loading ? (
-        <p className="text-blue-400 font-medium">Loading recommendation...</p>
+        <div className="flex flex-col items-center justify-center py-10">
+          <div className="h-14 w-14 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mb-4"></div>
+          <p className="text-yellow-300 text-lg font-medium tracking-wide">
+            Finding the perfect match...
+          </p>
+        </div>
       ) : error ? (
-        <p className="text-red-400 font-medium" role="alert">
+        <p
+          className="text-red-400 bg-red-900 bg-opacity-30 p-4 rounded-lg font-semibold shadow-md"
+          role="alert"
+        >
           {error}
         </p>
       ) : movie ? (
         <>
-          <h3 className="text-2xl font-bold mb-2 text-green-400">
-            Your Recommendation 🎉
-          </h3>
-          <MovieCard movie={movie} />
-          <button
-            onClick={onGetAnother}
-            disabled={loading}
-            className="mt-4 bg-green-500 text-gray-900 px-4 py-2 rounded hover:bg-green-600 font-semibold"
-            type="button"
+          <motion.h3
+            className="text-3xl sm:text-4xl font-extrabold mb-6 text-green-400 drop-shadow-sm"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            {loading ? "Loading..." : "🎲 Get Another Recommendation"}
-          </button>
-          <button
-            onClick={onReset}
-            className="block mt-2 text-yellow-400 text-sm underline"
-            type="button"
+            🎉 Here's Your Movie!
+          </motion.h3>
+
+          <motion.div
+            className="flex justify-center mb-6"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
           >
-            Start Over
-          </button>
+            <MovieCard movie={movie} />
+          </motion.div>
+
+         <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
+  <button
+    onClick={onGetAnother}
+    className="bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-3 rounded-full shadow-md transform transition hover:scale-105"
+  >
+    🎲 Try Another Recommendation
+  </button>
+
+  <button
+    onClick={onReset}
+    className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-full shadow-md transform transition hover:scale-105"
+  >cd 4loopers/trackflix-frontend
+    🔁 Start Over
+  </button>
+</div>
         </>
       ) : (
         <>
-          <h3 className="text-lg mb-3 font-semibold text-blue-300">
-            Ready to recommend a movie based on your answers?
-          </h3>
+          <motion.h3
+            className="text-2xl font-semibold text-blue-300 mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            Ready to discover your movie?
+          </motion.h3>
           <button
             onClick={onGetAnother}
-            className="bg-green-500 text-gray-900 px-6 py-2 rounded hover:bg-green-600 font-semibold"
-            type="button"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-full transition hover:scale-105 shadow-md"
           >
-            Check Results
+            🎬 Check Result
           </button>
         </>
       )}
-    </div>
+    </motion.div>
   );
 };
 
 export default MovieRecommendation;
+

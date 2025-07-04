@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { FaPlay, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { addMovieToWatchlist } from "../../api/watchlist";
-
 
 const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
   const [showTrailer, setShowTrailer] = useState(false);
@@ -11,57 +10,67 @@ const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
   const modalRef = useRef(null);
   const auth = getAuth();
 
+  // Convert YouTube watch URL to embed URL safely
   const embedUrl = item.trailerLink
     ? item.trailerLink.replace("watch?v=", "embed/")
     : null;
 
-  const handleWatchlistClick = async (e) => {
-    e.stopPropagation();
-    if (!isLoggedIn) {
-      navigate("/login");
-      return;
-    }
-
-    const user = auth.currentUser;
-    if (!user) {
-      alert("User not authenticated.");
-      navigate("/login");
-      return;
-    }
-
-    const movieData = {
-      id: item.id.toString(),
-      title: item.title,
-      image: item.image || item.img || item.poster || "",
-      rating: item.rating || 0,
-      genres: item.genres || [],
-      trailerLink: item.trailerLink || "",
-      type: item.type || "movie",
-      releaseDate: item.releaseDate || "",
-    };
-
-    try {
-      const response = await addMovieToWatchlist(user.uid, user.email, movieData);
-
-      if (!response.success) {
-        alert(response.message);
-      } else {
-        alert(`"${item.title}" added to your watchlist!`);
-        navigate("/dashboard");
+  // Add to watchlist handler with user auth check
+  const handleWatchlistClick = useCallback(
+    async (e) => {
+      e.stopPropagation();
+      if (!isLoggedIn) {
+        navigate("/login");
+        return;
       }
-    } catch (error) {
-      console.error("Failed to add to watchlist:", error);
-      alert("Failed to add to watchlist. Please try again.");
-    }
-  };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      onFlip(item.id);
-    }
-  };
+      const user = auth.currentUser;
+      if (!user) {
+        alert("User not authenticated.");
+        navigate("/login");
+        return;
+      }
 
+      const movieData = {
+        id: item.id.toString(),
+        title: item.title,
+        image: item.image || item.img || item.poster || "",
+        rating: item.rating || 0,
+        genres: item.genres || [],
+        trailerLink: item.trailerLink || "",
+        type: item.type || "movie",
+        releaseDate: item.releaseDate || "",
+      };
+
+      try {
+        const response = await addMovieToWatchlist(user.uid, user.email, movieData);
+
+        if (!response.success) {
+          alert(response.message);
+        } else {
+          alert(`"${item.title}" added to your watchlist!`);
+          navigate("/dashboard");
+        }
+      } catch (error) {
+        console.error("Failed to add to watchlist:", error);
+        alert("Failed to add to watchlist. Please try again.");
+      }
+    },
+    [auth.currentUser, isLoggedIn, item, navigate]
+  );
+
+  // Keyboard support for flip (Enter/Space)
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        onFlip(item.id);
+      }
+    },
+    [item.id, onFlip]
+  );
+
+  // Close trailer modal on Escape key
   useEffect(() => {
     const onEsc = (e) => {
       if (e.key === "Escape" && showTrailer) {
@@ -72,9 +81,10 @@ const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
     return () => window.removeEventListener("keydown", onEsc);
   }, [showTrailer]);
 
+  // Manage focus and body scroll when modal is open
   useEffect(() => {
-    if (showTrailer && modalRef.current) {
-      modalRef.current.focus();
+    if (showTrailer) {
+      modalRef.current?.focus();
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
@@ -91,6 +101,7 @@ const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
         onKeyDown={handleKeyDown}
         className="w-64 h-96 relative cursor-pointer perspective flex-shrink-0"
         style={{ perspective: "1000px" }}
+        aria-label={`${item.title} card, press enter or space to flip`}
       >
         <div
           className="w-full h-full rounded-xl shadow-xl transition-transform duration-700 bg-zinc-900"
@@ -127,7 +138,10 @@ const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
             }}
           >
             <div>
-              <h3 className="text-xl font-semibold mb-2 text-center leading-tight">
+              <h3
+                className="text-xl font-semibold mb-2 text-center leading-tight"
+                tabIndex={0}
+              >
                 {item.title}
               </h3>
               <p className="text-yellow-400 font-medium mb-1 text-center">
@@ -152,7 +166,9 @@ const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
                   Trailer
                 </button>
               ) : (
-                <span className="text-gray-600 italic text-sm">No trailer</span>
+                <span className="text-gray-600 italic text-sm select-none">
+                  No trailer
+                </span>
               )}
 
               <button
@@ -194,6 +210,7 @@ const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn }) => {
 
             {/* Trailer iframe */}
             <iframe
+              id="trailer-title"
               className="w-full h-full"
               src={embedUrl + "?autoplay=1&controls=1&modestbranding=1"}
               title={`${item.title} Trailer`}

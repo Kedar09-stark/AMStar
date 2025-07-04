@@ -1,49 +1,67 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const WatchlistMovieCard = ({ movie }) => {
-  // Determine valid image URL fallback
   const imageSrc = movie.image || movie.img || movie.poster || "/fallback.jpg";
   const isValidImage =
     typeof imageSrc === "string" &&
     (imageSrc.startsWith("http") || imageSrc.startsWith("data:image"));
 
-  // Format rating safely
   const displayRating =
     typeof movie.rating === "number" && !isNaN(movie.rating)
       ? movie.rating.toFixed(1)
       : "N/A";
 
-  // Format genres safely
   const displayGenres =
     Array.isArray(movie.genres) && movie.genres.length > 0
-      ? movie.genres.join(", ")
-      : "Genre N/A";
+      ? movie.genres
+      : [];
 
   return (
-    <article
-      tabIndex={0}
-      className="bg-white rounded-lg shadow-md max-w-xs mx-auto cursor-pointer
-                 focus:outline-none focus:ring-2 focus:ring-blue-500
-                 hover:shadow-lg transition-shadow duration-200"
-      aria-label={`Movie: ${movie.title || "Untitled"}`}
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      className="relative overflow-hidden rounded-xl shadow-xl group w-full sm:w-64 bg-black text-white cursor-pointer"
     >
+      {/* Image */}
       <img
         src={isValidImage ? imageSrc : "/fallback.jpg"}
-        alt={movie.title || "Movie poster"}
-        className="w-full h-64 object-cover rounded-t-lg"
+        alt={movie.title || "Movie Poster"}
+        className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+        onError={(e) => (e.target.src = "/fallback.jpg")}
         loading="lazy"
-        onError={(e) => {
-          e.target.src = "/fallback.jpg";
-        }}
       />
-      <div className="p-4">
-        <h2 className="text-xl font-semibold text-gray-900 truncate">
+
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
+        <h2 className="text-lg font-bold leading-tight line-clamp-2">
           {movie.title || "Untitled"}
         </h2>
-        <p className="text-yellow-500 mt-1">⭐ {displayRating}</p>
-        <p className="text-gray-600 text-sm mt-2">{displayGenres}</p>
+        <p className="text-yellow-400 text-sm mt-1">⭐ {displayRating}</p>
+
+        {/* Genres */}
+        <div className="flex flex-wrap gap-1 mt-2">
+          {displayGenres.length > 0 ? (
+            displayGenres.slice(0, 3).map((genre, i) => (
+              <span
+                key={i}
+                className="bg-white/10 text-white text-xs px-2 py-0.5 rounded-full"
+              >
+                {genre}
+              </span>
+            ))
+          ) : (
+            <span className="text-xs text-gray-300 italic">Genre N/A</span>
+          )}
+        </div>
       </div>
-    </article>
+
+      {/* Year Badge */}
+      {movie.year && (
+        <div className="absolute top-3 left-3 bg-white text-black text-xs font-bold px-2 py-1 rounded shadow">
+          {movie.year}
+        </div>
+      )}
+    </motion.div>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -8,7 +8,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/firebase-config";
 import useReducedMotionOrSmallScreen from "../../hooks/useReducedMotionOrSmallScreen";
 
-const ITEM_WIDTH = 200; // smaller width for compact display
+const ITEM_WIDTH = 200; // card width + gap is managed separately below
 const GAP = 16;
 
 const FeaturedToday = () => {
@@ -20,49 +20,65 @@ const FeaturedToday = () => {
   const auth = getAuth();
   const shouldReduceMotion = useReducedMotionOrSmallScreen();
 
+  // Listen for auth state changes once
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsLoggedIn(!!user);
     });
-    return () => unsubscribe();
+    return unsubscribe;
   }, [auth]);
 
+  // Fetch featured items on mount
   useEffect(() => {
-    fetch("http://localhost:5000/api/featureditems")
-      .then((res) => res.json())
-      .then((data) => setFeaturedItems(data))
-      .catch((err) => console.error("Failed to fetch featured items:", err));
+    const fetchFeaturedItems = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/featureditems");
+        if (!res.ok) throw new Error("Network response not ok");
+        const data = await res.json();
+        setFeaturedItems(data);
+      } catch (error) {
+        console.error("Failed to fetch featured items:", error);
+      }
+    };
+    fetchFeaturedItems();
   }, []);
 
-  const handleFlip = (id) => {
-    setFlippedCard((prev) => (prev === id ? null : id));
-  };
+  const handleFlip = useCallback(
+    (id) => {
+      setFlippedCard((prev) => (prev === id ? null : id));
+    },
+    [setFlippedCard]
+  );
 
-  const handleAddToWatchlist = async (movie) => {
-    if (!auth.currentUser) {
-      navigate("/login");
-      return;
-    }
-    try {
-      await addDoc(collection(db, "watchlists"), {
-        userEmail: auth.currentUser.email,
-        movie,
-      });
-      alert("Added to watchlist!");
-    } catch (error) {
-      console.error("Error adding to watchlist:", error);
-    }
-  };
+  const handleAddToWatchlist = useCallback(
+    async (movie) => {
+      if (!auth.currentUser) {
+        navigate("/login");
+        return;
+      }
+      try {
+        await addDoc(collection(db, "watchlists"), {
+          userEmail: auth.currentUser.email,
+          movie,
+        });
+        alert("Added to watchlist!");
+      } catch (error) {
+        console.error("Error adding to watchlist:", error);
+      }
+    },
+    [auth.currentUser, navigate]
+  );
 
-  const scrollByOffset = (offset) => {
+  const scrollByOffset = useCallback((offset) => {
     if (sliderRef.current) {
       sliderRef.current.scrollBy({ left: offset, behavior: "smooth" });
     }
-  };
+  }, []);
 
-  const scrollLeft = () => scrollByOffset(-(ITEM_WIDTH + GAP));
-  const scrollRight = () => scrollByOffset(ITEM_WIDTH + GAP);
+  const scrollLeft = useCallback(() => scrollByOffset(-(ITEM_WIDTH + GAP)), [scrollByOffset]);
+  const scrollRight = useCallback(() => scrollByOffset(ITEM_WIDTH + GAP), [scrollByOffset]);
 
+  // Touch/swipe handling for slider
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
@@ -89,8 +105,8 @@ const FeaturedToday = () => {
       isDragging = false;
     };
 
-    slider.addEventListener("touchstart", onTouchStart);
-    slider.addEventListener("touchmove", onTouchMove);
+    slider.addEventListener("touchstart", onTouchStart, { passive: true });
+    slider.addEventListener("touchmove", onTouchMove, { passive: true });
     slider.addEventListener("touchend", onTouchEnd);
 
     return () => {
@@ -98,7 +114,7 @@ const FeaturedToday = () => {
       slider.removeEventListener("touchmove", onTouchMove);
       slider.removeEventListener("touchend", onTouchEnd);
     };
-  }, []);
+  }, [scrollLeft, scrollRight]);
 
   return (
     <motion.section
@@ -106,13 +122,14 @@ const FeaturedToday = () => {
       initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
       animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
+      aria-label="Featured Today section"
     >
       <div className="max-w-7xl mx-auto">
         <header className="mb-4 text-center">
-          <h2 className="text-xl sm:text-2xl font-bold text-yellow-400">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-yellow-400" tabIndex={0}>
             🌟 Featured Today
           </h2>
-          <p className="mt-1 text-gray-400 text-xs sm:text-sm">
+          <p className="mt-2 text-gray-300 text-sm sm:text-base" tabIndex={0}>
             Blockbuster picks for you
           </p>
         </header>
@@ -121,18 +138,21 @@ const FeaturedToday = () => {
           <button
             aria-label="Scroll Left"
             onClick={scrollLeft}
-            className="absolute left-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-yellow-400 rounded-full p-1 z-10"
+            className="absolute left-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-yellow-400 rounded-full p-2 z-10 focus:outline-yellow-300 focus:ring-2"
           >
-            <FaChevronLeft size={16} />
+            <FaChevronLeft size={20} />
           </button>
 
-     <div
+          <div
             ref={sliderRef}
             className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide px-10"
             style={{ scrollPaddingLeft: "40px", scrollPaddingRight: "40px" }}
+            role="list"
+            tabIndex={0}
+            aria-label="Featured items carousel"
           >
             {featuredItems.map((item) => (
-              <div key={item.id} className="snap-center">
+              <div key={item.id} className="snap-center" role="listitem">
                 <FlipCard
                   item={item}
                   isFlipped={flippedCard === item.id}
@@ -144,20 +164,19 @@ const FeaturedToday = () => {
             ))}
           </div>
 
-
           <button
             aria-label="Scroll Right"
             onClick={scrollRight}
-            className="absolute right-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-yellow-400 rounded-full p-1 z-10"
+            className="absolute right-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-yellow-400 rounded-full p-2 z-10 focus:outline-yellow-300 focus:ring-2"
           >
-            <FaChevronRight size={16} />
+            <FaChevronRight size={20} />
           </button>
         </div>
 
         <div className="mt-4 text-center">
           <button
             onClick={() => navigate("/recommendations")}
-            className="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-1.5 rounded-full text-sm font-medium flex items-center justify-center gap-1 transition duration-300"
+            className="bg-yellow-500 hover:bg-yellow-600 text-black px-5 py-2 rounded-full text-sm font-medium flex items-center justify-center gap-2 transition duration-300 focus:outline-yellow-300 focus:ring-2"
           >
             Get More <FaArrowRight />
           </button>

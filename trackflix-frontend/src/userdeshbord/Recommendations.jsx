@@ -3,6 +3,7 @@ import { quizQuestions } from "./Recommendationsextrasuser/constants";
 import { fetchMovies } from "./Recommendationsextrasuser/fetchMovies";
 import Quiz from "./Recommendationsextrasuser/Quiz";
 import MovieRecommendation from "./Recommendationsextrasuser/MovieRecommendation";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Recommendations = () => {
   const [quizMode, setQuizMode] = useState(false);
@@ -19,15 +20,15 @@ const Recommendations = () => {
     if (question.multiple) {
       setQuizAnswers((prev) => {
         const current = prev[key] || [];
-        if (current.includes(value)) {
-          return { ...prev, [key]: current.filter((v) => v !== value) };
-        } else {
-          return { ...prev, [key]: [...current, value] };
-        }
+        return {
+          ...prev,
+          [key]: current.includes(value)
+            ? current.filter((v) => v !== value)
+            : [...current, value],
+        };
       });
     } else {
       setQuizAnswers((prev) => ({ ...prev, [key]: value }));
-      setQuizStep((prev) => prev + 1);
     }
   };
 
@@ -54,20 +55,20 @@ const Recommendations = () => {
 
       for (const genre of selectedGenres) {
         const data = await fetchMovies(genre);
-        if (data && data.Response === "True") {
+        if (data?.Response === "True") {
           allMovies.push(...data.Search);
         }
       }
 
-      const uniqueMoviesMap = {};
-      allMovies.forEach((m) => {
-        uniqueMoviesMap[m.imdbID] = m;
-      });
-
-      const uniqueMovies = Object.values(uniqueMoviesMap);
+      const uniqueMovies = Object.values(
+        allMovies.reduce((acc, movie) => {
+          acc[movie.imdbID] = movie;
+          return acc;
+        }, {})
+      );
 
       if (uniqueMovies.length === 0) {
-        setError("No movies found based on your genre preferences.");
+        setError("No movies found based on your preferences.");
         setLoading(false);
         return;
       }
@@ -83,50 +84,89 @@ const Recommendations = () => {
         rating: parseFloat((Math.random() * 4.9 + 5).toFixed(1)),
       });
     } catch {
-      setError("Failed to fetch recommendation.");
+      setError("Something went wrong while fetching recommendations.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-gray-900 text-gray-200 min-h-screen">
-      {!quizMode ? (
-        <div className="text-center">
-          <h2 className="text-3xl font-bold mb-4 text-yellow-400">
-            🎬 Movie Recommendation Engine
-          </h2>
-          <p className="mb-4">
-            Can’t decide what to watch? Answer 6 questions and let us pick a
-            movie for you!
-          </p>
-          <button
-            onClick={() => setQuizMode(true)}
-            className="bg-yellow-500 text-gray-900 px-6 py-3 rounded hover:bg-yellow-600 font-semibold"
-          >
-            Start Now
-          </button>
-        </div>
-      ) : quizStep < quizQuestions.length ? (
-        <Quiz
-          question={quizQuestions[quizStep]}
-          selectedAnswers={quizAnswers}
-          onAnswer={handleAnswer}
-          onNext={() => setQuizStep((prev) => prev + 1)}
-          onBack={quizStep > 0 ? () => setQuizStep((prev) => prev - 1) : null}
-        />
-      ) : (
-        <MovieRecommendation
-          movie={recommendedMovie}
-          loading={loading}
-          error={error}
-          onGetAnother={getRecommendation}
-          onReset={resetQuiz}
-        />
-      )}
-    </div>
+    <main className="min-h-screen w-full bg-gradient-to-tr from-[#0e0e0e] via-[#1b1b1b] to-[#111] flex items-center justify-center px-4 py-10 font-sans">
+      <motion.div
+        className="max-w-5xl w-full rounded-3xl shadow-2xl border border-gray-700 bg-black/30 backdrop-blur-md p-6 sm:p-12 text-white relative"
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <AnimatePresence mode="wait">
+          {!quizMode ? (
+            <motion.section
+              key="start"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -60 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="text-center"
+            >
+              <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 text-yellow-400 drop-shadow-lg">
+                🎬 Movie Matcher AI
+              </h1>
+              <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                Let AI pick a movie just for you. Answer a few fun questions and
+                discover your perfect watch tonight.
+              </p>
+              <motion.button
+                onClick={() => setQuizMode(true)}
+                className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-full text-lg shadow-lg transition-transform hover:scale-105"
+                whileTap={{ scale: 0.95 }}
+              >
+                🚀 Start Recommendation Quiz
+              </motion.button>
+            </motion.section>
+          ) : quizStep < quizQuestions.length ? (
+            <motion.div
+              key="quiz"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Quiz
+                question={quizQuestions[quizStep]}
+                selectedAnswers={quizAnswers}
+                onAnswer={handleAnswer}
+                onNext={() => setQuizStep((prev) => prev + 1)}
+                onBack={() => {
+                  if (quizStep === 0) {
+                    setQuizMode(false);
+                  } else {
+                    setQuizStep((prev) => prev - 1);
+                  }
+                }}
+                progress={((quizStep + 1) / quizQuestions.length) * 100}
+              />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="result"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.5 }}
+            >
+              <MovieRecommendation
+                movie={recommendedMovie}
+                loading={loading}
+                error={error}
+                onGetAnother={getRecommendation}
+                onReset={resetQuiz}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </main>
   );
 };
 
 export default Recommendations;
-
