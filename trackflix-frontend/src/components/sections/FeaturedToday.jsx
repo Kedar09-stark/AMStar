@@ -7,7 +7,7 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/firebase-config";
 import useReducedMotionOrSmallScreen from "../../hooks/useReducedMotionOrSmallScreen";
-
+import axios from "axios";
 const ITEM_WIDTH = 200; // card width + gap is managed separately below
 const GAP = 16;
 
@@ -29,19 +29,17 @@ const FeaturedToday = () => {
   }, [auth]);
 
   // Fetch featured items on mount
-  useEffect(() => {
-    const fetchFeaturedItems = async () => {
-      try {
-        const res = await fetch("http://localhost:5000/api/featureditems");
-        if (!res.ok) throw new Error("Network response not ok");
-        const data = await res.json();
-        setFeaturedItems(data);
-      } catch (error) {
-        console.error("Failed to fetch featured items:", error);
-      }
-    };
-    fetchFeaturedItems();
-  }, []);
+ useEffect(() => {
+  const fetchFeaturedItems = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/featureditems");
+      setFeaturedItems(response.data);
+    } catch (error) {
+      console.error("Failed to fetch featured items:", error);
+    }
+  };
+  fetchFeaturedItems();
+}, []);
 
   const handleFlip = useCallback(
     (id) => {

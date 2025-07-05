@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 import MovieCard from "../components/MoviePages/MovieCard";
 import GenreFilter from "../components/MoviePages/GenreFilter";
@@ -36,11 +37,12 @@ const Movie = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       setLoading(true);
+      setError(null);
       try {
-        const res = await fetch("http://localhost:5000/api/fullmovies");
-        if (!res.ok) throw new Error("Failed to fetch movies.");
-        const data = await res.json();
-        setAllMovies(data);
+        const res = await axios.get("http://localhost:5000/api/fullmovies");
+        // If your API wraps movies inside a key (like res.data.movies), adjust here:
+        // setAllMovies(res.data.movies);
+        setAllMovies(res.data);
       } catch (err) {
         console.error(err);
         setError("Failed to load movies.");
@@ -52,14 +54,21 @@ const Movie = () => {
   }, []);
 
   const allGenres = useMemo(() => {
-    return Array.from(new Set(allMovies.flatMap((movie) => movie.genres || [])));
+    if (!Array.isArray(allMovies)) return [];
+    if (typeof allMovies.flatMap === "function") {
+      return Array.from(new Set(allMovies.flatMap((movie) => movie.genres || []))).sort();
+    } else {
+      const genres = allMovies.reduce((acc, movie) => {
+        if (Array.isArray(movie.genres)) acc.push(...movie.genres);
+        return acc;
+      }, []);
+      return Array.from(new Set(genres)).sort();
+    }
   }, [allMovies]);
 
   const filteredMovies = useMemo(() => {
     return allMovies
-      .filter((movie) =>
-        movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-      )
+      .filter((movie) => movie.title?.toLowerCase().includes(searchTerm.toLowerCase()))
       .filter((movie) =>
         selectedGenres.length === 0
           ? true
@@ -69,7 +78,7 @@ const Movie = () => {
 
   const sortedMovies = useMemo(() => {
     return [...filteredMovies].sort((a, b) => {
-      if (sortType === "rating") return b.rating - a.rating;
+      if (sortType === "rating") return (b.rating || 0) - (a.rating || 0);
       if (sortType === "releaseDate")
         return new Date(b.releaseDate) - new Date(a.releaseDate);
       return 0;
@@ -113,27 +122,19 @@ const Movie = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/watchlist/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: user.uid,
-          userEmail: user.email,
-          movie: movieData,
-        }),
+      const res = await axios.post("http://localhost:5000/api/watchlist/add", {
+        userId: user.uid,
+        userEmail: user.email,
+        movie: movieData,
       });
 
-      const data = await response.json();
-
-      if (response.status === 201) {
-        toast.success(data.message || `"${movie.title}" added to your watchlist!`);
+      if (res.status === 201) {
+        toast.success(res.data.message || `"${movie.title}" added to your watchlist!`);
         navigate("/dashboard");
-      } else if (response.status === 409) {
+      } else if (res.status === 409) {
         toast.info(`"${movie.title}" is already in your watchlist!`);
       } else {
-        toast.error(data.message || "Failed to add to watchlist. Please try again.");
+        toast.error(res.data.message || "Failed to add to watchlist. Please try again.");
       }
     } catch (error) {
       console.error("Failed to add to watchlist:", error);
@@ -194,7 +195,7 @@ const Movie = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
                 {paginatedMovies.map((movie) => (
                   <MovieCard
-                    key={movie.id}
+                    key={movie.id || movie.title}
                     movie={movie}
                     onAddToWatchlist={() => handleAddToWatchlist(movie)}
                   />

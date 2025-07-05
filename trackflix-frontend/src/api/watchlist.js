@@ -1,50 +1,62 @@
-const BASE_URL = "http://localhost:5000/api/watchlist";
+// src/api/watchlistApi.js
+import axios from "./axiosInstance";
 
+const BASE_URL = "/watchlist";
+
+/**
+ * Fetch watchlist for a user
+ * @param {string} userId
+ * @param {string} token - JWT token
+ * @returns {Promise<Object|null>} watchlist data or null if not found
+ */
 export async function fetchWatchlist(userId, token) {
   try {
-    const res = await fetch(`${BASE_URL}/${userId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    const { data } = await axios.get(`${BASE_URL}/${userId}`, {
+      headers: { Authorization: `Bearer ${token}` },
     });
-
-    if (!res.ok) {
-      if (res.status === 404) {
-        return null;
-      }
-      throw new Error("Failed to fetch watchlist");
-    }
-
-    const data = await res.json();
     return data;
-  } catch (err) {
-    throw err;
+  } catch (error) {
+    if (error.response?.status === 404) return null;
+    handleError(error, "fetching watchlist");
   }
 }
 
+/**
+ * Add a movie to user's watchlist
+ * @param {string} userId
+ * @param {string} userEmail
+ * @param {Object} movie
+ * @returns {Promise<{success: boolean, data?: Object, message?: string}>}
+ */
 export async function addMovieToWatchlist(userId, userEmail, movie) {
   try {
-    const res = await fetch(`${BASE_URL}/add`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, userEmail, movie }),
-    });
-
-    if (res.status === 409) {
-      const errorData = await res.json();
-      return { success: false, message: errorData.message || "Movie already in watchlist" };
-    }
-
-    if (!res.ok) {
-      const errorData = await res.json();
-      throw new Error(errorData.message || "Failed to add movie");
-    }
-
-    const data = await res.json();
+    const { data } = await axios.post(`${BASE_URL}/add`, { userId, userEmail, movie });
     return { success: true, data };
-  } catch (err) {
-    return { success: false, message: err.message || "Something went wrong" };
+  } catch (error) {
+    if (error.response?.status === 409) {
+      return {
+        success: false,
+        message: error.response.data?.message || "Movie already in watchlist",
+      };
+    }
+    return {
+      success: false,
+      message: error.response?.data?.message || error.message || "Something went wrong",
+    };
+  }
+}
+
+/**
+ * Centralized error handler
+ */
+function handleError(error, context) {
+  if (error.response) {
+    throw new Error(
+      `Error ${context}: ${error.response.status} - ${error.response.data?.message || error.response.statusText}`
+    );
+  } else if (error.request) {
+    throw new Error(`Error ${context}: No response received from server.`);
+  } else {
+    throw new Error(`Error ${context}: ${error.message}`);
   }
 }

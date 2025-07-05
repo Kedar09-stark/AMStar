@@ -3,7 +3,7 @@ import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
-
+import axios from "axios";
 const ITEMS_PER_PAGE = 5;
 
 const PopularInterests = () => {
@@ -15,15 +15,18 @@ const PopularInterests = () => {
   const modalRef = useRef(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/interests")
-      .then((res) => {
-        if (!res.ok) throw new Error("Network response was not ok");
-        return res.json();
-      })
-      .then((data) => setInterests(data))
-      .catch((err) => console.error("Error fetching interests:", err));
-  }, []);
+useEffect(() => {
+  const fetchInterests = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/interests");
+      setInterests(response.data);
+    } catch (err) {
+      console.error("Error fetching interests:", err);
+    }
+  };
+
+  fetchInterests();
+}, []);
 
   const totalPages = Math.ceil(interests.length / ITEMS_PER_PAGE);
   const startIndex = page * ITEMS_PER_PAGE;
@@ -44,52 +47,50 @@ const PopularInterests = () => {
     setShowTrailer(true);
   };
 
-  const handleWatchlistClick = async (e, movie) => {
-    e.stopPropagation();
+ const handleWatchlistClick = async (e, movie) => {
+  e.stopPropagation();
 
-    if (!user) {
-      alert("Please log in to add to your watchlist.");
-      navigate("/login");
-      return;
+  if (!user) {
+    alert("Please log in to add to your watchlist.");
+    navigate("/login");
+    return;
+  }
+
+  const movieData = {
+    id: movie.id?.toString() || null,
+    title: movie.title || "Untitled",
+    type: movie.type || "movie",
+    image: movie.image || movie.img || movie.poster || "",
+    rating: typeof movie.rating === "number" ? movie.rating : 0,
+    genres: Array.isArray(movie.genres) ? movie.genres : [],
+    releaseDate: movie.releaseDate?.toString() || "",
+    trailerLink: movie.trailerLink || movie.trailer || "",
+  };
+
+  try {
+    const { status, data } = await axios.post("http://localhost:5000/api/watchlist/add", {
+      userId: user.uid,
+      userEmail: user.email,
+      movie: movieData,
+    });
+
+    if (status === 201) {
+      alert(data.message || `"${movie.title}" added to your watchlist!`);
+      navigate("/dashboard");
+    } else if (status === 409) {
+      alert(`"${movie.title}" is already in your watchlist!`);
+    } else {
+      alert(data.message || "Failed to add to watchlist. Please try again.");
     }
-
-    const movieData = {
-      id: movie.id?.toString() || null,
-      title: movie.title || "Untitled",
-      type: movie.type || "movie",
-      image: movie.image || movie.img || movie.poster || "",
-      rating: typeof movie.rating === "number" ? movie.rating : 0,
-      genres: Array.isArray(movie.genres) ? movie.genres : [],
-      releaseDate: movie.releaseDate?.toString() || "",
-      trailerLink: movie.trailerLink || movie.trailer || "",
-    };
-
-    try {
-      const response = await fetch("http://localhost:5000/api/watchlist/add", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userId: user.uid,
-          userEmail: user.email,
-          movie: movieData,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.status === 201) {
-        alert(data.message || `"${movie.title}" added to your watchlist!`);
-        navigate("/dashboard");
-      } else if (response.status === 409) {
-        alert(`"${movie.title}" is already in your watchlist!`);
-      } else {
-        alert(data.message || "Failed to add to watchlist. Please try again.");
-      }
-    } catch (error) {
+  } catch (error) {
+    if (error.response && error.response.status === 409) {
+      alert(`"${movie.title}" is already in your watchlist!`);
+    } else {
       console.error("Failed to add to watchlist:", error);
       alert("Failed to add to watchlist. Please try again.");
     }
-  };
+  }
+};
 
   useEffect(() => {
     const onEsc = (e) => {

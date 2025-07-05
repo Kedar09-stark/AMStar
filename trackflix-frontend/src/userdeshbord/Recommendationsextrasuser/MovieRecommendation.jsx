@@ -76,7 +76,7 @@ const MovieRecommendation = ({
   <button
     onClick={onReset}
     className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-3 rounded-full shadow-md transform transition hover:scale-105"
-  >cd 4loopers/trackflix-frontend
+  >
     🔁 Start Over
   </button>
 </div>

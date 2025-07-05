@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -18,8 +18,12 @@ import {
   FaRedoAlt,
 } from "react-icons/fa";
 
+import axios from "axios";
+
 // Import animation variants from separate file
 import { containerVariants, itemVariants } from "../animations/MDanimation";
+
+const API_BASE_URL = "http://localhost:5000/api";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -31,26 +35,22 @@ const MovieDetails = () => {
   const isValidId = /^\d+$/.test(id);
 
   const fetchMovie = async () => {
+    setLoading(true);
+    setError(null);
+    setMovie(null);
+
+    if (!isValidId) {
+      setError("Invalid movie ID");
+      setLoading(false);
+      return;
+    }
+
     try {
-      setLoading(true);
-      setError(null);
-      setMovie(null);
-
-      if (!isValidId) {
-        throw new Error("Invalid movie ID");
-      }
-
-      const res = await fetch(`http://localhost:5000/api/fullmoviedetails/${id}`);
-
-      if (!res.ok) {
-        if (res.status === 404) throw new Error("Movie not found");
-        else throw new Error("Failed to fetch movie");
-      }
-
-      const data = await res.json();
+      const { data } = await axios.get(`${API_BASE_URL}/fullmoviedetails/${id}`);
       setMovie(data);
-    } catch (err) {
-      setError(err.message);
+    } catch (error) {
+      if (error.response?.status === 404) setError("Movie not found");
+      else setError("Failed to fetch movie");
     } finally {
       setLoading(false);
     }
@@ -60,35 +60,47 @@ const MovieDetails = () => {
     fetchMovie();
   }, [id]);
 
-  //useEffect(() => {
-   // const fetchSimilarMovies = async () => {
-    //  if (!movie?.similarMovies?.length) {
-       // setSimilar([]);
-       // return;
-     // }
-      //try {
-       // const responses = await Promise.all(
-        //  movie.similarMovies.map(async (simId) => {
-          //  const res = await fetch(`http://localhost:5000/api/fullmoviedetails/${id}`);
-          //  if (res.ok) return res.json();
-          //  else return null;
-         // })
-       // );
-      //  setSimilar(responses.filter(Boolean));
-      //} catch (err) {
-       // console.error("Failed to fetch similar movies", err);
-       // setSimilar([]);
-     // }
-   // };
+  useEffect(() => {
+    const fetchSimilarMovies = async () => {
+      if (!movie?.similarMovies?.length) {
+        setSimilar([]);
+        return;
+      }
+      try {
+        const responses = await Promise.all(
+          movie.similarMovies.map(async (simId) => {
+            try {
+              const res = await axios.get(`${API_BASE_URL}/fullmoviedetails/${simId}`);
+              return res.data;
+            } catch {
+              return null;
+            }
+          })
+        );
+        setSimilar(responses.filter(Boolean));
+      } catch (err) {
+        console.error("Failed to fetch similar movies", err);
+        setSimilar([]);
+      }
+    };
 
-   // fetchSimilarMovies();
-  //}, [movie]);
+    fetchSimilarMovies();
+  }, [movie]);
 
-  const youtubeId = movie?.trailer ? new URL(movie.trailer).searchParams.get("v") : null;
+  const youtubeId = useMemo(() => {
+    if (!movie?.trailer) return null;
+    try {
+      const url = new URL(movie.trailer);
+      return url.searchParams.get("v");
+    } catch {
+      return null;
+    }
+  }, [movie?.trailer]);
 
   if (loading) return <LoadingSkeleton />;
 
-  if (error) return <ErrorFallback message={error} onRetry={fetchMovie} />;
+  if (error)
+    return <ErrorFallback message={error} onRetry={fetchMovie} />;
 
   if (!movie)
     return (
@@ -117,12 +129,18 @@ const MovieDetails = () => {
           alt={`Poster of ${movie.title}`}
           className="w-full max-w-sm rounded-2xl shadow-2xl object-cover ring-1 ring-yellow-400"
           variants={itemVariants}
-          whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(251, 191, 36, 0.8)" }}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0 0 15px rgba(251, 191, 36, 0.8)",
+          }}
           transition={{ type: "spring", stiffness: 250 }}
           loading="lazy"
         />
 
-        <motion.div className="flex-1 flex flex-col justify-between" variants={itemVariants}>
+        <motion.div
+          className="flex-1 flex flex-col justify-between"
+          variants={itemVariants}
+        >
           <article>
             <motion.h1
               id="movie-title"
@@ -226,7 +244,12 @@ const MovieDetails = () => {
       )}
 
       {similar.length > 0 && (
-        <motion.section className="mt-20" initial="hidden" animate="visible" variants={containerVariants}>
+        <motion.section
+          className="mt-20"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
           <h2 className="text-3xl font-bold text-yellow-400 mb-6">🎬 Similar Movies</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {similar.map((m) => (

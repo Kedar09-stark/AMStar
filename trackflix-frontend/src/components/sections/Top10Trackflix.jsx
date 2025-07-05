@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { FaPlus, FaPlay, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import axios from "axios";
 
 const Top10Trackflix = () => {
   const scrollRef = useRef(null);
@@ -23,13 +24,18 @@ const Top10Trackflix = () => {
   }, [auth]);
 
   // Fetch top 10 movies
-  useEffect(() => {
-    fetch("http://localhost:5000/api/toptenmovies")
-      .then((res) => res.json())
-      .then((data) => setTop10(data))
-      .catch((err) => console.error("Failed to fetch top10:", err));
-  }, []);
+    useEffect(() => {
+    const fetchTop10Movies = async () => {
+      try {
+        const { data } = await axios.get("http://localhost:5000/api/toptenmovies");
+        setTop10(data);
+      } catch (err) {
+        console.error("Failed to fetch top10:", err);
+      }
+    };
 
+    fetchTop10Movies();
+  }, []);
   // Scroll slider left or right
   const scroll = (direction) => {
     if (!scrollRef.current) return;
@@ -49,58 +55,53 @@ const Top10Trackflix = () => {
   };
 
   // Handle adding movie to watchlist with login check
-  const handleWatchlistClick = async (e, item) => {
-    e.preventDefault();
-    e.stopPropagation();
+const handleWatchlistClick = async (e, item) => {
+  e.preventDefault();
+  e.stopPropagation();
 
-    if (!isLoggedIn) {
-      navigate("/login");
-      return;
+  if (!isLoggedIn) {
+    navigate("/login");
+    return;
+  }
+
+  const user = auth.currentUser;
+  if (!user) {
+    alert("User not authenticated.");
+    navigate("/login");
+    return;
+  }
+
+  const movieData = {
+    id: item.id,
+    title: item.title,
+    img: item.img,
+    rating: item.rating,
+    genres: item.genres || [],
+    trailerLink: item.trailer || "",
+  };
+
+  try {
+    const response = await axios.post("http://localhost:5000/api/watchlist/add", {
+      userId: user.uid,
+      userEmail: user.email,
+      movie: movieData,
+    });
+
+    if (response.status === 201) {
+      alert(response.data.message || `${item.title} added to your watchlist!`);
+      navigate("/dashboard");
+    } else {
+      alert("Failed to add to watchlist. Please try again.");
     }
-
-    const user = auth.currentUser;
-    if (!user) {
-      alert("User not authenticated.");
-      navigate("/login");
-      return;
-    }
-
-    const movieData = {
-      id: item.id,
-      title: item.title,
-      img: item.img,
-      rating: item.rating,
-      genres: item.genres || [],
-      trailerLink: item.trailer || "",
-    };
-
-    try {
-      const response = await fetch("http://localhost:5000/api/watchlist/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: user.uid,
-          userEmail: user.email,
-          movie: movieData,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        alert(data.message || `${item.title} added to your watchlist!`);
-        navigate("/dashboard");
-      } else if (response.status === 409) {
-        alert(`${item.title} is already in your watchlist!`);
-      } else {
-        alert("Failed to add to watchlist. Please try again.");
-      }
-    } catch (error) {
+  } catch (error) {
+    if (error.response?.status === 409) {
+      alert(`${item.title} is already in your watchlist!`);
+    } else {
       console.error("Failed to add to watchlist:", error);
       alert("Failed to add to watchlist. Please try again.");
     }
-  };
+  }
+};
 
   // Close trailer modal on Escape key and handle body scroll lock
   useEffect(() => {

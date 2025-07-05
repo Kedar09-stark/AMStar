@@ -1,41 +1,75 @@
-// /src/api/morecelebrityapi.js
+// src/api/recommendationCelebrityApi.js
+import axios from "./axiosInstance";
 
-const API_URL = "http://localhost:5000/api/recommendationcelebrities";
+const BASE_URL = "/recommendationcelebrities";
 
-// GET all recommendation celebrities
-export const fetchRecommendationCelebrities = async () => {
-  const res = await fetch(API_URL);
-  if (!res.ok) throw new Error("Failed to fetch recommendation celebrities");
-  return res.json();
-};
+/**
+ * Fetch all recommendation celebrities
+ * @returns {Promise<Array>}
+ */
+export async function fetchRecommendationCelebrities() {
+  try {
+    const { data } = await axios.get(BASE_URL);
+    return data;
+  } catch (error) {
+    handleError(error, "fetching recommendation celebrities");
+  }
+}
 
-// POST - Add a new celebrity
-export const addRecommendationCelebrity = async (newCelebrity) => {
-  const res = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(newCelebrity),
-  });
-  if (!res.ok) throw new Error("Failed to add recommendation celebrity");
-  return res.json();
-};
+/**
+ * Add a new recommendation celebrity
+ * @param {Object} newCelebrity
+ * @returns {Promise<Object>}
+ */
+export async function addRecommendationCelebrity(newCelebrity) {
+  try {
+    const { data } = await axios.post(BASE_URL, newCelebrity);
+    return data;
+  } catch (error) {
+    handleError(error, "adding recommendation celebrity");
+  }
+}
 
-// PUT - Update a celebrity by ID
-export const updateRecommendationCelebrity = async (id, updatedData) => {
-  const res = await fetch(`${API_URL}/${id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(updatedData),
-  });
-  if (!res.ok) throw new Error("Failed to update recommendation celebrity");
-  return res.json();
-};
+/**
+ * Update a recommendation celebrity by ID
+ * @param {string|number} id
+ * @param {Object} updatedData
+ * @returns {Promise<Object>}
+ */
+export async function updateRecommendationCelebrity(id, updatedData) {
+  try {
+    const { data } = await axios.put(`${BASE_URL}/${id}`, updatedData);
+    return data;
+  } catch (error) {
+    handleError(error, "updating recommendation celebrity");
+  }
+}
 
-// DELETE - Remove celebrity by ID
-export const deleteRecommendationCelebrity = async (id) => {
-  const res = await fetch(`${API_URL}/${id}`, {
-    method: "DELETE",
-  });
-  if (!res.ok) throw new Error("Failed to delete recommendation celebrity");
-  return res.json();
-};
+/**
+ * Delete a recommendation celebrity by ID
+ * @param {string|number} id
+ * @returns {Promise<Object>}
+ */
+export async function deleteRecommendationCelebrity(id) {
+  try {
+    const { data } = await axios.delete(`${BASE_URL}/${id}`);
+    return data;
+  } catch (error) {
+    handleError(error, "deleting recommendation celebrity");
+  }
+}
+
+/**
+ * Centralized error handler
+ */
+function handleError(error, context) {
+  if (error.response) {
+    throw new Error(
+      `Error ${context}: ${error.response.status} - ${error.response.data?.error || error.response.statusText}`
+    );
+  } else if (error.request) {
+    throw new Error(`Error ${context}: No response received from server.`);
+  } else {
+    throw new Error(`Error ${context}: ${error.message}`);
+  }
+}

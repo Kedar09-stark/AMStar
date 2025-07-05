@@ -1,30 +1,74 @@
-const API_URL = "http://localhost:5000/api/featureditems";
+// src/api/featuredItemApi.js
+import axios from "./axiosInstance";
 
-export const fetchFeaturedItems = async () => {
-  const res = await fetch(API_URL);
-  if (!res.ok) throw new Error("Failed to fetch featured items");
-  return res.json();
-};
+const BASE_URL = "/featureditems";
 
-export const addFeaturedItem = async (item) => {
-  const res = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(item),
-  });
-  if (!res.ok) throw new Error("Failed to add featured item");
-};
+/**
+ * Fetch all featured items
+ * @returns {Promise<Array>}
+ */
+export async function fetchFeaturedItems() {
+  try {
+    const { data } = await axios.get(BASE_URL);
+    return data;
+  } catch (error) {
+    handleError(error, "fetching featured items");
+  }
+}
 
-export const updateFeaturedItem = async (id, item) => {
-  const res = await fetch(`${API_URL}/${id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(item),
-  });
-  if (!res.ok) throw new Error("Failed to update featured item");
-};
+/**
+ * Add a new featured item
+ * @param {Object} item
+ * @returns {Promise<Object>}
+ */
+export async function addFeaturedItem(item) {
+  try {
+    const { data } = await axios.post(BASE_URL, item);
+    return data;
+  } catch (error) {
+    handleError(error, "adding featured item");
+  }
+}
 
-export const deleteFeaturedItem = async (id) => {
-  const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-  if (!res.ok) throw new Error("Failed to delete featured item");
-};
+/**
+ * Update a featured item by id
+ * @param {string|number} id
+ * @param {Object} item
+ * @returns {Promise<Object>}
+ */
+export async function updateFeaturedItem(id, item) {
+  try {
+    const { data } = await axios.put(`${BASE_URL}/${id}`, item);
+    return data;
+  } catch (error) {
+    handleError(error, "updating featured item");
+  }
+}
+
+/**
+ * Delete a featured item by id
+ * @param {string|number} id
+ * @returns {Promise<void>}
+ */
+export async function deleteFeaturedItem(id) {
+  try {
+    await axios.delete(`${BASE_URL}/${id}`);
+  } catch (error) {
+    handleError(error, "deleting featured item");
+  }
+}
+
+/**
+ * Central error handler
+ */
+function handleError(error, context) {
+  if (error.response) {
+    throw new Error(
+      `Error ${context}: ${error.response.status} - ${error.response.data?.error || error.response.statusText}`
+    );
+  } else if (error.request) {
+    throw new Error(`Error ${context}: No response received from server.`);
+  } else {
+    throw new Error(`Error ${context}: ${error.message}`);
+  }
+}

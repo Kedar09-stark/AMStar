@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"id":{"$numberInt":"1"}},"name":"id_1","background":true,"unique":true}],"uuid":"b6c069b4cd5b44139e3a62c25c53a404","collectionName":"livetvshows","type":"collection"}

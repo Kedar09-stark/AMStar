@@ -1,0 +1,1 @@
+{"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_"},{"v":{"$numberInt":"2"},"key":{"id":{"$numberInt":"1"}},"name":"id_1","background":true,"unique":true}],"uuid":"fa6356b1db23455ea0948725cd3c4ce1","collectionName":"fullmovies","type":"collection"}

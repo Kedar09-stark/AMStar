@@ -10,6 +10,7 @@ import { addMovieToWatchlist } from "../../api/watchlist";
 import FanFavouriteCard from "./FanFavourites/FanFavouriteCard";
 import TrailerModal from "./FanFavourites/TrailerModal";
 import useAutoScroll from "./FanFavourites/useAutoScroll";
+import axios from "axios";
 
 const FanFavorites = ({ isLoggedIn, onRequireLogin }) => {
   const navigate = useNavigate();
@@ -28,21 +29,18 @@ const FanFavorites = ({ isLoggedIn, onRequireLogin }) => {
   const scrollByValue = 240;
 
   // Fetch fan favorites
-useEffect(() => {
-  fetch("http://localhost:5000/api/fanfavourites")
-    .then(async (res) => {
-      const text = await res.text(); 
-      //console.log("API Response Text:", text); // Hell Debug raw response
-      try {
-        const data = JSON.parse(text); // Parse JSON
-        setFanFavorites(data);
-      } catch (error) {
-        console.error("JSON parse error:", error);
-      }
-    })
-    .catch((err) => console.error("Failed to fetch fan favorites:", err));
-}, []);
+  useEffect(() => {
+  const fetchFanFavorites = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/api/fanfavourites");
+      setFanFavorites(response.data);
+    } catch (error) {
+      console.error("Failed to fetch fan favorites:", error);
+    }
+  };
 
+  fetchFanFavorites();
+}, []);
 
   // Use custom hook for auto scroll
   useAutoScroll(sliderRef, scrollByValue, fanFavorites, setActiveIndex, autoRotate);

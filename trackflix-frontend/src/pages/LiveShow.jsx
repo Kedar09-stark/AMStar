@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
+
 import MovieCard from "../components/MoviePages/LiveCard";
 import GenreFilter from "../components/MoviePages/GenreFilter";
 import Pagination from "../components/MoviePages/Pagination";
@@ -30,14 +32,15 @@ const LiveShow = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       setLoading(true);
+      setError(null);
       try {
-        const res = await fetch("http://localhost:5000/api/livetvshows");
-        if (!res.ok) throw new Error("Failed to fetch movies.");
-        const data = await res.json();
-        setAllMovies(data);
+        const res = await axios.get("http://localhost:5000/api/livetvshows");
+        // Ensure data is an array
+        setAllMovies(Array.isArray(res.data) ? res.data : []);
       } catch (err) {
         console.error(err);
         setError("Failed to load movies.");
+        setAllMovies([]);
       } finally {
         setLoading(false);
       }
@@ -45,27 +48,40 @@ const LiveShow = () => {
     fetchMovies();
   }, []);
 
-  // Safely handle movies with or without genres
-  const allGenres = Array.from(
-    new Set(allMovies.flatMap((movie) => movie.genres || []))
-  );
+  // Safely handle .flatMap (check if array and flatMap available)
+  const allGenres = React.useMemo(() => {
+    if (!Array.isArray(allMovies)) return [];
+    if (typeof allMovies.flatMap === "function") {
+      return Array.from(new Set(allMovies.flatMap((movie) => movie.genres || []))).sort();
+    }
+    // fallback if flatMap not supported
+    const genres = allMovies.reduce((acc, movie) => {
+      if (Array.isArray(movie.genres)) acc.push(...movie.genres);
+      return acc;
+    }, []);
+    return Array.from(new Set(genres)).sort();
+  }, [allMovies]);
 
-  const filteredMovies = allMovies
-    .filter((movie) =>
-      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-    .filter((movie) =>
-      selectedGenres.length === 0
-        ? true
-        : selectedGenres.every((genre) => (movie.genres || []).includes(genre))
-    );
+  const filteredMovies = React.useMemo(() => {
+    return allMovies
+      .filter((movie) =>
+        movie.title?.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .filter((movie) =>
+        selectedGenres.length === 0
+          ? true
+          : selectedGenres.every((genre) => (movie.genres || []).includes(genre))
+      );
+  }, [allMovies, searchTerm, selectedGenres]);
 
-  const sortedMovies = [...filteredMovies].sort((a, b) => {
-    if (sortType === "rating") return b.rating - a.rating;
-    if (sortType === "releaseDate")
-      return new Date(b.releaseDate) - new Date(a.releaseDate);
-    return 0;
-  });
+  const sortedMovies = React.useMemo(() => {
+    return [...filteredMovies].sort((a, b) => {
+      if (sortType === "rating") return (b.rating || 0) - (a.rating || 0);
+      if (sortType === "releaseDate")
+        return new Date(b.releaseDate) - new Date(a.releaseDate);
+      return 0;
+    });
+  }, [filteredMovies, sortType]);
 
   const totalPages = Math.ceil(sortedMovies.length / itemsPerPage);
   const paginatedMovies = sortedMovies.slice(
@@ -143,7 +159,7 @@ const LiveShow = () => {
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
                 {paginatedMovies.map((movie) => (
-                  <MovieCard key={movie.id} movie={movie} />
+                  <MovieCard key={movie.id || movie.title} movie={movie} />
                 ))}
               </div>
 

@@ -18,6 +18,7 @@ import {
   FaRedoAlt,
 } from "react-icons/fa";
 import { containerVariants, itemVariants } from "../animations/MDanimation";
+import axios from "axios";
 
 const LiveDetails = () => {
   const { id } = useParams();
@@ -36,13 +37,7 @@ const LiveDetails = () => {
 
       if (!isValidId) throw new Error("Invalid movie ID");
 
-      const res = await fetch(`http://localhost:5000/api/liveshows/${id}`);
-      if (!res.ok) {
-        if (res.status === 404) throw new Error("Movie not found");
-        else throw new Error("Failed to fetch movie");
-      }
-
-      const data = await res.json();
+      const { data } = await axios.get(`http://localhost:5000/api/liveshows/${id}`);
 
       // Normalize awards
       if (typeof data.awards === "string" && data.awards.trim() !== "") {
@@ -52,7 +47,11 @@ const LiveDetails = () => {
 
       setMovie(data);
     } catch (err) {
-      setError(err.message);
+      if (err.response?.status === 404) {
+        setError("Movie not found");
+      } else {
+        setError("Failed to fetch movie");
+      }
     } finally {
       setLoading(false);
     }
@@ -62,43 +61,42 @@ const LiveDetails = () => {
     fetchMovie();
   }, [id]);
 
+  // Optional: Fetch similar shows if your backend supports it
+  /*
   useEffect(() => {
-    const fetchSimilarMovies = async () => {
-      if (!movie?.similarMovies?.length) {
+    const fetchSimilar = async () => {
+      if (!movie?.similarShows?.length) {
         setSimilar([]);
         return;
       }
 
       try {
         const responses = await Promise.all(
-          movie.similarMovies.map(async (simId) => {
-            const res = await fetch(`http://localhost:5000/api/liveshows/${simId}`);
-            if (res.ok) return res.json();
-            return null;
+          movie.similarShows.map(async (simId) => {
+            const res = await axios.get(`http://localhost:5000/api/liveshows/${simId}`);
+            return res.data;
           })
         );
-        setSimilar(responses.filter(Boolean));
+        setSimilar(responses);
       } catch {
         setSimilar([]);
       }
     };
 
-    fetchSimilarMovies();
+    if (movie) fetchSimilar();
   }, [movie]);
+  */
 
   const youtubeId = movie?.trailer ? new URL(movie.trailer).searchParams.get("v") : null;
 
   if (loading) return <LoadingSkeleton />;
   if (error) return <ErrorFallback message={error} onRetry={fetchMovie} />;
-  if (!movie) return <p className="text-center text-gray-400 mt-20 text-lg">No movie data available.</p>;
+  if (!movie) return <p className="text-center text-gray-400 mt-20 text-lg">No data available.</p>;
 
   return (
     <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen p-6 md:p-12 text-gray-100 font-sans max-w-7xl mx-auto">
-      <Link
-        to="/movies"
-        className="inline-flex items-center gap-2 mb-10 mt-12 text-yellow-400 hover:text-yellow-300 font-semibold text-lg"
-      >
-        <FaArrowLeft /> Back to Tv Show
+      <Link to="/tvshows" className="inline-flex items-center gap-2 mb-10 mt-12 text-yellow-400 hover:text-yellow-300 font-semibold text-lg">
+        <FaArrowLeft /> Back to TV Shows
       </Link>
 
       <motion.div className="flex flex-col md:flex-row gap-12" initial="hidden" animate="visible" variants={containerVariants}>
@@ -199,11 +197,11 @@ const LiveDetails = () => {
 
       {similar.length > 0 && (
         <motion.section className="mt-20" initial="hidden" animate="visible" variants={containerVariants}>
-          <h2 className="text-3xl font-bold text-yellow-400 mb-6">🎬 Similar Movies</h2>
+          <h2 className="text-3xl font-bold text-yellow-400 mb-6">🎬 Similar Shows</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {similar.map((m) => (
               <Link
-                to={`/movies/${m.id}`}
+                to={`/tvshows/${m.id}`}
                 key={m.id}
                 className="bg-gray-800 rounded-xl p-4 hover:bg-gray-700 transition-all shadow-lg group"
               >

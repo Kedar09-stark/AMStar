@@ -2,17 +2,23 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 const MostPCMoreRecommendations = () => {
   const [celebrities, setCelebrities] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/recommendationcelebrities")
-      .then((res) => res.json())
-      .then((data) => setCelebrities(data))
-      .catch((err) => console.error("Failed to fetch celebrities:", err));
-  }, []);
+  const fetchCelebrities = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/recommendationcelebrities");
+      setCelebrities(res.data);
+    } catch (err) {
+      console.error("❌ Failed to fetch celebrities:", err.message);
+    }
+  };
+
+  fetchCelebrities();
+}, []);
 
   return (
     <section className="bg-gradient-to-b from-zinc-900 to-black text-white px-4 sm:px-6 py-10 min-h-screen">

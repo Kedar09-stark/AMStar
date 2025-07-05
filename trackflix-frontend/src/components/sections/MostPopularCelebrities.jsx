@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 const MostPopularCelebrities = () => {
   const [celebrities, setCelebrities] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ const MostPopularCelebrities = () => {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/celebrities")
+    fetch("http://localhost:5000/api/Celebrities")
       .then((res) => {
         if (!res.ok) throw new Error("Network response was not ok");
         return res.json();

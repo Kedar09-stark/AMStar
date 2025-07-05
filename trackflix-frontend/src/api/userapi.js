@@ -1,9 +1,32 @@
-const API_URL = "http://localhost:5000/api/users";
+// src/api/userApi.js
+import axios from "./axiosInstance";
 
-export const fetchUsers = async () => { 
-  const res = await fetch(API_URL);
-  if (!res.ok) {
-    throw new Error("Failed to fetch users");
+const BASE_URL = "/users";
+
+/**
+ * Fetch all users
+ * @returns {Promise<Array>}
+ */
+export async function fetchUsers() {
+  try {
+    const { data } = await axios.get(BASE_URL);
+    return data;
+  } catch (error) {
+    handleError(error, "fetching users");
   }
-  return res.json();
-};
+}
+
+/**
+ * Central error handler
+ */
+function handleError(error, context) {
+  if (error.response) {
+    throw new Error(
+      `Error ${context}: ${error.response.status} - ${error.response.data?.error || error.response.statusText}`
+    );
+  } else if (error.request) {
+    throw new Error(`Error ${context}: No response received from server.`);
+  } else {
+    throw new Error(`Error ${context}: ${error.message}`);
+  }
+}

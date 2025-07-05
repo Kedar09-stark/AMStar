@@ -1,30 +1,74 @@
-const API_URL = "http://localhost:5000/api/liveshows";
+// src/api/liveShowApi.js
+import axios from "./axiosInstance";
 
-export const fetchLiveTVDetails = async () => {
-  const res = await fetch(API_URL);
-  if (!res.ok) throw new Error("Failed to fetch live TV details");
-  return res.json();
-};
+const BASE_URL = "/liveshows";
 
-export const addLiveTVDetail = async (liveDetail) => {
-  const res = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(liveDetail),
-  });
-  if (!res.ok) throw new Error("Failed to add live TV detail");
-};
+/**
+ * Fetch all live TV details
+ * @returns {Promise<Array>}
+ */
+export async function fetchLiveTVDetails() {
+  try {
+    const { data } = await axios.get(BASE_URL);
+    return data;
+  } catch (error) {
+    handleError(error, "fetching live TV details");
+  }
+}
 
-export const updateLiveTVDetail = async (id, liveDetail) => {
-  const res = await fetch(`${API_URL}/${id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(liveDetail),
-  });
-  if (!res.ok) throw new Error("Failed to update live TV detail");
-};
+/**
+ * Add a new live TV detail
+ * @param {Object} liveDetail
+ * @returns {Promise<Object>}
+ */
+export async function addLiveTVDetail(liveDetail) {
+  try {
+    const { data } = await axios.post(BASE_URL, liveDetail);
+    return data;
+  } catch (error) {
+    handleError(error, "adding live TV detail");
+  }
+}
 
-export const deleteLiveTVDetail = async (id) => {
-  const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-  if (!res.ok) throw new Error("Failed to delete live TV detail");
-};
+/**
+ * Update a live TV detail by id
+ * @param {string|number} id
+ * @param {Object} liveDetail
+ * @returns {Promise<Object>}
+ */
+export async function updateLiveTVDetail(id, liveDetail) {
+  try {
+    const { data } = await axios.put(`${BASE_URL}/${id}`, liveDetail);
+    return data;
+  } catch (error) {
+    handleError(error, "updating live TV detail");
+  }
+}
+
+/**
+ * Delete a live TV detail by id
+ * @param {string|number} id
+ * @returns {Promise<void>}
+ */
+export async function deleteLiveTVDetail(id) {
+  try {
+    await axios.delete(`${BASE_URL}/${id}`);
+  } catch (error) {
+    handleError(error, "deleting live TV detail");
+  }
+}
+
+/**
+ * Central error handler
+ */
+function handleError(error, context) {
+  if (error.response) {
+    throw new Error(
+      `Error ${context}: ${error.response.status} - ${error.response.data?.error || error.response.statusText}`
+    );
+  } else if (error.request) {
+    throw new Error(`Error ${context}: No response received from server.`);
+  } else {
+    throw new Error(`Error ${context}: ${error.message}`);
+  }
+}

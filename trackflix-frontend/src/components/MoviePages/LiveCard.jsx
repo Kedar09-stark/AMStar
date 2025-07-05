@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaStar, FaPlay, FaPlus } from "react-icons/fa";
 import { auth } from "../../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
-
+import axios from "axios";
 const LiveCard = ({ movie }) => {
   const [showTrailer, setShowTrailer] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -22,7 +22,7 @@ const LiveCard = ({ movie }) => {
   };
 
   // Handle adding movie to watchlist via API
-  const handleAddToWatchlist = async () => {
+ const handleAddToWatchlist = async () => {
     if (!user) {
       navigate("/login");
       return;
@@ -40,29 +40,23 @@ const LiveCard = ({ movie }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/watchlist/add", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          userId: user.uid,
-          userEmail: user.email,
-          movie: movieData,
-        }),
+      const response = await axios.post("http://localhost:5000/api/watchlist/add", {
+        userId: user.uid,
+        userEmail: user.email,
+        movie: movieData,
       });
 
-      const data = await response.json();
-
       if (response.status === 201) {
-        alert(data.message || `"${movie.title}" added to your watchlist!`);
+        alert(response.data.message || `"${movie.title}" added to your watchlist!`);
         navigate("/dashboard");
-      } else if (response.status === 409) {
-        alert(`"${movie.title}" is already in your watchlist!`);
-      } else {
-        alert(data.message || "Failed to add to watchlist. Please try again.");
       }
     } catch (error) {
-      console.error("Failed to add to watchlist:", error);
-      alert("Failed to add to watchlist. Please try again.");
+      if (error.response?.status === 409) {
+        alert(`"${movie.title}" is already in your watchlist!`);
+      } else {
+        console.error("Failed to add to watchlist:", error);
+        alert("Failed to add to watchlist. Please try again.");
+      }
     }
   };
 

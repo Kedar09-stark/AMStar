@@ -1,30 +1,77 @@
-const API_URL = "http://localhost:5000/api/fanfavourites";
+// src/api/fanfavouriteapi.js
+import axios from "./axiosInstance";
 
-export const fetchFanFavourites = async () => {
-  const res = await fetch(API_URL);
-  if (!res.ok) throw new Error("Failed to fetch fan favourites");
-  return res.json();
-};
+const API_URL = "/fanfavourites";
 
-export const addFanFavourite = async (favourite) => {
-  const res = await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(favourite),
-  });
-  if (!res.ok) throw new Error("Failed to add fan favourite");
-};
+/**
+ * Fetch all fan favourites
+ * @returns {Promise<Array>} Array of fan favourite objects
+ */
+export async function fetchFanFavourites() {
+  try {
+    const { data } = await axios.get(API_URL);
+    return data;
+  } catch (error) {
+    handleError(error, "fetching fan favourites");
+  }
+}
 
-export const updateFanFavourite = async (id, favourite) => {
-  const res = await fetch(`${API_URL}/${id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(favourite),
-  });
-  if (!res.ok) throw new Error("Failed to update fan favourite");
-};
+/**
+ * Add a new fan favourite
+ * @param {Object} favourite - Fan favourite data to add
+ * @returns {Promise<Object>} Created fan favourite
+ */
+export async function addFanFavourite(favourite) {
+  try {
+    const { data } = await axios.post(API_URL, favourite);
+    return data;
+  } catch (error) {
+    handleError(error, "adding fan favourite");
+  }
+}
 
-export const deleteFanFavourite = async (id) => {
-  const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
-  if (!res.ok) throw new Error("Failed to delete fan favourite");
-};
+/**
+ * Update an existing fan favourite by ID
+ * @param {string|number} id - Fan favourite ID
+ * @param {Object} favourite - Updated fan favourite data
+ * @returns {Promise<Object>} Updated fan favourite
+ */
+export async function updateFanFavourite(id, favourite) {
+  try {
+    const { data } = await axios.put(`${API_URL}/${id}`, favourite);
+    return data;
+  } catch (error) {
+    handleError(error, "updating fan favourite");
+  }
+}
+
+/**
+ * Delete a fan favourite by ID
+ * @param {string|number} id - Fan favourite ID
+ * @returns {Promise<void>}
+ */
+export async function deleteFanFavourite(id) {
+  try {
+    await axios.delete(`${API_URL}/${id}`);
+  } catch (error) {
+    handleError(error, "deleting fan favourite");
+  }
+}
+
+/**
+ * Centralized error handler for API calls
+ * @param {any} error - Axios error object
+ * @param {string} context - Context for the error message
+ * @throws {Error}
+ */
+function handleError(error, context) {
+  if (error.response) {
+    throw new Error(
+      `Error ${context}: ${error.response.status} - ${error.response.data?.error || error.response.statusText}`
+    );
+  } else if (error.request) {
+    throw new Error(`Error ${context}: No response received from server.`);
+  } else {
+    throw new Error(`Error ${context}: ${error.message}`);
+  }
+}
