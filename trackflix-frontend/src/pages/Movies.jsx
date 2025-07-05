@@ -40,7 +40,7 @@ const Movie = () => {
       setError(null);
       try {
         const res = await axios.get("https://fourloopers-9.onrender.com/api/fullmovies");
-        // If your API wraps movies inside a key (like res.data.movies), adjust here:
+        // If your API wraps movies inside a key (like res.data.movies), adjust here:-> i will adjust  does in file json
         // setAllMovies(res.data.movies);
         setAllMovies(res.data);
       } catch (err) {
