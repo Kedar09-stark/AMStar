@@ -8,7 +8,7 @@ import MovieCard from "../userdeshbord/MovieCard";
 import CenteredMessage from "../userdeshbord/CenteredMessage";
 import Recommendations from "../userdeshbord/Recommendations";
 import Ratings from "../userdeshbord/Ratings";
-import Settings from "../userdeshbord/Settings";
+//import Settings from "../userdeshbord/Settings";
 import UserTabsNav from "../userdeshbord/UserTabsNav"; // ✅ external import
 
 const UserDashboard = () => {
@@ -133,7 +133,7 @@ const UserDashboard = () => {
           }
         />
         <Route path="ratings" element={<Ratings user={user} />} />
-        <Route path="settings" element={<Settings user={user} />} />
+        {/* <Route path="settings" element={<Settings user={user} />} /> */}
         <Route path="recommendations" element={<Recommendations />} />
       </Routes>
     </main>

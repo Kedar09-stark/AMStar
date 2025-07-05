@@ -158,6 +158,7 @@ const AnimatedGenreSection = ({ genre, scrollY }) => {
         aria-hidden="true"
         variants={iconVariants}
         whileHover="hover"
+        whileTap="hover"
         style={{
           rotateX: mousePos.y,
           rotateY: mousePos.x,

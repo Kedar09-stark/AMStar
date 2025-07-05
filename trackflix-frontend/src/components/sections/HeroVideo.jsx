@@ -100,14 +100,14 @@ const HeroVideo = ({
 
   return (
     <motion.section className="relative w-full overflow-hidden min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] xl:min-h-screen">
-      {/* ✅ Video with Parallax */}
+      {/*  Video with Parallax */}
       <motion.div
         className="absolute inset-0 w-full h-full z-0 overflow-hidden"
         style={reduceMotion ? {} : { y }}
       >
         <video
           ref={videoRef}
-          className="w-full h-full object-cover pointer-events-none"
+          className="w-full h-full object-cover" // removed pointer-events-none
           src={currentMovie.video}
           autoPlay
           muted={isMuted}
@@ -117,17 +117,16 @@ const HeroVideo = ({
           poster={currentMovie.poster}
           aria-label={`Trailer video for ${currentMovie.title}`}
         />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40" />
         {isBuffering && (
-          <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+          <div className="absolute inset-0 flex items-center justify-center z-10">
             <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin" />
           </div>
         )}
       </motion.div>
 
-      {/* ✅ Controls Positioned Properly */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 flex gap-6">
+      {/* Control Buttons */}
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-40 flex gap-6">
         <button
           onClick={togglePlayPause}
           onKeyDown={handleKeyDown(togglePlayPause)}
@@ -145,7 +144,8 @@ const HeroVideo = ({
           {isMuted ? <VolumeMuteIcon /> : <VolumeUpIcon />}
         </button>
       </div>
- {/* Info Box */}
+
+      {/*  Info Box */}
       <div className="absolute bottom-6 left-4 z-30 w-[90%] sm:left-6 sm:max-w-sm md:max-w-md lg:max-w-lg">
         <h1
           className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-white mb-3"
@@ -163,11 +163,12 @@ const HeroVideo = ({
           Watch
         </a>
       </div>
-      {/* ✅ Navigation Buttons */}
+
+      {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
         onKeyDown={handleKeyDown(prevSlide)}
-        className="absolute left-3 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-red-600 z-20"
+        className="absolute left-3 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-red-600 z-30"
         aria-label="Previous movie"
       >
         <span className="text-xl">&#10094;</span>
@@ -176,7 +177,7 @@ const HeroVideo = ({
       <button
         onClick={nextSlide}
         onKeyDown={handleKeyDown(nextSlide)}
-        className="absolute right-3 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-red-600 z-20"
+        className="absolute right-3 top-1/2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/60 p-3 rounded-full focus:outline-none focus:ring-2 focus:ring-red-600 z-30"
         aria-label="Next movie"
       >
         <span className="text-xl">&#10095;</span>

@@ -86,29 +86,47 @@ const HeroSearch = () => {
         variants={textContainer}
       >
         {/* Logo */}
-        <motion.img
-          src="/images/lo-removebg-preview2.png"
-          alt="TrackFlix Logo"
-          className="w-[200px] sm:w-[260px] md:w-[320px] lg:w-[400px] xl:w-[460px] object-contain mx-auto drop-shadow-lg mb-1 cursor-pointer hover:scale-105 transition-transform duration-300"
-          variants={logoVariant}
-          animate={
-            reduceMotion
-              ? { opacity: 1, y: 0 }
-              : {
-                  y: [0, -10, 0],
-                  opacity: [0.9, 1, 0.9],
-                }
-          }
-          transition={
-            reduceMotion
-              ? { duration: 0 }
-              : {
-                  y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                  opacity: { duration: 3, repeat: Infinity },
-                }
-          }
-          aria-hidden="true"
-        />
+    <motion.img
+  src="/images/lo-removebg-preview2.png"
+  alt="TrackFlix Logo"
+  className="
+    w-[200px]
+    sm:w-[260px]
+    md:w-[320px]
+    lg:w-[400px]
+    xl:w-[460px]
+    object-contain
+    mx-auto
+    drop-shadow-lg
+    cursor-pointer
+    hover:scale-105
+    transition-transform
+    duration-300
+
+    mb-1
+    mt-10         /* Push down on mobile */
+    sm:mt-0       /* Reset margin-top on sm and above */
+  "
+  variants={logoVariant}
+  animate={
+    reduceMotion
+      ? { opacity: 1, y: 0 }
+      : {
+          y: [0, -10, 0],
+          opacity: [0.9, 1, 0.9],
+        }
+  }
+  transition={
+    reduceMotion
+      ? { duration: 0 }
+      : {
+          y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+          opacity: { duration: 3, repeat: Infinity },
+        }
+  }
+  aria-hidden="true"
+/>
+
 
         {/* Hero Text */}
         <motion.div className="space-y-4" variants={textItem}>
