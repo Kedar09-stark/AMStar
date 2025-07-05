@@ -18,7 +18,7 @@ const PopularInterests = () => {
 useEffect(() => {
   const fetchInterests = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/interests");
+      const response = await axios.get("https://fourloopers-9.onrender.com/api/interests");
       setInterests(response.data);
     } catch (err) {
       console.error("Error fetching interests:", err);

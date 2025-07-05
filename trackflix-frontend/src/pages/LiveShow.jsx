@@ -34,7 +34,7 @@ const LiveShow = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await axios.get("http://localhost:5000/api/livetvshows");
+        const res = await axios.get("https://fourloopers-9.onrender.com/api/livetvshows");
         // Ensure data is an array
         setAllMovies(Array.isArray(res.data) ? res.data : []);
       } catch (err) {

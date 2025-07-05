@@ -23,7 +23,7 @@ import axios from "axios";
 // Import animation variants from separate file
 import { containerVariants, itemVariants } from "../animations/MDanimation";
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://fourloopers-9.onrender.com/api";
 
 const MovieDetails = () => {
   const { id } = useParams();

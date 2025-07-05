@@ -10,7 +10,7 @@ const MostPCMoreRecommendations = () => {
   useEffect(() => {
   const fetchCelebrities = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/recommendationcelebrities");
+      const res = await axios.get("https://fourloopers-9.onrender.com/api/recommendationcelebrities");
       setCelebrities(res.data);
     } catch (err) {
       console.error("❌ Failed to fetch celebrities:", err.message);

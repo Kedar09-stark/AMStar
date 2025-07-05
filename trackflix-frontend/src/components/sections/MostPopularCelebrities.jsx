@@ -10,21 +10,17 @@ const MostPopularCelebrities = () => {
   const navigate = useNavigate();
   const carouselRef = useRef(null);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/api/Celebrities")
-      .then((res) => {
-        if (!res.ok) throw new Error("Network response was not ok");
-        return res.json();
-      })
-      .then((data) => {
-        setCelebrities(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+useEffect(() => {
+  axios.get("https://fourloopers-9.onrender.com/api/Celebrities")
+    .then((response) => {
+      setCelebrities(response.data);
+      setLoading(false);
+    })
+    .catch((error) => {
+      setError(error.message);
+      setLoading(false);
+    });
+}, []);
 
   const scrollByOffset = useCallback((offset) => {
     if (carouselRef.current) {

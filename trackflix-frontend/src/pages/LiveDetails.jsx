@@ -37,7 +37,7 @@ const LiveDetails = () => {
 
       if (!isValidId) throw new Error("Invalid movie ID");
 
-      const { data } = await axios.get(`http://localhost:5000/api/liveshows/${id}`);
+      const { data } = await axios.get(`https://fourloopers-9.onrender.com/api/liveshows/${id}`);
 
       // Normalize awards
       if (typeof data.awards === "string" && data.awards.trim() !== "") {

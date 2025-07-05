@@ -32,7 +32,8 @@ const FanFavorites = ({ isLoggedIn, onRequireLogin }) => {
   useEffect(() => {
   const fetchFanFavorites = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/fanfavourites");
+      
+    const response = await axios.get("https://fourloopers-9.onrender.com/api/fanfavourites");
       setFanFavorites(response.data);
     } catch (error) {
       console.error("Failed to fetch fan favorites:", error);

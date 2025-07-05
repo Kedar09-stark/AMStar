@@ -11,7 +11,7 @@ const Ratings = ({ user }) => {
   const fetchRatings = async () => {
     try {
       const token = await user.getIdToken();
-      const { data } = await axios.get(`http://localhost:5000/api/watchlist/${user.uid}`, {
+      const { data } = await axios.get(`https://fourloopers-9.onrender.com/api/watchlist/${user.uid}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setRatings(data.movies || []);

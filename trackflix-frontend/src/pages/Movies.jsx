@@ -39,7 +39,7 @@ const Movie = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await axios.get("http://localhost:5000/api/fullmovies");
+        const res = await axios.get("https://fourloopers-9.onrender.com/api/fullmovies");
         // If your API wraps movies inside a key (like res.data.movies), adjust here:
         // setAllMovies(res.data.movies);
         setAllMovies(res.data);
@@ -122,7 +122,7 @@ const Movie = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/api/watchlist/add", {
+      const res = await axios.post("https://fourloopers-9.onrender.com/api/watchlist/add", {
         userId: user.uid,
         userEmail: user.email,
         movie: movieData,

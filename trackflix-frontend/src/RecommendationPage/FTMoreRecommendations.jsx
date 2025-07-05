@@ -28,7 +28,7 @@ const FTMoreRecommendations = () => {
   useEffect(() => {
     const fetchRecommendations = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/ftrecommendations");
+        const res = await axios.get("https://fourloopers-9.onrender.com/api/ftrecommendations");
         setRecommendations(res.data);
       } catch (err) {
         setError("Failed to load recommendations");

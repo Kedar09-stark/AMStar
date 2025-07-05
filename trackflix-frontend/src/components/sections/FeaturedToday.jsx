@@ -32,7 +32,7 @@ const FeaturedToday = () => {
  useEffect(() => {
   const fetchFeaturedItems = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/featureditems");
+      const response = await axios.get("https://fourloopers-9.onrender.com/api/featureditems");
       setFeaturedItems(response.data);
     } catch (error) {
       console.error("Failed to fetch featured items:", error);
