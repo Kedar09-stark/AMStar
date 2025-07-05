@@ -33,7 +33,7 @@ const Ratings = ({ user }) => {
     try {
       const token = await user.getIdToken();
       await axios.post(
-        `http://localhost:5000/api/ratings/${user.uid}`,
+        `https://fourloopers-9.onrender.com/api/ratings/${user.uid}`,
         { movieId, userRating: newRating },
         {
           headers: {
