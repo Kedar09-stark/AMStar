@@ -81,7 +81,7 @@ const handleWatchlistClick = async (e, item) => {
   };
 
   try {
-    const response = await axios.post("https://fourloopers-9.onrender.com/api/watchlist/add", {
+    const response = await axios.post("http://localhost:5000/api/watchlist/add", {
       userId: user.uid,
       userEmail: user.email,
       movie: movieData,
