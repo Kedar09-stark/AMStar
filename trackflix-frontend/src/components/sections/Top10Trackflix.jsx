@@ -27,7 +27,7 @@ const Top10Trackflix = () => {
     useEffect(() => {
     const fetchTop10Movies = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/toptenmovies");
+        const { data } = await axios.get("https://fourloopers-9.onrender.com/api/toptenmovies");
         setTop10(data);
       } catch (err) {
         console.error("Failed to fetch top10:", err);
