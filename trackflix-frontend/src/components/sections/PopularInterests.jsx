@@ -68,7 +68,7 @@ useEffect(() => {
   };
 
   try {
-    const { status, data } = await axios.post("http://localhost:5000/api/watchlist/add", {
+    const { status, data } = await axios.post("https://fourloopers-9.onrender.com/api/watchlist/add", {
       userId: user.uid,
       userEmail: user.email,
       movie: movieData,
