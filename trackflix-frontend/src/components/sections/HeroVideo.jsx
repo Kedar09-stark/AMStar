@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import PlayIcon from "../icons/PlayIcon";
 import PauseIcon from "../icons/PauseIcon";
@@ -99,15 +99,18 @@ const HeroVideo = ({
   };
 
   return (
-    <motion.section className="relative w-full overflow-hidden min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] xl:min-h-screen">
-      {/*  Video with Parallax */}
+    <motion.section
+      className="relative w-full overflow-hidden box-border
+                 h-[60vh] sm:h-[70vh] md:h-[80vh] xl:h-screen max-h-screen"
+    >
+      {/* Video with Parallax */}
       <motion.div
         className="absolute inset-0 w-full h-full z-0 overflow-hidden"
         style={reduceMotion ? {} : { y }}
       >
         <video
           ref={videoRef}
-          className="w-full h-full object-cover" // removed pointer-events-none
+          className="w-full h-full object-cover"
           src={currentMovie.video}
           autoPlay
           muted={isMuted}
@@ -126,7 +129,7 @@ const HeroVideo = ({
       </motion.div>
 
       {/* Control Buttons */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-40 flex gap-6">
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-40 flex gap-6">
         <button
           onClick={togglePlayPause}
           onKeyDown={handleKeyDown(togglePlayPause)}
@@ -145,8 +148,8 @@ const HeroVideo = ({
         </button>
       </div>
 
-      {/*  Info Box */}
-      <div className="absolute bottom-6 left-4 z-30 w-[90%] sm:left-6 sm:max-w-sm md:max-w-md lg:max-w-lg">
+      {/* Info Box */}
+      <div className="absolute bottom-4 sm:bottom-6 left-4 z-30 w-[90%] sm:left-6 sm:max-w-sm md:max-w-md lg:max-w-lg">
         <h1
           className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-extrabold text-white mb-3"
           tabIndex={0}

@@ -7,7 +7,7 @@ const tabs = [
   { key: "", label: "🎬 Watchlist" },
   { key: "ratings", label: "⭐ My Ratings" },
   { key: "recommendations", label: "🎯 Recommendations" },
-  { key: "settings", label: "⚙️ Account Settings" },
+  //{ key: "settings", label: "⚙️ Account Settings" },
 ];
 
 const UserTabsNav = () => {
