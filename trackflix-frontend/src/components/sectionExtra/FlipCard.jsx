@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import { FaPlay, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { getAuth } from "firebase/auth";
+import { addMovieToWatchlist } from "../../api/watchlist";
 
 const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn, onAddToWatchlist }) => {
   const [showTrailer, setShowTrailer] = useState(false);
@@ -11,19 +12,51 @@ const FlipCard = ({ item, isFlipped, onFlip, isLoggedIn, onAddToWatchlist }) => 
 
   // Convert YouTube watch URL to embed URL
   const embedUrl = item.trailerLink ? item.trailerLink.replace("watch?v=", "embed/") : null;
-
-  const handleWatchlistClick = useCallback(
-    (e) => {
+const handleWatchlistClick = useCallback(
+    async (e) => {
+    
       e.stopPropagation();
       if (!isLoggedIn) {
         navigate("/login");
         return;
       }
+
+      const user = auth.currentUser;
+      if (!user) {
+        alert("User not authenticated.");
+        navigate("/login");
+        return;
+      }
+
+      const movieData = {
+        id: item.id.toString(),
+        title: item.title,
+        image: item.image || item.img || item.poster || "",
+        rating: item.rating || 0,
+        genres: item.genres || [],
+        trailerLink: item.trailerLink || "",
+        type: item.type || "movie",
+        releaseDate: item.releaseDate || "",
+      };
+
+      try {
+        const response = await addMovieToWatchlist(user.uid, user.email, movieData);
+
+        if (!response.success) {
+          alert(response.message);
+        } else {
+          alert(`"${item.title}" added to your watchlist!`);
+          navigate("/dashboard");
+        }
+      } catch (error) {
+        console.error("Failed to add to watchlist:", error);
+        alert("Failed to add to watchlist. Please try again.");
+      }
       if (onAddToWatchlist) onAddToWatchlist(item);
     },
+    [auth.currentUser, isLoggedIn, item, navigate]
     [isLoggedIn, navigate, onAddToWatchlist, item]
   );
-
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === "Enter" || e.key === " ") {
