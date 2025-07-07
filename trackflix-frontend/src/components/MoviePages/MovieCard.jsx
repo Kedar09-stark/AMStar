@@ -19,25 +19,25 @@ const MovieCard = ({ movie, onAddToWatchlist }) => {
     }
   };
 
-const handleWatchlistClick = () => {
-  if (!user) {
-    navigate("/login");
-    return;
-  }
+  const handleWatchlistClick = () => {
+    if (!user) {
+      navigate("/login");
+      return;
+    }
 
-  if (typeof onAddToWatchlist === "function") {
-    onAddToWatchlist(movie); // ✅ Pass movie data
-  } else {
-    alert("Added to watchlist!");
-  }
-};
-
+    if (typeof onAddToWatchlist === "function") {
+      onAddToWatchlist(movie);
+    } else {
+      alert("Added to watchlist!");
+    }
+  };
 
   const embedUrl = getEmbedUrl(movie.trailer || movie.trailerLink);
   const posterSrc = movie.img || movie.image || movie.poster || "/fallback.jpg";
 
   return (
-    <>
+    <div className="mb-4">
+
       <div className="bg-zinc-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-transform duration-300 hover:scale-[1.03] group">
         <div className="relative w-full h-[350px] bg-zinc-800 overflow-hidden">
           {!imageLoaded && (
@@ -137,7 +137,7 @@ const handleWatchlistClick = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

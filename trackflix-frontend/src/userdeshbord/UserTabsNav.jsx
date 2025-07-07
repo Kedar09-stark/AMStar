@@ -7,7 +7,6 @@ const tabs = [
   { key: "", label: "🎬 Watchlist" },
   { key: "ratings", label: "⭐ My Ratings" },
   { key: "recommendations", label: "🎯 Recommendations" },
-  //{ key: "settings", label: "⚙️ Account Settings" },
 ];
 
 const UserTabsNav = () => {
@@ -15,7 +14,7 @@ const UserTabsNav = () => {
   const location = useLocation();
   const containerRef = useRef(null);
   const tabsRef = useRef([]);
-  
+
   const [activeTab, setActiveTab] = useState("");
   const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -90,7 +89,7 @@ const UserTabsNav = () => {
   );
 
   const renderMobileDropdown = () => (
-    <div className="md:hidden relative mt-4">
+    <div className="md:hidden relative mt-4 z-30">
       <button
         onClick={() => setMobileMenuOpen((prev) => !prev)}
         className="flex items-center justify-between w-full px-4 py-3 bg-gradient-to-r from-pink-600 to-indigo-600 text-white rounded-xl font-semibold shadow-lg hover:brightness-110 transition focus:outline-none focus:ring-2 focus:ring-pink-300"
@@ -112,7 +111,7 @@ const UserTabsNav = () => {
             exit={{ opacity: 0, y: -10, scale: 0.97 }}
             transition={{ duration: 0.25 }}
             role="listbox"
-            className="absolute top-[110%] left-0 w-full bg-white/90 backdrop-blur-md shadow-xl rounded-xl border border-white/30 z-30 overflow-hidden"
+            className="absolute top-full mt-2 left-0 w-full bg-white/90 backdrop-blur-md shadow-xl rounded-xl border border-white/30 z-40 overflow-hidden"
           >
             {tabs.map((tab) => (
               <button
@@ -138,7 +137,7 @@ const UserTabsNav = () => {
   return (
     <nav
       ref={containerRef}
-      className="w-full px-4 py-6 bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg ring-1 ring-indigo-100 mb-6 border border-white/20"
+      className="relative w-full px-4 py-6 bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg ring-1 ring-indigo-100 mb-6 border border-white/20 z-20"
       aria-label="User dashboard navigation"
     >
       {renderDesktopTabs()}

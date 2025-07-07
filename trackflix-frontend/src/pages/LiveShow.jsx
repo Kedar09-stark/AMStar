@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect, useMemo } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { getAuth } from "firebase/auth";
 
-import MovieCard from "../components/MoviePages/LiveCard";
+import LiveCard from "../components/MoviePages/LiveCard";
 import GenreFilter from "../components/MoviePages/GenreFilter";
 import Pagination from "../components/MoviePages/Pagination";
 
@@ -23,6 +24,8 @@ const LiveShow = () => {
   const [error, setError] = useState(null);
 
   const itemsPerPage = 48;
+  const navigate = useNavigate();
+  const auth = getAuth();
 
   useEffect(() => {
     setSearchTerm(initialQuery);
@@ -35,11 +38,10 @@ const LiveShow = () => {
       setError(null);
       try {
         const res = await axios.get("https://fourloopers-9.onrender.com/api/livetvshows");
-        // Ensure data is an array
         setAllMovies(Array.isArray(res.data) ? res.data : []);
       } catch (err) {
         console.error(err);
-        setError("Failed to load movies.");
+        setError("Failed to load shows.");
         setAllMovies([]);
       } finally {
         setLoading(false);
@@ -48,13 +50,11 @@ const LiveShow = () => {
     fetchMovies();
   }, []);
 
-  // Safely handle .flatMap (check if array and flatMap available)
-  const allGenres = React.useMemo(() => {
+  const allGenres = useMemo(() => {
     if (!Array.isArray(allMovies)) return [];
     if (typeof allMovies.flatMap === "function") {
       return Array.from(new Set(allMovies.flatMap((movie) => movie.genres || []))).sort();
     }
-    // fallback if flatMap not supported
     const genres = allMovies.reduce((acc, movie) => {
       if (Array.isArray(movie.genres)) acc.push(...movie.genres);
       return acc;
@@ -62,7 +62,7 @@ const LiveShow = () => {
     return Array.from(new Set(genres)).sort();
   }, [allMovies]);
 
-  const filteredMovies = React.useMemo(() => {
+  const filteredMovies = useMemo(() => {
     return allMovies
       .filter((movie) =>
         movie.title?.toLowerCase().includes(searchTerm.toLowerCase())
@@ -74,7 +74,7 @@ const LiveShow = () => {
       );
   }, [allMovies, searchTerm, selectedGenres]);
 
-  const sortedMovies = React.useMemo(() => {
+  const sortedMovies = useMemo(() => {
     return [...filteredMovies].sort((a, b) => {
       if (sortType === "rating") return (b.rating || 0) - (a.rating || 0);
       if (sortType === "releaseDate")
@@ -114,7 +114,7 @@ const LiveShow = () => {
               id="search-input"
               type="text"
               className="w-full px-4 py-2 bg-zinc-900 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              placeholder="Find a movie..."
+              placeholder="Find a live show..."
               value={searchTerm}
               onChange={(e) => {
                 setSearchTerm(e.target.value);
@@ -146,20 +146,20 @@ const LiveShow = () => {
           />
         </aside>
 
-        {/* Movies Grid */}
+        {/* Shows Grid */}
         <main className="flex-1">
-          {loading && <p className="text-gray-300">Loading movies...</p>}
+          {loading && <p className="text-gray-300">Loading shows...</p>}
           {error && <p className="text-red-500">{error}</p>}
 
           {!loading && !error && paginatedMovies.length === 0 && (
-            <p className="text-gray-400">No matching movies found.</p>
+            <p className="text-gray-400">No matching shows found.</p>
           )}
 
           {!loading && !error && paginatedMovies.length > 0 && (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
                 {paginatedMovies.map((movie) => (
-                  <MovieCard key={movie.id || movie.title} movie={movie} />
+                  <LiveCard key={movie.id || movie.title} movie={movie} />
                 ))}
               </div>
 

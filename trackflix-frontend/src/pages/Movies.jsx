@@ -40,8 +40,6 @@ const Movie = () => {
       setError(null);
       try {
         const res = await axios.get("https://fourloopers-9.onrender.com/api/fullmovies");
-        // If your API wraps movies inside a key (like res.data.movies), adjust here:-> i will adjust  does in file json
-        // setAllMovies(res.data.movies);
         setAllMovies(res.data);
       } catch (err) {
         console.error(err);
@@ -192,7 +190,8 @@ const Movie = () => {
 
           {!loading && !error && paginatedMovies.length > 0 && (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+
                 {paginatedMovies.map((movie) => (
                   <MovieCard
                     key={movie.id || movie.title}

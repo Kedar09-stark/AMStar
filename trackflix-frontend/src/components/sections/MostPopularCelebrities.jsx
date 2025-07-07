@@ -69,7 +69,7 @@ useEffect(() => {
               <motion.div
                 key={id}
                 className="snap-start flex-shrink-0 w-40 sm:w-44 md:w-48 cursor-pointer relative outline-none"
-                onClick={() => navigate(`/celebrity/${id}`)}
+               
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => {

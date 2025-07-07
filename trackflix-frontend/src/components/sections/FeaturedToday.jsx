@@ -1,15 +1,14 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import FlipCard from "../sectionExtra/FlipCard";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/firebase-config";
-import useReducedMotionOrSmallScreen from "../../hooks/useReducedMotionOrSmallScreen";
 import axios from "axios";
-const ITEM_WIDTH = 200; // card width + gap is managed separately below
-const GAP = 16;
+
+const ITEM_WIDTH = 160;
+const GAP = 12;
 
 const FeaturedToday = () => {
   const [flippedCard, setFlippedCard] = useState(null);
@@ -18,9 +17,7 @@ const FeaturedToday = () => {
   const sliderRef = useRef(null);
   const navigate = useNavigate();
   const auth = getAuth();
-  const shouldReduceMotion = useReducedMotionOrSmallScreen();
 
-  // Listen for auth state changes once
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsLoggedIn(!!user);
@@ -28,24 +25,23 @@ const FeaturedToday = () => {
     return unsubscribe;
   }, [auth]);
 
-  // Fetch featured items on mount
- useEffect(() => {
-  const fetchFeaturedItems = async () => {
-    try {
-      const response = await axios.get("https://fourloopers-9.onrender.com/api/featureditems");
-      setFeaturedItems(response.data);
-    } catch (error) {
-      console.error("Failed to fetch featured items:", error);
+  useEffect(() => {
+    async function fetchItems() {
+      try {
+        const response = await axios.get(
+          "https://fourloopers-9.onrender.com/api/featureditems"
+        );
+        setFeaturedItems(response.data);
+      } catch (e) {
+        console.error("Failed to fetch featured items:", e);
+      }
     }
-  };
-  fetchFeaturedItems();
-}, []);
+    fetchItems();
+  }, []);
 
   const handleFlip = useCallback(
-    (id) => {
-      setFlippedCard((prev) => (prev === id ? null : id));
-    },
-    [setFlippedCard]
+    (id) => setFlippedCard((prev) => (prev === id ? null : id)),
+    []
   );
 
   const handleAddToWatchlist = useCallback(
@@ -61,28 +57,29 @@ const FeaturedToday = () => {
         });
         alert("Added to watchlist!");
       } catch (error) {
-        console.error("Error adding to watchlist:", error);
+        console.error(error);
       }
     },
     [auth.currentUser, navigate]
   );
 
-  const scrollByOffset = useCallback((offset) => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: offset, behavior: "smooth" });
-    }
-  }, []);
+  const scrollBy = useCallback(
+    (offset) => {
+      if (sliderRef.current) {
+        sliderRef.current.scrollBy({ left: offset, behavior: "smooth" });
+      }
+    },
+    []
+  );
 
-  const scrollLeft = useCallback(() => scrollByOffset(-(ITEM_WIDTH + GAP)), [scrollByOffset]);
-  const scrollRight = useCallback(() => scrollByOffset(ITEM_WIDTH + GAP), [scrollByOffset]);
+  const scrollLeft = () => scrollBy(-(ITEM_WIDTH + GAP));
+  const scrollRight = () => scrollBy(ITEM_WIDTH + GAP);
 
-  // Touch/swipe handling for slider
   useEffect(() => {
     const slider = sliderRef.current;
     if (!slider) return;
 
     let startX = 0;
-    let currentX = 0;
     let isDragging = false;
 
     const onTouchStart = (e) => {
@@ -90,67 +87,66 @@ const FeaturedToday = () => {
       isDragging = true;
     };
 
-    const onTouchMove = (e) => {
+    const onTouchEnd = (e) => {
       if (!isDragging) return;
-      currentX = e.touches[0].clientX;
-    };
-
-    const onTouchEnd = () => {
-      if (!isDragging) return;
-      const diff = startX - currentX;
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
       if (diff > 30) scrollRight();
       else if (diff < -30) scrollLeft();
       isDragging = false;
     };
 
     slider.addEventListener("touchstart", onTouchStart, { passive: true });
-    slider.addEventListener("touchmove", onTouchMove, { passive: true });
     slider.addEventListener("touchend", onTouchEnd);
 
     return () => {
       slider.removeEventListener("touchstart", onTouchStart);
-      slider.removeEventListener("touchmove", onTouchMove);
       slider.removeEventListener("touchend", onTouchEnd);
     };
   }, [scrollLeft, scrollRight]);
 
   return (
-    <motion.section
-      className="bg-zinc-900 text-white px-4 py-4"
-      initial={shouldReduceMotion ? {} : { opacity: 0, y: 20 }}
-      animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      aria-label="Featured Today section"
+    <section
+      className="bg-zinc-900 text-white px-4 py-8"
+      style={{ minHeight: "66vh" }}
+      aria-label="Featured Today Section"
     >
-      <div className="max-w-7xl mx-auto">
-        <header className="mb-4 text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-yellow-400" tabIndex={0}>
-            🌟 Featured Today
-          </h2>
-          <p className="mt-2 text-gray-300 text-sm sm:text-base" tabIndex={0}>
+      <div className="max-w-7xl mx-auto w-full">
+        <header className="mb-6 text-center">
+         <h1 className="text-4xl sm:text-6xl font-bold text-yellow-400" tabIndex={0}>
+  🌟 Featured Today
+</h1>
+          <p className="mt-1 text-gray-300 text-sm sm:text-base" tabIndex={0}>
             Blockbuster picks for you
           </p>
         </header>
 
         <div className="relative">
+          {/* Left arrow - desktop only */}
           <button
-            aria-label="Scroll Left"
             onClick={scrollLeft}
-            className="absolute left-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-yellow-400 rounded-full p-2 z-10 focus:outline-yellow-300 focus:ring-2"
+            aria-label="Scroll Left"
+            className="hidden sm:flex absolute left-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-yellow-400 rounded-full p-2 z-10"
           >
-            <FaChevronLeft size={20} />
+            <FaChevronLeft size={18} />
           </button>
 
+          {/* Scroll container */}
           <div
             ref={sliderRef}
-            className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide px-10"
-            style={{ scrollPaddingLeft: "40px", scrollPaddingRight: "40px" }}
+            className="flex w-full gap-3 overflow-x-auto scroll-smooth snap-x snap-mandatory px-2 sm:px-6"
+            style={{ scrollPaddingLeft: "12px", scrollPaddingRight: "12px" }}
             role="list"
-            tabIndex={0}
-            aria-label="Featured items carousel"
           >
+            {featuredItems.length === 0 && (
+              <p className="text-yellow-400 mx-auto py-10">No featured items available.</p>
+            )}
             {featuredItems.map((item) => (
-              <div key={item.id} className="snap-center" role="listitem">
+              <div
+                key={item.id}
+                className="snap-center shrink-0 w-[45%] sm:w-[160px]"
+                role="listitem"
+              >
                 <FlipCard
                   item={item}
                   isFlipped={flippedCard === item.id}
@@ -162,25 +158,27 @@ const FeaturedToday = () => {
             ))}
           </div>
 
+          {/* Right arrow - desktop only */}
           <button
-            aria-label="Scroll Right"
             onClick={scrollRight}
-            className="absolute right-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-80 text-yellow-400 rounded-full p-2 z-10 focus:outline-yellow-300 focus:ring-2"
+            aria-label="Scroll Right"
+            className="hidden sm:flex absolute right-1 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-yellow-400 rounded-full p-2 z-10"
           >
-            <FaChevronRight size={20} />
+            <FaChevronRight size={18} />
           </button>
         </div>
 
-        <div className="mt-4 text-center">
+        {/* CTA */}
+        <div className="mt-6 text-center">
           <button
             onClick={() => navigate("/recommendations")}
-            className="bg-yellow-500 hover:bg-yellow-600 text-black px-5 py-2 rounded-full text-sm font-medium flex items-center justify-center gap-2 transition duration-300 focus:outline-yellow-300 focus:ring-2"
+            className="bg-yellow-500 hover:bg-yellow-600 text-black px-5 py-2 rounded-full text-sm font-medium flex items-center justify-center gap-2"
           >
             Get More <FaArrowRight />
           </button>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 
