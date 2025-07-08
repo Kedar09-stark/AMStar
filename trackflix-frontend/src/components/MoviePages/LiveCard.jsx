@@ -94,7 +94,7 @@ const LiveCard = ({ movie }) => {
         {/* Info */}
         <div className="p-3 md:p-4 space-y-3">
           <Link
-            to={`/liveD/${movie.id}`}
+            to={`/TvshowDetails/${movie.id}`}
             className="text-lg font-semibold text-white truncate block hover:underline"
           >
             {movie.title || "Untitled"}

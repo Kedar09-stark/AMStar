@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FlipCard from "../components/sectionExtra/FlipCard";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { addDoc, collection } from "firebase/firestore";
+//import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebase-config";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";

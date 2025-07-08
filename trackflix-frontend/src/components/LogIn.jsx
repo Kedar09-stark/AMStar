@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   FaTimes,
@@ -9,12 +9,13 @@ import {
   FaUserShield,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase-config";
 import { adminEmails } from "../constants/adminEmails";
+
+// Toastify
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LogIn = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -22,12 +23,33 @@ const LogIn = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
 
+  // On mount, show toast from localStorage if exists, then clear it
+  useEffect(() => {
+    const message = localStorage.getItem("toastMessage");
+    const type = localStorage.getItem("toastType");
+    if (message && type) {
+      if (type === "success") toast.success(message);
+      else if (type === "error") toast.error(message);
+      else if (type === "warn") toast.warn(message);
+      else toast.info(message);
+
+      localStorage.removeItem("toastMessage");
+      localStorage.removeItem("toastType");
+    }
+  }, []);
+
+  // Save toast info before navigation
+  const saveToast = (message, type) => {
+    localStorage.setItem("toastMessage", message);
+    localStorage.setItem("toastType", type);
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     const { email, password } = formData;
 
     if (!email || !password) {
-      toast.error("All fields are required.");
+      toast.warn("All fields are required.");
       return;
     }
 
@@ -35,17 +57,18 @@ const LogIn = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const userEmail = userCredential.user.email;
 
-      // Check if logged in user is an admin
       const isAdminEmail = adminEmails.includes(userEmail);
       setIsAdmin(isAdminEmail);
 
-      // Persist login info locally (consider syncing with global context too)
       localStorage.setItem("isAdmin", isAdminEmail ? "true" : "false");
       localStorage.setItem("userEmail", userEmail);
 
-      toast.success(isAdminEmail ? "Admin login successful!" : "User login successful!");
+      const successMessage = isAdminEmail ? "Admin login successful!" : "User login successful!";
+      toast.success(successMessage);
 
-      // Redirect after short delay
+      // Save toast to localStorage before navigation so it can re-show on next page if refreshed
+      saveToast(successMessage, "success");
+
       setTimeout(() => {
         navigate(isAdminEmail ? "/admin" : "/dashboard");
       }, 1500);
@@ -63,7 +86,6 @@ const LogIn = () => {
       style={{ backgroundImage: "url('images/he4.jpg')" }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-      <ToastContainer position="top-center" />
 
       <div className="relative z-10 flex justify-center items-center min-h-screen px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -154,6 +176,23 @@ const LogIn = () => {
               Sign up here
             </span>
           </p>
+
+          {/* Toast popup container */}
+<ToastContainer
+  position="top-center"
+  autoClose={2000}
+  hideProgressBar={false}
+  newestOnTop={false}
+  closeOnClick={true}
+  rtl={false}
+  pauseOnFocusLoss={false}
+  pauseOnHover={false}
+  draggable={true}
+  theme="colored"
+  style={{ top: "80px" }} // adjust this value to your header height
+/>
+
+
         </motion.div>
       </div>
     </div>

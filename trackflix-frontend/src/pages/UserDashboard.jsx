@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate, Routes, Route } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { fetchWatchlist } from "../api/watchlist";
@@ -8,8 +8,8 @@ import MovieCard from "../userdeshbord/MovieCard";
 import CenteredMessage from "../userdeshbord/CenteredMessage";
 import Recommendations from "../userdeshbord/Recommendations";
 import Ratings from "../userdeshbord/Ratings";
-//import Settings from "../userdeshbord/Settings";
-import UserTabsNav from "../userdeshbord/UserTabsNav"; // ✅ external import
+// import Settings from "../userdeshbord/Settings";
+import UserTabsNav from "../userdeshbord/UserTabsNav";
 
 const UserDashboard = () => {
   const [watchlist, setWatchlist] = useState([]);
@@ -62,6 +62,18 @@ const UserDashboard = () => {
     loadWatchlist();
   }, [user]);
 
+  // ✅ Filter out duplicate movies by title (case-insensitive)
+  const uniqueWatchlist = useMemo(() => {
+    const seenTitles = new Set();
+    return watchlist.filter((movie) => {
+      const title = (movie.title || "").toLowerCase();
+      if (seenTitles.has(title)) return false;
+      seenTitles.add(title);
+      return true;
+    });
+  }, [watchlist]);
+
+  // ✅ Show appropriate loading/error states
   if (authLoading)
     return <CenteredMessage message="🔄 Authenticating..." size="lg" />;
   if (dataLoading)
@@ -71,14 +83,15 @@ const UserDashboard = () => {
 
   return (
     <main className="min-h-screen bg-gradient-to-tr from-gray-50 to-gray-100 pt-28 px-4 sm:px-6 md:px-12 lg:px-16 max-w-screen-xl mx-auto">
-      <UserHeader user={user} watchlistCount={watchlist.length} />
+      {/* ✅ Pass only the unique (deduplicated) count to header */}
+      <UserHeader user={user} watchlistCount={uniqueWatchlist.length} />
       <UserTabsNav />
 
       <Routes>
         <Route
           index
           element={
-            watchlist.length === 0 ? (
+            uniqueWatchlist.length === 0 ? (
               <section
                 aria-live="polite"
                 className="flex flex-col items-center justify-center mt-20 space-y-4 text-gray-700"
@@ -97,12 +110,7 @@ const UserDashboard = () => {
                     strokeWidth={2}
                     d="M9 17v-2a4 4 0 00-4-4H5a4 4 0 014-4v2a4 4 0 004 4h2a4 4 0 01-4 4z"
                   />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6" />
                 </svg>
                 <p className="text-xl font-semibold">Your watchlist is empty.</p>
                 <button
@@ -118,13 +126,9 @@ const UserDashboard = () => {
                 aria-label="User watchlist movies"
                 className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
               >
-                {watchlist.map((movie, index) => (
+                {uniqueWatchlist.map((movie, index) => (
                   <MovieCard
-                    key={
-                      movie.id
-                        ? `${movie.id}-${index}`
-                        : `${movie.title}-${index}`
-                    }
+                    key={movie.id ? `${movie.id}-${index}` : `${movie.title}-${index}`}
                     movie={movie}
                   />
                 ))}

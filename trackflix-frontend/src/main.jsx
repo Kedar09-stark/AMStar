@@ -61,11 +61,11 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/movies", element: <Movies /> },
       { path: "/movies/:id", element: <MovieDetails /> },
-      { path: "/liveD/:id", element: <LiveDetails /> },
+      { path: "/TvshowDetails/:id", element: <LiveDetails /> },
       { path: "/search", element: <Search /> },
       { path: "/login", element: <LogIn /> },
       { path: "/signin", element: <SignIn /> },
-      { path: "/liveshow", element: <LiveShow /> },
+      { path: "/Tvshow", element: <LiveShow /> },
       { path: "/new-to-movies", element: <NewToMovies /> },
 
       { path: "/recommendations", element: <FTMoreRecommendations /> },

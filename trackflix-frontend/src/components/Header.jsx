@@ -79,7 +79,7 @@ function Header() {
             Movies
           </NavLink>
           <NavLink
-            to="/liveshow"
+            to="/Tvshow"
             className={({ isActive }) =>
               isActive ? activeClass : "hover:text-yellow-400 transition duration-200"
             }
@@ -185,7 +185,7 @@ function Header() {
             Movies
           </NavLink>
           <NavLink
-            to="/liveshow"
+            to="/Tvshow"
             className={({ isActive }) =>
               isActive
                 ? "block text-yellow-400 font-bold text-lg"
@@ -193,7 +193,7 @@ function Header() {
             }
             onClick={() => setIsMenuOpen(false)}
           >
-            Live Show
+            Tv Show
           </NavLink>
 
           {currentUserEmail ? (

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+// src/components/LiveDetails.jsx
+import React from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -18,79 +19,16 @@ import {
   FaRedoAlt,
 } from "react-icons/fa";
 import { containerVariants, itemVariants } from "../animations/MDanimation";
-import axios from "axios";
+import { useLiveShowDetails } from "../hooks/useLiveShowDetails";
 
 const LiveDetails = () => {
   const { id } = useParams();
-  const [movie, setMovie] = useState(null);
-  const [similar, setSimilar] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const isValidId = /^\d+$/.test(id);
-
-  const fetchMovie = async () => {
-    try {
-      setLoading(true);
-      setError(null);
-      setMovie(null);
-
-      if (!isValidId) throw new Error("Invalid movie ID");
-
-      const { data } = await axios.get(`https://fourloopers-9.onrender.com/api/liveshows/${id}`);
-
-      // Normalize awards
-      if (typeof data.awards === "string" && data.awards.trim() !== "") {
-        data.awardsText = data.awards;
-        data.awards = [];
-      }
-
-      setMovie(data);
-    } catch (err) {
-      if (err.response?.status === 404) {
-        setError("Movie not found");
-      } else {
-        setError("Failed to fetch movie");
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchMovie();
-  }, [id]);
-
-  // Optional: Fetch similar shows if your backend supports it
-  /*
-  useEffect(() => {
-    const fetchSimilar = async () => {
-      if (!movie?.similarShows?.length) {
-        setSimilar([]);
-        return;
-      }
-
-      try {
-        const responses = await Promise.all(
-          movie.similarShows.map(async (simId) => {
-            const res = await axios.get(`http://localhost:5000/api/liveshows/${simId}`);
-            return res.data;
-          })
-        );
-        setSimilar(responses);
-      } catch {
-        setSimilar([]);
-      }
-    };
-
-    if (movie) fetchSimilar();
-  }, [movie]);
-  */
+  const { movie, loading, error, refetch } = useLiveShowDetails(id);
 
   const youtubeId = movie?.trailer ? new URL(movie.trailer).searchParams.get("v") : null;
 
   if (loading) return <LoadingSkeleton />;
-  if (error) return <ErrorFallback message={error} onRetry={fetchMovie} />;
+  if (error) return <ErrorFallback message={error} onRetry={refetch} />;
   if (!movie) return <p className="text-center text-gray-400 mt-20 text-lg">No data available.</p>;
 
   return (
@@ -191,30 +129,6 @@ const LiveDetails = () => {
               className="w-full h-full"
               frameBorder={0}
             />
-          </div>
-        </motion.section>
-      )}
-
-      {similar.length > 0 && (
-        <motion.section className="mt-20" initial="hidden" animate="visible" variants={containerVariants}>
-          <h2 className="text-3xl font-bold text-yellow-400 mb-6">🎬 Similar Shows</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {similar.map((m) => (
-              <Link
-                to={`/tvshows/${m.id}`}
-                key={m.id}
-                className="bg-gray-800 rounded-xl p-4 hover:bg-gray-700 transition-all shadow-lg group"
-              >
-                <img
-                  src={m.image}
-                  alt={m.title}
-                  className="w-full h-64 object-cover rounded-lg mb-4 transition-transform duration-300 group-hover:scale-105"
-                />
-                <h3 className="text-xl font-semibold text-yellow-300 group-hover:underline transition-all duration-300">
-                  {m.title}
-                </h3>
-              </Link>
-            ))}
           </div>
         </motion.section>
       )}

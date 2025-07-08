@@ -8,11 +8,12 @@ import {
   FaEyeSlash
 } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/firebase-config";
+
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -53,11 +54,10 @@ const SignIn = () => {
 
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
       await updateProfile(userCredential.user, { displayName: fullName });
 
       toast.success("Account created successfully!");
-      setTimeout(() => navigate("/dashboard"), 1500);
+      setTimeout(() => navigate("/dashboard"), 1000);
     } catch (error) {
       toast.error(error.message || "Something went wrong.");
       console.error("Sign-up error:", error.message);
@@ -70,7 +70,6 @@ const SignIn = () => {
       style={{ backgroundImage: "url('images/he4.jpg')" }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
-      <ToastContainer position="top-center" />
 
       <div className="relative z-10 flex justify-center items-center min-h-screen px-4 sm:px-6 lg:px-8 pt-28">
         <motion.div
@@ -149,10 +148,6 @@ const SignIn = () => {
               <div
                 className="absolute right-4 top-4 text-gray-500 cursor-pointer hover:text-gray-800"
                 onClick={() => setShowPassword(!showPassword)}
-                aria-label={showPassword ? "Hide password" : "Show password"}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setShowPassword(!showPassword)}}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </div>
@@ -176,10 +171,6 @@ const SignIn = () => {
               <div
                 className="absolute right-4 top-4 text-gray-500 cursor-pointer hover:text-gray-800"
                 onClick={() => setShowConfirm(!showConfirm)}
-                aria-label={showConfirm ? "Hide confirm password" : "Show confirm password"}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setShowConfirm(!showConfirm)}}
               >
                 {showConfirm ? <FaEyeSlash /> : <FaEye />}
               </div>
@@ -201,14 +192,12 @@ const SignIn = () => {
             <button
               onClick={() => toast.info("Google login coming soon!")}
               className="flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded text-sm"
-              aria-label="Sign up with Google"
             >
               <FaGoogle /> Google
             </button>
             <button
               onClick={() => toast.info("Facebook login coming soon!")}
               className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-sm"
-              aria-label="Sign up with Facebook"
             >
               <FaFacebook /> Facebook
             </button>
@@ -219,15 +208,27 @@ const SignIn = () => {
             <span
               onClick={() => navigate("/login")}
               className="text-blue-500 hover:underline cursor-pointer"
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') navigate("/login") }}
             >
               Log in here
             </span>
           </p>
         </motion.div>
       </div>
+
+      {/* ToastContainer with top offset */}
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={true}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
+        draggable={true}
+        theme="colored"
+        style={{ top: "80px" }} // Adjust this value to your header height
+      />
     </div>
   );
 };

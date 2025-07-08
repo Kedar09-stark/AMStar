@@ -1,22 +1,24 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, lazy, Suspense } from "react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { movies } from "../data/movies";
 
-// Icon components (used inside HeroVideo)
+// Icon components
 import PlayIcon from "../components/icons/PlayIcon";
 import PauseIcon from "../components/icons/PauseIcon";
 import VolumeMuteIcon from "../components/icons/VolumeMuteIcon";
 import VolumeUpIcon from "../components/icons/VolumeUpIcon";
 
-// Section components
+// Core section components
 import HeroSearch from "../components/sections/HeroSearch";
 import HeroVideo from "../components/sections/HeroVideo";
-import FeaturedToday from "../components/sections/FeaturedToday";
-import MostPopularCelebrities from "../components/sections/MostPopularCelebrities";
-import Top10Trackflix from "../components/sections/Top10Trackflix";
-import FanFavorites from "../components/sections/FanFavorites";
-import PopularInterests from "../components/sections/PopularInterests";
 
+// Lazy-loaded components for performance
+const FeaturedToday = lazy(() => import("../components/sections/FeaturedToday"));
+const MostPopularCelebrities = lazy(() => import("../components/sections/MostPopularCelebrities"));
+const Top10Trackflix = lazy(() => import("../components/sections/Top10Trackflix"));
+const FanFavorites = lazy(() => import("../components/sections/FanFavorites"));
+const PopularInterests = lazy(() => import("../components/sections/PopularInterests"));
 
 const Home = () => {
   const [current, setCurrent] = useState(0);
@@ -28,62 +30,79 @@ const Home = () => {
 
   const currentMovie = movies[current];
 
-  const nextSlide = () => setCurrent((current + 1) % movies.length);
-  const prevSlide = () => setCurrent((current - 1 + movies.length) % movies.length);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % movies.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextSlide = () => setCurrent((prev) => (prev + 1) % movies.length);
+  const prevSlide = () => setCurrent((prev) => (prev - 1 + movies.length) % movies.length);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (searchTerm.trim()) {
-      navigate(`/${searchTerm.trim().toLowerCase()}`);
+    const trimmed = searchTerm.trim().toLowerCase();
+    if (trimmed) {
+      navigate(`/${trimmed}`);
       setSearchTerm("");
     }
   };
 
   const togglePlayPause = () => {
-    if (!videoRef.current) return;
-    isPlaying ? videoRef.current.pause() : videoRef.current.play();
-    setIsPlaying(!isPlaying);
+    if (videoRef.current) {
+      isPlaying ? videoRef.current.pause() : videoRef.current.play();
+      setIsPlaying((prev) => !prev);
+    }
   };
 
   const toggleMute = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted((prev) => !prev);
+    }
   };
 
   return (
     <>
-      {/* Hero Text & Search */}
-      <HeroSearch
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        handleSubmit={handleSubmit}
-      />
+      <Helmet>
+        <title>Home | Trackflix</title>
+        <meta name="description" content="Watch trending movies, explore fan favorites, and discover top celebrities only on Trackflix." />
+        <meta name="keywords" content="Trackflix, movies, video streaming, celebrities, fan favorites, entertainment" />
+      </Helmet>
 
-      {/* Hero Video Slideshow */}
-      <HeroVideo
-        videoRef={videoRef}
-        currentMovie={currentMovie}
-        isMuted={isMuted}
-        isPlaying={isPlaying}
-        togglePlayPause={togglePlayPause}
-        toggleMute={toggleMute}
-        nextSlide={nextSlide}
-        prevSlide={prevSlide}
-        PlayIcon={PlayIcon}
-        PauseIcon={PauseIcon}
-        VolumeMuteIcon={VolumeMuteIcon}
-        VolumeUpIcon={VolumeUpIcon}
-      />
+      <main>
+        <HeroSearch
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          handleSubmit={handleSubmit}
+        />
 
-      {/* Movie Sections */}
-      <div className="bg-black text-white space-y-20 py-12 px-4 sm:px-12">
-        <FeaturedToday />
-        <MostPopularCelebrities />
-        <Top10Trackflix />
-        <FanFavorites />
-        <PopularInterests />
-      </div>
+        <HeroVideo
+          videoRef={videoRef}
+          currentMovie={currentMovie}
+          isMuted={isMuted}
+          isPlaying={isPlaying}
+          togglePlayPause={togglePlayPause}
+          toggleMute={toggleMute}
+          nextSlide={nextSlide}
+          prevSlide={prevSlide}
+          PlayIcon={PlayIcon}
+          PauseIcon={PauseIcon}
+          VolumeMuteIcon={VolumeMuteIcon}
+          VolumeUpIcon={VolumeUpIcon}
+        />
+
+        <section className="bg-black text-white space-y-20 py-12 px-4 sm:px-12">
+          <Suspense fallback={<div className="text-white">Loading sections...</div>}>
+            <FeaturedToday />
+            <MostPopularCelebrities />
+            <Top10Trackflix />
+            <FanFavorites />
+            <PopularInterests />
+          </Suspense>
+        </section>
+      </main>
     </>
   );
 };
