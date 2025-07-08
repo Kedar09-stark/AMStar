@@ -1,0 +1,12 @@
+export { default as CelebritiesTab } from "./CelebritiesTab";
+export { default as FanFavouritesTab } from "./FanFavouritesTab";
+export { default as FullMovieDetailsTab } from "./FullMovieDetailsTab";
+export { default as FullMoviesTab } from "./FullMoviesTab";
+export { default as LiveTVShowsTab } from "./LiveTVShowsTab";
+export { default as LiveTVDetailsTab } from "./LiveTVDetailsTab";
+export { default as FeaturedItemsTab } from "./FeaturedItemsTab";
+export { default as FTRecommendationsTab } from "./FTRecommendationsTab";
+export { default as TopTenMoviesTab } from "./TopTenMoviesTab";
+export { default as MoreCelebrityTab } from "./MoreCelebrityTab";
+export { default as InterestsTab } from "./InterestsTab";
+export { default as UsersTab } from "./UsersTab";

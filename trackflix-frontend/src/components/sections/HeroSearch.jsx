@@ -9,7 +9,7 @@ import {
   formVariant,
 } from "../../animations/heroAnimations";
 
-import MatrixLetter from "../sectionExtra/MatrixLetter";
+// import MatrixLetter from "../sectionExtra/MatrixLetter";  // COMMENTED OUT
 
 const heading = "Keep your movie diary.";
 
@@ -86,51 +86,50 @@ const HeroSearch = () => {
         variants={textContainer}
       >
         {/* Logo */}
-    <motion.img
-  src="/images/lo-removebg-preview2.png"
-  alt="TrackFlix Logo"
-  className="
-    w-[200px]
-    sm:w-[260px]
-    md:w-[320px]
-    lg:w-[400px]
-    xl:w-[460px]
-    object-contain
-    mx-auto
-    drop-shadow-lg
-    cursor-pointer
-    hover:scale-105
-    transition-transform
-    duration-300
-
-    mb-1
-    mt-10         /* Push down on mobile */
-    sm:mt-0       /* Reset margin-top on sm and above */
-  "
-  variants={logoVariant}
-  animate={
-    reduceMotion
-      ? { opacity: 1, y: 0 }
-      : {
-          y: [0, -10, 0],
-          opacity: [0.9, 1, 0.9],
-        }
-  }
-  transition={
-    reduceMotion
-      ? { duration: 0 }
-      : {
-          y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-          opacity: { duration: 3, repeat: Infinity },
-        }
-  }
-  aria-hidden="true"
-/>
-
+        <motion.img
+          src="/images/lo-removebg-preview2.png"
+          alt="TrackFlix Logo"
+          className="
+            w-[200px]
+            sm:w-[260px]
+            md:w-[320px]
+            lg:w-[400px]
+            xl:w-[460px]
+            object-contain
+            mx-auto
+            drop-shadow-lg
+            cursor-pointer
+            hover:scale-105
+            transition-transform
+            duration-300
+            mb-1
+            mt-10
+            sm:mt-0
+          "
+          variants={logoVariant}
+          animate={
+            reduceMotion
+              ? { opacity: 1, y: 0 }
+              : {
+                  y: [0, -10, 0],
+                  opacity: [0.9, 1, 0.9],
+                }
+          }
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : {
+                  y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+                  opacity: { duration: 3, repeat: Infinity },
+                }
+          }
+          aria-hidden="true"
+        />
 
         {/* Hero Text */}
         <motion.div className="space-y-4" variants={textItem}>
           {/* Matrix Animated Heading */}
+          {/* 
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight -mt-3 flex flex-wrap justify-center"
             aria-label={heading}
@@ -138,12 +137,29 @@ const HeroSearch = () => {
             {heading.split("").map((char, i) => (
               <MatrixLetter key={i} targetChar={char} delay={i * 100} />
             ))}
+          </motion.h1> 
+          */}
+          <motion.h1
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight -mt-3 flex flex-wrap justify-center"
+            aria-label={heading}
+          >
+            {heading}
           </motion.h1>
 
           {/* Neon Glitch Subheading */}
-          <motion.h2 className="text-xl sm:text-2xl md:text-3xl font-semibold leading-snug neon-float">
-            Craft your watchlist.
-          </motion.h2>
+        <motion.h2
+  className="text-xl sm:text-2xl md:text-3xl font-semibold leading-snug neon-float"
+  //style={{ color: "#1abc9c" }} // turquoise color
+  style={{ color: "#e67e22" }} // orange
+//style={{ color: "#9b59b6" }} // purple
+//style={{ color: "#3498db" }} // bright blue
+//style={{ color: "#e74c3c" }} // red
+//style={{ color: "#f39c12" }} // amber/yellow
+//style={{ color: "#2ecc71" }} // green
+
+>
+  Craft your watchlist.
+</motion.h2>
 
           {/* Typewriter Subheading */}
           <motion.h3
