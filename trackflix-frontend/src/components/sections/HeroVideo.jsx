@@ -38,12 +38,24 @@ const HeroVideo = ({
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, 100]);
 
+  // Pause video when component unmounts
   useEffect(() => {
     return () => {
       if (videoRef?.current) videoRef.current.pause();
     };
   }, [videoRef]);
 
+  // Control playback when isPlaying changes
+  useEffect(() => {
+    if (!videoRef?.current) return;
+    if (isPlaying) {
+      videoRef.current.play().catch(() => {});
+    } else {
+      videoRef.current.pause();
+    }
+  }, [isPlaying, videoRef]);
+
+  // Pause video on visibility change
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (!videoRef?.current) return;
@@ -56,6 +68,7 @@ const HeroVideo = ({
       document.removeEventListener("visibilitychange", handleVisibilityChange);
   }, [videoRef, isPlaying]);
 
+  // Pause/play video on intersection observer depending on visibility
   useEffect(() => {
     if (!videoRef?.current) return;
     const observer = new IntersectionObserver(
@@ -72,6 +85,7 @@ const HeroVideo = ({
     return () => observer.disconnect();
   }, [videoRef, isPlaying]);
 
+  // Buffering state handlers
   useEffect(() => {
     if (!videoRef?.current) return;
     const video = videoRef.current;
@@ -112,7 +126,6 @@ const HeroVideo = ({
           ref={videoRef}
           className="w-full h-full object-cover"
           src={currentMovie.video}
-          autoPlay
           muted={isMuted}
           loop
           playsInline
