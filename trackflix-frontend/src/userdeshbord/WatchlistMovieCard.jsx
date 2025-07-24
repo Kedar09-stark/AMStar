@@ -20,20 +20,20 @@ const WatchlistMovieCard = ({ movie }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      className="relative overflow-hidden rounded-xl shadow-xl group w-full sm:w-64 bg-black text-white cursor-pointer"
+      className="relative overflow-hidden rounded-xl shadow-xl group w-full max-w-xs sm:max-w-sm md:max-w-xs bg-black text-white cursor-pointer transition-all duration-300"
     >
-      {/* Image */}
+      {/* Poster Image */}
       <img
         src={isValidImage ? imageSrc : "/fallback.jpg"}
         alt={movie.title || "Movie Poster"}
-        className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
+        className="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
         onError={(e) => (e.target.src = "/fallback.jpg")}
         loading="lazy"
       />
 
-      {/* Hover overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-end">
-        <h2 className="text-lg font-bold leading-tight line-clamp-2">
+      {/* Overlay or Always-Visible Info */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent p-3 sm:opacity-0 sm:group-hover:opacity-100 opacity-100 sm:transition-opacity sm:duration-300 flex flex-col justify-end">
+        <h2 className="text-base sm:text-lg font-bold leading-tight line-clamp-2">
           {movie.title || "Untitled"}
         </h2>
         <p className="text-yellow-400 text-sm mt-1">⭐ {displayRating}</p>

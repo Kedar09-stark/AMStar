@@ -69,7 +69,6 @@ const Recommendations = () => {
 
       if (uniqueMovies.length === 0) {
         setError("No movies found based on your preferences.");
-        setLoading(false);
         return;
       }
 
@@ -91,9 +90,9 @@ const Recommendations = () => {
   };
 
   return (
-    <main className="min-h-screen w-full bg-gradient-to-tr from-[#0e0e0e] via-[#1b1b1b] to-[#111] flex items-center justify-center px-4 py-10 font-sans">
+    <main className="min-h-screen w-full bg-gradient-to-tr from-[#0e0e0e] via-[#1b1b1b] to-[#111] flex items-center justify-center px-4 py-8 font-sans overflow-x-hidden">
       <motion.div
-        className="max-w-5xl w-full rounded-3xl shadow-2xl border border-gray-700 bg-black/30 backdrop-blur-md p-6 sm:p-12 text-white relative"
+        className="max-w-full sm:max-w-5xl w-full rounded-3xl shadow-2xl border border-gray-700 bg-black/30 backdrop-blur-md p-4 sm:p-10 text-white relative"
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
@@ -108,16 +107,16 @@ const Recommendations = () => {
               transition={{ duration: 0.6, ease: "easeInOut" }}
               className="text-center"
             >
-              <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 text-yellow-400 drop-shadow-lg">
+              <h1 className="text-3xl sm:text-5xl font-extrabold mb-6 text-yellow-400 drop-shadow-lg">
                 🎬 Movie Matcher AI
               </h1>
-              <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                 Let AI pick a movie just for you. Answer a few fun questions and
                 discover your perfect watch tonight.
               </p>
               <motion.button
                 onClick={() => setQuizMode(true)}
-                className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-8 py-3 rounded-full text-lg shadow-lg transition-transform hover:scale-105"
+                className="bg-yellow-500 hover:bg-yellow-600 text-black font-semibold px-6 py-3 rounded-full text-lg shadow-lg transition-transform hover:scale-105 w-full sm:w-auto"
                 whileTap={{ scale: 0.95 }}
               >
                 🚀 Start Recommendation Quiz
@@ -130,6 +129,7 @@ const Recommendations = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -40 }}
               transition={{ duration: 0.5 }}
+              className="overflow-y-auto max-h-[calc(100vh-100px)]"
             >
               <Quiz
                 question={quizQuestions[quizStep]}
@@ -144,6 +144,7 @@ const Recommendations = () => {
                   }
                 }}
                 progress={((quizStep + 1) / quizQuestions.length) * 100}
+                quizStep={quizStep}
               />
             </motion.div>
           ) : (
