@@ -62,7 +62,6 @@ const UserDashboard = () => {
     loadWatchlist();
   }, [user]);
 
-  // ✅ Filter out duplicate movies by title (case-insensitive)
   const uniqueWatchlist = useMemo(() => {
     const seenTitles = new Set();
     return watchlist.filter((movie) => {
@@ -73,7 +72,6 @@ const UserDashboard = () => {
     });
   }, [watchlist]);
 
-  // ✅ Show appropriate loading/error states
   if (authLoading)
     return <CenteredMessage message="🔄 Authenticating..." size="lg" />;
   if (dataLoading)
@@ -83,7 +81,6 @@ const UserDashboard = () => {
 
   return (
     <main className="min-h-screen bg-gradient-to-tr from-gray-50 to-gray-100 pt-28 px-4 sm:px-6 md:px-12 lg:px-16 max-w-screen-xl mx-auto">
-      {/* ✅ Pass only the unique (deduplicated) count to header */}
       <UserHeader user={user} watchlistCount={uniqueWatchlist.length} />
       <UserTabsNav />
 
@@ -110,7 +107,12 @@ const UserDashboard = () => {
                     strokeWidth={2}
                     d="M9 17v-2a4 4 0 00-4-4H5a4 4 0 014-4v2a4 4 0 004 4h2a4 4 0 01-4 4z"
                   />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6"
+                  />
                 </svg>
                 <p className="text-xl font-semibold">Your watchlist is empty.</p>
                 <button
@@ -124,7 +126,7 @@ const UserDashboard = () => {
               <section
                 aria-live="polite"
                 aria-label="User watchlist movies"
-                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+                className="grid grid-cols-4 gap-3 sm:gap-4"
               >
                 {uniqueWatchlist.map((movie, index) => (
                   <MovieCard

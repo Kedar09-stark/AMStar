@@ -31,7 +31,7 @@ const MovieCard = ({ movie, onRate, editable = false }) => {
   return (
     <article
       tabIndex={0}
-      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group w-full max-w-[160px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[250px] mx-auto"
+      className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group w-full max-w-[90px] sm:max-w-[140px] md:max-w-[180px] lg:max-w-[200px] mx-auto"
     >
       <div className="relative w-full aspect-[2/3] overflow-hidden">
         <img
@@ -51,10 +51,10 @@ const MovieCard = ({ movie, onRate, editable = false }) => {
       </div>
 
       <div className="p-3 bg-gradient-to-t from-white via-white/80 to-transparent">
-        <h2 className="text-sm md:text-base font-semibold text-gray-900 line-clamp-1">
+        <h2 className="text-xs sm:text-sm md:text-base font-semibold text-gray-900 line-clamp-1">
           {movie.title || "Untitled"}
         </h2>
-        <p className="text-xs text-gray-600 line-clamp-2 mt-1">
+        <p className="text-[10px] sm:text-xs text-gray-600 line-clamp-2 mt-1">
           {Array.isArray(movie.genres) && movie.genres.length > 0
             ? movie.genres.join(", ")
             : "Genre N/A"}
