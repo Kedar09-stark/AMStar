@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+import { motion } from "framer-motion";
 
 const RatingMovieCard = ({ movie, onRate }) => {
   const movieId = movie.id || movie.movieId;
@@ -27,56 +28,91 @@ const RatingMovieCard = ({ movie, onRate }) => {
   };
 
   return (
-    <article
+    <motion.article
       tabIndex={0}
-      className="bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden group w-full max-w-[160px] sm:max-w-[180px] md:max-w-[220px] lg:max-w-[250px] mx-auto"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.03, rotate: 1 }}
+      transition={{ type: "spring", stiffness: 100, damping: 15 }}
+      viewport={{ once: true }}
+      className="
+        flex flex-col justify-between
+        bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group 
+        w-full 
+        max-w-[130px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[250px] 
+        mx-auto
+      "
       aria-label={`Movie: ${movie.title || "Untitled"}`}
     >
       <div className="relative w-full aspect-[2/3] overflow-hidden rounded-t-2xl shadow-lg">
-        <img
+        <motion.img
           src={isValidImage ? imageSrc : "/fallback.jpg"}
           alt={movie.title || "Movie poster"}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="absolute inset-0 w-full h-full object-cover"
           loading="lazy"
           onError={(e) => {
             if (e.target.src !== "/fallback.jpg") {
               e.target.src = "/fallback.jpg";
             }
           }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.4 }}
         />
-        <div
+        <motion.div
           className="
-            absolute top-3 left-3
+            absolute top-2 left-2
             bg-gradient-to-br from-yellow-400 to-yellow-500
-            text-black font-semibold text-sm
-            px-3 py-1 rounded-full
+            text-black font-semibold text-xs sm:text-sm
+            px-2 sm:px-3 py-0.5 sm:py-1 rounded-full
             shadow-lg
             flex items-center
             select-none
             drop-shadow-md
             ring-1 ring-yellow-600
           "
-          style={{ fontFeatureSettings: "'tnum'" }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
         >
           ⭐ {userRating.toFixed(1)}
-        </div>
+        </motion.div>
       </div>
 
-      <div className="p-5 bg-yellow-50 rounded-b-2xl shadow-md border border-yellow-300">
-        <h2 className="text-lg font-bold text-yellow-700 line-clamp-1 tracking-tight">
+      <motion.div
+        className="p-2 sm:p-3 md:p-5 bg-yellow-50 rounded-b-2xl shadow-md border border-yellow-300"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.4 }}
+      >
+        <motion.h2
+          className="text-sm sm:text-base md:text-lg font-bold text-yellow-700 line-clamp-1 tracking-tight"
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.35 }}
+        >
           {movie.title || "Untitled"}
-        </h2>
+        </motion.h2>
 
-        <p className="text-yellow-600 text-sm mt-1 line-clamp-2">
+        <motion.p
+          className="text-xs sm:text-sm text-yellow-600 mt-1 line-clamp-2"
+          initial={{ opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4 }}
+        >
           {Array.isArray(movie.genres) && movie.genres.length > 0
             ? movie.genres.join(", ")
             : "Genre N/A"}
-        </p>
+        </motion.p>
 
-        <div className="mt-5">
+        <motion.div
+          className="mt-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+        >
           <label
             htmlFor={`rating-${movieId}`}
-            className="block mb-2 font-semibold text-yellow-800"
+            className="block mb-1 text-xs sm:text-sm font-semibold text-yellow-800"
           >
             My Ratings
           </label>
@@ -87,12 +123,12 @@ const RatingMovieCard = ({ movie, onRate }) => {
             onChange={handleRatingChange}
             className="
               w-full
-              text-sm
+              text-xs sm:text-sm
               rounded-md
               border-2
               border-yellow-500
               bg-black
-              px-3 py-2
+              px-2 sm:px-3 py-1.5 sm:py-2
               shadow-sm
               focus:outline-none
               focus:ring-4
@@ -102,6 +138,7 @@ const RatingMovieCard = ({ movie, onRate }) => {
               duration-300
               hover:bg-yellow-300
               cursor-pointer
+              text-white
             "
           >
             <option value={0}>No rating</option>
@@ -111,9 +148,9 @@ const RatingMovieCard = ({ movie, onRate }) => {
               </option>
             ))}
           </select>
-        </div>
-      </div>
-    </article>
+        </motion.div>
+      </motion.div>
+    </motion.article>
   );
 };
 
