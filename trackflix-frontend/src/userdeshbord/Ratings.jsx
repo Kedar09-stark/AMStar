@@ -112,7 +112,8 @@ const Ratings = ({ user }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {/* UPDATED GRID with more columns on mobile */}
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
         {uniqueRatings.map((movie, idx) => (
           <RatingMovieCard
             key={`${movie.title || "movie"}-${movie.id || idx}`} // unique key by title + id/index fallback

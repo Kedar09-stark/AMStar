@@ -25,27 +25,28 @@ const FullMovieDetailList = ({
     );
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-10">
-      <h3 className="text-3xl font-extrabold mb-8 text-center text-sky-500 drop-shadow">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
+      <h3 className="text-2xl sm:text-3xl font-extrabold mb-8 text-center text-sky-500 drop-shadow">
         🎬 Full Movie List
       </h3>
 
-      <div className="space-y-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         {fullMovieDetails.map((movie) => (
           <div
             key={movie.id}
-            className="bg-gradient-to-br from-slate-800 via-slate-900 to-black text-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col md:flex-row gap-6 p-6"
+            className="bg-gradient-to-br from-slate-800 via-slate-900 to-black text-white rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 flex flex-col p-4 sm:p-6"
+            style={{ minHeight: "100%" }}
           >
             {/* Poster Image */}
             {movie.image ? (
               <img
                 src={movie.image}
                 alt={movie.title}
-                className="w-full md:w-48 h-auto rounded-lg object-cover shadow-lg"
+                className="w-3/4 h-40 rounded-lg object-cover shadow-lg mb-4 mx-auto"
                 loading="lazy"
               />
             ) : (
-              <div className="w-full md:w-48 h-64 bg-slate-700 rounded-lg flex items-center justify-center text-slate-400 text-lg font-semibold">
+              <div className="w-3/4 h-40 bg-slate-700 rounded-lg flex items-center justify-center text-slate-400 text-lg font-semibold mb-4 mx-auto">
                 No Image
               </div>
             )}
@@ -53,27 +54,27 @@ const FullMovieDetailList = ({
             {/* Movie Info */}
             <div className="flex-grow flex flex-col justify-between">
               <div>
-                <h4 className="text-2xl font-bold">{movie.title}</h4>
+                <h4 className="text-lg sm:text-xl font-bold">{movie.title}</h4>
                 <p
-                  className="mt-3 text-slate-300 line-clamp-3 leading-relaxed"
+                  className="mt-2 text-sm sm:text-base text-slate-300 leading-relaxed line-clamp-4"
                   title={movie.overview}
                   style={{ cursor: "help" }}
                 >
                   {movie.overview}
                 </p>
 
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3 flex flex-wrap gap-2">
                   {movie.genres?.map((g) => (
                     <span
                       key={g}
-                      className="bg-gradient-to-r from-sky-500 to-fuchsia-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow"
+                      className="bg-gradient-to-r from-sky-500 to-fuchsia-600 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-semibold shadow"
                     >
                       {g}
                     </span>
                   ))}
                 </div>
 
-                <div className="mt-4 text-sm text-slate-400 space-y-1">
+                <div className="mt-3 text-xs sm:text-sm text-slate-400 space-y-1">
                   <p>
                     <span className="font-medium text-sky-400">📅 Release Date:</span>{" "}
                     {movie.releaseDate}
@@ -102,16 +103,16 @@ const FullMovieDetailList = ({
               </div>
 
               {/* Action buttons */}
-              <div className="mt-6 flex gap-4 justify-end">
+              <div className="mt-5 flex gap-3 justify-end">
                 <button
                   onClick={() => onEdit(movie)}
-                  className="bg-sky-600 hover:bg-sky-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-sky-400"
+                  className="bg-sky-600 hover:bg-sky-700 text-white font-semibold px-3 py-2 rounded-lg shadow-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-sky-400 text-sm"
                 >
                   ✏️ Edit
                 </button>
                 <button
                   onClick={() => onDelete(movie.id)}
-                  className="bg-rose-600 hover:bg-rose-700 text-white font-semibold px-5 py-2 rounded-lg shadow-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-rose-400"
+                  className="bg-rose-600 hover:bg-rose-700 text-white font-semibold px-3 py-2 rounded-lg shadow-md transition duration-300 focus:outline-none focus:ring-2 focus:ring-rose-400 text-sm"
                 >
                   🗑️ Delete
                 </button>

@@ -172,7 +172,7 @@ const FullMovieDetailForm = ({
       style={{
         maxWidth: "800px",
         margin: "2rem auto",
-        padding: "2rem",
+        padding: "1rem",
         borderRadius: "12px",
         backgroundColor: "#f9fafb",
         boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
@@ -180,24 +180,24 @@ const FullMovieDetailForm = ({
       }}
     >
       <h2
-  style={{
-    textAlign: "center",
-    marginBottom: "2rem",
-    color: "#15803d",
-    fontSize: "3rem",        // bigger size
-    fontWeight: "900",       // bolder
-    letterSpacing: "1.5px",  // spaced out a bit
-  }}
->
-  {isEditing ? "Edit" : "Add"} Full Movie Detail
-</h2>
+        style={{
+          textAlign: "center",
+          marginBottom: "2rem",
+          color: "#15803d",
+          fontSize: "2rem",
+          fontWeight: "900",
+          letterSpacing: "1.5px",
+        }}
+      >
+        {isEditing ? "Edit" : "Add"} Full Movie Detail
+      </h2>
 
       <form onSubmit={handleSubmit} noValidate>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "1rem 2rem",
+            gridTemplateColumns: window.innerWidth < 640 ? "1fr" : "1fr 1fr",
+            gap: "1rem 1rem",
           }}
         >
           {fields.map(({ name, type, label, disabled, required, isCommaSeparated, step }) => {
@@ -237,10 +237,14 @@ const FullMovieDetailForm = ({
                   style={{
                     padding: "0.5rem 0.75rem",
                     borderRadius: "6px",
-                    border: errors[name] ? "2px solid #dc2626" : "1.5px solid #d1d5db",
+                    border: errors[name]
+                      ? "2px solid #dc2626"
+                      : "1.5px solid #d1d5db",
                     outline: "none",
                     fontSize: "1rem",
                     color: "#111827",
+                    width: "100%",
+                    boxSizing: "border-box",
                   }}
                   aria-invalid={errors[name] ? "true" : "false"}
                   aria-describedby={`${name}-error`}
@@ -271,7 +275,7 @@ const FullMovieDetailForm = ({
               src={form.image}
               alt="Movie Preview"
               style={{
-                maxWidth: "100%",
+                width: "100%",
                 maxHeight: "320px",
                 borderRadius: "12px",
                 border: "2px solid #22c55e",
@@ -288,6 +292,7 @@ const FullMovieDetailForm = ({
           style={{
             marginTop: "2rem",
             display: "flex",
+            flexDirection: window.innerWidth < 640 ? "column" : "row",
             justifyContent: isEditing ? "space-between" : "flex-end",
             gap: "1rem",
           }}

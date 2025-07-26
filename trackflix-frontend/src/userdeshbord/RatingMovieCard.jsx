@@ -39,7 +39,7 @@ const RatingMovieCard = ({ movie, onRate }) => {
         flex flex-col justify-between
         bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group 
         w-full 
-        max-w-[130px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[250px] 
+        max-w-[100px] sm:max-w-[160px] md:max-w-[200px] lg:max-w-[250px] 
         mx-auto
       "
       aria-label={`Movie: ${movie.title || "Untitled"}`}

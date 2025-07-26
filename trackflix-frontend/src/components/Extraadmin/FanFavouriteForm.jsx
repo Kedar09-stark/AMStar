@@ -91,7 +91,7 @@ const FanFavouriteForm = ({
       autoComplete="off"
       noValidate
     >
-      <h2 className="text-4xl font-extrabold text-blue-700 select-none">
+      <h2 className="text-3xl font-extrabold text-blue-700 select-none">
         {isEditing ? "Edit Fan Favourite" : "Add Fan Favourite"}
       </h2>
 
