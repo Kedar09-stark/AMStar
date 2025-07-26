@@ -8,50 +8,59 @@ const Top10Card = ({ item, onTrailerOpen, onWatchlistAdd }) => {
 
   return (
     <article
-      className="relative rounded-xl overflow-hidden bg-zinc-800 hover:shadow-2xl transition-shadow duration-300 flex flex-col"
+      className="relative bg-zinc-900 text-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300 
+                 flex flex-col w-full h-full hover:scale-[1.02]"
     >
-      <div className="w-full aspect-[2/3] bg-black overflow-hidden">
+      {/* Image */}
+      <div className="w-full h-40 bg-black overflow-hidden flex items-center justify-center">
         <img
           src={item.img}
           alt={item.title}
-          className="object-cover w-full h-full"
           onError={handleImageError}
+          className="w-full h-full object-contain bg-black transition duration-300"
         />
       </div>
+
+      {/* Content */}
       <div className="p-4 flex flex-col flex-grow">
         <h3
-          className="text-lg font-semibold text-white mb-1 truncate"
+          className="text-base font-semibold truncate mb-1"
           title={item.title}
         >
           {item.title}
         </h3>
-        <div className="flex items-center justify-between text-sm text-gray-300 mb-3">
-          <time dateTime={item.year}>{item.year}</time>
-          <span className="bg-yellow-400 text-black font-bold px-2 py-0.5 rounded">
-            ⭐ {item.rating}
-          </span>
+
+        <div className="text-xs text-gray-400 mb-2 truncate">
+          {item.year || "N/A"} • {item.genres?.join(", ")}
         </div>
-        <div className="flex flex-col sm:flex-row gap-2 mt-auto text-sm">
-          <button
-            onClick={() => onTrailerOpen(item.trailer)}
-            className="flex items-center justify-center gap-2 border border-white px-3 py-1 rounded hover:bg-white hover:text-black transition"
-            aria-label={`Watch trailer for ${item.title}`}
-          >
-            <FaPlay className="text-xs" />
-            Trailer
-          </button>
-          <button
-            type="button"
-            onClick={(e) => onWatchlistAdd(e, item)}
-            className="flex items-center justify-center gap-2 border border-white px-3 py-1 rounded hover:bg-white hover:text-black transition"
-            aria-label={`Add ${item.title} to watchlist`}
-          >
-            <FaPlus className="text-xs" />
-            Watchlist
-          </button>
+
+        <div className="flex items-center gap-1 text-sm font-medium text-yellow-400 mb-4">
+          ⭐ {item.rating || "N/A"}
         </div>
+
+        {/* Buttons */}
+       
+<div className="mt-auto flex gap-2">
+  <button
+    onClick={() => onTrailerOpen(item.trailer)}
+    className="flex-1 flex items-center justify-center gap-1 bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-2 rounded-lg shadow-sm hover:shadow-md transition text-[10px] md:text-sm"
+  >
+    <FaPlay className="text-[9px]" />
+    <span>Trailer</span>
+  </button>
+  <button
+    onClick={(e) => onWatchlistAdd(e, item)}
+    className="flex-1 flex items-center justify-center gap-1 bg-zinc-700 hover:bg-zinc-600 text-white font-semibold py-2 rounded-lg shadow-sm hover:shadow-md transition text-[10px] md:text-sm"
+  >
+    <FaPlus className="text-[9px]" />
+    <span>Watchlist</span>
+  </button>
+</div>
+
       </div>
-      <div className="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow">
+
+      {/* Rank Badge */}
+      <div className="absolute top-2 left-2 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-sm">
         #{item.rank}
       </div>
     </article>
