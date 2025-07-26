@@ -5,7 +5,7 @@ export default function BackendLoader({ children }) {
 
   async function checkBackend() {
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/healthcheck`);
+     const res = await fetch(import.meta.env.VITE_API_BASE_URL);
       if (!res.ok) throw new Error("Backend not ready");
       setLoading(false);
     } catch {
