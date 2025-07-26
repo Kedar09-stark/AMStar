@@ -1,7 +1,7 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-
+import BackendLoader from "./BackendLoader"; 
 import {
   createBrowserRouter,
   RouterProvider,
@@ -97,7 +97,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <BackendLoader>
+        <RouterProvider router={router} />
+      </BackendLoader>
     </AuthProvider>
   </StrictMode>
 );
