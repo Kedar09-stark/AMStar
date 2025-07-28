@@ -15,6 +15,7 @@ const Top10Trackflix = () => {
   const [showTrailer, setShowTrailer] = useState(false);
   const [currentTrailerUrl, setCurrentTrailerUrl] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [page, setPage] = useState(0); // Pagination: 0 or 1 (for 5 items per page)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -37,6 +38,9 @@ const Top10Trackflix = () => {
 
     fetchTop10Movies();
   }, []);
+
+  const totalPages = Math.ceil(top10.length / 5);
+  const visibleMovies = top10.slice(page * 5, page * 5 + 5);
 
   const scroll = (direction) => {
     if (!scrollRef.current) return;
@@ -105,11 +109,21 @@ const Top10Trackflix = () => {
     }
   };
 
+  const handlePrev = () => {
+    setPage((prev) => Math.max(prev - 1, 0));
+  };
+
+  const handleNext = () => {
+    setPage((prev) => Math.min(prev + 1, totalPages - 1));
+  };
+
   return (
     <section
-      aria-labelledby="top10-title"
-      className="bg-gradient-to-b from-zinc-900 to-black text-white px-2 sm:px-6 py-6 sm:py-14 overflow-x-hidden"
-    >
+  aria-labelledby="top10-title"
+  className="bg-gradient-to-b from-zinc-900 to-black text-white px-1 py-3 sm:px-6 sm:py-14 overflow-x-hidden"
+>
+
+
       <div className="max-w-7xl mx-auto">
         <header className="text-center mb-6 sm:mb-10 px-2">
           <h2
@@ -130,7 +144,7 @@ const Top10Trackflix = () => {
             className="flex gap-3 overflow-x-auto scrollbar-hide snap-x snap-mandatory px-2 py-2"
             style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
           >
-            {top10.map((item) => (
+            {visibleMovies.map((item) => (
               <div
                 key={item.id}
                 className="flex-none w-[38vw] min-w-[160px] max-w-[220px] relative snap-start"
@@ -145,21 +159,43 @@ const Top10Trackflix = () => {
           </div>
         </div>
 
-        {/* Desktop: Same small card style */}
-        <div className="hidden sm:flex sm:flex-wrap gap-3 justify-center">
-          {top10.map((item) => (
-            <div
-              key={item.id}
-              className="w-[38vw] min-w-[160px] max-w-[220px]"
-            >
-              <Top10Card
-                item={item}
-                onTrailerOpen={openTrailer}
-                onWatchlistAdd={handleWatchlistClick}
-              />
-            </div>
-          ))}
-        </div>
+        {/* Desktop & Tablet: no wrapping, horizontal scroll */}
+<div className="hidden sm:flex gap-3 justify-start overflow-x-auto scrollbar-hide">
+  {visibleMovies.map((item) => (
+    <div
+      key={item.id}
+      className="flex-shrink-0 min-w-[160px] max-w-[220px]"
+      style={{ width: '20%' }}
+    >
+      <Top10Card
+        item={item}
+        onTrailerOpen={openTrailer}
+        onWatchlistAdd={handleWatchlistClick}
+      />
+    </div>
+  ))}
+</div>
+
+
+      
+        {/* Pagination Buttons - only show on tablet and desktop */}
+<div className="hidden sm:flex justify-center gap-4 mt-6">
+  <button
+    onClick={handlePrev}
+    disabled={page === 0}
+    className="px-4 py-2 rounded bg-yellow-500 text-black font-semibold disabled:bg-yellow-300 disabled:cursor-not-allowed"
+  >
+    Previous
+  </button>
+  <button
+    onClick={handleNext}
+    disabled={page === totalPages - 1}
+    className="px-4 py-2 rounded bg-yellow-500 text-black font-semibold disabled:bg-yellow-300 disabled:cursor-not-allowed"
+  >
+    Next
+  </button>
+</div>
+
       </div>
 
       {/* Trailer Modal */}

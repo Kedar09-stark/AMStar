@@ -106,11 +106,13 @@ const FeaturedToday = () => {
   }, [scrollLeft, scrollRight]);
 
   return (
-    <section
-      className="bg-zinc-900 text-white px-4 py-8"
-      style={{ minHeight: "66vh" }}
-      aria-label="Featured Today Section"
-    >
+   
+   <section
+  aria-labelledby="Featured Today Section"
+  className="bg-gradient-to-b from-zinc-900 to-black text-white px-1 py-3 sm:px-6 sm:py-14 overflow-x-hidden"
+>
+
+
       <div className="max-w-7xl mx-auto w-full">
         <header className="mb-6 text-center">
          <h1 className="text-4xl sm:text-6xl font-bold text-yellow-400" tabIndex={0}>
