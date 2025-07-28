@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 
@@ -20,8 +20,9 @@ const TabsNav = ({ activeTab, setActiveTab }) => {
     { key: "loginstats", label: "Login Stats" },
   ];
 
-  const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
   const tabsRef = useRef([]);
+const [underlineStyle, setUnderlineStyle] = useState({ width: '8.33%', left: 0 });
+
   const [burgerOpen, setBurgerOpen] = useState(false);
   const navigate = useNavigate();
   const auth = getAuth();
@@ -35,107 +36,158 @@ const TabsNav = ({ activeTab, setActiveTab }) => {
         left: node.offsetLeft,
       });
     }
-  }, [activeTab]);
+  }, [activeTab, tabs]);
 
   const otherTabs = tabs.filter((t) => t.key !== activeTab);
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      // Redirect to login after successful logout
       navigate("/login");
     } catch (error) {
       console.error("Logout failed:", error);
-      // Optionally show an error message to user
+      // Optionally, show toast or alert
     }
   };
 
   return (
-   <div className="w-full px-4 py-6 mt-20 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] rounded-xl shadow-2xl relative z-10">
-
+    <nav
+      className="w-full max-w-7xl mx-auto px-6 py-6 mt-20 bg-gradient-to-br from-[#1a1c2c] via-[#2d2f4a] to-[#3c3e66] rounded-2xl shadow-2xl
+      backdrop-blur-sm
+      relative z-20
+      "
+      aria-label="Main navigation"
+    >
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between items-center mb-8">
         <button
           onClick={() => navigate("/")}
-          className="text-4xl font-bold text-yellow-600 hover:text-yellow-400 transition duration-200"
+          className="text-4xl font-extrabold tracking-tight text-yellow-500 hover:text-yellow-400 transition duration-300 select-none"
+          aria-label="Go to Home"
         >
-          Admin Dashboard 👑
+          Admin Dashboard
         </button>
+
         <button
           onClick={handleLogout}
-          className="bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-2 rounded-full shadow-lg transition whitespace-nowrap"
+          className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800
+            text-white font-semibold px-6 py-3 rounded-full shadow-lg
+            focus:outline-none focus:ring-4 focus:ring-red-400
+            transition duration-300 select-none"
+          aria-label="Logout"
         >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2h4a2 2 0 012 2v1"
+            />
+          </svg>
           Logout
         </button>
       </div>
 
       {/* Desktop Tabs */}
-      <div className="hidden md:flex flex-wrap justify-center items-center gap-4 relative pb-6">
-        {tabs.map((tab, index) => {
+      <div className="hidden md:flex flex-wrap justify-center items-center gap-6 relative pb-6">
+        {tabs.map((tab, i) => {
           const isActive = activeTab === tab.key;
           return (
             <motion.button
               key={tab.key}
-              ref={(el) => (tabsRef.current[index] = el)}
+              ref={(el) => (tabsRef.current[i] = el)}
               onClick={() => setActiveTab(tab.key)}
-              whileHover={{
-                scale: 1.1,
-                textShadow: "0px 0px 8px #FFD700",
-                boxShadow: "0px 0px 10px #FFD700",
-              }}
+              whileHover={{ scale: 1.12 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider transition duration-300
+              className={`relative px-7 py-3 rounded-full font-semibold text-sm uppercase tracking-wider
+                transition-colors duration-300
+                select-none
                 ${
                   isActive
-                    ? "text-white bg-gradient-to-r from-yellow-400 to-pink-500 shadow-md shadow-yellow-500"
-                    : "text-gray-300 hover:text-yellow-300"
-                }`}
+                    ? "text-yellow-400 bg-gradient-to-r from-yellow-600 to-pink-500 shadow-lg shadow-yellow-500/70"
+                    : "text-gray-300 hover:text-yellow-400"
+                }
+              `}
+              aria-current={isActive ? "page" : undefined}
+              aria-label={`Switch to ${tab.label} tab`}
             >
               {tab.label}
               {isActive && (
                 <motion.span
-                  layoutId="active-pill"
-                  className="absolute inset-0 bg-yellow-400/20 backdrop-blur-sm rounded-full -z-10"
-                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  layoutId="active-tab-highlight"
+                  className="absolute inset-0 rounded-full bg-yellow-400/20 backdrop-blur-sm -z-10"
+                  transition={{ type: "spring", stiffness: 450, damping: 35 }}
                 />
               )}
             </motion.button>
           );
         })}
 
+        {/* Animated underline */}
         <motion.span
-          className="absolute bottom-0 h-1 bg-gradient-to-r from-yellow-400 to-pink-500 rounded-full shadow-[0_0_20px_#facc15]"
+          className="absolute bottom-0 h-1 rounded-full bg-gradient-to-r from-yellow-400 to-pink-500 shadow-[0_0_20px_#facc15]"
           animate={{
             width: underlineStyle.width,
             left: underlineStyle.left,
           }}
-          transition={{
-            type: "spring",
-            stiffness: 400,
-            damping: 30,
-          }}
+          transition={{ type: "spring", stiffness: 500, damping: 40 }}
+          aria-hidden="true"
         />
       </div>
 
       {/* Mobile Tabs */}
-      <div className="flex md:hidden justify-between items-center relative">
+      <div className="md:hidden flex justify-between items-center relative">
         <button
-          className="relative px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider text-white bg-gradient-to-r from-yellow-400 to-pink-500 shadow-md shadow-yellow-500 flex-1 text-center"
-          onClick={() => setActiveTab(activeTab)}
+          className="flex-1 text-center px-6 py-3 rounded-full font-semibold uppercase tracking-wider text-yellow-400 bg-gradient-to-r from-yellow-600 to-pink-500 shadow-lg
+          select-none truncate"
+          aria-haspopup="listbox"
+          aria-expanded={burgerOpen}
+          aria-label="Select active tab"
+          onClick={() => setBurgerOpen(!burgerOpen)}
         >
           {tabs.find((t) => t.key === activeTab)?.label || "Select"}
         </button>
 
-        <div className="relative ml-3">
-          <button
-            onClick={() => setBurgerOpen(!burgerOpen)}
-            className="p-2 rounded-md bg-yellow-400 text-black font-bold"
-            aria-label="Toggle menu"
-          >
-            ☰
-          </button>
+        <button
+          onClick={() => setBurgerOpen(!burgerOpen)}
+          aria-label="Toggle menu"
+          aria-expanded={burgerOpen}
+          className="ml-4 relative w-12 h-12 flex flex-col justify-center items-center rounded-lg bg-yellow-400 hover:bg-yellow-500 focus:bg-yellow-600
+            shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-400
+            transition-colors duration-300 select-none"
+        >
+          {/* Hamburger Icon */}
+          <span
+            className={`block w-7 h-1.5 bg-black rounded-md origin-center transition-transform duration-300 ease-in-out
+              ${burgerOpen ? "rotate-45 translate-y-2.5" : ""}`}
+          />
+          <span
+            className={`block w-7 h-1.5 bg-black rounded-md my-1.5 transition-opacity duration-300 ease-in-out
+              ${burgerOpen ? "opacity-0" : "opacity-100"}`}
+          />
+          <span
+            className={`block w-7 h-1.5 bg-black rounded-md origin-center transition-transform duration-300 ease-in-out
+              ${burgerOpen ? "-rotate-45 -translate-y-2.5" : ""}`}
+          />
+        </button>
+
+        <AnimatePresence>
           {burgerOpen && (
-            <div className="absolute right-0 mt-2 w-48 bg-[#302b63] rounded-md shadow-lg z-20">
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="absolute top-14 right-0 w-52 bg-[#302b63cc] backdrop-blur-md rounded-lg shadow-xl z-30 ring-1 ring-yellow-400 ring-opacity-30"
+              role="listbox"
+            >
               {otherTabs.map((tab) => (
                 <button
                   key={tab.key}
@@ -143,16 +195,18 @@ const TabsNav = ({ activeTab, setActiveTab }) => {
                     setActiveTab(tab.key);
                     setBurgerOpen(false);
                   }}
-                  className="block w-full text-left px-4 py-2 text-gray-300 hover:bg-yellow-500 hover:text-black"
+                  className="w-full text-left px-5 py-3 text-gray-300 hover:bg-yellow-500 hover:text-black transition-colors duration-200 rounded-md focus:outline-none focus:bg-yellow-500 focus:text-black"
+                  role="option"
+                  aria-selected={false}
                 >
                   {tab.label}
                 </button>
               ))}
-            </div>
+            </motion.div>
           )}
-        </div>
+        </AnimatePresence>
       </div>
-    </div>
+    </nav>
   );
 };
 
