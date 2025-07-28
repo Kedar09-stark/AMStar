@@ -72,7 +72,10 @@ const PopularInterests = () => {
   }, [showTrailer]);
 
   return (
-    <section className="py-2">
+    <section
+  className="bg-gradient-to-b from-zinc-900 to-black text-white px-2 py-4 sm:px-3 sm:py-6 overflow-x-hidden"
+>
+
       <h2 className="text-4xl text-center text-purple-500 mb-6">Upcoming...</h2>
 
      {/* Mobile */}

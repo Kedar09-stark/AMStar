@@ -40,7 +40,10 @@ useEffect(() => {
     );
 
   return (
-    <section className="bg-gradient-to-b from-zinc-900 to-black text-white px-4 sm:px-6 py-10">
+    <section
+  className="bg-gradient-to-b from-zinc-900 to-black text-white px-2 py-4 sm:px-3 sm:py-6 overflow-x-hidden"
+>
+
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
