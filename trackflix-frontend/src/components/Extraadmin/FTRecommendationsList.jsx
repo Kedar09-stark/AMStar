@@ -44,10 +44,11 @@ const FTRecommendationsList = ({ ftRecommendations, onEdit, onDelete }) => {
                 <span className="text-yellow-600 font-semibold">{item.rating}⭐</span>
               </div>
               <img
-                src={item.img}
-                alt={item.title}
-                className="w-full h-40 object-cover rounded-md border"
-              />
+  src={item.img}
+  alt={item.title}
+  className="w-16 h-16 object-cover rounded"
+/>
+
               <p className="text-sm text-gray-600">
                 🎭 Genres: {item.genres.join(", ")}
               </p>

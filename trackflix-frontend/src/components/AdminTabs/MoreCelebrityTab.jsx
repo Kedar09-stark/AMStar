@@ -45,13 +45,10 @@ const MoreCelebrityTab = ({
     }
   };
 
-  // Handle edit button click
-  const handleEdit = (id) => {
-    const item = moreCelebrities.find((c) => c._id === id);
-    if (item) {
-      setForm(item);
-      setEditingId(id);
-    }
+  // Adjusted: Handle edit button click — receive entire item, not just id
+  const handleEdit = (item) => {
+    setForm(item);
+    setEditingId(item._id); // or item.id if you use that
   };
 
   // Handle delete button click

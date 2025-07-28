@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Animation variants for each item card
+// Animation variants
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: (i) => ({
@@ -15,7 +15,6 @@ const cardVariants = {
 const FeaturedItemList = ({ featuredItems, onEdit, onDelete }) => {
   const listRef = useRef();
 
-  // Scroll to the list on mount
   useEffect(() => {
     listRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -23,14 +22,14 @@ const FeaturedItemList = ({ featuredItems, onEdit, onDelete }) => {
   return (
     <div
       ref={listRef}
-      className="bg-white shadow-lg rounded-xl p-6 max-w-5xl mx-auto mt-10 mb-20"
+      className="bg-white shadow-lg rounded-xl p-4 sm:p-6 max-w-full sm:max-w-5xl mx-auto mt-10 mb-20"
     >
-      <h2 className="text-3xl font-bold mb-6 text-gray-800 border-b pb-2">
+      <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-800 border-b pb-2">
         🎬 Featured Items
       </h2>
 
       {featuredItems.length === 0 ? (
-        <p className="text-center text-gray-400 text-lg mt-10">
+        <p className="text-center text-gray-400 text-base sm:text-lg mt-10">
           No featured items available.
         </p>
       ) : (
@@ -44,10 +43,10 @@ const FeaturedItemList = ({ featuredItems, onEdit, onDelete }) => {
                 animate="visible"
                 exit="exit"
                 variants={cardVariants}
-                className="border p-5 rounded-lg bg-gray-50 hover:bg-white hover:shadow-xl transition-all flex justify-between items-center"
+                className="border p-4 sm:p-5 rounded-lg bg-gray-50 hover:bg-white hover:shadow-xl transition-all flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
               >
-                <div className="space-y-1 max-w-md">
-                  <p className="text-xl font-semibold text-gray-800 truncate">
+                <div className="space-y-1 w-full sm:max-w-md">
+                  <p className="text-lg sm:text-xl font-semibold text-gray-800 truncate">
                     {item.title}
                   </p>
                   <p className="text-sm text-gray-600">⭐ Rating: {item.rating}</p>
@@ -55,16 +54,16 @@ const FeaturedItemList = ({ featuredItems, onEdit, onDelete }) => {
                     🎭 Genres: {item.genres?.join(", ")}
                   </p>
                 </div>
-                <div className="flex gap-3">
+                <div className="flex gap-3 w-full sm:w-auto flex-col sm:flex-row">
                   <button
                     onClick={() => onEdit(item)}
-                    className="px-4 py-1.5 bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium rounded shadow-md transition-transform hover:scale-105"
+                    className="w-full sm:w-auto px-4 py-1.5 bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium rounded shadow-md transition-transform hover:scale-105"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => onDelete(item.id)}
-                    className="px-4 py-1.5 bg-red-500 hover:bg-red-600 text-white text-sm font-medium rounded shadow-md transition-transform hover:scale-105"
+                    className="w-full sm:w-auto px-4 py-1.5 bg-red-500 hover:bg-red-600 text-white text-sm font-medium rounded shadow-md transition-transform hover:scale-105"
                   >
                     Delete
                   </button>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Pencil, Trash2 } from "lucide-react";
 
 const MoreCelebrityList = ({ moreCelebrities, onEdit, onDelete }) => {
   if (!moreCelebrities.length) {
@@ -10,141 +11,131 @@ const MoreCelebrityList = ({ moreCelebrities, onEdit, onDelete }) => {
   }
 
   return (
-    <>
-      <section className="w-full px-4 sm:px-6 md:px-8 lg:px-12 mt-10">
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-6 sm:p-8 border border-gray-200">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-indigo-700 border-b border-indigo-300 pb-4 mb-6 select-none">
-            🎭 Celebrity Recommendations
-          </h2>
+    <section className="w-full px-4 sm:px-6 md:px-8 lg:px-12 mt-10">
+      <div className="max-w-5xl mx-auto bg-white rounded-3xl shadow-2xl p-6 sm:p-10 border border-gray-200">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-indigo-700 border-b border-indigo-300 pb-4 mb-8 select-none">
+          🎭 Celebrity Recommendations
+        </h2>
 
-          <div className="overflow-x-auto rounded-lg border border-gray-200">
-            <table className="min-w-[600px] w-full text-gray-800 text-left text-sm sm:text-base">
-              <thead className="bg-indigo-50 text-indigo-900 text-xs sm:text-sm uppercase tracking-wide select-none">
-                <tr>
-                  <th className="px-5 py-4 whitespace-nowrap">ID</th>
-                  <th className="px-5 py-4 whitespace-nowrap">Name</th>
-                  <th className="px-5 py-4 whitespace-nowrap text-center">Image</th>
-                  <th className="px-5 py-4 whitespace-nowrap text-center">Actions</th>
-                </tr>
-              </thead>
+        {/* Mobile Cards */}
+        <div className="sm:hidden space-y-8">
+          {moreCelebrities.map((item, i) => (
+            <article
+              key={item.id}
+              tabIndex={0}
+              aria-label={`Celebrity ${item.name}, ID ${item.id}`}
+              className={`group grid grid-cols-4 gap-4 p-5 rounded-2xl border transition-shadow duration-300 ${
+                i % 2 === 0 ? "bg-indigo-50 border-indigo-200" : "bg-white border-gray-200"
+              } shadow-sm hover:shadow-lg focus-within:shadow-lg focus:outline-none`}
+            >
+              {/* Image */}
+              <div className="col-span-1 flex justify-center items-center">
+                <img
+                  src={item.img}
+                  alt={`Photo of ${item.name}`}
+                  className="rounded-xl object-cover shadow-md w-full max-w-[90px] h-24"
+                  loading="lazy"
+                />
+              </div>
 
-              <tbody className="bg-white divide-y divide-gray-100">
-                {moreCelebrities.map((item, i) => (
-                  <tr
-                    key={item.id}
-                    className={`transition-colors duration-300 ${
-                      i % 2 === 0 ? "bg-indigo-50" : "bg-white"
-                    } hover:bg-indigo-100 sm:table-row block rounded-lg sm:rounded-none mb-6 sm:mb-0 p-4 sm:p-0 shadow-sm sm:shadow-none`}
+              {/* Info */}
+              <div className="col-span-3 grid grid-cols-2 gap-3 items-center">
+                <div>
+                  <h3 className="text-indigo-900 font-bold text-lg truncate">{item.name}</h3>
+                  <p className="text-indigo-600 font-medium text-sm select-none">ID: {item.id}</p>
+                </div>
+
+                {/* Actions */}
+                <div className="flex flex-col sm:flex-row justify-center sm:justify-end items-center gap-4">
+                  <button
+                    onClick={() => onEdit(item)}
+                    aria-label={`Edit ${item.name}`}
+                    title={`Edit ${item.name}`}
+                    className="flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 focus:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-lg shadow-md transition-transform transform group-hover:scale-105 focus:scale-105 focus:outline-none focus:ring-4 focus:ring-indigo-400"
                   >
-                    <td
-                      data-label="ID"
-                      className="px-0 sm:px-5 py-2 sm:py-3 text-center font-semibold sm:table-cell block rounded-t-lg"
-                    >
-                      <span className="font-semibold sm:hidden block text-indigo-700 uppercase tracking-wide mb-1">
-                        ID
-                      </span>
-                      {item.id}
-                    </td>
-                    <td
-                      data-label="Name"
-                      className="px-0 sm:px-5 py-2 sm:py-3 font-semibold sm:table-cell block"
-                    >
-                      <span className="font-semibold sm:hidden block text-indigo-700 uppercase tracking-wide mb-1">
-                        Name
-                      </span>
-                      {item.name}
-                    </td>
-                    <td
-                      data-label="Image"
-                      className="px-0 sm:px-5 py-2 sm:py-3 text-center sm:table-cell block"
-                    >
-                      <span className="font-semibold sm:hidden block text-indigo-700 uppercase tracking-wide mb-1">
-                        Image
-                      </span>
-                      <img
-                        src={item.img}
-                        alt={item.name}
-                        className="mx-auto h-16 w-auto object-cover rounded-lg shadow-sm"
-                      />
-                    </td>
-                    <td
-                      data-label="Actions"
-                      className="px-0 sm:px-5 py-3 sm:py-3 text-center sm:table-cell block rounded-b-lg sm:rounded-none"
-                    >
-                      <span className="font-semibold sm:hidden block text-indigo-700 uppercase tracking-wide mb-3">
-                        Actions
-                      </span>
-                      <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
-                        <button
-                          onClick={() => onEdit(item)}
-                          title={`Edit ${item.name}`}
-                          aria-label={`Edit ${item.name}`}
-                          className="flex items-center gap-1 bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-4 py-2 rounded-md shadow-md transition focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1 text-xs sm:text-sm min-w-[70px] justify-center"
-                        >
-                          ✏️ Edit
-                        </button>
-                        <button
-                          onClick={() => {
-                            if (
-                              window.confirm(
-                                `Are you sure you want to delete "${item.name}"?`
-                              )
-                            ) {
-                              onDelete(item.id);
-                            }
-                          }}
-                          title={`Delete ${item.name}`}
-                          aria-label={`Delete ${item.name}`}
-                          className="flex items-center gap-1 bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-md shadow-md transition focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 text-xs sm:text-sm min-w-[70px] justify-center"
-                        >
-                          🗑️ Delete
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
+                    <Pencil className="w-5 h-5" />
+                    <span className="hidden xs:inline">Edit</span>
+                  </button>
 
-      <style>{`
-        @media (max-width: 640px) {
-          table, thead, tbody, th, td, tr {
-            display: block;
-          }
-          thead tr {
-            display: none;
-          }
-          tbody tr {
-            margin-bottom: 1rem;
-            border-radius: 0.75rem;
-            padding: 0;
-            box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
-            background-color: #fff;
-            border: 1px solid #6366f1; /* Indigo-500 */
-          }
-          tbody td {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 1rem;
-            font-size: 1rem;
-            border-bottom: 1px solid #a5b4fc; /* Indigo-300 */
-            align-items: center;
-          }
-          tbody td:last-child {
-            border-bottom: none;
-            padding-bottom: 1rem;
-          }
-          tbody td span:first-child {
-            font-weight: 700;
-            color: #4338ca; /* Indigo-700 */
-            text-transform: uppercase;
-          }
-        }
-      `}</style>
-    </>
+                  <button
+                    onClick={() => {
+                      if (window.confirm(`Delete "${item.name}"?`)) onDelete(item.id);
+                    }}
+                    aria-label={`Delete ${item.name}`}
+                    title={`Delete ${item.name}`}
+                    className="flex items-center gap-2 bg-red-600 hover:bg-red-700 focus:bg-red-800 text-white font-semibold px-4 py-2 rounded-lg shadow-md transition-transform transform group-hover:scale-105 focus:scale-105 focus:outline-none focus:ring-4 focus:ring-red-400"
+                  >
+                    <Trash2 className="w-5 h-5" />
+                    <span className="hidden xs:inline">Delete</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Desktop Table */}
+        <div className="hidden sm:block overflow-x-auto rounded-lg border border-gray-200 mt-6 shadow-inner">
+          <table className="min-w-[600px] w-full text-gray-800 text-left text-sm sm:text-base">
+            <thead className="bg-indigo-50 text-indigo-900 text-xs sm:text-sm uppercase tracking-wide select-none">
+              <tr>
+                <th className="px-6 py-4 whitespace-nowrap">ID</th>
+                <th className="px-6 py-4 whitespace-nowrap">Name</th>
+                <th className="px-6 py-4 whitespace-nowrap text-center">Image</th>
+                <th className="px-6 py-4 whitespace-nowrap text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {moreCelebrities.map((item, i) => (
+                <tr
+                  key={item.id}
+                  className={`transition-colors duration-300 ${
+                    i % 2 === 0 ? "bg-indigo-50" : "bg-white"
+                  } hover:bg-indigo-100 focus-within:bg-indigo-100`}
+                  tabIndex={0}
+                  aria-label={`Celebrity ${item.name}, ID ${item.id}`}
+                >
+                  <td className="px-6 py-4 font-semibold">{item.id}</td>
+                  <td className="px-6 py-4 font-semibold">{item.name}</td>
+                  <td className="px-6 py-4 text-center">
+                    <img
+                      src={item.img}
+                      alt={`Photo of ${item.name}`}
+                      className="inline-block h-16 w-auto rounded-lg shadow-sm object-cover"
+                      loading="lazy"
+                    />
+                  </td>
+                  <td className="px-6 py-4 text-center">
+                    <div className="flex justify-center items-center gap-4">
+                      <button
+                        onClick={() => onEdit(item)}
+                        aria-label={`Edit ${item.name}`}
+                        title={`Edit ${item.name}`}
+                        className="flex items-center gap-2 bg-indigo-500 hover:bg-indigo-600 focus:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-lg shadow-md transition transform focus:outline-none focus:ring-4 focus:ring-indigo-400"
+                      >
+                        <Pencil className="w-5 h-5" />
+                        <span className="hidden sm:inline">Edit</span>
+                      </button>
+                      <button
+                        onClick={() => {
+                          if (window.confirm(`Delete "${item.name}"?`)) onDelete(item.id);
+                        }}
+                        aria-label={`Delete ${item.name}`}
+                        title={`Delete ${item.name}`}
+                        className="flex items-center gap-2 bg-red-600 hover:bg-red-700 focus:bg-red-800 text-white font-semibold px-4 py-2 rounded-lg shadow-md transition transform focus:outline-none focus:ring-4 focus:ring-red-400"
+                      >
+                        <Trash2 className="w-5 h-5" />
+                        <span className="hidden sm:inline">Delete</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
   );
 };
 

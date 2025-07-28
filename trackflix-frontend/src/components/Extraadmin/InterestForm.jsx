@@ -198,14 +198,7 @@ const InterestForm = ({
         )}
 
         <div className="mt-8 flex justify-end gap-4">
-          <button
-            type="button"
-            onClick={onCancel}
-            disabled={isSubmitting}
-            className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition"
-          >
-            Cancel
-          </button>
+          
           <button
             type="submit"
             disabled={isSubmitDisabled}

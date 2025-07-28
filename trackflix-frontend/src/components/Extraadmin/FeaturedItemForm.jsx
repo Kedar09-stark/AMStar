@@ -214,36 +214,28 @@ const FeaturedItemForm = ({
           </div>
         )}
 
-        <div className="flex justify-end gap-4">
-          <button
-            type="button"
-            onClick={onCancel}
-            disabled={isSubmitting}
-            className="rounded-full bg-gray-500 text-white font-bold py-3 px-6 shadow-md
-             focus:outline-none focus:ring-4 focus:ring-gray-400
-             disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
-            Cancel
-          </button>
+        <div className="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4 mt-6">
+  
 
-          <button
-            type="submit"
-            disabled={isSubmitDisabled}
-            className={`rounded-full bg-gradient-to-r from-blue-600 to-indigo-700
-             text-white font-extrabold py-4 px-8 shadow-lg
-             focus:outline-none focus:ring-4 focus:ring-blue-500
-             disabled:opacity-60 disabled:cursor-not-allowed
-             flex justify-center items-center text-lg`}
-          >
-            {isSubmitting
-              ? isEditing
-                ? "Updating..."
-                : "Adding..."
-              : isEditing
-              ? "Update Featured Item"
-              : "Add Featured Item"}
-          </button>
-        </div>
+  <button
+    type="submit"
+    disabled={isSubmitDisabled}
+    className={`rounded-full bg-gradient-to-r from-blue-600 to-indigo-700
+      text-white font-bold py-2.5 px-5 sm:py-4 sm:px-8 shadow-lg
+      focus:outline-none focus:ring-2 focus:ring-blue-500
+      disabled:opacity-60 disabled:cursor-not-allowed
+      flex justify-center items-center text-sm sm:text-lg w-full sm:w-auto`}
+  >
+    {isSubmitting
+      ? isEditing
+        ? "Updating..."
+        : "Adding..."
+      : isEditing
+      ? "Update Featured Item"
+      : "Add Featured Item"}
+  </button>
+</div>
+
       </form>
     </>
   );
