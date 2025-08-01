@@ -115,8 +115,8 @@ const FeaturedToday = () => {
 
       <div className="max-w-7xl mx-auto w-full">
         <header className="mb-6 text-center">
-         <h1 className="text-4xl sm:text-6xl font-bold text-yellow-400" tabIndex={0}>
-  🌟 Featured Today
+         <h1 className="text-2xl sm:text-4xl font-bold text-yellow-400" tabIndex={0}>
+   Featured Today
 </h1>
           <p className="mt-1 text-gray-300 text-sm sm:text-base" tabIndex={0}>
             Blockbuster picks for you

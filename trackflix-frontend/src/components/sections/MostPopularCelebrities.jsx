@@ -52,7 +52,7 @@ useEffect(() => {
           transition={{ duration: 0.6 }}
           className="mb-8 text-center"
         >
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-yellow-400">
+          <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-yellow-400">
             Most Popular Celebrities
           </h2>
           <p className="mt-2 text-gray-300 text-sm sm:text-base">

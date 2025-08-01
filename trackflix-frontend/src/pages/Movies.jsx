@@ -181,34 +181,46 @@ const Movie = () => {
 
         {/* Movies Grid */}
         <main className="flex-1">
-          {loading && <p className="text-gray-300">Loading movies...</p>}
-          {error && <p className="text-red-500">{error}</p>}
+  {loading && <p className="text-gray-300">Loading movies...</p>}
+  {error && <p className="text-red-500">{error}</p>}
 
-          {!loading && !error && paginatedMovies.length === 0 && (
-            <p className="text-gray-400">No matching movies found.</p>
-          )}
+  {!loading && !error && paginatedMovies.length === 0 && (
+    <p className="text-gray-400">No matching movies found.</p>
+  )}
 
-          {!loading && !error && paginatedMovies.length > 0 && (
-            <>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+  {!loading && !error && paginatedMovies.length > 0 && (
+    <>
+      {/* Mobile grid */}
+      <div className="grid grid-cols-3 gap-4 md:hidden">
+        {paginatedMovies.map((movie) => (
+          <MovieCard
+            key={movie.id || movie.title}
+            movie={movie}
+            onAddToWatchlist={() => handleAddToWatchlist(movie)}
+          />
+        ))}
+      </div>
 
-                {paginatedMovies.map((movie) => (
-                  <MovieCard
-                    key={movie.id || movie.title}
-                    movie={movie}
-                    onAddToWatchlist={() => handleAddToWatchlist(movie)}
-                  />
-                ))}
-              </div>
+      {/* Desktop grid */}
+      <div className="hidden md:grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {paginatedMovies.map((movie) => (
+          <MovieCard
+            key={movie.id || movie.title}
+            movie={movie}
+            onAddToWatchlist={() => handleAddToWatchlist(movie)}
+          />
+        ))}
+      </div>
 
-              <Pagination
-                currentPage={currentPage}
-                totalPages={totalPages}
-                setCurrentPage={setCurrentPage}
-              />
-            </>
-          )}
-        </main>
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        setCurrentPage={setCurrentPage}
+      />
+    </>
+  )}
+</main>
+
       </div>
     </section>
   );
