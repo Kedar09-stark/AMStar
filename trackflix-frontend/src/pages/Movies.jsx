@@ -191,7 +191,7 @@ const Movie = () => {
   {!loading && !error && paginatedMovies.length > 0 && (
     <>
       {/* Mobile grid */}
-      <div className="grid grid-cols-3 gap-4 md:hidden">
+      <div className="grid grid-cols-2 gap-4 md:hidden">
         {paginatedMovies.map((movie) => (
           <MovieCard
             key={movie.id || movie.title}
