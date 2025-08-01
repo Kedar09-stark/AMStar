@@ -124,19 +124,22 @@ const MovieCard = ({ movie, onAddToWatchlist }) => {
                 <div className="w-5 h-5 border-2 border-yellow-400 border-t-transparent animate-spin rounded-full"></div>
               </div>
             )}
-            <img
-              src={posterSrc}
-              alt={movie.title || "Movie"}
-              loading="lazy"
-              onLoad={() => setImageLoaded(true)}
-              onError={(e) => {
-                e.target.src = "/fallback.jpg";
-                setImageLoaded(true);
-              }}
-              className={`w-full h-full object-contain object-center transition-transform duration-500 ${
-                imageLoaded ? "opacity-100" : "opacity-0"
-              } group-hover:scale-105`}
-            />
+          <img
+  src={posterSrc}
+  alt={movie.title || "Movie"}
+  loading="lazy"
+  onLoad={() => setImageLoaded(true)}
+  onError={(e) => {
+    e.target.src = "/fallback.jpg";
+    setImageLoaded(true);
+  }}
+  className={`w-full h-full object-contain bg-black transition-opacity duration-500 ${
+    imageLoaded ? "opacity-100" : "opacity-0"
+  }`}
+/>
+
+
+
           </div>
 
           <div className="p-2 flex flex-col flex-grow">
