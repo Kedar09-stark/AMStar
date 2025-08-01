@@ -23,7 +23,13 @@ import axios from "axios";
 // Import animation variants from separate file
 import { containerVariants, itemVariants } from "../animations/MDanimation";
 
+
+
+// ... other imports remain the same
+
 const API_BASE_URL = "https://fourloopers-9.onrender.com/api";
+
+const MOBILE_BREAKPOINT = 768; // px
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -32,8 +38,17 @@ const MovieDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const isValidId = /^\d+$/.test(id);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < MOBILE_BREAKPOINT);
 
+  // Handle window resize to update isMobile
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // fetching logic remains same
+  const isValidId = /^\d+$/.test(id);
   const fetchMovie = async () => {
     setLoading(true);
     setError(null);
@@ -60,6 +75,7 @@ const MovieDetails = () => {
     fetchMovie();
   }, [id]);
 
+  // fetch similar movies same as before
   useEffect(() => {
     const fetchSimilarMovies = async () => {
       if (!movie?.similarMovies?.length) {
@@ -98,19 +114,182 @@ const MovieDetails = () => {
   }, [movie?.trailer]);
 
   if (loading) return <LoadingSkeleton />;
+  if (error) return <ErrorFallback message={error} onRetry={fetchMovie} />;
+  if (!movie) return <p className="text-center text-gray-400 mt-20 text-lg">No movie data available.</p>;
 
-  if (error)
-    return <ErrorFallback message={error} onRetry={fetchMovie} />;
+  // Mobile layout JSX
+  const MobileLayout = () => (
+    <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen p-4 text-gray-100 font-sans max-w-7xl mx-auto overflow-x-hidden">
+      <Link
+        to="/movies"
+        className="inline-flex items-center gap-2 mb-8 mt-12 text-yellow-400 hover:text-yellow-300 font-semibold text-lg"
+      >
+        <FaArrowLeft /> Back to movies
+      </Link>
 
-  if (!movie)
-    return (
-      <p className="text-center text-gray-400 mt-20 text-lg">
-        No movie data available.
-      </p>
-    );
+      <motion.div
+        className="flex flex-col gap-6 max-w-full"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <motion.img
+          src={movie.image}
+          alt={`Poster of ${movie.title}`}
+          className="mx-auto w-[160px] h-auto rounded-2xl shadow-2xl object-cover ring-1 ring-yellow-400"
+          variants={itemVariants}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0 0 15px rgba(251, 191, 36, 0.8)",
+          }}
+          transition={{ type: "spring", stiffness: 250 }}
+          loading="lazy"
+        />
 
-  return (
-    <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen p-6 md:p-12 text-gray-100 font-sans max-w-7xl mx-auto">
+        <motion.div
+          className="flex flex-col justify-between"
+          variants={itemVariants}
+        >
+          <article>
+            <motion.h1
+              id="movie-title"
+              className="text-3xl font-extrabold mb-4 tracking-tight text-yellow-400 drop-shadow-lg cursor-pointer"
+              whileHover={{
+                scale: 1.05,
+                textShadow: "0 0 15px rgba(255,255,0,0.9)",
+              }}
+            >
+              {movie.title}
+            </motion.h1>
+
+            <p className="text-base text-gray-300 italic mb-6 leading-relaxed select-text break-words max-w-full">
+              {movie.overview}
+            </p>
+
+            <motion.div
+              className="grid grid-cols-1 gap-4 text-gray-400"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.2,
+                    ease: "easeOut",
+                    duration: 0.5,
+                  },
+                },
+              }}
+            >
+              <InfoItem icon={<FaStar />} label="Rating" value={movie.rating || "N/A"} />
+              <InfoItem icon={<FaFilm />} label="Genres" value={movie.genres?.join(", ")} />
+              <InfoItem icon={<FaCalendarAlt />} label="Release Date" value={movie.releaseDate} />
+              <InfoItem icon={<FaClock />} label="Runtime" value={`${movie.runtime} min`} />
+              <InfoItem icon={<FaLanguage />} label="Language" value={movie.language} />
+              <InfoItem icon={<FaGlobeAmericas />} label="Country" value={movie.country} />
+              <InfoItem
+                icon={<FaMoneyBillWave />}
+                label="Budget"
+                value={movie.budget ? `$${movie.budget.toLocaleString()}` : "N/A"}
+              />
+              <InfoItem
+                icon={<FaMoneyBillWave />}
+                label="Box Office"
+                value={movie.boxOffice ? `$${movie.boxOffice.toLocaleString()}` : "N/A"}
+              />
+              <InfoItem icon={<FaUserTie />} label="Director" value={movie.director} />
+              <InfoItem icon={<FaPenFancy />} label="Writers" value={movie.writers?.join(", ")} />
+              <InfoItem icon={<FaUsers />} label="Cast" value={movie.cast?.join(", ")} />
+              <InfoItem
+                icon={<FaBuilding />}
+                label="Production"
+                value={movie.productionCompanies?.join(", ")}
+              />
+              <InfoItem icon={<FaStar />} label="Age Rating" value={movie.ageRating || "N/A"} />
+            </motion.div>
+          </article>
+
+          {movie.awards?.length > 0 && (
+            <motion.section className="mt-10" variants={itemVariants}>
+              <h2 className="text-2xl font-bold mb-4 text-yellow-400 flex items-center gap-3 drop-shadow-md">
+                <FaAward /> Awards
+              </h2>
+              <ul className="list-disc list-inside space-y-1 text-gray-400 text-base select-text">
+                {movie.awards.map((award, i) => (
+                  <li key={i}>
+                    <span className="font-semibold text-gray-100">{award.name}</span> ({award.year}) —{" "}
+                    {award.category} ({award.result})
+                  </li>
+                ))}
+              </ul>
+            </motion.section>
+          )}
+        </motion.div>
+      </motion.div>
+
+      {/* Trailer and Similar sections could be same or slightly adapted */}
+      {youtubeId && (
+        <motion.section
+          className="mt-14 max-w-full mx-auto rounded-2xl overflow-hidden shadow-2xl border border-yellow-400"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+        >
+          <h2 className="text-2xl font-extrabold mb-6 text-center text-yellow-400 drop-shadow-lg">
+            🎥 Trailer
+          </h2>
+          <div className="aspect-video w-full bg-black">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${youtubeId}?rel=0&modestbranding=1`}
+              title={`${movie.title} Trailer`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+              className="w-full h-full"
+              frameBorder={0}
+            />
+          </div>
+        </motion.section>
+      )}
+
+      {similar.length > 0 && (
+        <motion.section
+          className="mt-14"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <h2 className="text-2xl font-bold text-yellow-400 mb-4">🎬 Similar Movies</h2>
+          <div className="grid grid-cols-2 gap-4">
+            {similar.map((m) => (
+              <Link
+                to={`/movies/${m.id}`}
+                key={m.id}
+                className="bg-gray-800 rounded-lg p-3 hover:bg-gray-700 transition-all shadow-md group"
+              >
+                <img
+                  src={m.image}
+                  alt={m.title}
+                  className="w-full h-32 object-cover rounded-md mb-2 transition-transform duration-200 group-hover:scale-105"
+                />
+                <h3
+                  className="text-base font-semibold text-yellow-300 group-hover:underline truncate"
+                  title={m.title}
+                >
+                  {m.title}
+                </h3>
+              </Link>
+            ))}
+          </div>
+        </motion.section>
+      )}
+    </section>
+  );
+
+  // Desktop layout JSX (similar to your original)
+  const DesktopLayout = () => (
+    <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen p-12 text-gray-100 font-sans max-w-7xl mx-auto overflow-x-hidden">
       <Link
         to="/movies"
         className="inline-flex items-center gap-2 mb-10 mt-12 text-yellow-400 hover:text-yellow-300 font-semibold text-lg"
@@ -119,7 +298,7 @@ const MovieDetails = () => {
       </Link>
 
       <motion.div
-        className="flex flex-col md:flex-row gap-12"
+        className="flex flex-row gap-12 max-w-full"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -138,7 +317,7 @@ const MovieDetails = () => {
         />
 
         <motion.div
-          className="flex-1 flex flex-col justify-between"
+          className="flex-1 flex flex-col justify-between max-w-full"
           variants={itemVariants}
         >
           <article>
@@ -190,12 +369,20 @@ const MovieDetails = () => {
                 value={movie.boxOffice ? `$${movie.boxOffice.toLocaleString()}` : "N/A"}
               />
               <InfoItem icon={<FaUserTie />} label="Director" value={movie.director} />
-              <InfoItem icon={<FaPenFancy />} label="Writers" value={movie.writers?.join(", ")} />
-              <InfoItem icon={<FaUsers />} label="Cast" value={movie.cast?.join(", ")} />
+              <InfoItem
+                icon={<FaPenFancy />}
+                label="Writers"
+                value={<span className="break-words max-w-[150px]">{movie.writers?.join(", ")}</span>}
+              />
+              <InfoItem
+                icon={<FaUsers />}
+                label="Cast"
+                value={<span className="break-words max-w-[150px]">{movie.cast?.join(", ")}</span>}
+              />
               <InfoItem
                 icon={<FaBuilding />}
                 label="Production"
-                value={movie.productionCompanies?.join(", ")}
+                value={<span className="break-words max-w-[150px]">{movie.productionCompanies?.join(", ")}</span>}
               />
               <InfoItem icon={<FaStar />} label="Age Rating" value={movie.ageRating || "N/A"} />
             </motion.div>
@@ -261,9 +448,9 @@ const MovieDetails = () => {
                 <img
                   src={m.image}
                   alt={m.title}
-                  className="w-full h-64 object-cover rounded-lg mb-4 transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-40 sm:h-48 md:h-64 object-cover rounded-lg mb-4 transition-transform duration-300 group-hover:scale-105"
                 />
-                <h3 className="text-xl font-semibold text-yellow-300 group-hover:underline transition-all duration-300">
+                <h3 className="text-xl font-semibold text-yellow-300 group-hover:underline transition-all duration-300 truncate" title={m.title}>
                   {m.title}
                 </h3>
               </Link>
@@ -273,6 +460,9 @@ const MovieDetails = () => {
       )}
     </section>
   );
+
+  // Render conditionally
+  return isMobile ? <MobileLayout /> : <DesktopLayout />;
 };
 
 const InfoItem = ({ icon, label, value }) => (
@@ -288,8 +478,8 @@ const InfoItem = ({ icon, label, value }) => (
 );
 
 const LoadingSkeleton = () => (
-  <section className="max-w-7xl mx-auto p-8 bg-gray-800 rounded-lg animate-pulse flex flex-col md:flex-row gap-12 min-h-[400px]">
-    <div className="bg-gray-700 rounded-xl w-full max-w-sm h-96" />
+  <section className="max-w-7xl mx-auto p-8 bg-gray-800 rounded-lg animate-pulse flex flex-col md:flex-row gap-6 md:gap-12 min-h-[400px]">
+    <div className="bg-gray-700 rounded-xl w-full max-w-sm h-72 md:h-96" />
     <div className="flex-1 space-y-6">
       <div className="h-12 bg-gray-700 rounded w-3/4" />
       <div className="h-6 bg-gray-700 rounded w-full" />
@@ -313,5 +503,5 @@ const ErrorFallback = ({ message, onRetry }) => (
     </button>
   </div>
 );
-
 export default MovieDetails;
+
