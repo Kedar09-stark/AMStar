@@ -79,14 +79,14 @@ const MovieCard = ({ movie, onAddToWatchlist }) => {
               {movie.genres?.slice(0, 3).map((genre, idx) => (
                 <span
                   key={idx}
-                  className="text-xs bg-zinc-700 px-3 py-1 rounded-full text-white"
+                  className="text-xs bg-zinc-800 px-3 py-1 rounded-full text-white"
                 >
                   {genre}
                 </span>
               ))}
             </div>
 
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-zinc-800">
               Release: <span className="text-white">{movie.releaseDate || "Unknown"}</span>
             </p>
 
@@ -160,7 +160,7 @@ const MovieCard = ({ movie, onAddToWatchlist }) => {
               {movie.genres?.slice(0, 2).map((genre, idx) => (
                 <span
                   key={idx}
-                  className="text-[9px] bg-zinc-700 px-2 py-[2px] rounded-full text-white"
+                  className="text-[9px] bg-zinc-800 px-2 py-[2px] rounded-full text-white"
                 >
                   {genre}
                 </span>
