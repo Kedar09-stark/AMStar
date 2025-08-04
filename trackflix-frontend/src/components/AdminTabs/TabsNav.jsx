@@ -36,7 +36,7 @@ const [underlineStyle, setUnderlineStyle] = useState({ width: '8.33%', left: 0 }
         left: node.offsetLeft,
       });
     }
-  }, [activeTab, tabs]);
+  }, [activeTab]); 
 
   const otherTabs = tabs.filter((t) => t.key !== activeTab);
 

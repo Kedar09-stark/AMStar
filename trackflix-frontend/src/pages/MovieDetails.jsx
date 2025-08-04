@@ -117,7 +117,7 @@ const MovieDetails = () => {
   if (error) return <ErrorFallback message={error} onRetry={fetchMovie} />;
   if (!movie) return <p className="text-center text-gray-400 mt-20 text-lg">No movie data available.</p>;
 
-  // Mobile layout JSX
+  // Mobile layout 
   const MobileLayout = () => (
     <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen p-4 text-gray-100 font-sans max-w-7xl mx-auto overflow-x-hidden">
       <Link
@@ -287,7 +287,7 @@ const MovieDetails = () => {
     </section>
   );
 
-  // Desktop layout JSX (similar to your original)
+  // Desktop layout 
   const DesktopLayout = () => (
     <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen p-12 text-gray-100 font-sans max-w-7xl mx-auto overflow-x-hidden">
       <Link
