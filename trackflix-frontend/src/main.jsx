@@ -30,6 +30,8 @@ import About from "./components/FooterExtra/About";
 import Contact from "./components/FooterExtra/Contact";
 import Privacy from "./components/FooterExtra/Privacy";
 import Terms from "./components/FooterExtra/Terms";
+//import DeveloperDetail from "./components/FooterExtra/DeveloperDetail.jsx";
+import MeetTeam from "./pages/MeetTeam.jsx";
 import NotFound from "./pages/NotFound";
 
 // ----------- Protected route wrappers ------------
@@ -86,6 +88,7 @@ const router = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/privacy", element: <Privacy /> },
       { path: "/terms", element: <Terms /> },
+      { path: "/teams", element: <MeetTeam /> },
 
       { path: "*", element: <NotFound /> },
     ],

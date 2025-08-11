@@ -86,7 +86,7 @@ const MovieCard = ({ movie, onAddToWatchlist }) => {
               ))}
             </div>
 
-            <p className="text-sm text-zinc-800">
+            <p className="text-sm text-zinc-400">
               Release: <span className="text-white">{movie.releaseDate || "Unknown"}</span>
             </p>
 

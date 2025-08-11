@@ -33,6 +33,7 @@ function Footer() {
                 { to: "/contact", label: "Contact" },
                 { to: "/privacy", label: "Privacy Policy" },
                 { to: "/terms", label: "Terms of Service" },
+                 { to: "/teams", label: "Meet team" },
               ].map(({ to, label }) => (
                 <li key={to}>
                   <Link
