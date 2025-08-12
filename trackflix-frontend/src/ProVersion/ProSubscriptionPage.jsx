@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { motion, AnimatePresence } from "framer-motion";
-
+import OtpVerificationModal from "./OtpVerificationModal";
 const plansData = {
   monthly: [
     {
@@ -64,6 +64,9 @@ function ProSubscriptionPage() {
   const [mobileNumber, setMobileNumber] = useState("");
   const [error, setError] = useState("");
 
+  // OTP modal control
+  const [showOtpModal, setShowOtpModal] = useState(false);
+
   // Toast notification
   const [toastMsg, setToastMsg] = useState("");
   const [showToast, setShowToast] = useState(false);
@@ -72,7 +75,6 @@ function ProSubscriptionPage() {
   const handleSubscribe = (plan) => {
     setSelectedPlan(plan);
     setShowPayment(true);
-    // reset payment form fields
     setMethod("card");
     setCardNumber("");
     setExpiry("");
@@ -81,6 +83,7 @@ function ProSubscriptionPage() {
     setPaypalEmail("");
     setMobileNumber("");
     setError("");
+    setShowOtpModal(false);
   };
 
   const resetFields = () => {
@@ -133,12 +136,27 @@ function ProSubscriptionPage() {
 
     if (!valid) return;
 
+    // If method is bKash or Nagad, trigger OTP modal instead of direct success
+    if (method === "bkash" || method === "nagad") {
+      setShowOtpModal(true);
+      return;
+    }
+
+    // For card or paypal, proceed directly
     setTimeout(() => {
       setShowPayment(false);
       setUserProStatus(true);
       setToastMsg(`Payment successful for ${selectedPlan.title} plan!`);
       setShowToast(true);
     }, 800);
+  };
+
+  const handleOtpVerified = () => {
+    setShowOtpModal(false);
+    setShowPayment(false);
+    setUserProStatus(true);
+    setToastMsg(`Payment successful for ${selectedPlan.title} plan!`);
+    setShowToast(true);
   };
 
   // Toast auto-hide after 3 seconds and navigate to theater page
@@ -304,7 +322,7 @@ function ProSubscriptionPage() {
                       type="text"
                       value={cardName}
                       onChange={(e) => setCardName(e.target.value)}
-                      placeholder="John Doe"
+                      placeholder="Robiul Hasan s"
                       className="w-full mt-1 p-2 rounded bg-gray-800 text-yellow-300 focus:outline-yellow-400"
                       required
                     />
@@ -402,6 +420,15 @@ function ProSubscriptionPage() {
             </form>
           </div>
         </div>
+      )}
+
+      {/* OTP Modal */}
+      {showOtpModal && (
+        <OtpVerificationModal
+          mobileNumber={mobileNumber}
+          onCancel={() => setShowOtpModal(false)}
+          onVerified={handleOtpVerified}
+        />
       )}
 
       {/* Toast Notification */}
