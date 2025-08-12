@@ -11,43 +11,41 @@ export default function ChatbotUI({
   const [isOpen, setIsOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
 
-  const styles = {
-    floatingButton: {
-      position: "fixed",
-      bottom: 20,
-      right: 20,
-      width: 80,
-      height: 80,
-      borderRadius: "50%",
-      overflow: "hidden",
-      boxShadow: hovered
-        ? "0 6px 20px rgba(255, 76, 76, 0.9), 0 0 30px rgba(255, 76, 76, 0.9)"
-        : "0 4px 15px rgba(255, 76, 76, 0.7), 0 0 15px rgba(255, 76, 76, 0.9)",
-      cursor: "pointer",
-      userSelect: "none",
-      transition: "transform 0.3s ease, box-shadow 0.3s ease",
-      transform: hovered ? "scale(1.15)" : "scale(1)",
-      zIndex: 9999,
-      backgroundColor: "#000",
-      animation: "pulseGlow 3s ease-in-out infinite",
-    },
-    chatContainer: {
-      position: "fixed",
-      bottom: 20,
-      right: 20,
-      width: 360,
-      maxHeight: 520,
-      backgroundColor: "#222",
-      borderRadius: 16,
-      boxShadow: "0 0 20px rgba(255,76,76,0.8)",
-      color: "white",
-      display: "flex",
-      flexDirection: "column",
-      overflow: "hidden",
-      zIndex: 9999,
-      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-    },
-  };
+ const isMobile = window.innerWidth <= 600; // detects small screens
+
+const styles = {
+  floatingButton: {
+    position: "fixed",
+    bottom: 20,
+    right: 20,
+    width: 80,
+    height: 80,
+    borderRadius: "50%",
+    overflow: "hidden",
+    cursor: "pointer",
+    userSelect: "none",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    transform: hovered ? "scale(1.15)" : "scale(1)",
+    zIndex: 9999,
+    backgroundColor: "#000",
+    animation: "pulseGlow 3s ease-in-out infinite",
+  },
+  chatContainer: {
+    position: "fixed",
+    bottom: 20,
+    right: 20,
+    width: isMobile ? 200 : 360, 
+    backgroundColor: "#222",
+    borderRadius: 16,
+    boxShadow: "0 0 20px rgba(255,76,76,0.8)",
+    color: "white",
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden",
+    zIndex: 9999,
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+  },
+};
 
   if (!isOpen) {
     return (
@@ -76,51 +74,40 @@ export default function ChatbotUI({
        <style>
   {`
     @media (max-width: 600px) {
-      /* Floating button tiny */
-      div[role="button"] {
-        width: 40px !important;
-        height: 40px !important;
-        bottom: 10px !important;
-        right: 10px !important;
-      }
+  .chat-container {
+    width: 50% !important;       /* very narrow */
+    height: 35% !important;      /* short height */
+    right: 5% !important;        /* close to the right edge */
+    bottom: 5% !important;       /* close to the bottom */
+    font-size: 8px !important;   /* tiny font */
+    border-radius: 6px !important;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  }
 
-      /* Chat box tiny */
-      .chat-container {
-        width: 70% !important;
-        right: 15% !important;
-        bottom: 10px !important;
-        max-height: 60% !important;
-        font-size: 11px !important;
-        border-radius: 10px !important;
-      }
+  .chat-header {
+    font-size: 9px !important;
+    padding: 2px 4px !important;
+  }
 
-      /* Header super tight */
-      .chat-header {
-        font-size: 12px !important;
-        padding: 5px 8px !important;
-      }
+  .chat-message {
+    font-size: 8px !important;
+    padding: 1px 3px !important;
+    line-height: 1.1 !important;
+  }
 
-      /* Messages ultra compact */
-      .chat-message {
-        font-size: 11px !important;
-        padding: 4px 6px !important;
-        margin-bottom: 3px !important;
-      }
+  .chat-input {
+    font-size: 8px !important;
+    padding: 1px 3px !important;
+    height: 20px !important;
+  }
 
-      /* Input minimal */
-      .chat-input {
-        font-size: 11px !important;
-        padding: 4px 8px !important;
-        border-radius: 14px !important;
-      }
+  .chat-send {
+    font-size: 8px !important;
+    padding: 1px 3px !important;
+  }
+}
 
-      /* Send button tiny */
-      .chat-send {
-        padding: 4px 8px !important;
-        font-size: 11px !important;
-        border-radius: 14px !important;
-      }
-    }
   `}
 </style>
 
