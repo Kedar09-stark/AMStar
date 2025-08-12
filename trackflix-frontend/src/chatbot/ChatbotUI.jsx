@@ -1,232 +1,123 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function ChatbotUI({
-  messages,
-  input,
-  setInput,
-  loading,
-  fetchResults,
-  messagesEndRef,
-}) {
+export default function ChatbotUI({ messages, input, setInput, loading, fetchResults, messagesEndRef }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [hovered, setHovered] = useState(false);
 
- const isMobile = window.innerWidth <= 600; // detects small screens
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
 
-const styles = {
-  floatingButton: {
-    position: "fixed",
-    bottom: 20,
-    right: 20,
-    width: 80,
-    height: 80,
-    borderRadius: "50%",
-    overflow: "hidden",
-    cursor: "pointer",
-    userSelect: "none",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    transform: hovered ? "scale(1.15)" : "scale(1)",
-    zIndex: 9999,
-    backgroundColor: "#000",
-    animation: "pulseGlow 3s ease-in-out infinite",
-  },
-  chatContainer: {
-    position: "fixed",
-    bottom: 20,
-    right: 20,
-    width: isMobile ? 200 : 360, 
-    backgroundColor: "#222",
-    borderRadius: 16,
-    boxShadow: "0 0 20px rgba(255,76,76,0.8)",
-    color: "white",
-    display: "flex",
-    flexDirection: "column",
-    overflow: "hidden",
-    zIndex: 9999,
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-  },
-};
+  const handleSend = (e) => {
+    e.preventDefault();
+    fetchResults();
+  };
 
-  if (!isOpen) {
-    return (
-      <>
-        <div
+  return (
+    <>
+      {!isOpen ? (
+        <button
           onClick={() => setIsOpen(true)}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          style={styles.floatingButton}
+          aria-label="Open Chatbot"
+          className="
+            fixed bottom-2 right-2
+            w-9 h-9 sm:w-14 sm:h-14
+            rounded-full bg-black
+            shadow-lg animate-pulseGlow
+            transform transition-transform duration-300
+            sm:hover:scale-105 focus:outline-none
+            z-50 flex items-center justify-center
+          "
         >
           <video
             src="https://cdn.dribbble.com/userupload/5114473/file/large-d4fe9a4a9260f5de3208a7c887af712e.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              pointerEvents: "none",
-              userSelect: "none",
-            }}
+            autoPlay loop muted playsInline
+            className="w-full h-full object-cover rounded-full pointer-events-none select-none"
           />
-        </div>
-       <style>
-  {`
-    @media (max-width: 600px) {
-  .chat-container {
-    width: 50% !important;       /* very narrow */
-    height: 35% !important;      /* short height */
-    right: 5% !important;        /* close to the right edge */
-    bottom: 5% !important;       /* close to the bottom */
-    font-size: 8px !important;   /* tiny font */
-    border-radius: 6px !important;
-    overflow: hidden;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  }
-
-  .chat-header {
-    font-size: 9px !important;
-    padding: 2px 4px !important;
-  }
-
-  .chat-message {
-    font-size: 8px !important;
-    padding: 1px 3px !important;
-    line-height: 1.1 !important;
-  }
-
-  .chat-input {
-    font-size: 8px !important;
-    padding: 1px 3px !important;
-    height: 20px !important;
-  }
-
-  .chat-send {
-    font-size: 8px !important;
-    padding: 1px 3px !important;
-  }
-}
-
-  `}
-</style>
-
-
-      </>
-    );
-  }
-
-  return (
-    <div className="chat-container" style={styles.chatContainer}>
-      {/* Header */}
-      <div
-        className="chat-header"
-        style={{
-          background: "linear-gradient(135deg, #ff4c4c, #d13232)",
-          padding: "14px 20px",
-          fontWeight: "700",
-          fontSize: 18,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        Trackflix Chatbot
-        <div style={{ display: "flex", gap: 10 }}>
-          <button
-            onClick={() => setIsOpen(false)}
-            style={{
-              background: "transparent",
-              border: "none",
-              color: "white",
-              fontSize: 22,
-              cursor: "pointer",
-            }}
-          >
-            ✕
-          </button>
-        </div>
-      </div>
-
-      {/* Messages */}
-      <div
-        style={{
-          flex: 1,
-          padding: "15px 20px",
-          overflowY: "auto",
-          backgroundColor: "#181818",
-        }}
-      >
-        {messages.map((msg, i) => (
-          <div
-            key={i}
-            style={{
-              textAlign: msg.sender === "user" ? "right" : "left",
-              marginBottom: 14,
-            }}
-          >
-            <div
-              style={{
-                display: "inline-block",
-                backgroundColor: msg.sender === "user" ? "#0d6efd" : "#444",
-                padding: "10px 16px",
-                borderRadius: 20,
-                maxWidth: "80%",
-                fontSize: 15,
-              }}
-            >
-              {msg.text}
-            </div>
-          </div>
-        ))}
-        <div ref={messagesEndRef} />
-      </div>
-
-      {/* Input */}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          fetchResults();
-        }}
-        style={{
-          display: "flex",
-          borderTop: "1px solid #444",
-          backgroundColor: "#111",
-          padding: "12px 15px",
-          gap: 10,
-        }}
-      >
-        <input
-          className="chat-input"
-          type="text"
-          placeholder="Ask me anything..."
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          style={{
-            flex: 1,
-            padding: "12px 18px",
-            border: "none",
-            outline: "none",
-            backgroundColor: "#222",
-            color: "white",
-            borderRadius: 24,
-          }}
-        />
-        <button
-          className="chat-send"
-          type="submit"
-          disabled={loading}
-          style={{
-            backgroundColor: "#ff4c4c",
-            border: "none",
-            color: "white",
-            padding: "12px 25px",
-            borderRadius: 24,
-          }}
-        >
-          {loading ? "..." : "Send"}
         </button>
-      </form>
-    </div>
+      ) : (
+        <div
+          className="
+            fixed bottom-2 right-2
+            flex flex-col
+            bg-gray-900 text-white
+            rounded-lg shadow-xl
+            w-[70vw] sm:w-[80vw] max-w-[260px]
+            h-[50vh] sm:h-[55vh]
+            z-50
+          "
+        >
+          {/* Header */}
+          <div className="flex justify-between items-center bg-gradient-to-br from-red-600 to-red-700 px-2 py-1 rounded-t-lg font-semibold text-xs">
+            Chatbot
+            <button
+              onClick={() => setIsOpen(false)}
+              aria-label="Close Chatbot"
+              className="text-white text-lg font-bold focus:outline-none"
+            >
+              &times;
+            </button>
+          </div>
+
+          {/* Messages */}
+          <div className="flex-1 overflow-y-auto p-2 space-y-2 bg-gray-800 text-[10px]">
+            {messages.map((msg, i) => (
+              <div
+                key={i}
+                className={`max-w-[80%] px-2 py-1 rounded-md break-words
+                  ${msg.sender === "user" ? "bg-blue-600 ml-auto text-right" : "bg-gray-700"}
+                `}
+              >
+                {msg.text}
+              </div>
+            ))}
+            <div ref={messagesEndRef} />
+          </div>
+
+          {/* Input */}
+          <form
+            onSubmit={handleSend}
+            className="flex items-center gap-1 px-2 py-2 bg-gray-900 rounded-b-lg border-t border-gray-700"
+          >
+            <input
+              type="text"
+              placeholder="Ask..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="
+                flex-grow bg-gray-800 text-white
+                rounded-full px-2 py-1
+                placeholder-gray-400
+                focus:outline-none focus:ring-1 focus:ring-red-600
+                text-[10px]
+              "
+            />
+            <button
+              type="submit"
+              disabled={loading}
+              className="
+                bg-red-600 sm:hover:bg-red-700
+                disabled:opacity-50 disabled:cursor-not-allowed
+                text-white rounded-full
+                p-1 w-7 h-7 flex items-center justify-center
+                text-xs
+                transition focus:outline-none focus:ring-1 focus:ring-red-600
+              "
+            >
+              {loading ? "…" : "➤"}
+            </button>
+          </form>
+        </div>
+      )}
+
+      <style jsx>{`
+        @keyframes pulseGlow {
+          0%, 100% { box-shadow: 0 0 3px rgba(255, 76, 76, 0.7); }
+          50% { box-shadow: 0 0 8px rgba(255, 76, 76, 1); }
+        }
+        .animate-pulseGlow {
+          animation: pulseGlow 3s ease-in-out infinite;
+        }
+      `}</style>
+    </>
   );
 }
