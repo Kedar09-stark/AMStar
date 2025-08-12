@@ -11,6 +11,9 @@ import VolumeUpIcon from "../components/icons/VolumeUpIcon";
 import HeroSearch from "../components/sections/HeroSearch";
 import HeroVideo from "../components/sections/HeroVideo";
 
+// Import chatbot
+import TestBot from "../chatbot/testbot";
+
 const FeaturedToday = lazy(() => import("../components/sections/FeaturedToday"));
 const MostPopularCelebrities = lazy(() => import("../components/sections/MostPopularCelebrities"));
 const Top10Trackflix = lazy(() => import("../components/sections/Top10Trackflix"));
@@ -20,21 +23,20 @@ const PopularInterests = lazy(() => import("../components/sections/PopularIntere
 const Home = () => {
   const [current, setCurrent] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
-  const [isPlaying, setIsPlaying] = useState(false); // start paused
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
   const navigate = useNavigate();
 
-  // Safe guard: currentMovie might be undefined if movies is empty or index out of range
   const currentMovie = movies[current] || null;
 
   const nextSlide = () => {
-    setIsPlaying(false); // pause video on slide change
+    setIsPlaying(false);
     setCurrent((prev) => (prev + 1) % movies.length);
   };
 
   const prevSlide = () => {
-    setIsPlaying(false); // pause video on slide change
+    setIsPlaying(false);
     setCurrent((prev) => (prev - 1 + movies.length) % movies.length);
   };
 
@@ -76,7 +78,6 @@ const Home = () => {
           handleSubmit={handleSubmit}
         />
 
-        {/* Only render HeroVideo if currentMovie exists */}
         {currentMovie ? (
           <HeroVideo
             videoRef={videoRef}
@@ -105,6 +106,11 @@ const Home = () => {
             <PopularInterests />
           </Suspense>
         </section>
+
+        {/* Floating chatbot in bottom-right */}
+        <div className="fixed bottom-5 right-5 z-50 transition-transform duration-300 hover:scale-105">
+          <TestBot />
+        </div>
       </main>
     </>
   );
