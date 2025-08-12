@@ -9,31 +9,71 @@ export default function ChatbotUI({
   messagesEndRef,
 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   if (!isOpen) {
-    // Show only chat icon button
     return (
-      <button
+      <div
         onClick={() => setIsOpen(true)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        role="button"
+        tabIndex={0}
+        aria-label="Open Movie Chatbot"
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") setIsOpen(true);
+        }}
         style={{
           position: "fixed",
           bottom: 20,
           right: 20,
-          backgroundColor: "#ff4c4c",
-          border: "none",
+          width: 80,
+          height: 80,
           borderRadius: "50%",
-          width: 60,
-          height: 60,
-          color: "white",
-          fontSize: 30,
+          overflow: "hidden",
+          boxShadow: hovered
+            ? "0 6px 20px rgba(255, 76, 76, 0.9), 0 0 30px rgba(255, 76, 76, 0.9)"
+            : "0 4px 15px rgba(255, 76, 76, 0.7), 0 0 15px rgba(255, 76, 76, 0.9)",
           cursor: "pointer",
-          boxShadow: "0 0 12px rgba(0,0,0,0.5)",
+          userSelect: "none",
+          transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          transform: hovered ? "scale(1.15)" : "scale(1)",
           zIndex: 9999,
+          backgroundColor: "#000",
+          animation: "pulseGlow 3s ease-in-out infinite",
         }}
-        aria-label="Open Chatbot"
       >
-        💬
-      </button>
+        <video
+          src="https://cdn.dribbble.com/userupload/5114473/file/large-d4fe9a4a9260f5de3208a7c887af712e.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            pointerEvents: "none",
+            userSelect: "none",
+          }}
+        />
+        <style>
+          {`
+            @keyframes pulseGlow {
+              0%, 100% {
+                box-shadow:
+                  0 4px 15px rgba(255, 76, 76, 0.7),
+                  0 0 15px rgba(255, 76, 76, 0.9);
+              }
+              50% {
+                box-shadow:
+                  0 6px 25px rgba(255, 76, 76, 1),
+                  0 0 30px rgba(255, 76, 76, 1);
+              }
+            }
+          `}
+        </style>
+      </div>
     );
   }
 
@@ -41,44 +81,51 @@ export default function ChatbotUI({
     <div
       style={{
         position: "fixed",
-        bottom: "20px",
-        right: "20px",
-        width: "350px",
-        maxHeight: "500px",
+        bottom: 20,
+        right: 20,
+        width: 360,
+        maxHeight: 520,
         backgroundColor: "#222",
-        borderRadius: "12px",
-        boxShadow: "0 0 12px rgba(0,0,0,0.7)",
+        borderRadius: 16,
+        boxShadow: "0 0 20px rgba(255,76,76,0.8)",
         color: "white",
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
         zIndex: 9999,
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       }}
     >
       <div
         style={{
-          backgroundColor: "#ff4c4c",
-          padding: "12px 15px",
-          fontWeight: "bold",
-          fontSize: "16px",
+          background: "linear-gradient(135deg, #ff4c4c, #d13232)",
+          padding: "14px 20px",
+          fontWeight: "700",
+          fontSize: 18,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          userSelect: "none",
+          color: "white",
+          boxShadow: "0 2px 8px rgba(255, 76, 76, 0.7)",
         }}
       >
-       Trackflix Chatbot
-        <div>
+        Trackflix Chatbot
+        <div style={{ display: "flex", gap: 10 }}>
           <button
             onClick={() => setIsOpen(false)}
             style={{
               background: "transparent",
               border: "none",
               color: "white",
-              fontSize: "18px",
+              fontSize: 22,
               cursor: "pointer",
-              marginRight: "10px",
+              lineHeight: 1,
+              padding: 0,
+              userSelect: "none",
             }}
             title="Close Chat"
+            aria-label="Close chat"
           >
             ✕
           </button>
@@ -88,20 +135,26 @@ export default function ChatbotUI({
               background: "transparent",
               border: "none",
               color: "white",
-              fontSize: "18px",
+              fontSize: 20,
               cursor: "pointer",
+              lineHeight: 1,
+              padding: 0,
+              userSelect: "none",
             }}
             title="Reset chat"
+            aria-label="Reset chat"
           >
             ⟳
           </button>
         </div>
       </div>
+
       <div
         style={{
           flex: 1,
-          padding: "10px",
+          padding: "15px 20px",
           overflowY: "auto",
+          backgroundColor: "#181818",
         }}
       >
         {messages.map((msg, i) => (
@@ -109,18 +162,23 @@ export default function ChatbotUI({
             key={i}
             style={{
               textAlign: msg.sender === "user" ? "right" : "left",
-              marginBottom: "10px",
+              marginBottom: 14,
             }}
           >
             <div
               style={{
                 display: "inline-block",
                 backgroundColor: msg.sender === "user" ? "#0d6efd" : "#444",
-                padding: "8px 12px",
-                borderRadius: "12px",
+                padding: "10px 16px",
+                borderRadius: 20,
                 maxWidth: "80%",
                 wordWrap: "break-word",
                 whiteSpace: "pre-wrap",
+                boxShadow:
+                  msg.sender === "user"
+                    ? "0 2px 8px rgba(13, 110, 253, 0.6)"
+                    : "0 2px 8px rgba(68, 68, 68, 0.7)",
+                fontSize: 15,
               }}
             >
               {msg.text}
@@ -135,7 +193,13 @@ export default function ChatbotUI({
           e.preventDefault();
           fetchResults();
         }}
-        style={{ display: "flex", borderTop: "1px solid #444" }}
+        style={{
+          display: "flex",
+          borderTop: "1px solid #444",
+          backgroundColor: "#111",
+          padding: "12px 15px",
+          gap: 10,
+        }}
       >
         <input
           type="text"
@@ -144,13 +208,16 @@ export default function ChatbotUI({
           onChange={(e) => setInput(e.target.value)}
           style={{
             flex: 1,
-            padding: "12px",
+            padding: "12px 18px",
             border: "none",
             outline: "none",
-            fontSize: "14px",
-            backgroundColor: "#333",
+            fontSize: 15,
+            backgroundColor: "#222",
             color: "white",
+            borderRadius: 24,
+            userSelect: "text",
           }}
+          aria-label="Chat input"
         />
         <button
           type="submit"
@@ -159,9 +226,15 @@ export default function ChatbotUI({
             backgroundColor: "#ff4c4c",
             border: "none",
             color: "white",
-            padding: "12px 20px",
+            padding: "12px 25px",
+            fontWeight: "600",
+            fontSize: 15,
+            borderRadius: 24,
             cursor: loading ? "not-allowed" : "pointer",
+            userSelect: "none",
+            transition: "background-color 0.3s ease",
           }}
+          aria-label="Send message"
         >
           {loading ? "Searching..." : "Send"}
         </button>

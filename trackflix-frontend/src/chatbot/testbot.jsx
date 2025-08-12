@@ -23,6 +23,46 @@ function isGreeting(text) {
   );
 }
 
+// Helper: extract requested number of movies from user input
+function extractRequestedCount(text) {
+  const match = text.match(/(\d+)\s*(movies|films|titles|results)/i);
+  if (match) {
+    const num = parseInt(match[1], 10);
+    if (num > 0) return num;
+  }
+  return null;
+}
+
+// Fetch multiple pages from OMDb for a year or overall until requestedCount or max 100 results
+async function fetchResultsPaginated(type, term, year, requestedCount) {
+  let allResults = [];
+  let page = 1;
+  const maxPages = 10; // OMDb limits to 100 results max (10 per page * 10 pages)
+
+  while (allResults.length < requestedCount && page <= maxPages) {
+    const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&type=${type}&s=${encodeURIComponent(
+      term
+    )}${year ? `&y=${year}` : ""}&page=${page}`;
+
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+
+      if (data.Response === "True" && data.Search) {
+        allResults = allResults.concat(data.Search);
+        if (data.Search.length < 10) break; // no more pages if less than 10 results on this page
+        page++;
+      } else {
+        break; // no more results
+      }
+    } catch (error) {
+      break; // stop on error
+    }
+  }
+
+  return allResults;
+}
+
 export default function MovieChatbot() {
   const [messages, setMessages] = useState([
     {
@@ -35,8 +75,16 @@ export default function MovieChatbot() {
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
 
-  // Context to remember last query info for follow-ups
-  const [context, setContext] = useState({ genre: null, type: "movie" });
+  // Extended context with cached results and offset for pagination
+  const [context, setContext] = useState({
+    genre: null,
+    type: "movie",
+    searchTerm: null,
+    startYear: null,
+    endYear: null,
+    results: [],
+    offset: 0,
+  });
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -63,12 +111,10 @@ export default function MovieChatbot() {
     return bestScore >= 2 ? bestMatch : null;
   }
 
-  // Enhanced parser to extract type, genre, years, and other hints
   function parseQuery(text) {
     const lower = text.toLowerCase();
     const currentYear = new Date().getFullYear();
 
-    // Type detection
     let type = "movie";
     if (
       lower.includes("tv") ||
@@ -78,7 +124,6 @@ export default function MovieChatbot() {
       type = "series";
     }
 
-    // Genre detection
     let genre = null;
     for (const g of genreList) {
       if (lower.includes(g)) {
@@ -91,11 +136,9 @@ export default function MovieChatbot() {
       if (closest) genre = closest;
     }
 
-    // Year or range detection (more flexible)
     let startYear = null;
     let endYear = null;
 
-    // Decade e.g. 90s, 80s
     const decadeMatch = lower.match(/(\d{2})s/);
     if (decadeMatch) {
       const decade = parseInt(decadeMatch[1]);
@@ -103,7 +146,6 @@ export default function MovieChatbot() {
       endYear = startYear + 9;
     }
 
-    // Last N years (improved to detect more phrasings)
     let lastYearsMatch =
       lower.match(/last (\d{1,2}) years?/) ||
       lower.match(/past (\d{1,2}) years?/) ||
@@ -114,14 +156,12 @@ export default function MovieChatbot() {
       endYear = currentYear;
     }
 
-    // Specific year
     const yearMatch = lower.match(/\b(19|20)\d{2}\b/);
     if (yearMatch) {
       startYear = parseInt(yearMatch[0]);
       endYear = startYear;
     }
 
-    // Clean search term removing detected parts to improve OMDb results
     let searchTerm = genre || "movie";
 
     let cleanedInput = lower;
@@ -139,94 +179,20 @@ export default function MovieChatbot() {
     return { type, genre, startYear, endYear, searchTerm };
   }
 
-  async function fetchByYearAndTerm(year, type, term) {
-    const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&type=${type}&y=${year}&s=${encodeURIComponent(
-      term
-    )}`;
-    const res = await fetch(url);
-    const data = await res.json();
-    return data.Search || [];
+  function isFollowUp(text) {
+    const lower = text.toLowerCase();
+    return (
+      lower.startsWith("show me more") ||
+      lower.startsWith("next") ||
+      lower.startsWith("more")
+    );
   }
 
-  async function fetchResults() {
-    if (!input.trim()) return;
-
-    setMessages((prev) => [...prev, { sender: "user", text: input }]);
-    setLoading(true);
-
-    if (isGreeting(input)) {
-      setTimeout(() => {
-        setMessages((prev) => [
-          ...prev,
-          {
-            sender: "bot",
-            text:
-              "Hi! How’s your day? Feel free to ask me about movies or TV shows. For example, 'best comedies from the 2000s' or 'recent sci-fi series'. 🎥",
-          },
-        ]);
-        setLoading(false);
-      }, 500);
-      setInput("");
-      return;
-    }
-
-    const { type, startYear, endYear, searchTerm, genre } = parseQuery(input);
-
-    // Save context for follow-up queries (e.g. "show me more")
-    setContext({ genre, type });
-
-    let allResults = [];
-
-    if (startYear && endYear) {
-      for (let y = startYear; y <= endYear; y++) {
-        if (y - startYear > 4) break; // max 5 years calls
-        const results = await fetchByYearAndTerm(y, type, searchTerm);
-        allResults = allResults.concat(results);
-      }
-    } else {
-      // fallback search without year
-      const url = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&type=${type}&s=${encodeURIComponent(
-        searchTerm
-      )}`;
-      const res = await fetch(url);
-      const data = await res.json();
-      allResults = data.Search || [];
-    }
-
-    // If no results, try fallback with genre only
-    if (allResults.length === 0 && genre) {
-      const fallbackUrl = `https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&type=${type}&s=${genre}`;
-      const fallbackRes = await fetch(fallbackUrl);
-      const fallbackData = await fallbackRes.json();
-
-      if (fallbackData.Search && fallbackData.Search.length > 0) {
-        allResults = fallbackData.Search;
-        setMessages((prev) => [
-          ...prev,
-        
-        ]);
-      }
-    }
-
-    if (allResults.length === 0) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          sender: "bot",
-          text:
-            "Sorry, I couldn't find any results. You can try asking about genres like 'comedy', 'action', or years like '90s' or 'last 10 years'.",
-        },
-      ]);
-    } else {
-      // Filter duplicates by imdbID
-      const uniqueResults = [];
-      const seenIds = new Set();
-      for (const movie of allResults) {
-        if (!seenIds.has(movie.imdbID)) {
-          uniqueResults.push(movie);
-          seenIds.add(movie.imdbID);
-        }
-      }
+  async function fetchMoreResults(requestedCount) {
+    const { results, offset, type } = context;
+    if (offset < results.length) {
+      const nextBatch = results.slice(offset, offset + requestedCount);
+      setContext((ctx) => ({ ...ctx, offset: offset + requestedCount }));
 
       setMessages((prev) => [
         ...prev,
@@ -234,8 +200,8 @@ export default function MovieChatbot() {
           sender: "bot",
           text: (
             <div>
-              <p>Here are some {type === "series" ? "TV shows" : "movies"} I found:</p>
-              {uniqueResults.slice(0, 7).map((movie) => (
+              <p>Here are more {type === "series" ? "TV shows" : "movies"}:</p>
+              {nextBatch.map((movie) => (
                 <div
                   key={movie.imdbID}
                   style={{ display: "flex", alignItems: "center", margin: "8px 0" }}
@@ -265,10 +231,151 @@ export default function MovieChatbot() {
           ),
         },
       ]);
+      setLoading(false);
+      setInput("");
+      return true;
+    }
+    return false;
+  }
+
+  async function handleNewQuery(requestedCount, queryData) {
+    const { type, startYear, endYear, searchTerm, genre } = queryData;
+
+    let allResults = [];
+
+    if (startYear && endYear) {
+      for (let y = startYear; y <= endYear; y++) {
+        if (y - startYear > 4) break;
+        const results = await fetchResultsPaginated(type, searchTerm, y, 100);
+        allResults = allResults.concat(results);
+      }
+    } else {
+      allResults = await fetchResultsPaginated(type, searchTerm, null, 100);
     }
 
+    if (allResults.length === 0 && genre) {
+      allResults = await fetchResultsPaginated(type, genre, null, 100);
+    }
+
+    if (allResults.length === 0) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          sender: "bot",
+          text:
+            "Sorry, I couldn't find any results. Try other genres or years.",
+        },
+      ]);
+      setLoading(false);
+      setInput("");
+      return;
+    }
+
+    // Filter duplicates
+    const uniqueResults = [];
+    const seenIds = new Set();
+    for (const movie of allResults) {
+      if (!seenIds.has(movie.imdbID)) {
+        uniqueResults.push(movie);
+        seenIds.add(movie.imdbID);
+      }
+    }
+
+    setContext({
+      genre,
+      type,
+      searchTerm,
+      startYear,
+      endYear,
+      results: uniqueResults,
+      offset: requestedCount,
+    });
+
+    setMessages((prev) => [
+      ...prev,
+      {
+        sender: "bot",
+        text: (
+          <div>
+            <p>Here are some {type === "series" ? "TV shows" : "movies"} I found:</p>
+            {uniqueResults.slice(0, requestedCount).map((movie) => (
+              <div
+                key={movie.imdbID}
+                style={{ display: "flex", alignItems: "center", margin: "8px 0" }}
+              >
+                <img
+                  src={movie.Poster !== "N/A" ? movie.Poster : "/no-poster.png"}
+                  alt={movie.Title}
+                  style={{
+                    width: "45px",
+                    height: "65px",
+                    marginRight: "12px",
+                    objectFit: "cover",
+                    borderRadius: "4px",
+                  }}
+                />
+                <div>
+                  <b>{movie.Title}</b> ({movie.Year})
+                  <br />
+                  <small>Type: {movie.Type}</small>
+                </div>
+              </div>
+            ))}
+            <p style={{ fontStyle: "italic", marginTop: "8px" }}>
+              Ask for more details or another genre!
+            </p>
+          </div>
+        ),
+      },
+    ]);
     setLoading(false);
     setInput("");
+  }
+
+  async function fetchResults() {
+    if (!input.trim()) return;
+
+    setMessages((prev) => [...prev, { sender: "user", text: input }]);
+    setLoading(true);
+
+    if (isGreeting(input)) {
+      setTimeout(() => {
+        setMessages((prev) => [
+          ...prev,
+          {
+            sender: "bot",
+            text:
+              "Hi! How’s your day? Feel free to ask me about movies or TV shows. For example, 'best comedies from the 2000s' or 'recent sci-fi series'. 🎥",
+          },
+        ]);
+        setLoading(false);
+      }, 500);
+      setInput("");
+      return;
+    }
+
+    if (isFollowUp(input)) {
+      const requestedCount = extractRequestedCount(input) || 7;
+      const hasMore = await fetchMoreResults(requestedCount);
+      if (!hasMore) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            sender: "bot",
+            text:
+              "No more results available. Try a new search or ask for another genre.",
+          },
+        ]);
+        setLoading(false);
+        setInput("");
+      }
+      return;
+    }
+
+    // New query
+    const queryData = parseQuery(input);
+    const requestedCount = extractRequestedCount(input) || 7;
+    await handleNewQuery(requestedCount, queryData);
   }
 
   return (
