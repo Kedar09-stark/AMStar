@@ -11,52 +11,68 @@ export default function ChatbotUI({
   const [isOpen, setIsOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
 
+  const styles = {
+    floatingButton: {
+      position: "fixed",
+      bottom: 20,
+      right: 20,
+      width: 80,
+      height: 80,
+      borderRadius: "50%",
+      overflow: "hidden",
+      boxShadow: hovered
+        ? "0 6px 20px rgba(255, 76, 76, 0.9), 0 0 30px rgba(255, 76, 76, 0.9)"
+        : "0 4px 15px rgba(255, 76, 76, 0.7), 0 0 15px rgba(255, 76, 76, 0.9)",
+      cursor: "pointer",
+      userSelect: "none",
+      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      transform: hovered ? "scale(1.15)" : "scale(1)",
+      zIndex: 9999,
+      backgroundColor: "#000",
+      animation: "pulseGlow 3s ease-in-out infinite",
+    },
+    chatContainer: {
+      position: "fixed",
+      bottom: 20,
+      right: 20,
+      width: 360,
+      maxHeight: 520,
+      backgroundColor: "#222",
+      borderRadius: 16,
+      boxShadow: "0 0 20px rgba(255,76,76,0.8)",
+      color: "white",
+      display: "flex",
+      flexDirection: "column",
+      overflow: "hidden",
+      zIndex: 9999,
+      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+    },
+  };
+
   if (!isOpen) {
     return (
-      <div
-        onClick={() => setIsOpen(true)}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        role="button"
-        tabIndex={0}
-        aria-label="Open Movie Chatbot"
-        onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") setIsOpen(true);
-        }}
-        style={{
-          position: "fixed",
-          bottom: 20,
-          right: 20,
-          width: 80,
-          height: 80,
-          borderRadius: "50%",
-          overflow: "hidden",
-          boxShadow: hovered
-            ? "0 6px 20px rgba(255, 76, 76, 0.9), 0 0 30px rgba(255, 76, 76, 0.9)"
-            : "0 4px 15px rgba(255, 76, 76, 0.7), 0 0 15px rgba(255, 76, 76, 0.9)",
-          cursor: "pointer",
-          userSelect: "none",
-          transition: "transform 0.3s ease, box-shadow 0.3s ease",
-          transform: hovered ? "scale(1.15)" : "scale(1)",
-          zIndex: 9999,
-          backgroundColor: "#000",
-          animation: "pulseGlow 3s ease-in-out infinite",
-        }}
-      >
-        <video
-          src="https://cdn.dribbble.com/userupload/5114473/file/large-d4fe9a4a9260f5de3208a7c887af712e.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            pointerEvents: "none",
-            userSelect: "none",
-          }}
-        />
+      <>
+        <div
+          onClick={() => setIsOpen(true)}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          style={styles.floatingButton}
+        >
+          <video
+            src="https://cdn.dribbble.com/userupload/5114473/file/large-d4fe9a4a9260f5de3208a7c887af712e.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              pointerEvents: "none",
+              userSelect: "none",
+            }}
+          />
+        </div>
         <style>
           {`
             @keyframes pulseGlow {
@@ -71,32 +87,45 @@ export default function ChatbotUI({
                   0 0 30px rgba(255, 76, 76, 1);
               }
             }
+            /* Mobile Styles */
+            @media (max-width: 600px) {
+              div[role="button"] {
+                width: 60px !important;
+                height: 60px !important;
+                bottom: 15px !important;
+                right: 15px !important;
+              }
+              .chat-container {
+                width: 90% !important;
+                right: 5% !important;
+                bottom: 10px !important;
+                max-height: 80% !important;
+                font-size: 14px !important;
+              }
+              .chat-header {
+                font-size: 16px !important;
+                padding: 10px !important;
+              }
+              .chat-input {
+                font-size: 13px !important;
+                padding: 8px 12px !important;
+              }
+              .chat-send {
+                padding: 8px 15px !important;
+                font-size: 13px !important;
+              }
+            }
           `}
         </style>
-      </div>
+      </>
     );
   }
 
   return (
-    <div
-      style={{
-        position: "fixed",
-        bottom: 20,
-        right: 20,
-        width: 360,
-        maxHeight: 520,
-        backgroundColor: "#222",
-        borderRadius: 16,
-        boxShadow: "0 0 20px rgba(255,76,76,0.8)",
-        color: "white",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden",
-        zIndex: 9999,
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-      }}
-    >
+    <div className="chat-container" style={styles.chatContainer}>
+      {/* Header */}
       <div
+        className="chat-header"
         style={{
           background: "linear-gradient(135deg, #ff4c4c, #d13232)",
           padding: "14px 20px",
@@ -105,9 +134,6 @@ export default function ChatbotUI({
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          userSelect: "none",
-          color: "white",
-          boxShadow: "0 2px 8px rgba(255, 76, 76, 0.7)",
         }}
       >
         Trackflix Chatbot
@@ -120,35 +146,14 @@ export default function ChatbotUI({
               color: "white",
               fontSize: 22,
               cursor: "pointer",
-              lineHeight: 1,
-              padding: 0,
-              userSelect: "none",
             }}
-            title="Close Chat"
-            aria-label="Close chat"
           >
             ✕
-          </button>
-          <button
-            onClick={() => window.location.reload()}
-            style={{
-              background: "transparent",
-              border: "none",
-              color: "white",
-              fontSize: 20,
-              cursor: "pointer",
-              lineHeight: 1,
-              padding: 0,
-              userSelect: "none",
-            }}
-            title="Reset chat"
-            aria-label="Reset chat"
-          >
-            ⟳
           </button>
         </div>
       </div>
 
+      {/* Messages */}
       <div
         style={{
           flex: 1,
@@ -172,12 +177,6 @@ export default function ChatbotUI({
                 padding: "10px 16px",
                 borderRadius: 20,
                 maxWidth: "80%",
-                wordWrap: "break-word",
-                whiteSpace: "pre-wrap",
-                boxShadow:
-                  msg.sender === "user"
-                    ? "0 2px 8px rgba(13, 110, 253, 0.6)"
-                    : "0 2px 8px rgba(68, 68, 68, 0.7)",
                 fontSize: 15,
               }}
             >
@@ -188,6 +187,7 @@ export default function ChatbotUI({
         <div ref={messagesEndRef} />
       </div>
 
+      {/* Input */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -202,8 +202,9 @@ export default function ChatbotUI({
         }}
       >
         <input
+          className="chat-input"
           type="text"
-          placeholder="Ask me anything about movies or shows..."
+          placeholder="Ask me anything..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           style={{
@@ -211,15 +212,13 @@ export default function ChatbotUI({
             padding: "12px 18px",
             border: "none",
             outline: "none",
-            fontSize: 15,
             backgroundColor: "#222",
             color: "white",
             borderRadius: 24,
-            userSelect: "text",
           }}
-          aria-label="Chat input"
         />
         <button
+          className="chat-send"
           type="submit"
           disabled={loading}
           style={{
@@ -227,16 +226,10 @@ export default function ChatbotUI({
             border: "none",
             color: "white",
             padding: "12px 25px",
-            fontWeight: "600",
-            fontSize: 15,
             borderRadius: 24,
-            cursor: loading ? "not-allowed" : "pointer",
-            userSelect: "none",
-            transition: "background-color 0.3s ease",
           }}
-          aria-label="Send message"
         >
-          {loading ? "Searching..." : "Send"}
+          {loading ? "..." : "Send"}
         </button>
       </form>
     </div>
