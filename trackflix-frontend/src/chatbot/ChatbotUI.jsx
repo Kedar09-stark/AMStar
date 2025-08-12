@@ -73,50 +73,58 @@ export default function ChatbotUI({
             }}
           />
         </div>
-        <style>
-          {`
-            @keyframes pulseGlow {
-              0%, 100% {
-                box-shadow:
-                  0 4px 15px rgba(255, 76, 76, 0.7),
-                  0 0 15px rgba(255, 76, 76, 0.9);
-              }
-              50% {
-                box-shadow:
-                  0 6px 25px rgba(255, 76, 76, 1),
-                  0 0 30px rgba(255, 76, 76, 1);
-              }
-            }
-            /* Mobile Styles */
-            @media (max-width: 600px) {
-              div[role="button"] {
-                width: 60px !important;
-                height: 60px !important;
-                bottom: 15px !important;
-                right: 15px !important;
-              }
-              .chat-container {
-                width: 90% !important;
-                right: 5% !important;
-                bottom: 10px !important;
-                max-height: 80% !important;
-                font-size: 14px !important;
-              }
-              .chat-header {
-                font-size: 16px !important;
-                padding: 10px !important;
-              }
-              .chat-input {
-                font-size: 13px !important;
-                padding: 8px 12px !important;
-              }
-              .chat-send {
-                padding: 8px 15px !important;
-                font-size: 13px !important;
-              }
-            }
-          `}
-        </style>
+       <style>
+  {`
+    @media (max-width: 600px) {
+      /* Floating button tiny */
+      div[role="button"] {
+        width: 40px !important;
+        height: 40px !important;
+        bottom: 10px !important;
+        right: 10px !important;
+      }
+
+      /* Chat box tiny */
+      .chat-container {
+        width: 70% !important;
+        right: 15% !important;
+        bottom: 10px !important;
+        max-height: 60% !important;
+        font-size: 11px !important;
+        border-radius: 10px !important;
+      }
+
+      /* Header super tight */
+      .chat-header {
+        font-size: 12px !important;
+        padding: 5px 8px !important;
+      }
+
+      /* Messages ultra compact */
+      .chat-message {
+        font-size: 11px !important;
+        padding: 4px 6px !important;
+        margin-bottom: 3px !important;
+      }
+
+      /* Input minimal */
+      .chat-input {
+        font-size: 11px !important;
+        padding: 4px 8px !important;
+        border-radius: 14px !important;
+      }
+
+      /* Send button tiny */
+      .chat-send {
+        padding: 4px 8px !important;
+        font-size: 11px !important;
+        border-radius: 14px !important;
+      }
+    }
+  `}
+</style>
+
+
       </>
     );
   }
