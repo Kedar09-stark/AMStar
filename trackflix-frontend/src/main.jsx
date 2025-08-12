@@ -1,7 +1,6 @@
-import { StrictMode } from "react";
+import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-//import BackendLoader from "./BackendLoader"; 
 import {
   createBrowserRouter,
   RouterProvider,
@@ -30,9 +29,10 @@ import About from "./components/FooterExtra/About";
 import Contact from "./components/FooterExtra/Contact";
 import Privacy from "./components/FooterExtra/Privacy";
 import Terms from "./components/FooterExtra/Terms";
-//import DeveloperDetail from "./components/FooterExtra/DeveloperDetail.jsx";
 import MeetTeam from "./pages/MeetTeam.jsx";
 import NotFound from "./pages/NotFound";
+import ProSubscriptionPage from "./ProVersion/ProSubscriptionPage.jsx";
+import TheaterPage from "./ProVersion/TheaterPage.jsx";
 
 // ----------- Protected route wrappers ------------
 
@@ -51,6 +51,18 @@ const AdminRoute = () => {
 
   if (!user) return <Navigate to="/login" />;
   return isAdmin ? <Outlet /> : <Navigate to="/dashboard" />;
+};
+
+// Simplified ProUserRoute to protect pro-only routes
+const ProUserRoute = () => {
+  const { user, loading } = useAuth();
+
+  if (loading) return <div>Loading...</div>;
+
+  if (!user) return <Navigate to="/login" />;
+
+  // Direct check for pro status on user object
+  return user.pro ? <Outlet /> : <Navigate to="/subscription" />;
 };
 
 // ------------ Router setup ------------------
@@ -84,6 +96,15 @@ const router = createBrowserRouter([
         children: [{ path: "/admin", element: <AdminPage /> }],
       },
 
+      // Pro Subscription page - open to all logged-in users
+      { path: "/subscription", element: <ProSubscriptionPage /> },
+
+      // Protected Theater page - only for logged-in Pro users
+      {
+        element: <ProUserRoute />,
+        children: [{ path: "/theater", element: <TheaterPage /> }],
+      },
+
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
       { path: "/privacy", element: <Privacy /> },
@@ -100,9 +121,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      
-        <RouterProvider router={router} />
-      
+      <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>
 );

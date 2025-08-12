@@ -41,6 +41,11 @@ function Header() {
     }
   };
 
+  const handleSubscription = () => {
+    setIsMenuOpen(false);
+    navigate("/subscription");
+  };
+
   // Inline keyframes styles for underline animation
   const keyframes = `
     @keyframes slideUnderline {
@@ -55,17 +60,12 @@ function Header() {
     }
   `;
 
-  // Desktop nav link base classes (no box-shadow, no glow)
-  // Using before pseudo-element for underline animation
-  // Scale on hover
-  // Smooth color transitions
   const desktopNavLinkBase = `
     relative cursor-pointer px-2 py-1
     text-white transition-colors duration-300 ease-in-out
     before:absolute before:bottom-0 before:h-[3px] before:rounded-full before:bg-yellow-400 before:content-[''] before:transition-all before:duration-300 before:ease-in-out
   `;
 
-  // Buttons with no box-shadow/glow, only scale + bg color change + transition
   const buttonClasses = `
     ml-4
     bg-yellow-400
@@ -140,6 +140,15 @@ function Header() {
                 >
                   {isAdmin ? "🛡️" : "👤"}
                 </div>
+
+                {/* Pro Version button */}
+                <button
+                  onClick={handleSubscription}
+                  className={`${buttonClasses} bg-green-500 hover:bg-green-600 ml-2`}
+                  aria-label="Pro Version Subscription"
+                >
+                  Pro Version
+                </button>
 
                 <button
                   onClick={handleLogout}
@@ -270,6 +279,19 @@ function Header() {
                 >
                   {isAdmin ? "🛡️ Admin Dashboard" : "👤 Dashboard"}
                 </div>
+
+                {/* Pro Version button mobile */}
+                <button
+                  onClick={() => {
+                    handleSubscription();
+                    setIsMenuOpen(false);
+                  }}
+                  className="block w-full text-left text-green-500 font-bold text-lg hover:text-green-600"
+                  aria-label="Pro Version Subscription"
+                >
+                  Pro Version
+                </button>
+
                 <button
                   onClick={() => {
                     handleLogout();
