@@ -14,12 +14,12 @@ export default function AstroCenter({ size }) {
         className="text-white font-extrabold uppercase tracking-widest text-center select-none leading-tight"
         style={{
           fontSize: size * 0.2,
-          lineHeight: 1.1,
+          lineHeight: 1,
         }}
       >
         4
         <br />
-        Lopper
+        Loopers
       </h2>
     </div>
   );
