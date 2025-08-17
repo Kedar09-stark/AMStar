@@ -2,7 +2,7 @@ const teamMembers = [
   {
     name: "Robiul Hasan Jisan",
     role: "Frontend & backend developer",
-     img: "https://scontent.fcgp29-1.fna.fbcdn.net/v/t39.30808-6/474095952_1724967381406106_6131669945335787705_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEG3xZUu-EZZp623z8EzIY3mzeTaM8-_iebN5Nozz7-J9fgoJ1ihM6v1x5oeT1BZ99FzzYbH7LNkUvrPngXf41p&_nc_ohc=VBc4lV33t3cQ7kNvwGkCr6M&_nc_oc=AdlcCIJJ2-tdEHRRu2ZbTW5KXr4X7q9DgfWsOuQFcc37pvhO-GyqjJaok6WORbXhvpI&_nc_zt=23&_nc_ht=scontent.fcgp29-1.fna&_nc_gid=EHt7bem8wxx3RSyUv1MwkA&oh=00_AfUYe7fxbe90RW087NHIOWlHBmqbp0hqE2cUMiscbvLj-g&oe=68A31561",
+     img: "https://i.postimg.cc/L6b2LKVz/Whats-App-Image-2025-08-17-at-22-33-29-55d4de84.jpg",
   },
  
   {
