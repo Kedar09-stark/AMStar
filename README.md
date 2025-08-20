@@ -54,7 +54,7 @@ TrackFlix is a movie and TV show discovery platform where users can explore tren
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/trackflix.git
+git clone https://github.com/RoBiul-Hasan-Jisan/4loopers.git
 
 # Navigate into project directory
 cd trackflix
