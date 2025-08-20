@@ -69,7 +69,7 @@ npm run dev
 ##  Wireframing  
 
 If you’re interested in the full wireframe, check it out here:  
-🔗 [View Wireframe on Excalidraw](https://excalidraw.com/#json=_hDO7aBV9bIoOdoCvZwoh,TlH0tQScXIldgyHZFfJF_g)  
+🔗 [View Wireframe on Excalidraw](https://excalidraw.com/#json=cvyT0a-W30exJZns9NhNa,xXMpZg7vgjWzpq3ncCbukw)  
 
 Here’s a quick screenshot preview:  
 ![Wireframe Screenshot](https://i.postimg.cc/1zNZ57sZ/Whats-App-Image-2025-08-21-at-01-58-32-b03e5c45.jpg)
