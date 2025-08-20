@@ -79,6 +79,18 @@ npm run dev
 
 - Mobile app version
 
+## 🤝 Contributing
+
+Contributions are what make the open-source community such an amazing place to **learn, inspire, and create**. Any contributions you make are greatly appreciated.
+
+If you have suggestions for **adding or removing features**, feel free to:
+
+- Open an **issue** to discuss your idea, or  
+- Directly create a **pull request** with the necessary changes.
+
+> ⚠️ Please create **individual PRs** for each suggestion or feature.
+
+
 ## 👨‍💻 Authors
 
 - **Robiul Hasan Jisan** - [Portfolio](https://portfolio-nine-gilt-93.vercel.app/)  
