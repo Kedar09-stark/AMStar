@@ -79,11 +79,12 @@ npm run dev
 
 - Mobile app version
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
-- Robiul Hasan Jisan
-  
-
+- **Robiul Hasan Jisan** - [Portfolio](https://portfolio-nine-gilt-93.vercel.app/)  
+- **Intesar Hossain**  
+- **Md Abrar Hossain**  
+- **Ramisa Mahi**  
 
 
 
