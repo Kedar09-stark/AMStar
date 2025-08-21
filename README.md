@@ -66,7 +66,7 @@ npm install
 npm run dev
 
 ```
-## 🎨 Wireframing  
+##  Wireframing  
 
 If you’re interested in the full wireframe, check it out here:  
 🔗 [View Wireframe on Excalidraw](https://excalidraw.com/#json=cvyT0a-W30exJZns9NhNa,xXMpZg7vgjWzpq3ncCbukw)  
@@ -74,17 +74,22 @@ If you’re interested in the full wireframe, check it out here:
 Here’s a quick screenshot preview:  
 ![Wireframe Screenshot](./public/images/wireframe.png)
 
-## Schema 
+## 🗄 Database Schema
 
-![Screenshot 8](./public/images/Schema.svg)
+You can view the database schema below.  
+For a detailed and zoomable version, click here: [View on dbdiagram.io](https://dbdiagram.io/d/68a60bf5466887cb45e0c8fb)
+
+
+
+![Database Schema](./public/images/Schema.svg)
 
 ## 📸 Screenshots
 
+![Screenshot 3](./public/images/screenshot3.png)  
+![Screenshot 4](./public/images/screenshot4.png) 
 ![Screenshot 8](./public/images/screenshot8.png)  
 ![Screenshot 1](./public/images/screenshot1.png)  
-![Screenshot 2](./public/images/screenshot2.png)  
-![Screenshot 3](./public/images/screenshot3.png)  
-![Screenshot 4](./public/images/screenshot4.png)  
+![Screenshot 2](./public/images/screenshot2.png)   
 ![Screenshot 5](./public/images/screenshot5.png)  
 ![Screenshot 6](./public/images/screenshot6.png)  
 ![Screenshot 7](./public/images/screenshot7.png)  
@@ -93,39 +98,40 @@ Here’s a quick screenshot preview:
 
 ## project structure 
  
-
-  4loopers/
-│── public/
+```bash
+4loopers/
+│
+├── public/
 │   └── images/               # Static assets
 │
-├── trackflix-backend/        # Backend (Node.js + Express + MongoDB)
-│   ├── config/               # Database & server config
-│   ├── data/                 # Data utilities
-│   ├── dump/                 # Database dump
-│   ├── models/               # Mongoose models
-│   ├── routes/               # Express routes
-│   ├── importAllData.js      # Data seeding script
-│   ├── server.js             # Main backend entry point
+├── trackflix-backend/         # Backend (Node.js + Express + MongoDB)
+│   ├── config/                # Database & server config
+│   ├── data/                  # Data utilities
+│   ├── dump/                  # Database dump
+│   ├── models/                # Mongoose models
+│   ├── routes/                # Express routes
+│   ├── importAllData.js       # Data seeding script
+│   ├── server.js              # Main backend entry point
 │   ├── package.json
 │   └── .env
 │
-├── trackflix-frontend/       # Frontend (React + Vite + Tailwind CSS)
+├── trackflix-frontend/        # Frontend (React + Vite + Tailwind CSS)
 │   ├── src/
-│   │   ├── animations/       # Animations and Lottie files
-│   │   ├── api/              # API calls
-│   │   ├── assets/           # Static assets
-│   │   ├── chatbot/          # Chatbot feature
-│   │   ├── components/       # Reusable UI components
-│   │   ├── constants/        # Constant values
-│   │   ├── context/          # React Context API
-│   │   ├── data/             # Static data
-│   │   ├── firebase/         # Firebase config
-│   │   ├── hooks/            # Custom React hooks
-│   │   ├── pages/            # Main pages
-│   │   ├── ProVersion/       # Premium/Pro features
-│   │   ├── RecommendationPage/ # Recommendation engine UI
-│   │   ├── userdeshbord/     # User dashboard
-│   │   └── utils/            # Helper functions
+│   │   ├── animations/        # Animations and Lottie files
+│   │   ├── api/               # API calls
+│   │   ├── assets/            # Static assets
+│   │   ├── chatbot/           # Chatbot feature
+│   │   ├── components/        # Reusable UI components
+│   │   ├── constants/         # Constant values
+│   │   ├── context/           # React Context API
+│   │   ├── data/              # Static data
+│   │   ├── firebase/          # Firebase config
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── pages/             # Main pages
+│   │   ├── ProVersion/        # Premium/Pro features
+│   │   ├── RecommendationPage/# Recommendation engine UI
+│   │   ├── userdeshbord/      # User dashboard
+│   │   └── utils/             # Helper functions
 │   ├── App.jsx
 │   ├── main.jsx
 │   ├── index.css
@@ -134,6 +140,8 @@ Here’s a quick screenshot preview:
 │
 ├── README.md
 └── LICENSE
+
+```
 
 ##  Future Improvements
 
