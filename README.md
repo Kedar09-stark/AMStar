@@ -74,7 +74,7 @@ If you’re interested in the full wireframe, check it out here:
 Here’s a quick screenshot preview:  
 ![Wireframe Screenshot](./public/images/wireframe.png)
 
-## 🗄 Database Schema
+## Database Schema
 
 You can view the database schema below.  
 For a detailed and zoomable version, click here: [View on dbdiagram.io](https://dbdiagram.io/d/68a60bf5466887cb45e0c8fb)
