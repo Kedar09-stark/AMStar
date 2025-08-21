@@ -74,7 +74,9 @@ If you’re interested in the full wireframe, check it out here:
 Here’s a quick screenshot preview:  
 ![Wireframe Screenshot](./public/images/wireframe.png)
 
+## Schema 
 
+![Screenshot 8](./public/images/Schema.svg)
 
 ## 📸 Screenshots
 
@@ -87,13 +89,11 @@ Here’s a quick screenshot preview:
 ![Screenshot 6](./public/images/screenshot6.png)  
 ![Screenshot 7](./public/images/screenshot7.png)  
 
-## Schema 
 
-![Screenshot 8](./public/images/Schema.svg)
 
 ## project structure 
  
- 
+
   4loopers/
 │── public/
 │   └── images/               # Static assets
