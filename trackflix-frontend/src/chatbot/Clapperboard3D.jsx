@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+//no  function 
 export default function ClapperboardAnimationButton({ style, onClick }) {
   const [hovered, setHovered] = useState(false);
 
