@@ -72,12 +72,13 @@ If you’re interested in the full wireframe, check it out here:
 🔗 [View Wireframe on Excalidraw](https://excalidraw.com/#json=cvyT0a-W30exJZns9NhNa,xXMpZg7vgjWzpq3ncCbukw)  
 
 Here’s a quick screenshot preview:  
-![Wireframe Screenshot](./public/images/Untitled-2025-08-20-2130.png)
+![Wireframe Screenshot](./public/images/wireframe.png)
 
 
 
 ## 📸 Screenshots
 
+![Screenshot 8](./public/images/screenshot8.png)  
 ![Screenshot 1](./public/images/screenshot1.png)  
 ![Screenshot 2](./public/images/screenshot2.png)  
 ![Screenshot 3](./public/images/screenshot3.png)  
@@ -85,7 +86,7 @@ Here’s a quick screenshot preview:
 ![Screenshot 5](./public/images/screenshot5.png)  
 ![Screenshot 6](./public/images/screenshot6.png)  
 ![Screenshot 7](./public/images/screenshot7.png)  
-![Screenshot 8](./public/images/screenshot8.png)  
+
 
 
 
