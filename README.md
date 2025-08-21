@@ -76,16 +76,16 @@ Here’s a quick screenshot preview:
 
 
 
-##  Screenshots
+## 📸 Screenshots
 
-
-![Screenshot 1](./public/images/4loopers.vercel.app_(11).png)  
-![Screenshot 2](./public/images/4loopers.vercel.app_(9).png)  
-![Screenshot 3](./public/images/4loopers.vercel.app_(8).png)  
-![Screenshot 4](./public/images/4loopers.vercel.app_(7).png)  
-![Screenshot 5](./public/images/4loopers.vercel.app_(6).png)  
-![Screenshot 6](./public/images/4loopers.vercel.app_(4).png)  
-![Screenshot 7](./public/images/4loopers.vercel.app_(3).png)  
+![Screenshot 1](./public/images/screenshot1.png)  
+![Screenshot 2](./public/images/screenshot2.png)  
+![Screenshot 3](./public/images/screenshot3.png)  
+![Screenshot 4](./public/images/screenshot4.png)  
+![Screenshot 5](./public/images/screenshot5.png)  
+![Screenshot 6](./public/images/screenshot6.png)  
+![Screenshot 7](./public/images/screenshot7.png)  
+![Screenshot 8](./public/images/screenshot8.png)  
 
 
 
