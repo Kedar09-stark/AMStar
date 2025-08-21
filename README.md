@@ -66,16 +66,28 @@ npm install
 npm run dev
 
 ```
-##  Wireframing  
+## 🎨 Wireframing  
 
 If you’re interested in the full wireframe, check it out here:  
 🔗 [View Wireframe on Excalidraw](https://excalidraw.com/#json=cvyT0a-W30exJZns9NhNa,xXMpZg7vgjWzpq3ncCbukw)  
 
 Here’s a quick screenshot preview:  
-![Wireframe Screenshot](https://i.postimg.cc/1zNZ57sZ/Whats-App-Image-2025-08-21-at-01-58-32-b03e5c45.jpg)
+![Wireframe Screenshot](./public/images/Untitled-2025-08-20-2130.png)
+
 
 
 ##  Screenshots
+
+
+![Screenshot 1](./public/images/4loopers.vercel.app_(11).png)  
+![Screenshot 2](./public/images/4loopers.vercel.app_(9).png)  
+![Screenshot 3](./public/images/4loopers.vercel.app_(8).png)  
+![Screenshot 4](./public/images/4loopers.vercel.app_(7).png)  
+![Screenshot 5](./public/images/4loopers.vercel.app_(6).png)  
+![Screenshot 6](./public/images/4loopers.vercel.app_(4).png)  
+![Screenshot 7](./public/images/4loopers.vercel.app_(3).png)  
+
+
 
 ##  Future Improvements
 
