@@ -83,7 +83,7 @@ For a detailed and zoomable version, click here: [View on dbdiagram.io](https://
 
 ![Database Schema](./public/images/Schema.svg)
 
-## 📸 Screenshots
+##  Screenshots
 
 ![Screenshot 3](./public/images/screenshot3.png)  
 ![Screenshot 4](./public/images/screenshot4.png) 
