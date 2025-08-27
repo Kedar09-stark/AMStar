@@ -128,87 +128,50 @@ The software architecture of **TrackFlix** is divided into three main layers: Fr
 
 
 ## project structure 
- 
+ ```bash
 
-  4loopers/
-  
+  4loopers/  
 │── public/
-
 │   └── images/               # Static assets
-
 │
-
 ├── trackflix-backend/        # Backend (Node.js + Express + MongoDB)
-
 │   ├── config/               # Database & server config
-
 │   ├── data/                 # Data utilities
-
 │   ├── dump/                 # Database dump
-
 │   ├── models/               # Mongoose models
-
 │   ├── routes/               # Express routes
-
 │   ├── importAllData.js      # Data seeding script
-
 │   ├── server.js             # Main backend entry point
-
 │   ├── package.json
-
 │   └── .env
-
 │
-
 ├── trackflix-frontend/       # Frontend (React + Vite + Tailwind CSS)
-
 │   ├── src/
-
 │   │   ├── animations/       # Animations and Lottie files
-
 │   │   ├── api/              # API calls
-
 │   │   ├── assets/           # Static assets
-
 │   │   ├── chatbot/          # Chatbot feature
-
 │   │   ├── components/       # Reusable UI components
-
 │   │   ├── constants/        # Constant values
-
 │   │   ├── context/          # React Context API
-
 │   │   ├── data/             # Static data
-
 │   │   ├── firebase/         # Firebase config
-
 │   │   ├── hooks/            # Custom React hooks
-
 │   │   ├── pages/            # Main pages
-
 │   │   ├── ProVersion/       # Premium/Pro features
-
 │   │   ├── RecommendationPage/ # Recommendation engine UI
-
 │   │   ├── userdeshbord/     # User dashboard
-
 │   │   └── utils/            # Helper functions
-
 │   ├── App.jsx
-
 │   ├── main.jsx
-
 │   ├── index.css
-
 │   ├── package.json
-
 │   └── .env
-
 │
-
 ├── README.md
-
 └── LICENSE
+```
+
 
 ##  Future Improvements
 
