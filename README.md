@@ -92,11 +92,11 @@ Here’s a quick screenshot preview:
 ## Software Architecture
 
 The software architecture of **TrackFlix** is divided into three main layers: Frontend, Backend, and Database, along with user interactions and optional data relationships.
-
-### Architecture Diagram
+### Full Database Diagram
 ![TrackFlix Architecture](public/images/graphviz%20(5).svg)
 
-### Full Database Diagram
+### Architecture Diagram
+
 ![TrackFlix Full DB](public/images/graphviz%20(4).svg)
 
 ### Layers Overview
@@ -131,44 +131,83 @@ The software architecture of **TrackFlix** is divided into three main layers: Fr
  
 
   4loopers/
+  
 │── public/
+
 │   └── images/               # Static assets
+
 │
+
 ├── trackflix-backend/        # Backend (Node.js + Express + MongoDB)
+
 │   ├── config/               # Database & server config
+
 │   ├── data/                 # Data utilities
+
 │   ├── dump/                 # Database dump
+
 │   ├── models/               # Mongoose models
+
 │   ├── routes/               # Express routes
+
 │   ├── importAllData.js      # Data seeding script
+
 │   ├── server.js             # Main backend entry point
+
 │   ├── package.json
+
 │   └── .env
+
 │
+
 ├── trackflix-frontend/       # Frontend (React + Vite + Tailwind CSS)
+
 │   ├── src/
+
 │   │   ├── animations/       # Animations and Lottie files
+
 │   │   ├── api/              # API calls
+
 │   │   ├── assets/           # Static assets
+
 │   │   ├── chatbot/          # Chatbot feature
+
 │   │   ├── components/       # Reusable UI components
+
 │   │   ├── constants/        # Constant values
+
 │   │   ├── context/          # React Context API
+
 │   │   ├── data/             # Static data
+
 │   │   ├── firebase/         # Firebase config
+
 │   │   ├── hooks/            # Custom React hooks
+
 │   │   ├── pages/            # Main pages
+
 │   │   ├── ProVersion/       # Premium/Pro features
+
 │   │   ├── RecommendationPage/ # Recommendation engine UI
+
 │   │   ├── userdeshbord/     # User dashboard
+
 │   │   └── utils/            # Helper functions
+
 │   ├── App.jsx
+
 │   ├── main.jsx
+
 │   ├── index.css
+
 │   ├── package.json
+
 │   └── .env
+
 │
+
 ├── README.md
+
 └── LICENSE
 
 ##  Future Improvements
