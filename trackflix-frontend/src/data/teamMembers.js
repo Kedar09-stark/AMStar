@@ -8,7 +8,7 @@ const teamMembers = [
   {
     name: "Abrar Hossain ",
     role: "Data",
-    img: "https://scontent.fcgp29-1.fna.fbcdn.net/v/t39.30808-1/472233791_122201696096194799_4509369983241930919_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=107&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeH3AAEOvrb6fGiTOLnvZT2gRTyoAShzSehFPKgBKHNJ6IxWaFsoF01duFsA0Sg2VTzEK_S1PJS_6Bd-Su0SqXCx&_nc_ohc=f3Y4wJumBH8Q7kNvwGiMWsa&_nc_oc=AdlZrmBdLQ23fE52-sRmutgMF0TUJ3AudoHNj4LCOHGeueD1rUk-HoSRFN4NJLuHMBA&_nc_zt=24&_nc_ht=scontent.fcgp29-1.fna&_nc_gid=rZb4T-lAxnFIC6WKSxsYYA&oh=00_AfW7WPr1EUg4oJjrZugTDD1OD6AiBSdvd8RY6bcIXWh2MA&oe=68A332AB",
+    img: "https://scontent.fcgp29-1.fna.fbcdn.net/v/t39.30808-6/472233791_122201696096194799_4509369983241930919_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeH3AAEOvrb6fGiTOLnvZT2gRTyoAShzSehFPKgBKHNJ6IxWaFsoF01duFsA0Sg2VTzEK_S1PJS_6Bd-Su0SqXCx&_nc_ohc=W6fXaDQaGR4Q7kNvwF0Ucwd&_nc_oc=Adns6gp4m9mHhtgzy6F9zB-_OKvFjuLdynteEz-w0XOSozj8y6Hxmmf-uYuWwYerHFg&_nc_zt=23&_nc_ht=scontent.fcgp29-1.fna&_nc_gid=blx41FEpVabbe4K_GFAi_w&oh=00_AfVfm73B4IpvbZv_z6SccjHVwxCZgEW4Po0bshmwdID-cg&oe=68B5C050",
   },
   
   {
@@ -19,7 +19,7 @@ const teamMembers = [
   {
     name: "Intesar Hossain",
     role: "Backend developer",
-    img: "https://scontent.fcgp29-1.fna.fbcdn.net/v/t39.30808-6/472311480_3657117147768389_1392967456580518654_n.jpg?stp=dst-jpg_p526x296_tt6&_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGgl1atB2SSIU0GxVXeFcr_hBS_-Lffl2aEFL_4t9-XZvMMGAbUjFoHFOMzqyXBM3gX1CXWrIyx-Wn-38-XKAw4&_nc_ohc=0_2kdREnx9EQ7kNvwFfp3Vv&_nc_oc=Adn6O4DloVmotr5vvbKMfEa5heUm3Chelc57bs-QMhUoGcjd-Lbj0mCqe4TeEsb_3vo&_nc_zt=23&_nc_ht=scontent.fcgp29-1.fna&_nc_gid=lhmunWf7DYFmd2qHrZl0nw&oh=00_AfXJJYx6gRKpqpP5KsRNzko4ohbouMrA003KhSviPNPtBQ&oe=68A31612",
+    img: "https://scontent.fcgp29-1.fna.fbcdn.net/v/t39.30808-6/472311480_3657117147768389_1392967456580518654_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGgl1atB2SSIU0GxVXeFcr_hBS_-Lffl2aEFL_4t9-XZvMMGAbUjFoHFOMzqyXBM3gX1CXWrIyx-Wn-38-XKAw4&_nc_ohc=IIEAtQhtMXgQ7kNvwHBShem&_nc_oc=AdlGBhpXIm3r8VV7V3pNEMkLpb5WhbGCGo4MbS3OPQy6L9o2Pmedms3XJ3WUkAOBPX0&_nc_zt=23&_nc_ht=scontent.fcgp29-1.fna&_nc_gid=DMTD2JKqlG7FUqAGzGIyxg&oh=00_AfUFGyErQO_R5RLwiISO9-IBic_TtG2ho4SRSsN7lo6arg&oe=68B5C352",
   },
  ,
 ];
