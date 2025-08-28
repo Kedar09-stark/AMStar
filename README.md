@@ -87,7 +87,13 @@ Here’s a quick screenshot preview:
 ![Screenshot 4](./public/images/screenshot4.png)  
 ![Screenshot 5](./public/images/screenshot5.png)  
 ![Screenshot 6](./public/images/screenshot6.png)  
-![Screenshot 7](./public/images/screenshot7.png)  
+![Screenshot 7](./public/images/screenshot7.png)
+
+##  Documentation
+[API Documentation](https://drive.google.com/file/d/1Lws0YKAKssYH4wS8kvJCx8HYHZfNa3Vv/view?usp=sharing)
+
+[Project Documentation](https://drive.google.com/file/d/1QWdF-O_mbwETzS7B59SFguSy1OpJ6FGh/view?usp=sharing)
+
 
 ## Software Architecture
 
