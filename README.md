@@ -72,7 +72,7 @@ If you’re interested in the full wireframe, check it out here:
 🔗 [View Wireframe on Excalidraw](https://excalidraw.com/#json=1j6O_pd1f-nCf_djGNN5e,9aE23A0huNrXI9BtTx6-SA)  
 
 Here’s a quick screenshot preview:  
-![Wireframe Screenshot](./public/images/wireframe.png)
+![Wireframe Screenshot](./public/images/wireframe1.png.png)
 
 ## Schema 
 
