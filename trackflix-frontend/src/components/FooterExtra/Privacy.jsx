@@ -10,7 +10,7 @@ const sections = [
     title: "Your Privacy Matters",
     icon: <FaLock className="text-red-500 w-6 h-6 inline mr-2" />,
     content:
-      "At Trackflix, safeguarding your privacy is our top priority. We are committed to protecting your personal data and being transparent about how it is collected, used, and stored.",
+      "At AMStar, safeguarding your privacy is our top priority. We are committed to protecting your personal data and being transparent about how it is collected, used, and stored.",
   },
   {
     id: "data",
@@ -121,10 +121,10 @@ export default function Privacy() {
           <p>
             Questions? Reach out anytime at{" "}
             <a
-              href="mailto:support@trackflix.com"
+              href="mailto:support@amstar.com"
               className="text-red-500 underline hover:text-red-400"
             >
-              support@trackflix.com
+              support@amstar.com
             </a>
             .
           </p>

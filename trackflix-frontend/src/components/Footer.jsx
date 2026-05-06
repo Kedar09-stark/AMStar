@@ -9,7 +9,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Description */}
           <div>
-            <h2 className="text-white text-lg font-semibold">Trackflix</h2>
+            <h2 className="text-white text-lg font-semibold">AMStar</h2>
             <p className="mt-2">
               Discover movies, shows, and trailers. Your ultimate movie tracker.
             </p>
@@ -91,7 +91,7 @@ function Footer() {
 
         {/* Bottom Text */}
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-xs text-gray-500">
-          &copy; {new Date().getFullYear()} Trackflix.
+          &copy; {new Date().getFullYear()} AMStar.
         </div>
       </div>
     </footer>

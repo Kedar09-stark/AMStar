@@ -5,7 +5,9 @@ import {
   FaGoogle,
   FaFacebook,
   FaEye,
-  FaEyeSlash
+  FaEyeSlash,
+  FaCheck,
+  FaTimes as FaTimesIcon
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -14,6 +16,38 @@ import { auth } from "../firebase/firebase-config";
 
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+// Password strength validation function
+const validatePasswordStrength = (password) => {
+  const requirements = {
+    minLength: password.length >= 8,
+    hasUpperCase: /[A-Z]/.test(password),
+    hasLowerCase: /[a-z]/.test(password),
+    hasNumber: /\d/.test(password),
+    hasSpecialChar: /[!@#$%^&*(),.?":{}|<>]/.test(password)
+  };
+
+  const score = Object.values(requirements).filter(Boolean).length;
+  
+  let strength = "Weak";
+  let strengthColor = "text-red-500";
+  
+  if (score >= 5) {
+    strength = "Very Strong";
+    strengthColor = "text-green-500";
+  } else if (score >= 4) {
+    strength = "Strong";
+    strengthColor = "text-green-400";
+  } else if (score >= 3) {
+    strength = "Medium";
+    strengthColor = "text-yellow-500";
+  } else if (score >= 2) {
+    strength = "Fair";
+    strengthColor = "text-orange-500";
+  }
+
+  return { requirements, strength, strengthColor, score };
+};
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +59,7 @@ const SignIn = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [passwordStrength, setPasswordStrength] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -42,8 +77,12 @@ const SignIn = () => {
       return;
     }
 
-    if (password.length < 6) {
-      toast.error("Password must be at least 6 characters.");
+    // Password strength validation
+    const passwordValidation = validatePasswordStrength(password);
+    setPasswordStrength(passwordValidation);
+
+    if (passwordValidation.score < 3) {
+      toast.error("Password is too weak. Please include uppercase, lowercase, numbers, and special characters.");
       return;
     }
 
@@ -90,7 +129,7 @@ const SignIn = () => {
           <div className="flex justify-center items-center mb-4 sm:mb-6">
             <img
               src="images/lo-removebg-preview2.png"
-              alt="Trackflix Logo"
+              alt="AMStar Logo"
               className="w-[10rem] sm:w-[15rem] h-auto object-contain"
             />
           </div>
@@ -135,9 +174,11 @@ const SignIn = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 value={formData.password}
-                onChange={(e) =>
-                  setFormData({ ...formData, password: e.target.value })
-                }
+                onChange={(e) => {
+                  setFormData({ ...formData, password: e.target.value });
+                  const validation = validatePasswordStrength(e.target.value);
+                  setPasswordStrength(validation);
+                }}
                 required
                 autoComplete="new-password"
                 className="peer w-full px-4 pt-6 pb-2 border border-gray-300 text-black bg-white rounded focus:outline-none focus:ring-2 focus:ring-yellow-400"
@@ -152,6 +193,51 @@ const SignIn = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </div>
             </div>
+
+            {/* Password Requirements and Strength Indicator */}
+            {formData.password && (
+              <div className="mt-2 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm font-medium">Password Strength:</span>
+                  <span className={`text-sm font-bold ${passwordStrength?.strengthColor || 'text-gray-500'}`}>
+                    {passwordStrength?.strength || 'Weak'}
+                  </span>
+                </div>
+                
+                <div className="space-y-1">
+                  <div className="flex items-center text-xs">
+                    <span className={`w-4 h-4 mr-2 flex items-center justify-center rounded ${passwordStrength?.requirements?.minLength ? 'bg-green-500 text-white' : 'bg-gray-300'}`}>
+                      {passwordStrength?.requirements?.minLength ? <FaCheck className="text-xs" /> : <FaTimesIcon className="text-xs" />}
+                    </span>
+                    At least 8 characters
+                  </div>
+                  <div className="flex items-center text-xs">
+                    <span className={`w-4 h-4 mr-2 flex items-center justify-center rounded ${passwordStrength?.requirements?.hasUpperCase ? 'bg-green-500 text-white' : 'bg-gray-300'}`}>
+                      {passwordStrength?.requirements?.hasUpperCase ? <FaCheck className="text-xs" /> : <FaTimesIcon className="text-xs" />}
+                    </span>
+                    One uppercase letter
+                  </div>
+                  <div className="flex items-center text-xs">
+                    <span className={`w-4 h-4 mr-2 flex items-center justify-center rounded ${passwordStrength?.requirements?.hasLowerCase ? 'bg-green-500 text-white' : 'bg-gray-300'}`}>
+                      {passwordStrength?.requirements?.hasLowerCase ? <FaCheck className="text-xs" /> : <FaTimesIcon className="text-xs" />}
+                    </span>
+                    One lowercase letter
+                  </div>
+                  <div className="flex items-center text-xs">
+                    <span className={`w-4 h-4 mr-2 flex items-center justify-center rounded ${passwordStrength?.requirements?.hasNumber ? 'bg-green-500 text-white' : 'bg-gray-300'}`}>
+                      {passwordStrength?.requirements?.hasNumber ? <FaCheck className="text-xs" /> : <FaTimesIcon className="text-xs" />}
+                    </span>
+                    One number
+                  </div>
+                  <div className="flex items-center text-xs">
+                    <span className={`w-4 h-4 mr-2 flex items-center justify-center rounded ${passwordStrength?.requirements?.hasSpecialChar ? 'bg-green-500 text-white' : 'bg-gray-300'}`}>
+                      {passwordStrength?.requirements?.hasSpecialChar ? <FaCheck className="text-xs" /> : <FaTimesIcon className="text-xs" />}
+                    </span>
+                    One special character (!@#$%^&amp;*()_+-=[]{}|;:'",.&lt;&gt;)
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Confirm Password */}
             <div className="relative">

@@ -44,7 +44,7 @@ function TheaterPage() {
   return (
     <div className="max-w-7xl mx-auto mt-12 p-6 bg-gray-900 text-white rounded-lg shadow-xl min-h-screen flex flex-col">
       <h1 className="text-5xl font-extrabold mb-10 text-yellow-400 text-center bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text text-transparent drop-shadow-lg select-none">
-        Welcome to the Trackflix Theater
+        Welcome to the AMStar Theater
       </h1>
 
       <div className="flex flex-col lg:flex-row gap-10 flex-grow">

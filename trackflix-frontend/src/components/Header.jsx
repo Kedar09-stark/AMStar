@@ -94,12 +94,12 @@ function Header() {
           <NavLink
             to="/"
             className="select-none"
-            aria-label="TrackFlix Home"
+            aria-label="AMStar Home"
             onClick={() => setIsMenuOpen(false)}
           >
             <img
               src="images/hader5.png"
-              alt="TrackFlix Logo"
+              alt="AMStar Logo"
               className="w-32 h-auto"
             />
           </NavLink>

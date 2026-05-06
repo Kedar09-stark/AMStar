@@ -164,7 +164,7 @@ const About = () => {
         icon: FaFilm,
         title: "Exclusive Originals",
         text:
-          "Dive into groundbreaking series and films produced exclusively for Trackflix, pushing creative boundaries and redefining storytelling.",
+          "Dive into groundbreaking series and films produced exclusively for AMStar, pushing creative boundaries and redefining storytelling.",
       },
       {
         icon: FaMobileAlt,
@@ -196,7 +196,7 @@ const About = () => {
         icon: FaRocket,
         title: "Innovative Features",
         text:
-          "From cutting-edge streaming technology to immersive AR/VR experiences, Trackflix is always pushing the envelope.",
+          "From cutting-edge streaming technology to immersive AR/VR experiences, AMStar is always pushing the envelope.",
       },
     ],
   ];
@@ -220,7 +220,7 @@ const About = () => {
               </motion.span>
             </motion.h1>
             <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mt-6">
-              <TextReveal text="Trackflix is your premier gateway to global storytelling — explore, follow, and immerse yourself in cinema that moves hearts and sparks conversations worldwide." />
+              <TextReveal text="AMStar is your premier gateway to global storytelling — explore, follow, and immerse yourself in cinema that moves hearts and sparks conversations worldwide." />
             </p>
           </ScrollAnimationWrapper>
         </section>

@@ -16,7 +16,7 @@ app.use(express.json());
 // Connect to MongoDB using Mongoose
 async function connectDB() {
   try {
-    const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/Our_web_trackflix";
+    const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/Our_web_amstar";
     await mongoose.connect(mongoURI);
     console.log("✅ MongoDB connected");
   } catch (err) {
@@ -68,7 +68,7 @@ app.use("/api/watchlist", watchlistRoutes);
 
 // Simple home route to test server running
 app.get("/", (req, res) => {
-  res.send("🎬 Trackflix Backend is running!");
+  res.send("🎬 AMStar Backend is running!");
 });
 
 // Start Server

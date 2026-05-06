@@ -1,6 +1,6 @@
-#  TrackFlix
+#  AMStar
 
-TrackFlix is a movie and TV show discovery platform where users can explore trending movies, upcoming releases, fan favorites, and top celebrities. With personalized watchlists, recommendations, and a built-in movie chatbot, TrackFlix is your ultimate entertainment hub!  
+AMStar is a movie and TV show discovery platform where users can explore trending movies, upcoming releases, fan favorites, and top celebrities. With personalized watchlists, recommendations, and a built-in movie chatbot, AMStar is your ultimate entertainment hub!  
 
 ---
 
@@ -57,7 +57,7 @@ TrackFlix is a movie and TV show discovery platform where users can explore tren
 git clone https://github.com/RoBiul-Hasan-Jisan/4loopers.git
 
 # Navigate into project directory
-cd trackflix
+cd amstar
 
 # Install dependencies
 npm install
@@ -97,13 +97,13 @@ Here’s a quick screenshot preview:
 
 ## Software Architecture
 
-The software architecture of **TrackFlix** is divided into three main layers: Frontend, Backend, and Database, along with user interactions and optional data relationships.
+The software architecture of **AMStar** is divided into three main layers: Frontend, Backend, and Database, along with user interactions and optional data relationships.
 ### Full Database Diagram
-![TrackFlix Architecture](public/images/graphviz%20(5).svg)
+![AMStar Architecture](public/images/graphviz%20(5).svg)
 
 ### Architecture Diagram
 
-![TrackFlix Full DB](public/images/graphviz%20(4).svg)
+![AMStar Full DB](public/images/graphviz%20(4).svg)
 
 ### Layers Overview
 
@@ -140,7 +140,7 @@ The software architecture of **TrackFlix** is divided into three main layers: Fr
 │── public/
 │   └── images/               # Static assets
 │
-├── trackflix-backend/        # Backend (Node.js + Express + MongoDB)
+├── amstar-backend/        # Backend (Node.js + Express + MongoDB)
 │   ├── config/               # Database & server config
 │   ├── data/                 # Data utilities
 │   ├── dump/                 # Database dump
@@ -151,7 +151,7 @@ The software architecture of **TrackFlix** is divided into three main layers: Fr
 │   ├── package.json
 │   └── .env
 │
-├── trackflix-frontend/       # Frontend (React + Vite + Tailwind CSS)
+├── amstar-frontend/       # Frontend (React + Vite + Tailwind CSS)
 │   ├── src/
 │   │   ├── animations/       # Animations and Lottie files
 │   │   ├── api/              # API calls

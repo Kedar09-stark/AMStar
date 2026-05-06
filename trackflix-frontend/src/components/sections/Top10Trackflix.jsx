@@ -130,7 +130,7 @@ const Top10Trackflix = () => {
             id="top10-title"
             className="text-xl sm:text-3xl font-extrabold text-yellow-400 whitespace-normal max-w-full mx-auto"
           >
-            🎬 Top 10 on Trackflix This Week
+            🎬 Top 10 on AMStar This Week
           </h2>
           <p className="mt-1 text-gray-400 text-xs sm:text-base max-w-full sm:max-w-xl mx-auto">
             The hottest shows and movies everyone's watching

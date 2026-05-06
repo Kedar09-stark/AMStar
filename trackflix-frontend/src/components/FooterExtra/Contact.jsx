@@ -8,8 +8,8 @@ const contactItems = [
   {
     icon: <FaEnvelope className="text-red-500 w-6 h-6" />,
     label: "Email",
-    value: "support@trackflix.com",
-    href: "mailto:support@trackflix.com",
+    value: "support@amstar.com",
+    href: "mailto:support@amstar.com",
   },
   {
     icon: <FaPhoneAlt className="text-red-500 w-6 h-6" />,
@@ -20,15 +20,15 @@ const contactItems = [
   {
     icon: <FaGlobe className="text-red-500 w-6 h-6" />,
     label: "Website",
-    value: "www.trackflix.com",
-    href: "https://www.trackflix.com",
+    value: "www.amstar.com",
+    href: "https://www.amstar.com",
   },
 ];
 
 const socialLinks = [
-  { icon: <FaTwitter />, href: "https://twitter.com/trackflix" },
-  { icon: <FaFacebookF />, href: "https://facebook.com/trackflix" },
-  { icon: <FaInstagram />, href: "https://instagram.com/trackflix" },
+  { icon: <FaTwitter />, href: "https://twitter.com/amstar" },
+  { icon: <FaFacebookF />, href: "https://facebook.com/amstar" },
+  { icon: <FaInstagram />, href: "https://instagram.com/amstar" },
 ];
 
 const containerVariants = {
@@ -88,7 +88,7 @@ const Contact = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-red-500 transition-colors duration-300"
-            aria-label={`Trackflix on ${href.split('//')[1].split('.')[0]}`}
+            aria-label={`AMStar on ${href.split('//')[1].split('.')[0]}`}
           >
             {icon}
           </a>

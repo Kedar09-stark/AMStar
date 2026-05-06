@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
   try {
-    const URI = process.env.MONGO_URI || 'mongodb://localhost:27017/Our_web_trackflix';
+    const URI = process.env.MONGO_URI || 'mongodb://localhost:27017/Our_web_amstar';
     await mongoose.connect(URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

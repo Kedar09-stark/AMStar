@@ -10,7 +10,7 @@ const termsSections = [
     title: "Use of Service",
     icon: <FaFileContract className="text-red-500 w-5 h-5 inline mr-2" />,
     content:
-      "By accessing and using Trackflix, you agree to abide by our terms and conditions. Use the platform responsibly, respecting all applicable laws and other users’ rights.",
+      "By accessing and using AMStar, you agree to abide by our terms and conditions. Use the platform responsibly, respecting all applicable laws and other users’ rights.",
   },
   {
     id: "account",
@@ -24,14 +24,14 @@ const termsSections = [
     title: "Modifications to Service",
     icon: <FaCogs className="text-red-500 w-5 h-5 inline mr-2" />,
     content:
-      "Trackflix reserves the right to modify or discontinue any part of the service at any time, with or without notice.",
+      "AMStar reserves the right to modify or discontinue any part of the service at any time, with or without notice.",
   },
   {
     id: "liability",
     title: "Limitation of Liability",
     icon: <FaExclamationTriangle className="text-red-500 w-5 h-5 inline mr-2" />,
     content:
-      "Trackflix is provided “as is” without warranties of any kind. We are not liable for any damages arising from your use of the platform.",
+      "AMStar is provided “as is” without warranties of any kind. We are not liable for any damages arising from your use of the platform.",
   },
 ];
 
@@ -121,10 +121,10 @@ export default function Terms() {
           <p>
             For any questions about our Terms of Service, please contact us at{" "}
             <a
-              href="mailto:support@trackflix.com"
+              href="mailto:support@amstar.com"
               className="text-red-500 underline hover:text-red-400"
             >
-              support@trackflix.com
+              support@amstar.com
             </a>
             .
           </p>

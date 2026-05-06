@@ -88,7 +88,7 @@ const HeroSearch = () => {
         {/* Logo */}
         <motion.img
           src="/images/lo-removebg-preview2.png"
-          alt="TrackFlix Logo"
+          alt="AMStar Logo"
           className="
             w-[200px]
             sm:w-[260px]

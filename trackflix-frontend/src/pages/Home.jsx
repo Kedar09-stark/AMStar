@@ -60,14 +60,14 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Home | Trackflix</title>
+        <title>Home | AMStar</title>
         <meta
           name="description"
-          content="Watch trending movies, explore fan favorites, and discover top celebrities only on Trackflix."
+          content="Watch trending movies, explore fan favorites, and discover top celebrities only on AMStar."
         />
         <meta
           name="keywords"
-          content="Trackflix, movies, video streaming, celebrities, fan favorites, entertainment"
+          content="AMStar, movies, video streaming, celebrities, fan favorites, entertainment"
         />
       </Helmet>
 
