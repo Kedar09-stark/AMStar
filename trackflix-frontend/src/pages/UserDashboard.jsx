@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate, Routes, Route } from "react-router-dom";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useAuth } from "../context/AuthContext";
 import { fetchWatchlist } from "../api/watchlist";
 
 import UserHeader from "../userdeshbord/UserHeader";
@@ -15,25 +15,17 @@ const UserDashboard = () => {
   const [watchlist, setWatchlist] = useState([]);
   const [authLoading, setAuthLoading] = useState(true);
   const [dataLoading, setDataLoading] = useState(false);
-  const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();
-  const auth = getAuth();
+  const { user, loading, token } = useAuth();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
-      if (firebaseUser) {
-        setUser(firebaseUser);
-        setError(null);
-      } else {
-        navigate("/login", { replace: true });
-      }
-      setAuthLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, [auth, navigate]);
+    if (!loading && !user) {
+      navigate("/login", { replace: true });
+    }
+    setAuthLoading(loading);
+  }, [user, loading, navigate]);
 
   useEffect(() => {
     if (!user) return;
@@ -43,8 +35,7 @@ const UserDashboard = () => {
       setError(null);
 
       try {
-        const token = await user.getIdToken();
-        const watchlistData = await fetchWatchlist(user.uid, token);
+        const watchlistData = await fetchWatchlist(user.id, token);
 
         if (!watchlistData || !Array.isArray(watchlistData.movies)) {
           throw new Error("Invalid watchlist format");

@@ -10,9 +10,7 @@ import {
   FaTimes as FaTimesIcon
 } from "react-icons/fa";
 import { motion } from "framer-motion";
-
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../firebase/firebase-config";
+import axios from "axios";
 
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -92,13 +90,20 @@ const SignIn = () => {
     }
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(userCredential.user, { displayName: fullName });
+      const response = await axios.post('http://localhost:5000/api/auth/register', {
+        fullName,
+        email,
+        password
+      });
+
+      // Store token and user data
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
 
       toast.success("Account created successfully!");
       setTimeout(() => navigate("/dashboard"), 1000);
     } catch (error) {
-      toast.error(error.message || "Something went wrong.");
+      toast.error(error.response?.data?.error || "Something went wrong.");
       console.error("Sign-up error:", error.message);
     }
   };

@@ -1,7 +1,7 @@
 // src/api/watchlistApi.js
 import axios from "./axiosInstance";
 
-const BASE_URL = "/watchlist";
+const BASE_URL = "http://localhost:5000/api/watchlist";
 
 /**
  * Fetch watchlist for a user
@@ -16,7 +16,10 @@ export async function fetchWatchlist(userId, token) {
     });
     return data;
   } catch (error) {
-    if (error.response?.status === 404) return null;
+    if (error.response?.status === 404) {
+      // Return empty watchlist for new users who don't have one yet
+      return { movies: [] };
+    }
     handleError(error, "fetching watchlist");
   }
 }

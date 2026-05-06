@@ -8,7 +8,7 @@ import {
   Outlet,
 } from "react-router-dom";
 
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/AuthContext.jsx";
 
 // Pages and Components
 import App from "./App.jsx";

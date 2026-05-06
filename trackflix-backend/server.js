@@ -27,6 +27,7 @@ async function connectDB() {
 connectDB();
 
 // -------------------- ROUTES -------------------- //
+const authRoutes = require("./routes/auth");
 const usersRoutes = require("./routes/users");
 const loginEventsRoutes = require("./routes/loginEvents"); // Make sure filename matches exactly
 
@@ -49,6 +50,7 @@ app.use("/api/ratings", ratingsRoutes);
 
 
 // Mount routes
+app.use("/api/auth", authRoutes);
 app.use("/api/users", usersRoutes);
 app.use("/api/login-events", loginEventsRoutes);
 

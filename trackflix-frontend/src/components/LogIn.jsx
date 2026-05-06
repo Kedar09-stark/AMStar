@@ -9,18 +9,18 @@ import {
   FaUserShield,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase/firebase-config";
-import { adminEmails } from "../constants/adminEmails";
+import axios from "axios";
 
-// Toastify
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { adminEmails } from "../constants/adminEmails";
+import { useAuth } from "../context/AuthContext";
 
 const LogIn = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   // On mount, show toast from localStorage if exists, then clear it
@@ -49,34 +49,40 @@ const LogIn = () => {
     const { email, password } = formData;
 
     if (!email || !password) {
-      toast.warn("All fields are required.");
+      toast.error("All fields are required.");
+      return;
+    }
+
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!emailRegex.test(email)) {
+      toast.error("Enter a valid email address.");
       return;
     }
 
     try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const userEmail = userCredential.user.email;
+      const result = await login(email, password);
+      
+      if (result.success) {
+        const isAdminEmail = adminEmails.includes(email);
+        setIsAdmin(isAdminEmail);
+        
+        const successMessage = isAdminEmail ? "Admin login successful!" : "User login successful!";
+        toast.success(successMessage);
 
-      const isAdminEmail = adminEmails.includes(userEmail);
-      setIsAdmin(isAdminEmail);
+        // Save toast to localStorage before navigation so it can re-show on next page if refreshed
+        saveToast(successMessage, "success");
 
-      localStorage.setItem("isAdmin", isAdminEmail ? "true" : "false");
-      localStorage.setItem("userEmail", userEmail);
-
-      const successMessage = isAdminEmail ? "Admin login successful!" : "User login successful!";
-      toast.success(successMessage);
-
-      // Save toast to localStorage before navigation so it can re-show on next page if refreshed
-      saveToast(successMessage, "success");
-
-      setTimeout(() => {
-        navigate(isAdminEmail ? "/admin" : "/dashboard");
-      }, 1500);
+        setTimeout(() => {
+          navigate(isAdminEmail ? "/admin" : "/dashboard");
+        }, 1500);
+      } else {
+        toast.error(result.error || "Login failed. Check your email or password.");
+        setIsAdmin(false);
+      }
     } catch (error) {
       toast.error("Login failed. Check your email or password.");
-      console.error("Firebase login error:", error.message);
+      console.error("Login error:", error.message);
       setIsAdmin(false);
-      localStorage.setItem("isAdmin", "false");
     }
   };
 

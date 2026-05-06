@@ -1,44 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { useAuth } from "../context/AuthContext";
 import { adminEmails } from "../constants/adminEmails";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentUserEmail, setCurrentUserEmail] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const auth = getAuth();
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setCurrentUserEmail(user.email);
-        setIsAdmin(adminEmails.includes(user.email));
-      } else {
-        setCurrentUserEmail(null);
-        setIsAdmin(false);
-      }
-    });
-    return () => unsubscribe();
-  }, []);
+  const currentUserEmail = user?.email || null;
+  const isAdmin = user?.isAdmin || false;
 
   const handleDashboard = () => {
     setIsMenuOpen(false);
     navigate(isAdmin ? "/admin" : "/dashboard");
   };
 
-  const handleLogout = async () => {
-    const auth = getAuth();
-    try {
-      await signOut(auth);
-      setCurrentUserEmail(null);
-      setIsAdmin(false);
-      setIsMenuOpen(false);
-      navigate("/");
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
+  const handleLogout = () => {
+    logout();
+    setIsMenuOpen(false);
+    navigate("/");
   };
 
   const handleSubscription = () => {

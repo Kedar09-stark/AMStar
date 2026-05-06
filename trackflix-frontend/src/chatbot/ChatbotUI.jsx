@@ -109,7 +109,7 @@ export default function ChatbotUI({ messages, input, setInput, loading, fetchRes
         </div>
       )}
 
-      <style jsx>{`
+      <style data-jsx="true">{`
         @keyframes pulseGlow {
           0%, 100% { box-shadow: 0 0 3px rgba(255, 76, 76, 0.7); }
           50% { box-shadow: 0 0 8px rgba(255, 76, 76, 1); }
